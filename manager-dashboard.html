@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KGL - Manager Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <h1 class="logo">KGL</h1>
+            <span class="separator">|</span>
+            <span class="user-info">Manager: <strong id="managerName">John Doe</strong></span>
+            <span class="separator">|</span>
+            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></span>
+        </div>
+        <div class="header-right">
+            <button class="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li class="nav-item active">
+                <a href="manager-dashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a href="procure.html">Procure</a>
+            </li>
+            <li class="nav-item">
+                <a href="stock.html">Stock</a>
+            </li>
+            <li class="nav-item">
+                <a href="sales.html">Sales</a>
+            </li>
+            <li class="nav-item">
+                <a href="prices.html">Prices</a>
+            </li>
+            <li class="nav-item">
+                <a href="credit-sales.html">Credit Sales</a>
+            </li>
+            <li class="nav-item">
+                <a href="reports.html">Reports</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Stats Cards -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <div class="stat-icon stock-icon">📦</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Total Stock</h3>
+                    <p class="stat-value" id="totalStock">15.5T</p>
+                    <span class="stat-label">All Produce</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon sales-icon">💰</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Today's Sales</h3>
+                    <p class="stat-value" id="todaySales">UGX 5,000,000</p>
+                    <span class="stat-label">Total Revenue</span>
+                </div>
+            </div>
+
+            <div class="stat-card alert-card">
+                <div class="stat-icon alert-icon">⚠️</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Low Stock</h3>
+                    <p class="stat-value" id="lowStock">2</p>
+                    <span class="stat-label">Items Need Restocking</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon credit-icon">📋</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Credit Sales</h3>
+                    <p class="stat-value" id="creditAmount">UGX 1,200,000</p>
+                    <span class="stat-label">Outstanding</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Procurements -->
+        <section class="data-section">
+            <div class="section-header">
+                <h2>Recent Procurements</h2>
+                <button class="action-btn">View All</button>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Produce</th>
+                            <th>Type</th>
+                            <th>Quantity (kg)</th>
+                            <th>Dealer</th>
+                            <th>Cost (UGX)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="procurementTableBody">
+                        <tr>
+                            <td>07/01/2026</td>
+                            <td>Beans</td>
+                            <td>Red Beans</td>
+                            <td>2,000</td>
+                            <td>Mukasa Dealers</td>
+                            <td>4,500,000</td>
+                        </tr>
+                        <tr>
+                            <td>06/01/2026</td>
+                            <td>Grain Maize</td>
+                            <td>Yellow Maize</td>
+                            <td>5,000</td>
+                            <td>KGL Farm Maganjo</td>
+                            <td>8,000,000</td>
+                        </tr>
+                        <tr>
+                            <td>06/01/2026</td>
+                            <td>Soybeans</td>
+                            <td>Organic</td>
+                            <td>1,500</td>
+                            <td>Nambi Traders</td>
+                            <td>3,200,000</td>
+                        </tr>
+                        <tr>
+                            <td>05/01/2026</td>
+                            <td>G-nuts</td>
+                            <td>Roasted</td>
+                            <td>1,200</td>
+                            <td>Ssemakula Company</td>
+                            <td>2,800,000</td>
+                        </tr>
+                        <tr>
+                            <td>05/01/2026</td>
+                            <td>Cow peas</td>
+                            <td>White</td>
+                            <td>3,000</td>
+                            <td>KGL Farm Matugga</td>
+                            <td>5,500,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Alerts Section -->
+        <section class="alerts-section">
+            <div class="alert-box warning">
+                <span class="alert-icon">⚠️</span>
+                <div class="alert-content">
+                    <strong>Low Stock Alert:</strong> Beans stock is below 500kg
+                </div>
+            </div>
+            <div class="alert-box warning">
+                <span class="alert-icon">⚠️</span>
+                <div class="alert-content">
+                    <strong>Low Stock Alert:</strong> G-nuts stock is below 300kg
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
