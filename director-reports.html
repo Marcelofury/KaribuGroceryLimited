@@ -27,20 +27,8 @@
             <li class="nav-item">
                 <a href="director-dashboard.html">Dashboard</a>
             </li>
-            <li class="nav-item">
-                <a href="director-branches.html">Branches</a>
-            </li>
-            <li class="nav-item">
-                <a href="director-financial.html">Financial</a>
-            </li>
-            <li class="nav-item">
-                <a href="director-performance.html">Performance</a>
-            </li>
             <li class="nav-item active">
-                <a href="director-reports.html">Reports</a>
-            </li>
-            <li class="nav-item">
-                <a href="director-settings.html">Settings</a>
+                <a href="director-reports.html">View Reports</a>
             </li>
         </ul>
     </nav>
@@ -48,8 +36,8 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="page-header">
-            <h2>📊 Reports & Analytics</h2>
-            <p class="subtitle">Generate comprehensive business reports</p>
+            <h2>📊 View Reports</h2>
+            <p class="subtitle">View generated business reports (Read-Only)</p>
         </div>
 
         <!-- Quick Report Stats -->
@@ -144,7 +132,7 @@
         <!-- Quick Reports -->
         <section class="data-section">
             <div class="section-header">
-                <h2>Quick Reports</h2>
+                <h2>Available Reports (View Only)</h2>
             </div>
             <div class="quick-reports-grid">
                 <div class="quick-report-item">
@@ -155,7 +143,7 @@
                             <p>Comprehensive sales overview for the current month</p>
                         </div>
                     </div>
-                    <button class="btn-generate" onclick="generateReport('monthly-sales')">Generate</button>
+                    <span class="view-only-badge">📥 View/Download</span>
                 </div>
 
                 <div class="quick-report-item">
@@ -166,7 +154,7 @@
                             <p>Detailed P&L for selected period</p>
                         </div>
                     </div>
-                    <button class="btn-generate" onclick="generateReport('pl-statement')">Generate</button>
+                    <span class="view-only-badge">📥 View/Download</span>
                 </div>
 
                 <div class="quick-report-item">
@@ -177,7 +165,7 @@
                             <p>Current inventory value across all branches</p>
                         </div>
                     </div>
-                    <button class="btn-generate" onclick="generateReport('stock-valuation')">Generate</button>
+                    <span class="view-only-badge">📥 View/Download</span>
                 </div>
 
                 <div class="quick-report-item">
@@ -188,7 +176,7 @@
                             <p>Performance comparison across all branches</p>
                         </div>
                     </div>
-                    <button class="btn-generate" onclick="generateReport('branch-comparison')">Generate</button>
+                    <span class="view-only-badge">📥 View/Download</span>
                 </div>
 
                 <div class="quick-report-item">
@@ -199,7 +187,7 @@
                             <p>Outstanding credit and collection status</p>
                         </div>
                     </div>
-                    <button class="btn-generate" onclick="generateReport('credit-sales')">Generate</button>
+                    <span class="view-only-badge">📥 View/Download</span>
                 </div>
 
                 <div class="quick-report-item">
@@ -210,95 +198,7 @@
                             <p>Individual and team performance metrics</p>
                         </div>
                     </div>
-                    <button class="btn-generate" onclick="generateReport('staff-performance')">Generate</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Custom Report Builder -->
-        <section class="data-section">
-            <div class="section-header">
-                <h2>Custom Report Builder</h2>
-            </div>
-            <div class="report-builder">
-                <div class="builder-section">
-                    <h3>1. Select Report Type</h3>
-                    <select class="builder-select" id="reportType">
-                        <option>Choose report type...</option>
-                        <option>Sales Analysis</option>
-                        <option>Financial Summary</option>
-                        <option>Inventory Status</option>
-                        <option>Performance Metrics</option>
-                        <option>Customer Analytics</option>
-                    </select>
-                </div>
-
-                <div class="builder-section">
-                    <h3>2. Select Period</h3>
-                    <div class="period-options">
-                        <label class="radio-option">
-                            <input type="radio" name="period" value="today">
-                            <span>Today</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="period" value="week" checked>
-                            <span>This Week</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="period" value="month">
-                            <span>This Month</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="period" value="quarter">
-                            <span>This Quarter</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="period" value="year">
-                            <span>This Year</span>
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="period" value="custom">
-                            <span>Custom Range</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="builder-section">
-                    <h3>3. Select Branches</h3>
-                    <div class="checkbox-group">
-                        <label class="checkbox-option">
-                            <input type="checkbox" checked>
-                            <span>All Branches</span>
-                        </label>
-                        <label class="checkbox-option">
-                            <input type="checkbox">
-                            <span>Branch A - Kampala</span>
-                        </label>
-
-                    </div>
-                </div>
-
-                <div class="builder-section">
-                    <h3>4. Export Format</h3>
-                    <div class="format-options">
-                        <button class="format-btn" data-format="pdf">
-                            <span class="format-icon">📄</span>
-                            <span>PDF</span>
-                        </button>
-                        <button class="format-btn" data-format="excel">
-                            <span class="format-icon">📊</span>
-                            <span>Excel</span>
-                        </button>
-                        <button class="format-btn" data-format="csv">
-                            <span class="format-icon">📋</span>
-                            <span>CSV</span>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="builder-actions">
-                    <button class="btn-secondary" onclick="resetBuilder()">Reset</button>
-                    <button class="btn-primary" onclick="generateCustomReport()">Generate Report</button>
+                    <span class="view-only-badge">📥 View/Download</span>
                 </div>
             </div>
         </section>
