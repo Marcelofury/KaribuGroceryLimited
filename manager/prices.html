@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,8 +14,7 @@
             <span class="separator">|</span>
             <span class="user-info">Manager: <strong id="managerName">John Doe</strong></span>
             <span class="separator">|</span>
-            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></span>
-        </div>
+            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></div>
         <div class="header-right">
             <button class="logout-btn">Logout</button>
         </div>
@@ -58,39 +57,27 @@
         <!-- Price Summary Cards -->
         <section class="stats-section">
             <div class="stat-card">
-                <div class="stat-icon sales-icon">💲</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Average Price</h3>
-                    <p class="stat-value" id="avgPrice">UGX 2,450/kg</p>
-                    <span class="stat-label">Across All Produce</span>
-                </div>
+                <h3 class="stat-title">Average Price</h3>
+                <p class="stat-value" id="avgPrice">UGX 2,450/kg</p>
+                <span class="stat-label">Across All Produce</span>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon stock-icon">📈</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Price Increases</h3>
-                    <p class="stat-value" id="priceIncreases">3</p>
-                    <span class="stat-label">This Month</span>
-                </div>
+                <h3 class="stat-title">Price Increases</h3>
+                <p class="stat-value" id="priceIncreases">3</p>
+                <span class="stat-label">This Month</span>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon alert-icon">📉</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Price Decreases</h3>
-                    <p class="stat-value" id="priceDecreases">1</p>
-                    <span class="stat-label">This Month</span>
-                </div>
+                <h3 class="stat-title">Price Decreases</h3>
+                <p class="stat-value" id="priceDecreases">1</p>
+                <span class="stat-label">This Month</span>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon credit-icon">🕒</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Last Updated</h3>
-                    <p class="stat-value" id="lastUpdate">09/01/2026</p>
-                    <span class="stat-label">Most Recent Change</span>
-                </div>
+                <h3 class="stat-title">Last Updated</h3>
+                <p class="stat-value" id="lastUpdate">09/01/2026</p>
+                <span class="stat-label">Most Recent Change</span>
             </div>
         </section>
 
@@ -184,8 +171,7 @@
                             rows="3"
                             placeholder="Explain the reason for price change (e.g., market conditions, supplier costs)"
                             required
-                        ></textarea>
-                    </div>
+                        ></div>
                 </div>
 
                 <div class="form-actions">
@@ -226,104 +212,104 @@
                     </thead>
                     <tbody>
                         <tr data-produce="maize" data-price="1800">
-                            <td><strong>Maize</strong></td>
+                            <td></strong></td>
                             <td>Yellow Maize</td>
                             <td>UGX 1,600</td>
                             <td>UGX 1,800</td>
                             <td class="margin-positive">+12.5%</td>
                             <td>09/01/2026</td>
-                            <td><span class="price-change up">↑ UGX 50</span></td>
+                            <td></span></td>
                             <td>
                                 <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
                                 <button class="action-icon-btn" title="Price History">📜</button>
                             </td>
                         </tr>
                         <tr data-produce="beans" data-price="2400">
-                            <td><strong>Beans</strong></td>
+                            <td></strong></td>
                             <td>Red Beans</td>
                             <td>UGX 2,250</td>
                             <td>UGX 2,400</td>
                             <td class="margin-positive">+6.7%</td>
                             <td>08/01/2026</td>
-                            <td><span class="price-change neutral">—</span></td>
+                            <td></span></td>
                             <td>
                                 <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
                                 <button class="action-icon-btn" title="Price History">📜</button>
                             </td>
                         </tr>
                         <tr data-produce="rice" data-price="4000">
-                            <td><strong>Rice</strong></td>
+                            <td></strong></td>
                             <td>Sindano</td>
                             <td>UGX 3,800</td>
                             <td>UGX 4,000</td>
                             <td class="margin-positive">+5.3%</td>
                             <td>07/01/2026</td>
-                            <td><span class="price-change up">↑ UGX 100</span></td>
+                            <td></span></td>
                             <td>
                                 <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
                                 <button class="action-icon-btn" title="Price History">📜</button>
                             </td>
                         </tr>
                         <tr data-produce="wheat" data-price="2500">
-                            <td><strong>Wheat</strong></td>
+                            <td></strong></td>
                             <td>Hard Red</td>
                             <td>UGX 2,200</td>
                             <td>UGX 2,500</td>
                             <td class="margin-positive">+13.6%</td>
                             <td>06/01/2026</td>
-                            <td><span class="price-change down">↓ UGX 50</span></td>
+                            <td></span></td>
                             <td>
                                 <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
                                 <button class="action-icon-btn" title="Price History">📜</button>
                             </td>
                         </tr>
                         <tr data-produce="groundnuts" data-price="5000">
-                            <td><strong>Groundnuts</strong></td>
+                            <td></strong></td>
                             <td>Roasted</td>
                             <td>UGX 4,500</td>
                             <td>UGX 5,000</td>
                             <td class="margin-positive">+11.1%</td>
                             <td>09/01/2026</td>
-                            <td><span class="price-change up">↑ UGX 200</span></td>
+                            <td></span></td>
                             <td>
                                 <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
                                 <button class="action-icon-btn" title="Price History">📜</button>
                             </td>
                         </tr>
                         <tr data-produce="soybeans" data-price="3200">
-                            <td><strong>Soybeans</strong></td>
+                            <td></strong></td>
                             <td>Organic</td>
                             <td>UGX 2,800</td>
                             <td>UGX 3,200</td>
                             <td class="margin-positive">+14.3%</td>
                             <td>08/01/2026</td>
-                            <td><span class="price-change neutral">—</span></td>
+                            <td></span></td>
                             <td>
                                 <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
                                 <button class="action-icon-btn" title="Price History">📜</button>
                             </td>
                         </tr>
                         <tr data-produce="sorghum" data-price="2000">
-                            <td><strong>Sorghum</strong></td>
+                            <td></strong></td>
                             <td>White</td>
                             <td>UGX 1,800</td>
                             <td>UGX 2,000</td>
                             <td class="margin-positive">+11.1%</td>
                             <td>05/01/2026</td>
-                            <td><span class="price-change neutral">—</span></td>
+                            <td></span></td>
                             <td>
                                 <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
                                 <button class="action-icon-btn" title="Price History">📜</button>
                             </td>
                         </tr>
                         <tr data-produce="millet" data-price="2200">
-                            <td><strong>Millet</strong></td>
+                            <td></strong></td>
                             <td>Pearl</td>
                             <td>UGX 2,000</td>
                             <td>UGX 2,200</td>
                             <td class="margin-positive">+10.0%</td>
                             <td>05/01/2026</td>
-                            <td><span class="price-change up">↑ UGX 100</span></td>
+                            <td></span></td>
                             <td>
                                 <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
                                 <button class="action-icon-btn" title="Price History">📜</button>
@@ -355,37 +341,37 @@
                     <tbody>
                         <tr>
                             <td>09/01/2026</td>
-                            <td><strong>Maize</strong></td>
+                            <td></strong></td>
                             <td>UGX 1,750</td>
                             <td>UGX 1,800</td>
-                            <td><span class="price-change up">+2.9%</span></td>
+                            <td></span></td>
                             <td>Increased supplier costs</td>
                             <td>John Doe</td>
                         </tr>
                         <tr>
                             <td>09/01/2026</td>
-                            <td><strong>Groundnuts</strong></td>
+                            <td></strong></td>
                             <td>UGX 4,800</td>
                             <td>UGX 5,000</td>
-                            <td><span class="price-change up">+4.2%</span></td>
+                            <td></span></td>
                             <td>High market demand</td>
                             <td>John Doe</td>
                         </tr>
                         <tr>
                             <td>07/01/2026</td>
-                            <td><strong>Rice</strong></td>
+                            <td></strong></td>
                             <td>UGX 3,900</td>
                             <td>UGX 4,000</td>
-                            <td><span class="price-change up">+2.6%</span></td>
+                            <td></span></td>
                             <td>Import costs increased</td>
                             <td>John Doe</td>
                         </tr>
                         <tr>
                             <td>06/01/2026</td>
-                            <td><strong>Wheat</strong></td>
+                            <td></strong></td>
                             <td>UGX 2,550</td>
                             <td>UGX 2,500</td>
-                            <td><span class="price-change down">-2.0%</span></td>
+                            <td></span></td>
                             <td>Promotion to increase sales</td>
                             <td>John Doe</td>
                         </tr>
@@ -431,3 +417,5 @@
     </style>
 </body>
 </html>
+
+

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,8 +14,7 @@
             <span class="separator">|</span>
             <span class="user-info">Manager: <strong id="managerName">John Doe</strong></span>
             <span class="separator">|</span>
-            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></span>
-        </div>
+            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></div>
         <div class="header-right">
             <button class="logout-btn">Logout</button>
         </div>
@@ -58,39 +57,27 @@
         <!-- Sales Summary Cards -->
         <section class="stats-section">
             <div class="stat-card">
-                <div class="stat-icon sales-icon">💰</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Today's Sales</h3>
-                    <p class="stat-value" id="todaySales">UGX 5,000,000</p>
-                    <span class="stat-label">Total Revenue</span>
-                </div>
+                <h3 class="stat-title">Today's Sales</h3>
+                <p class="stat-value" id="todaySales">UGX 5,000,000</p>
+                <span class="stat-label">Total Revenue</span>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon stock-icon">🏦</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Cash Sales</h3>
-                    <p class="stat-value" id="cashSales">UGX 3,800,000</p>
-                    <span class="stat-label">76% of Total</span>
-                </div>
+                <h3 class="stat-title">Cash Sales</h3>
+                <p class="stat-value" id="cashSales">UGX 3,800,000</p>
+                <span class="stat-label">76% of Total</span>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon credit-icon">📋</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Credit Sales</h3>
-                    <p class="stat-value" id="creditSalesAmount">UGX 1,200,000</p>
-                    <span class="stat-label">24% of Total</span>
-                </div>
+                <h3 class="stat-title">Credit Sales</h3>
+                <p class="stat-value" id="creditSalesAmount">UGX 1,200,000</p>
+                <span class="stat-label">24% of Total</span>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon alert-icon">📊</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Transactions</h3>
-                    <p class="stat-value" id="transactionCount">23</p>
-                    <span class="stat-label">Total Today</span>
-                </div>
+                <h3 class="stat-title">Transactions</h3>
+                <p class="stat-value" id="transactionCount">23</p>
+                <span class="stat-label">Total Today</span>
             </div>
         </section>
 
@@ -235,8 +222,7 @@
                             name="notes" 
                             rows="3"
                             placeholder="Enter any additional notes"
-                        ></textarea>
-                    </div>
+                        ></div>
                 </div>
 
                 <div class="form-actions">
@@ -281,7 +267,7 @@
                     </thead>
                     <tbody id="salesTable">
                         <tr>
-                            <td><strong>#REC-001</strong></td>
+                            <td></strong></td>
                             <td>09/01/2026</td>
                             <td>Nakato Foods Ltd</td>
                             <td>Maize</td>
@@ -289,14 +275,14 @@
                             <td>UGX 1,800</td>
                             <td>UGX 900,000</td>
                             <td>Cash</td>
-                            <td><span class="status-badge success">Paid</span></td>
+                            <td></span></td>
                             <td>
                                 <button class="action-icon-btn" title="View Receipt">👁️</button>
                                 <button class="action-icon-btn" title="Print">🖨️</button>
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>#REC-002</strong></td>
+                            <td></strong></td>
                             <td>09/01/2026</td>
                             <td>Ssemakula Traders</td>
                             <td>Beans</td>
@@ -304,14 +290,14 @@
                             <td>UGX 2,400</td>
                             <td>UGX 720,000</td>
                             <td>Mobile Money</td>
-                            <td><span class="status-badge success">Paid</span></td>
+                            <td></span></td>
                             <td>
                                 <button class="action-icon-btn" title="View Receipt">👁️</button>
                                 <button class="action-icon-btn" title="Print">🖨️</button>
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>#REC-003</strong></td>
+                            <td></strong></td>
                             <td>09/01/2026</td>
                             <td>Kampala Groceries</td>
                             <td>Rice</td>
@@ -319,14 +305,14 @@
                             <td>UGX 4,000</td>
                             <td>UGX 800,000</td>
                             <td>Credit</td>
-                            <td><span class="status-badge pending">Pending</span></td>
+                            <td></span></td>
                             <td>
                                 <button class="action-icon-btn" title="View Receipt">👁️</button>
                                 <button class="action-icon-btn" title="Print">🖨️</button>
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>#REC-004</strong></td>
+                            <td></strong></td>
                             <td>09/01/2026</td>
                             <td>Mukasa Enterprises</td>
                             <td>Wheat</td>
@@ -334,14 +320,14 @@
                             <td>UGX 2,500</td>
                             <td>UGX 1,000,000</td>
                             <td>Bank Transfer</td>
-                            <td><span class="status-badge success">Paid</span></td>
+                            <td></span></td>
                             <td>
                                 <button class="action-icon-btn" title="View Receipt">👁️</button>
                                 <button class="action-icon-btn" title="Print">🖨️</button>
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>#REC-005</strong></td>
+                            <td></strong></td>
                             <td>08/01/2026</td>
                             <td>Quality Foods Co.</td>
                             <td>Soybeans</td>
@@ -349,14 +335,14 @@
                             <td>UGX 3,200</td>
                             <td>UGX 800,000</td>
                             <td>Cash</td>
-                            <td><span class="status-badge success">Paid</span></td>
+                            <td></span></td>
                             <td>
                                 <button class="action-icon-btn" title="View Receipt">👁️</button>
                                 <button class="action-icon-btn" title="Print">🖨️</button>
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>#REC-006</strong></td>
+                            <td></strong></td>
                             <td>08/01/2026</td>
                             <td>Namatovu Supplies</td>
                             <td>Groundnuts</td>
@@ -364,14 +350,14 @@
                             <td>UGX 5,000</td>
                             <td>UGX 750,000</td>
                             <td>Mobile Money</td>
-                            <td><span class="status-badge success">Paid</span></td>
+                            <td></span></td>
                             <td>
                                 <button class="action-icon-btn" title="View Receipt">👁️</button>
                                 <button class="action-icon-btn" title="Print">🖨️</button>
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>#REC-007</strong></td>
+                            <td></strong></td>
                             <td>08/01/2026</td>
                             <td>Buganda Grain Co.</td>
                             <td>Sorghum</td>
@@ -379,7 +365,7 @@
                             <td>UGX 2,000</td>
                             <td>UGX 1,200,000</td>
                             <td>Credit</td>
-                            <td><span class="status-badge pending">Pending</span></td>
+                            <td></span></td>
                             <td>
                                 <button class="action-icon-btn" title="View Receipt">👁️</button>
                                 <button class="action-icon-btn" title="Print">🖨️</button>
@@ -392,3 +378,5 @@
     </main>
 </body>
 </html>
+
+

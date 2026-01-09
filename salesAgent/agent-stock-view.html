@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,7 +45,7 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="page-header">
-            <h2>📦 Stock Availability</h2>
+            <h2>Stock Availability</h2>
             <p class="subtitle">View current inventory levels</p>
         </div>
 
@@ -68,75 +68,63 @@
                     <option value="low-stock">Low Stock</option>
                     <option value="out-of-stock">Out of Stock</option>
                 </select>
-                <button class="refresh-btn" onclick="loadStockData()">🔄 Refresh</button>
+                <button class="refresh-btn" onclick="loadStockData()">Refresh</button>
             </div>
         </div>
 
         <!-- Stock Summary Cards -->
         <section class="stats-section">
             <div class="stat-card">
-                <div class="stat-icon stock-icon">📦</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Total Items</h3>
-                    <p class="stat-value" id="totalItems">24</p>
-                    <span class="stat-label">Produce types</span>
-                </div>
+                <h3 class="stat-title">Total Items</h3>
+                <p class="stat-value" id="totalItems">24</p>
+                <span class="stat-label">Produce types</span>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon success-icon">✅</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">In Stock</h3>
-                    <p class="stat-value" id="inStockItems">18</p>
-                    <span class="stat-label">Items available</span>
-                </div>
+                <h3 class="stat-title">In Stock</h3>
+                <p class="stat-value" id="inStockItems">18</p>
+                <span class="stat-label">Items available</span>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon warning-icon">⚠️</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Low Stock</h3>
-                    <p class="stat-value" id="lowStockItems">4</p>
-                    <span class="stat-label">Need attention</span>
-                </div>
+                <h3 class="stat-title">Low Stock</h3>
+                <p class="stat-value" id="lowStockItems">4</p>
+                <span class="stat-label">Need attention</span>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon alert-icon">❌</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Out of Stock</h3>
-                    <p class="stat-value" id="outStockItems">2</p>
-                    <span class="stat-label">Items unavailable</span>
-                </div>
+                <h3 class="stat-title">Out of Stock</h3>
+                <p class="stat-value" id="outStockItems">2</p>
+                <span class="stat-label">Items unavailable</span>
             </div>
         </section>
 
         <!-- Stock Alerts -->
         <section class="data-section" id="alertsSection">
             <div class="section-header">
-                <h2>⚠️ Stock Alerts</h2>
+                <h2>Stock Alerts</h2>
             </div>
             <div class="alerts-section">
                 <div class="alert-box warning">
-                    <span class="alert-icon">⚠️</span>
+                    <span class="alert-icon">Warning</span>
                     <div class="alert-content">
                         <strong>Low Stock:</strong> Beans (Red Beans) - Only 450 kg remaining (Reorder at 500 kg)
                     </div>
                 </div>
                 <div class="alert-box warning">
-                    <span class="alert-icon">⚠️</span>
+                    <span class="alert-icon">Warning</span>
                     <div class="alert-content">
                         <strong>Low Stock:</strong> Groundnuts (Roasted) - Only 280 kg remaining (Reorder at 300 kg)
                     </div>
                 </div>
                 <div class="alert-box danger">
-                    <span class="alert-icon">❌</span>
+                    <span class="alert-icon">Alert</span>
                     <div class="alert-content">
                         <strong>Out of Stock:</strong> Sesame Seeds (White) - 0 kg available
                     </div>
                 </div>
                 <div class="alert-box danger">
-                    <span class="alert-icon">❌</span>
+                    <span class="alert-icon">Alert</span>
                     <div class="alert-content">
                         <strong>Out of Stock:</strong> Sunflower Seeds - 0 kg available
                     </div>
@@ -321,3 +309,4 @@
     </style>
 </body>
 </html>
+

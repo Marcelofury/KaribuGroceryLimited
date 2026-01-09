@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,46 +45,34 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="page-header">
-            <h2>💲 Current Prices</h2>
+            <h2>Current Prices</h2>
             <p class="subtitle">View up-to-date pricing for all produce</p>
         </div>
 
         <!-- Price Summary Cards -->
         <section class="stats-section">
             <div class="stat-card">
-                <div class="stat-icon price-icon">📋</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Total Items</h3>
-                    <p class="stat-value" id="totalItems">24</p>
-                    <span class="stat-label">Priced items</span>
-                </div>
+                <h3 class="stat-title">Total Items</h3>
+                <p class="stat-value" id="totalItems">24</p>
+                <span class="stat-label">Priced items</span>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon update-icon">🔄</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Last Updated</h3>
-                    <p class="stat-value" id="lastUpdated">Today</p>
-                    <span class="stat-label">Jan 9, 2026</span>
-                </div>
+                <h3 class="stat-title">Last Updated</h3>
+                <p class="stat-value" id="lastUpdated">Today</p>
+                <span class="stat-label">Jan 9, 2026</span>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon range-icon">📊</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Price Range</h3>
-                    <p class="stat-value" id="priceRange">1.8K - 8K</p>
-                    <span class="stat-label">UGX per kg</span>
-                </div>
+                <h3 class="stat-title">Price Range</h3>
+                <p class="stat-value" id="priceRange">1.8K - 8K</p>
+                <span class="stat-label">UGX per kg</span>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon category-icon">📦</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Categories</h3>
-                    <p class="stat-value" id="totalCategories">4</p>
-                    <span class="stat-label">Product categories</span>
-                </div>
+                <h3 class="stat-title">Categories</h3>
+                <p class="stat-value" id="totalCategories">4</p>
+                <span class="stat-label">Product categories</span>
             </div>
         </section>
 
@@ -114,7 +102,7 @@
         <section class="data-section">
             <div class="section-header">
                 <h2>Price List</h2>
-                <button class="action-btn" onclick="printPriceList()">🖨️ Print</button>
+                <button class="action-btn" onclick="printPriceList()">Print</button>
             </div>
             <div class="price-grid" id="priceGrid">
                 <!-- Price cards will be populated here -->
@@ -125,7 +113,7 @@
         <section class="data-section">
             <div class="section-header">
                 <h2>Detailed Price Table</h2>
-                <button class="action-btn" onclick="exportToCSV()">📥 Export CSV</button>
+                <button class="action-btn" onclick="exportToCSV()">Export CSV</button>
             </div>
             <div class="table-container">
                 <table class="data-table" id="priceTable">
@@ -365,3 +353,4 @@
     </style>
 </body>
 </html>
+

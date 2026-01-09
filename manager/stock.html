@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,8 +14,7 @@
             <span class="separator">|</span>
             <span class="user-info">Manager: <strong id="managerName">John Doe</strong></span>
             <span class="separator">|</span>
-            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></span>
-        </div>
+            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></div>
         <div class="header-right">
             <button class="logout-btn">Logout</button>
         </div>
@@ -58,39 +57,27 @@
         <!-- Stock Summary Cards -->
         <section class="stats-section">
             <div class="stat-card">
-                <div class="stat-icon stock-icon">📦</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Total Stock</h3>
-                    <p class="stat-value" id="totalStock">15.5T</p>
-                    <span class="stat-label">All Produce Types</span>
-                </div>
+                <h3 class="stat-title">Total Stock</h3>
+                <p class="stat-value" id="totalStock">15.5T</p>
+                <span class="stat-label">All Produce Types</span>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon sales-icon">✅</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Adequate Stock</h3>
-                    <p class="stat-value" id="adequateStock">6</p>
-                    <span class="stat-label">Items Above Threshold</span>
-                </div>
+                <h3 class="stat-title">Adequate Stock</h3>
+                <p class="stat-value" id="adequateStock">6</p>
+                <span class="stat-label">Items Above Threshold</span>
             </div>
 
             <div class="stat-card alert-card">
-                <div class="stat-icon alert-icon">⚠️</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Low Stock</h3>
-                    <p class="stat-value" id="lowStock">2</p>
-                    <span class="stat-label">Items Need Restocking</span>
-                </div>
+                <h3 class="stat-title">Low Stock</h3>
+                <p class="stat-value" id="lowStock">2</p>
+                <span class="stat-label">Items Need Restocking</span>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon credit-icon">📊</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Stock Value</h3>
-                    <p class="stat-value" id="stockValue">UGX 45M</p>
-                    <span class="stat-label">Total Inventory Value</span>
-                </div>
+                <h3 class="stat-title">Stock Value</h3>
+                <p class="stat-value" id="stockValue">UGX 45M</p>
+                <span class="stat-label">Total Inventory Value</span>
             </div>
         </section>
 
@@ -106,7 +93,7 @@
                         <option value="low">Low Stock</option>
                         <option value="critical">Critical</option>
                     </select>
-                    <button class="action-btn" id="exportBtn">📥 Export</button>
+                    <button class="action-btn" id="exportBtn">Export</button>
                 </div>
             </div>
             <div class="table-container">
@@ -126,88 +113,88 @@
                     </thead>
                     <tbody id="stockTable">
                         <tr>
-                            <td><strong>Maize</strong></td>
+                            <td></strong></td>
                             <td>Yellow Maize</td>
                             <td>3,500</td>
                             <td>500</td>
                             <td>1,600</td>
                             <td>5,600,000</td>
-                            <td><span class="status-badge success">Adequate</span></td>
+                            <td></span></td>
                             <td>09/01/2026</td>
                             <td>
-                                <button class="action-icon-btn" title="View Details">👁️</button>
-                                <button class="action-icon-btn" title="Adjust Stock">✏️</button>
-                                <button class="action-icon-btn" title="History">📜</button>
+                                <button class="action-icon-btn" title="View Details">View</button>
+                                <button class="action-icon-btn" title="Adjust Stock">Edit</button>
+                                <button class="action-icon-btn" title="History">History</button>
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>Beans</strong></td>
+                            <td></strong></td>
                             <td>Red Beans</td>
                             <td>450</td>
                             <td>500</td>
                             <td>2,250</td>
                             <td>1,012,500</td>
-                            <td><span class="status-badge warning">Low Stock</span></td>
+                            <td></span></td>
                             <td>09/01/2026</td>
                             <td>
-                                <button class="action-icon-btn" title="View Details">👁️</button>
-                                <button class="action-icon-btn" title="Adjust Stock">✏️</button>
-                                <button class="action-icon-btn" title="History">📜</button>
+                                <button class="action-icon-btn" title="View Details">View</button>
+                                <button class="action-icon-btn" title="Adjust Stock">Edit</button>
+                                <button class="action-icon-btn" title="History">History</button>
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>Rice</strong></td>
+                            <td></strong></td>
                             <td>Sindano</td>
                             <td>2,800</td>
                             <td>400</td>
                             <td>3,800</td>
                             <td>10,640,000</td>
-                            <td><span class="status-badge success">Adequate</span></td>
+                            <td></span></td>
                             <td>08/01/2026</td>
                             <td>
-                                <button class="action-icon-btn" title="View Details">👁️</button>
-                                <button class="action-icon-btn" title="Adjust Stock">✏️</button>
-                                <button class="action-icon-btn" title="History">📜</button>
+                                <button class="action-icon-btn" title="View Details">View</button>
+                                <button class="action-icon-btn" title="Adjust Stock">Edit</button>
+                                <button class="action-icon-btn" title="History">History</button>
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>Wheat</strong></td>
+                            <td></strong></td>
                             <td>Hard Red</td>
                             <td>1,200</td>
                             <td>300</td>
                             <td>2,200</td>
                             <td>2,640,000</td>
-                            <td><span class="status-badge success">Adequate</span></td>
+                            <td></span></td>
                             <td>08/01/2026</td>
                             <td>
-                                <button class="action-icon-btn" title="View Details">👁️</button>
-                                <button class="action-icon-btn" title="Adjust Stock">✏️</button>
-                                <button class="action-icon-btn" title="History">📜</button>
+                                <button class="action-icon-btn" title="View Details">View</button>
+                                <button class="action-icon-btn" title="Adjust Stock">Edit</button>
+                                <button class="action-icon-btn" title="History">History</button>
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>Groundnuts</strong></td>
+                            <td></strong></td>
                             <td>Roasted</td>
                             <td>280</td>
                             <td>300</td>
                             <td>4,500</td>
                             <td>1,260,000</td>
-                            <td><span class="status-badge warning">Low Stock</span></td>
+                            <td></span></td>
                             <td>09/01/2026</td>
                             <td>
-                                <button class="action-icon-btn" title="View Details">👁️</button>
-                                <button class="action-icon-btn" title="Adjust Stock">✏️</button>
-                                <button class="action-icon-btn" title="History">📜</button>
+                                <button class="action-icon-btn" title="View Details">View</button>
+                                <button class="action-icon-btn" title="Adjust Stock">Edit</button>
+                                <button class="action-icon-btn" title="History">History</button>
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>Soybeans</strong></td>
+                            <td></strong></td>
                             <td>Organic</td>
                             <td>1,800</td>
                             <td>400</td>
                             <td>2,800</td>
                             <td>5,040,000</td>
-                            <td><span class="status-badge success">Adequate</span></td>
+                            <td></span></td>
                             <td>08/01/2026</td>
                             <td>
                                 <button class="action-icon-btn" title="View Details">👁️</button>
@@ -216,13 +203,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>Sorghum</strong></td>
+                            <td></strong></td>
                             <td>White</td>
                             <td>950</td>
                             <td>200</td>
                             <td>1,800</td>
                             <td>1,710,000</td>
-                            <td><span class="status-badge success">Adequate</span></td>
+                            <td></span></td>
                             <td>07/01/2026</td>
                             <td>
                                 <button class="action-icon-btn" title="View Details">👁️</button>
@@ -231,13 +218,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>Millet</strong></td>
+                            <td></strong></td>
                             <td>Pearl</td>
                             <td>720</td>
                             <td>250</td>
                             <td>2,000</td>
                             <td>1,440,000</td>
-                            <td><span class="status-badge success">Adequate</span></td>
+                            <td></span></td>
                             <td>07/01/2026</td>
                             <td>
                                 <button class="action-icon-btn" title="View Details">👁️</button>
@@ -298,8 +285,7 @@
                     </div>
                     <div class="form-group">
                         <label for="adjustReason">Reason *</label>
-                        <textarea id="adjustReason" rows="3" required></textarea>
-                    </div>
+                        <textarea id="adjustReason" rows="3" required></div>
                     <div class="form-actions">
                         <button type="button" class="btn-secondary" id="cancelBtn">Cancel</button>
                         <button type="submit" class="btn-primary">Submit Adjustment</button>
@@ -375,3 +361,5 @@
     </style>
 </body>
 </html>
+
+

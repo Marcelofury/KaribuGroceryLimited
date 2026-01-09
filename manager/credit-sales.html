@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,8 +14,7 @@
             <span class="separator">|</span>
             <span class="user-info">Manager: <strong id="managerName">John Doe</strong></span>
             <span class="separator">|</span>
-            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></span>
-        </div>
+            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></div>
         <div class="header-right">
             <button class="logout-btn">Logout</button>
         </div>
@@ -58,39 +57,27 @@
         <!-- Credit Summary Cards -->
         <section class="stats-section">
             <div class="stat-card">
-                <div class="stat-icon credit-icon">💳</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Total Outstanding</h3>
-                    <p class="stat-value" id="totalOutstanding">UGX 4,500,000</p>
-                    <span class="stat-label">All Credit Sales</span>
-                </div>
+                <h3 class="stat-title">Total Outstanding</h3>
+                <p class="stat-value" id="totalOutstanding">UGX 4,500,000</p>
+                <span class="stat-label">All Credit Sales</span>
             </div>
 
             <div class="stat-card alert-card">
-                <div class="stat-icon alert-icon">⚠️</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Overdue</h3>
-                    <p class="stat-value" id="overdueAmount">UGX 800,000</p>
-                    <span class="stat-label">Past Due Date</span>
-                </div>
+                <h3 class="stat-title">Overdue</h3>
+                <p class="stat-value" id="overdueAmount">UGX 800,000</p>
+                <span class="stat-label">Past Due Date</span>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon sales-icon">✅</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Collected This Month</h3>
-                    <p class="stat-value" id="collectedMonth">UGX 2,200,000</p>
-                    <span class="stat-label">Payments Received</span>
-                </div>
+                <h3 class="stat-title">Collected This Month</h3>
+                <p class="stat-value" id="collectedMonth">UGX 2,200,000</p>
+                <span class="stat-label">Payments Received</span>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon stock-icon">👥</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Active Customers</h3>
-                    <p class="stat-value" id="activeCustomers">12</p>
-                    <span class="stat-label">With Outstanding Balance</span>
-                </div>
+                <h3 class="stat-title">Active Customers</h3>
+                <p class="stat-value" id="activeCustomers">12</p>
+                <span class="stat-label">With Outstanding Balance</span>
             </div>
         </section>
 
@@ -205,8 +192,7 @@
                             name="paymentNotes" 
                             rows="2"
                             placeholder="Any additional notes about this payment"
-                        ></textarea>
-                    </div>
+                        ></div>
                 </div>
 
                 <div class="form-actions">
@@ -249,84 +235,79 @@
                     </thead>
                     <tbody id="creditSalesTable">
                         <tr>
-                            <td><strong>#INV-001</strong></td>
+                            <td></strong></td>
                             <td>Nakato Foods Ltd</td>
                             <td>0772 123 456</td>
                             <td>05/01/2026</td>
                             <td>05/02/2026</td>
                             <td>UGX 1,500,000</td>
                             <td>UGX 300,000</td>
-                            <td><strong>UGX 1,200,000</strong></td>
-                            <td><span class="status-badge pending">Current</span></td>
+                            <td></strong></td>
+                            <td></span></td>
                             <td>
-                                <button class="action-icon-btn record-payment" title="Record Payment">💰</button>
-                                <button class="action-icon-btn" title="View Details">👁️</button>
-                                <button class="action-icon-btn" title="Send Reminder">📧</button>
+                                <button class="btn-primary" title="Record Payment">Payment</button>
+                                <button class="btn-secondary" title="View Details">View</button>
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>#INV-002</strong></td>
+                            <td></strong></td>
                             <td>Kampala Groceries</td>
                             <td>0701 987 654</td>
                             <td>02/01/2026</td>
                             <td>07/01/2026</td>
                             <td>UGX 800,000</td>
                             <td>UGX 0</td>
-                            <td><strong>UGX 800,000</strong></td>
-                            <td><span class="status-badge error">Overdue</span></td>
+                            <td></strong></td>
+                            <td></span></td>
                             <td>
-                                <button class="action-icon-btn record-payment" title="Record Payment">💰</button>
-                                <button class="action-icon-btn" title="View Details">👁️</button>
-                                <button class="action-icon-btn" title="Send Reminder">📧</button>
+                                <button class="btn-primary" title="Record Payment">Payment</button>
+                                <button class="btn-secondary" title="View Details">View</button>
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>#INV-003</strong></td>
+                            <td></strong></td>
                             <td>Buganda Grain Co.</td>
                             <td>0755 246 810</td>
                             <td>07/01/2026</td>
                             <td>06/02/2026</td>
                             <td>UGX 1,500,000</td>
                             <td>UGX 0</td>
-                            <td><strong>UGX 1,500,000</strong></td>
-                            <td><span class="status-badge pending">Current</span></td>
+                            <td></strong></td>
+                            <td></span></td>
                             <td>
-                                <button class="action-icon-btn record-payment" title="Record Payment">💰</button>
-                                <button class="action-icon-btn" title="View Details">👁️</button>
-                                <button class="action-icon-btn" title="Send Reminder">📧</button>
+                                <button class="btn-primary" title="Record Payment">Payment</button>
+                                <button class="btn-secondary" title="View Details">View</button>
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>#INV-004</strong></td>
+                            <td></strong></td>
                             <td>Quality Foods Co.</td>
                             <td>0782 555 123</td>
                             <td>06/01/2026</td>
                             <td>05/02/2026</td>
                             <td>UGX 650,000</td>
                             <td>UGX 200,000</td>
-                            <td><strong>UGX 450,000</strong></td>
-                            <td><span class="status-badge pending">Current</span></td>
+                            <td></strong></td>
+                            <td></span></td>
                             <td>
                                 <button class="action-icon-btn record-payment" title="Record Payment">💰</button>
-                                <button class="action-icon-btn" title="View Details">👁️</button>
-                                <button class="action-icon-btn" title="Send Reminder">📧</button>
-                            </td>
+                                <button class="btn-primary" title="Record Payment">Payment</button>
+                                <button class="btn-secondary" title="View Details">View
                         </tr>
                         <tr>
-                            <td><strong>#INV-005</strong></td>
+                            <td></strong></td>
                             <td>Ssemakula Traders</td>
                             <td>0712 888 999</td>
                             <td>08/01/2026</td>
                             <td>07/02/2026</td>
                             <td>UGX 550,000</td>
                             <td>UGX 0</td>
-                            <td><strong>UGX 550,000</strong></td>
-                            <td><span class="status-badge pending">Current</span></td>
+                            <td></strong></td>
+                            <td></span></td>
                             <td>
                                 <button class="action-icon-btn record-payment" title="Record Payment">💰</button>
-                                <button class="action-icon-btn" title="View Details">👁️</button>
-                                <button class="action-icon-btn" title="Send Reminder">📧</button>
-                            </td>
+                                <button class="btn-primary" title="Record Payment">Payment</button>
+                                <button class="btn-secondary" title="View Details">View
                         </tr>
                     </tbody>
                 </table>
@@ -387,11 +368,10 @@
         <!-- Overdue Alerts -->
         <section class="data-section">
             <div class="section-header">
-                <h2>⚠️ Overdue Payments</h2>
+                <h2>Overdue Payments</h2>
             </div>
             <div class="alerts-section">
                 <div class="alert-box warning">
-                    <span class="alert-icon">⚠️</span>
                     <div class="alert-content">
                         <strong>Kampala Groceries</strong> - UGX 800,000 overdue by 2 days (Due: 07/01/2026)
                     </div>
@@ -401,3 +381,5 @@
     </main>
 </body>
 </html>
+
+

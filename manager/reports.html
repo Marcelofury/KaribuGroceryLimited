@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,8 +14,7 @@
             <span class="separator">|</span>
             <span class="user-info">Manager: <strong id="managerName">John Doe</strong></span>
             <span class="separator">|</span>
-            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></span>
-        </div>
+            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></div>
         <div class="header-right">
             <button class="logout-btn">Logout</button>
         </div>
@@ -58,39 +57,27 @@
         <!-- Quick Stats -->
         <section class="stats-section">
             <div class="stat-card">
-                <div class="stat-icon sales-icon">📊</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Total Reports</h3>
-                    <p class="stat-value" id="totalReports">47</p>
-                    <span class="stat-label">Generated This Month</span>
-                </div>
+                <h3 class="stat-title">Total Reports</h3>
+                <p class="stat-value" id="totalReports">47</p>
+                <span class="stat-label">Generated This Month</span>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon stock-icon">💰</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Monthly Revenue</h3>
-                    <p class="stat-value" id="monthlyRevenue">UGX 45M</p>
-                    <span class="stat-label">January 2026</span>
-                </div>
+                <h3 class="stat-title">Monthly Revenue</h3>
+                <p class="stat-value" id="monthlyRevenue">UGX 45M</p>
+                <span class="stat-label">January 2026</span>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon credit-icon">📈</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Growth Rate</h3>
-                    <p class="stat-value" id="growthRate">+15.2%</p>
-                    <span class="stat-label">Compared to Last Month</span>
-                </div>
+                <h3 class="stat-title">Growth Rate</h3>
+                <p class="stat-value" id="growthRate">+15.2%</p>
+                <span class="stat-label">Compared to Last Month</span>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon alert-icon">🎯</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Target Progress</h3>
-                    <p class="stat-value" id="targetProgress">73%</p>
-                    <span class="stat-label">Of Monthly Goal</span>
-                </div>
+                <h3 class="stat-title">Target Progress</h3>
+                <p class="stat-value" id="targetProgress">73%</p>
+                <span class="stat-label">Of Monthly Goal</span>
             </div>
         </section>
 
@@ -201,7 +188,7 @@
                 </div>
 
                 <div class="form-actions">
-                    <button type="button" class="btn-secondary" id="previewBtn">👁️ Preview</button>
+                    <button type="button" class="btn-secondary" id="previewBtn">Preview</button>
                     <button type="submit" class="btn-primary">📥 Generate Report</button>
                 </div>
             </form>
@@ -215,37 +202,31 @@
             </div>
             <div class="quick-reports-grid">
                 <div class="quick-report-card">
-                    <div class="report-icon">📊</div>
                     <h3>Daily Sales</h3>
                     <p>Today's sales summary</p>
                     <button class="quick-report-btn">Generate</button>
                 </div>
                 <div class="quick-report-card">
-                    <div class="report-icon">📦</div>
                     <h3>Stock Levels</h3>
                     <p>Current inventory status</p>
                     <button class="quick-report-btn">Generate</button>
                 </div>
                 <div class="quick-report-card">
-                    <div class="report-icon">💳</div>
                     <h3>Credit Summary</h3>
                     <p>Outstanding credits</p>
                     <button class="quick-report-btn">Generate</button>
                 </div>
                 <div class="quick-report-card">
-                    <div class="report-icon">💰</div>
                     <h3>Weekly Revenue</h3>
                     <p>Past 7 days income</p>
                     <button class="quick-report-btn">Generate</button>
                 </div>
                 <div class="quick-report-card">
-                    <div class="report-icon">📈</div>
                     <h3>Monthly Summary</h3>
                     <p>Full month analysis</p>
                     <button class="quick-report-btn">Generate</button>
                 </div>
                 <div class="quick-report-card">
-                    <div class="report-icon">🎯</div>
                     <h3>Target vs Actual</h3>
                     <p>Performance metrics</p>
                     <button class="quick-report-btn">Generate</button>
@@ -283,12 +264,12 @@
                     </thead>
                     <tbody id="reportsTable">
                         <tr>
-                            <td><strong>Daily Sales Report</strong></td>
+                            <td></strong></td>
                             <td>Sales</td>
                             <td>09/01/2026</td>
                             <td>09/01/2026 10:30 AM</td>
                             <td>John Doe</td>
-                            <td><span class="format-badge pdf">PDF</span></td>
+                            <td></span></td>
                             <td>
                                 <button class="action-icon-btn" title="Download">📥</button>
                                 <button class="action-icon-btn" title="View">👁️</button>
@@ -297,12 +278,12 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>Stock Level Report</strong></td>
+                            <td></strong></td>
                             <td>Stock</td>
                             <td>This Week</td>
                             <td>08/01/2026 03:15 PM</td>
                             <td>John Doe</td>
-                            <td><span class="format-badge excel">Excel</span></td>
+                            <td></span></td>
                             <td>
                                 <button class="action-icon-btn" title="Download">📥</button>
                                 <button class="action-icon-btn" title="View">👁️</button>
@@ -311,12 +292,12 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>Credit Sales Summary</strong></td>
+                            <td></strong></td>
                             <td>Credit</td>
                             <td>This Month</td>
                             <td>07/01/2026 11:20 AM</td>
                             <td>John Doe</td>
-                            <td><span class="format-badge pdf">PDF</span></td>
+                            <td></span></td>
                             <td>
                                 <button class="action-icon-btn" title="Download">📥</button>
                                 <button class="action-icon-btn" title="View">👁️</button>
@@ -325,12 +306,12 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>Procurement Report</strong></td>
+                            <td></strong></td>
                             <td>Procurement</td>
                             <td>Last Week</td>
                             <td>06/01/2026 09:45 AM</td>
                             <td>John Doe</td>
-                            <td><span class="format-badge excel">Excel</span></td>
+                            <td></span></td>
                             <td>
                                 <button class="action-icon-btn" title="Download">📥</button>
                                 <button class="action-icon-btn" title="View">👁️</button>
@@ -339,12 +320,12 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>Monthly Financial Summary</strong></td>
+                            <td></strong></td>
                             <td>Financial</td>
                             <td>December 2025</td>
                             <td>01/01/2026 02:30 PM</td>
                             <td>John Doe</td>
-                            <td><span class="format-badge pdf">PDF</span></td>
+                            <td></span></td>
                             <td>
                                 <button class="action-icon-btn" title="Download">📥</button>
                                 <button class="action-icon-btn" title="View">👁️</button>
@@ -462,3 +443,5 @@
     </style>
 </body>
 </html>
+
+

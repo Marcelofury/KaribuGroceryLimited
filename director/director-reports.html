@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -36,46 +36,34 @@
     <!-- Main Content -->
     <main class="main-content">
         <div class="page-header">
-            <h2>📊 View Reports</h2>
+            <h2>View Reports</h2>
             <p class="subtitle">View generated business reports (Read-Only)</p>
         </div>
 
         <!-- Quick Report Stats -->
         <section class="stats-section">
             <div class="stat-card">
-                <div class="stat-icon reports-icon">📄</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Total Reports</h3>
-                    <p class="stat-value">45</p>
-                    <span class="stat-label">Generated this month</span>
-                </div>
+                <h3 class="stat-title">Total Reports</h3>
+                <p class="stat-value">45</p>
+                <span class="stat-label">Generated this month</span>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon scheduled-icon">⏰</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Scheduled Reports</h3>
-                    <p class="stat-value">8</p>
-                    <span class="stat-label">Automated delivery</span>
-                </div>
+                <h3 class="stat-title">Scheduled Reports</h3>
+                <p class="stat-value">8</p>
+                <span class="stat-label">Automated delivery</span>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon recent-icon">🕒</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Last Generated</h3>
-                    <p class="stat-value">Today</p>
-                    <span class="stat-label">10:30 AM</span>
-                </div>
+                <h3 class="stat-title">Last Generated</h3>
+                <p class="stat-value">Today</p>
+                <span class="stat-label">10:30 AM</span>
             </div>
 
             <div class="stat-card">
-                <div class="stat-icon export-icon">📥</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Downloads</h3>
-                    <p class="stat-value">128</p>
-                    <span class="stat-label">This month</span>
-                </div>
+                <h3 class="stat-title">Downloads</h3>
+                <p class="stat-value">128</p>
+                <span class="stat-label">This month</span>
             </div>
         </section>
 
@@ -86,42 +74,36 @@
             </div>
             <div class="report-categories">
                 <div class="category-card" onclick="showCategory('financial')">
-                    <div class="category-icon">💰</div>
                     <h3>Financial Reports</h3>
                     <p>Income statements, cash flow, balance sheets</p>
                     <span class="report-count">12 reports</span>
                 </div>
 
                 <div class="category-card" onclick="showCategory('sales')">
-                    <div class="category-icon">📈</div>
                     <h3>Sales Reports</h3>
                     <p>Sales analysis, trends, forecasts</p>
                     <span class="report-count">15 reports</span>
                 </div>
 
                 <div class="category-card" onclick="showCategory('inventory')">
-                    <div class="category-icon">📦</div>
                     <h3>Inventory Reports</h3>
                     <p>Stock levels, turnover, valuation</p>
                     <span class="report-count">10 reports</span>
                 </div>
 
                 <div class="category-card" onclick="showCategory('performance')">
-                    <div class="category-icon">🎯</div>
                     <h3>Performance Reports</h3>
                     <p>KPIs, targets, staff performance</p>
                     <span class="report-count">8 reports</span>
                 </div>
 
                 <div class="category-card" onclick="showCategory('customer')">
-                    <div class="category-icon">👥</div>
                     <h3>Customer Reports</h3>
                     <p>Customer analysis, satisfaction, retention</p>
                     <span class="report-count">6 reports</span>
                 </div>
 
                 <div class="category-card" onclick="showCategory('custom')">
-                    <div class="category-icon">⚙️</div>
                     <h3>Custom Reports</h3>
                     <p>Create your own custom reports</p>
                     <span class="report-count">Create new</span>
@@ -137,68 +119,62 @@
             <div class="quick-reports-grid">
                 <div class="quick-report-item">
                     <div class="report-info">
-                        <div class="report-icon">📊</div>
                         <div>
                             <h4>Monthly Sales Summary</h4>
                             <p>Comprehensive sales overview for the current month</p>
                         </div>
                     </div>
-                    <span class="view-only-badge">📥 View/Download</span>
+                    <span class="view-only-badge">View/Download</span>
                 </div>
 
                 <div class="quick-report-item">
                     <div class="report-info">
-                        <div class="report-icon">💰</div>
                         <div>
                             <h4>Profit & Loss Statement</h4>
                             <p>Detailed P&L for selected period</p>
                         </div>
                     </div>
-                    <span class="view-only-badge">📥 View/Download</span>
+                    <span class="view-only-badge">View/Download</span>
                 </div>
 
                 <div class="quick-report-item">
                     <div class="report-info">
-                        <div class="report-icon">📦</div>
                         <div>
                             <h4>Stock Valuation Report</h4>
                             <p>Current inventory value across all branches</p>
                         </div>
                     </div>
-                    <span class="view-only-badge">📥 View/Download</span>
+                    <span class="view-only-badge">View/Download</span>
                 </div>
 
                 <div class="quick-report-item">
                     <div class="report-info">
-                        <div class="report-icon">🏢</div>
                         <div>
                             <h4>Branch Comparison</h4>
                             <p>Performance comparison across all branches</p>
                         </div>
                     </div>
-                    <span class="view-only-badge">📥 View/Download</span>
+                    <span class="view-only-badge">View/Download</span>
                 </div>
 
                 <div class="quick-report-item">
                     <div class="report-info">
-                        <div class="report-icon">💳</div>
                         <div>
                             <h4>Credit Sales Report</h4>
                             <p>Outstanding credit and collection status</p>
                         </div>
                     </div>
-                    <span class="view-only-badge">📥 View/Download</span>
+                    <span class="view-only-badge">View/Download</span>
                 </div>
 
                 <div class="quick-report-item">
                     <div class="report-info">
-                        <div class="report-icon">👥</div>
                         <div>
                             <h4>Staff Performance</h4>
                             <p>Individual and team performance metrics</p>
                         </div>
                     </div>
-                    <span class="view-only-badge">📥 View/Download</span>
+                    <span class="view-only-badge">View/Download</span>
                 </div>
             </div>
         </section>
@@ -230,8 +206,8 @@
                             <td>James Mwesigwa</td>
                             <td><span class="format-badge pdf">PDF</span></td>
                             <td>
-                                <button class="btn-icon" onclick="downloadReport(1)" title="Download">📥</button>
-                                <button class="btn-icon" onclick="viewReport(1)" title="View">👁️</button>
+                                <button class="btn-icon" onclick="downloadReport(1)" title="Download">Download</button>
+                                <button class="btn-icon" onclick="viewReport(1)" title="View">View</button>
                             </td>
                         </tr>
                         <tr>
@@ -242,8 +218,8 @@
                             <td>James Mwesigwa</td>
                             <td><span class="format-badge excel">Excel</span></td>
                             <td>
-                                <button class="btn-icon" onclick="downloadReport(2)">📥</button>
-                                <button class="btn-icon" onclick="viewReport(2)">👁️</button>
+                                <button class="btn-icon" onclick="downloadReport(2)">Download</button>
+                                <button class="btn-icon" onclick="viewReport(2)">View</button>
                             </td>
                         </tr>
                         <tr>
@@ -254,8 +230,8 @@
                             <td>System Auto</td>
                             <td><span class="format-badge csv">CSV</span></td>
                             <td>
-                                <button class="btn-icon" onclick="downloadReport(3)">📥</button>
-                                <button class="btn-icon" onclick="viewReport(3)">👁️</button>
+                                <button class="btn-icon" onclick="downloadReport(3)">Download</button>
+                                <button class="btn-icon" onclick="viewReport(3)">View</button>
                             </td>
                         </tr>
                         <tr>
@@ -266,8 +242,8 @@
                             <td>James Mwesigwa</td>
                             <td><span class="format-badge pdf">PDF</span></td>
                             <td>
-                                <button class="btn-icon" onclick="downloadReport(4)">📥</button>
-                                <button class="btn-icon" onclick="viewReport(4)">👁️</button>
+                                <button class="btn-icon" onclick="downloadReport(4)">Download</button>
+                                <button class="btn-icon" onclick="viewReport(4)">View</button>
                             </td>
                         </tr>
                         <tr>
@@ -278,8 +254,8 @@
                             <td>James Mwesigwa</td>
                             <td><span class="format-badge excel">Excel</span></td>
                             <td>
-                                <button class="btn-icon" onclick="downloadReport(5)">📥</button>
-                                <button class="btn-icon" onclick="viewReport(5)">👁️</button>
+                                <button class="btn-icon" onclick="downloadReport(5)">Download</button>
+                                <button class="btn-icon" onclick="viewReport(5)">View</button>
                             </td>
                         </tr>
                     </tbody>
@@ -606,3 +582,4 @@
     </style>
 </body>
 </html>
+
