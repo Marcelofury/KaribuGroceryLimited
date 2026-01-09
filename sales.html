@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KGL - Sales</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <h1 class="logo">KGL</h1>
+            <span class="separator">|</span>
+            <span class="user-info">Manager: <strong id="managerName">John Doe</strong></span>
+            <span class="separator">|</span>
+            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></span>
+        </div>
+        <div class="header-right">
+            <button class="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="manager-dashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a href="procure.html">Procure</a>
+            </li>
+            <li class="nav-item">
+                <a href="stock.html">Stock</a>
+            </li>
+            <li class="nav-item active">
+                <a href="sales.html">Sales</a>
+            </li>
+            <li class="nav-item">
+                <a href="prices.html">Prices</a>
+            </li>
+            <li class="nav-item">
+                <a href="credit-sales.html">Credit Sales</a>
+            </li>
+            <li class="nav-item">
+                <a href="reports.html">Reports</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h2>Sales Management</h2>
+            <p class="subtitle">Record and track sales transactions</p>
+        </div>
+
+        <!-- Sales Summary Cards -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <div class="stat-icon sales-icon">💰</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Today's Sales</h3>
+                    <p class="stat-value" id="todaySales">UGX 5,000,000</p>
+                    <span class="stat-label">Total Revenue</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon stock-icon">🏦</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Cash Sales</h3>
+                    <p class="stat-value" id="cashSales">UGX 3,800,000</p>
+                    <span class="stat-label">76% of Total</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon credit-icon">📋</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Credit Sales</h3>
+                    <p class="stat-value" id="creditSalesAmount">UGX 1,200,000</p>
+                    <span class="stat-label">24% of Total</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon alert-icon">📊</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Transactions</h3>
+                    <p class="stat-value" id="transactionCount">23</p>
+                    <span class="stat-label">Total Today</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Sale Form -->
+        <section class="form-section">
+            <div class="section-header" style="margin-bottom: 20px;">
+                <h2>Record New Sale</h2>
+            </div>
+            <form id="salesForm" class="procurement-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="customerName">Customer Name *</label>
+                        <input 
+                            type="text" 
+                            id="customerName" 
+                            name="customerName" 
+                            placeholder="Enter customer name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customerContact">Customer Contact</label>
+                        <input 
+                            type="tel" 
+                            id="customerContact" 
+                            name="customerContact" 
+                            placeholder="Enter phone number"
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="produceType">Produce Type *</label>
+                        <select id="produceType" name="produceType" required>
+                            <option value="">Select produce type</option>
+                            <option value="maize">Maize - Yellow Maize</option>
+                            <option value="beans">Beans - Red Beans</option>
+                            <option value="rice">Rice - Sindano</option>
+                            <option value="wheat">Wheat - Hard Red</option>
+                            <option value="sorghum">Sorghum - White</option>
+                            <option value="millet">Millet - Pearl</option>
+                            <option value="groundnuts">Groundnuts - Roasted</option>
+                            <option value="soybeans">Soybeans - Organic</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="quantity">Quantity (kg) *</label>
+                        <input 
+                            type="number" 
+                            id="quantity" 
+                            name="quantity" 
+                            placeholder="Enter quantity in kg"
+                            step="0.1"
+                            min="0.1"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="unitPrice">Unit Price (UGX per kg) *</label>
+                        <input 
+                            type="number" 
+                            id="unitPrice" 
+                            name="unitPrice" 
+                            placeholder="Enter price per kg"
+                            step="1"
+                            min="1"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="totalAmount">Total Amount (UGX)</label>
+                        <input 
+                            type="text" 
+                            id="totalAmount" 
+                            name="totalAmount" 
+                            placeholder="Auto-calculated"
+                            readonly
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="paymentType">Payment Type *</label>
+                        <select id="paymentType" name="paymentType" required>
+                            <option value="">Select payment type</option>
+                            <option value="cash">Cash</option>
+                            <option value="credit">Credit</option>
+                            <option value="mobile_money">Mobile Money</option>
+                            <option value="bank_transfer">Bank Transfer</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="saleDate">Sale Date *</label>
+                        <input 
+                            type="date" 
+                            id="saleDate" 
+                            name="saleDate" 
+                            required
+                        >
+                    </div>
+                </div>
+
+                <!-- Credit Sale Fields (Hidden by default) -->
+                <div id="creditFields" style="display: none;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="creditDueDate">Due Date *</label>
+                            <input 
+                                type="date" 
+                                id="creditDueDate" 
+                                name="creditDueDate"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="creditTerms">Credit Terms (Days)</label>
+                            <input 
+                                type="number" 
+                                id="creditTerms" 
+                                name="creditTerms"
+                                placeholder="e.g., 30"
+                                min="1"
+                            >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="notes">Additional Notes</label>
+                        <textarea 
+                            id="notes" 
+                            name="notes" 
+                            rows="3"
+                            placeholder="Enter any additional notes"
+                        ></textarea>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="resetBtn">Reset Form</button>
+                    <button type="submit" class="btn-primary">Record Sale</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Sales History -->
+        <section class="data-section">
+            <div class="section-header">
+                <h2>Sales History</h2>
+                <div class="filter-controls">
+                    <input type="text" id="searchInput" placeholder="Search..." class="search-input">
+                    <select id="filterPayment" class="filter-select">
+                        <option value="">All Payments</option>
+                        <option value="cash">Cash</option>
+                        <option value="credit">Credit</option>
+                        <option value="mobile_money">Mobile Money</option>
+                        <option value="bank_transfer">Bank Transfer</option>
+                    </select>
+                    <input type="date" id="filterDate" class="filter-select">
+                    <button class="action-btn" id="exportBtn">📥 Export</button>
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Receipt #</th>
+                            <th>Date</th>
+                            <th>Customer</th>
+                            <th>Produce</th>
+                            <th>Quantity (kg)</th>
+                            <th>Unit Price</th>
+                            <th>Total Amount</th>
+                            <th>Payment Type</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="salesTable">
+                        <tr>
+                            <td><strong>#REC-001</strong></td>
+                            <td>09/01/2026</td>
+                            <td>Nakato Foods Ltd</td>
+                            <td>Maize</td>
+                            <td>500</td>
+                            <td>UGX 1,800</td>
+                            <td>UGX 900,000</td>
+                            <td>Cash</td>
+                            <td><span class="status-badge success">Paid</span></td>
+                            <td>
+                                <button class="action-icon-btn" title="View Receipt">👁️</button>
+                                <button class="action-icon-btn" title="Print">🖨️</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>#REC-002</strong></td>
+                            <td>09/01/2026</td>
+                            <td>Ssemakula Traders</td>
+                            <td>Beans</td>
+                            <td>300</td>
+                            <td>UGX 2,400</td>
+                            <td>UGX 720,000</td>
+                            <td>Mobile Money</td>
+                            <td><span class="status-badge success">Paid</span></td>
+                            <td>
+                                <button class="action-icon-btn" title="View Receipt">👁️</button>
+                                <button class="action-icon-btn" title="Print">🖨️</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>#REC-003</strong></td>
+                            <td>09/01/2026</td>
+                            <td>Kampala Groceries</td>
+                            <td>Rice</td>
+                            <td>200</td>
+                            <td>UGX 4,000</td>
+                            <td>UGX 800,000</td>
+                            <td>Credit</td>
+                            <td><span class="status-badge pending">Pending</span></td>
+                            <td>
+                                <button class="action-icon-btn" title="View Receipt">👁️</button>
+                                <button class="action-icon-btn" title="Print">🖨️</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>#REC-004</strong></td>
+                            <td>09/01/2026</td>
+                            <td>Mukasa Enterprises</td>
+                            <td>Wheat</td>
+                            <td>400</td>
+                            <td>UGX 2,500</td>
+                            <td>UGX 1,000,000</td>
+                            <td>Bank Transfer</td>
+                            <td><span class="status-badge success">Paid</span></td>
+                            <td>
+                                <button class="action-icon-btn" title="View Receipt">👁️</button>
+                                <button class="action-icon-btn" title="Print">🖨️</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>#REC-005</strong></td>
+                            <td>08/01/2026</td>
+                            <td>Quality Foods Co.</td>
+                            <td>Soybeans</td>
+                            <td>250</td>
+                            <td>UGX 3,200</td>
+                            <td>UGX 800,000</td>
+                            <td>Cash</td>
+                            <td><span class="status-badge success">Paid</span></td>
+                            <td>
+                                <button class="action-icon-btn" title="View Receipt">👁️</button>
+                                <button class="action-icon-btn" title="Print">🖨️</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>#REC-006</strong></td>
+                            <td>08/01/2026</td>
+                            <td>Namatovu Supplies</td>
+                            <td>Groundnuts</td>
+                            <td>150</td>
+                            <td>UGX 5,000</td>
+                            <td>UGX 750,000</td>
+                            <td>Mobile Money</td>
+                            <td><span class="status-badge success">Paid</span></td>
+                            <td>
+                                <button class="action-icon-btn" title="View Receipt">👁️</button>
+                                <button class="action-icon-btn" title="Print">🖨️</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>#REC-007</strong></td>
+                            <td>08/01/2026</td>
+                            <td>Buganda Grain Co.</td>
+                            <td>Sorghum</td>
+                            <td>600</td>
+                            <td>UGX 2,000</td>
+                            <td>UGX 1,200,000</td>
+                            <td>Credit</td>
+                            <td><span class="status-badge pending">Pending</span></td>
+                            <td>
+                                <button class="action-icon-btn" title="View Receipt">👁️</button>
+                                <button class="action-icon-btn" title="Print">🖨️</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Set current date as default
+        document.getElementById('saleDate').valueAsDate = new Date();
+
+        // Calculate total amount
+        function calculateTotal() {
+            const quantity = parseFloat(document.getElementById('quantity').value) || 0;
+            const unitPrice = parseFloat(document.getElementById('unitPrice').value) || 0;
+            const totalAmount = quantity * unitPrice;
+            document.getElementById('totalAmount').value = totalAmount > 0 ? `UGX ${totalAmount.toLocaleString()}` : '';
+        }
+
+        document.getElementById('quantity').addEventListener('input', calculateTotal);
+        document.getElementById('unitPrice').addEventListener('input', calculateTotal);
+
+        // Show/hide credit fields based on payment type
+        document.getElementById('paymentType').addEventListener('change', function() {
+            const creditFields = document.getElementById('creditFields');
+            const creditDueDate = document.getElementById('creditDueDate');
+            
+            if (this.value === 'credit') {
+                creditFields.style.display = 'block';
+                creditDueDate.required = true;
+            } else {
+                creditFields.style.display = 'none';
+                creditDueDate.required = false;
+            }
+        });
+
+        // Auto-calculate due date based on credit terms
+        document.getElementById('creditTerms').addEventListener('input', function() {
+            const terms = parseInt(this.value) || 0;
+            if (terms > 0) {
+                const today = new Date();
+                today.setDate(today.getDate() + terms);
+                document.getElementById('creditDueDate').valueAsDate = today;
+            }
+        });
+
+        // Form submission
+        document.getElementById('salesForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            console.log('Sale recorded:', data);
+            
+            // Show success message
+            alert('Sale recorded successfully!');
+            
+            // Reset form
+            this.reset();
+            document.getElementById('saleDate').valueAsDate = new Date();
+            document.getElementById('creditFields').style.display = 'none';
+        });
+
+        // Reset button
+        document.getElementById('resetBtn').addEventListener('click', function() {
+            document.getElementById('salesForm').reset();
+            document.getElementById('saleDate').valueAsDate = new Date();
+            document.getElementById('creditFields').style.display = 'none';
+        });
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#salesTable tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        });
+
+        // Filter by payment type
+        document.getElementById('filterPayment').addEventListener('change', function() {
+            const filterValue = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#salesTable tr');
+            
+            rows.forEach(row => {
+                if (filterValue === '') {
+                    row.style.display = '';
+                } else {
+                    const payment = row.cells[7].textContent.toLowerCase();
+                    row.style.display = payment.includes(filterValue) ? '' : 'none';
+                }
+            });
+        });
+
+        // Filter by date
+        document.getElementById('filterDate').addEventListener('change', function() {
+            const filterDate = this.value;
+            const rows = document.querySelectorAll('#salesTable tr');
+            
+            if (!filterDate) {
+                rows.forEach(row => row.style.display = '');
+                return;
+            }
+            
+            const [year, month, day] = filterDate.split('-');
+            const formattedDate = `${day}/${month}/${year}`;
+            
+            rows.forEach(row => {
+                const rowDate = row.cells[1].textContent;
+                row.style.display = rowDate === formattedDate ? '' : 'none';
+            });
+        });
+
+        // Export functionality
+        document.getElementById('exportBtn').addEventListener('click', function() {
+            alert('Sales data export functionality coming soon!');
+        });
+
+        // Logout
+        document.querySelector('.logout-btn').addEventListener('click', function() {
+            if (confirm('Are you sure you want to logout?')) {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+</body>
+</html>
