@@ -146,15 +146,14 @@
 
     <script>
         // Sample produce data (would typically come from backend)
+        // KGL deals only in: Beans, Grain Maize, Cow peas, G-nuts, Soybeans
         const produceData = [
-            { id: 1, name: 'Maize', category: 'Cereals', price: 1800, stock: 5000, unit: 'kg' },
-            { id: 2, name: 'Beans (Red)', category: 'Legumes', price: 2400, stock: 450, unit: 'kg' },
-            { id: 3, name: 'Beans (White)', category: 'Legumes', price: 2600, stock: 800, unit: 'kg' },
-            { id: 4, name: 'Rice', category: 'Cereals', price: 4000, stock: 2000, unit: 'kg' },
-            { id: 5, name: 'Groundnuts', category: 'Legumes', price: 5000, stock: 280, unit: 'kg' },
-            { id: 6, name: 'Wheat', category: 'Cereals', price: 2500, stock: 1500, unit: 'kg' },
-            { id: 7, name: 'Sorghum', category: 'Cereals', price: 2200, stock: 900, unit: 'kg' },
-            { id: 8, name: 'Millet', category: 'Cereals', price: 2300, stock: 750, unit: 'kg' }
+            { id: 1, name: 'Grain Maize', category: 'Cereals', price: 1800, stock: 5000, unit: 'kg' },
+            { id: 2, name: 'Beans (Red)', category: 'Legumes', price: 2400, stock: 3450, unit: 'kg' },
+            { id: 3, name: 'Beans (White)', category: 'Legumes', price: 2600, stock: 2800, unit: 'kg' },
+            { id: 4, name: 'Cow Peas', category: 'Legumes', price: 2300, stock: 1800, unit: 'kg' },
+            { id: 5, name: 'G-nuts (Groundnuts)', category: 'Legumes', price: 5000, stock: 2280, unit: 'kg' },
+            { id: 6, name: 'Soybeans', category: 'Legumes', price: 2700, stock: 1950, unit: 'kg' }
         ];
 
         let itemCounter = 0;
