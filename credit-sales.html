@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KGL - Credit Sales Management</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <h1 class="logo">KGL</h1>
+            <span class="separator">|</span>
+            <span class="user-info">Manager: <strong id="managerName">John Doe</strong></span>
+            <span class="separator">|</span>
+            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></span>
+        </div>
+        <div class="header-right">
+            <button class="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="manager-dashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a href="procure.html">Procure</a>
+            </li>
+            <li class="nav-item">
+                <a href="stock.html">Stock</a>
+            </li>
+            <li class="nav-item">
+                <a href="sales.html">Sales</a>
+            </li>
+            <li class="nav-item">
+                <a href="prices.html">Prices</a>
+            </li>
+            <li class="nav-item active">
+                <a href="credit-sales.html">Credit Sales</a>
+            </li>
+            <li class="nav-item">
+                <a href="reports.html">Reports</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h2>Credit Sales Management</h2>
+            <p class="subtitle">Track and manage credit sales and payments</p>
+        </div>
+
+        <!-- Credit Summary Cards -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <div class="stat-icon credit-icon">💳</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Total Outstanding</h3>
+                    <p class="stat-value" id="totalOutstanding">UGX 4,500,000</p>
+                    <span class="stat-label">All Credit Sales</span>
+                </div>
+            </div>
+
+            <div class="stat-card alert-card">
+                <div class="stat-icon alert-icon">⚠️</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Overdue</h3>
+                    <p class="stat-value" id="overdueAmount">UGX 800,000</p>
+                    <span class="stat-label">Past Due Date</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon sales-icon">✅</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Collected This Month</h3>
+                    <p class="stat-value" id="collectedMonth">UGX 2,200,000</p>
+                    <span class="stat-label">Payments Received</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon stock-icon">👥</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Active Customers</h3>
+                    <p class="stat-value" id="activeCustomers">12</p>
+                    <span class="stat-label">With Outstanding Balance</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Record Payment Form -->
+        <section class="form-section">
+            <div class="section-header" style="margin-bottom: 20px;">
+                <h2>Record Payment</h2>
+            </div>
+            <form id="paymentForm" class="procurement-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="customerSelect">Select Customer *</label>
+                        <select id="customerSelect" name="customerSelect" required>
+                            <option value="">Select customer</option>
+                            <option value="nakato">Nakato Foods Ltd - UGX 1,200,000</option>
+                            <option value="kampala">Kampala Groceries - UGX 800,000</option>
+                            <option value="buganda">Buganda Grain Co. - UGX 1,500,000</option>
+                            <option value="quality">Quality Foods Co. - UGX 450,000</option>
+                            <option value="ssemakula">Ssemakula Traders - UGX 550,000</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="outstandingBalance">Outstanding Balance</label>
+                        <input 
+                            type="text" 
+                            id="outstandingBalance" 
+                            name="outstandingBalance" 
+                            placeholder="Auto-filled"
+                            readonly
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="paymentAmount">Payment Amount (UGX) *</label>
+                        <input 
+                            type="number" 
+                            id="paymentAmount" 
+                            name="paymentAmount" 
+                            placeholder="Enter payment amount"
+                            step="1000"
+                            min="1000"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="remainingBalance">Remaining Balance</label>
+                        <input 
+                            type="text" 
+                            id="remainingBalance" 
+                            name="remainingBalance" 
+                            placeholder="Auto-calculated"
+                            readonly
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="paymentMethod">Payment Method *</label>
+                        <select id="paymentMethod" name="paymentMethod" required>
+                            <option value="">Select payment method</option>
+                            <option value="cash">Cash</option>
+                            <option value="mobile_money">Mobile Money</option>
+                            <option value="bank_transfer">Bank Transfer</option>
+                            <option value="cheque">Cheque</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="paymentDate">Payment Date *</label>
+                        <input 
+                            type="date" 
+                            id="paymentDate" 
+                            name="paymentDate" 
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="referenceNumber">Reference Number</label>
+                        <input 
+                            type="text" 
+                            id="referenceNumber" 
+                            name="referenceNumber" 
+                            placeholder="Transaction/Receipt reference"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="receivedBy">Received By *</label>
+                        <input 
+                            type="text" 
+                            id="receivedBy" 
+                            name="receivedBy" 
+                            value="John Doe"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="paymentNotes">Payment Notes</label>
+                        <textarea 
+                            id="paymentNotes" 
+                            name="paymentNotes" 
+                            rows="2"
+                            placeholder="Any additional notes about this payment"
+                        ></textarea>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="resetBtn">Reset Form</button>
+                    <button type="submit" class="btn-primary">Record Payment</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Outstanding Credit Sales -->
+        <section class="data-section">
+            <div class="section-header">
+                <h2>Outstanding Credit Sales</h2>
+                <div class="filter-controls">
+                    <input type="text" id="searchInput" placeholder="Search customer..." class="search-input">
+                    <select id="filterStatus" class="filter-select">
+                        <option value="">All Status</option>
+                        <option value="current">Current</option>
+                        <option value="overdue">Overdue</option>
+                        <option value="critical">Critical</option>
+                    </select>
+                    <button class="action-btn" id="exportBtn">📥 Export</button>
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Invoice #</th>
+                            <th>Customer Name</th>
+                            <th>Contact</th>
+                            <th>Sale Date</th>
+                            <th>Due Date</th>
+                            <th>Total Amount</th>
+                            <th>Paid Amount</th>
+                            <th>Balance</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="creditSalesTable">
+                        <tr>
+                            <td><strong>#INV-001</strong></td>
+                            <td>Nakato Foods Ltd</td>
+                            <td>0772 123 456</td>
+                            <td>05/01/2026</td>
+                            <td>05/02/2026</td>
+                            <td>UGX 1,500,000</td>
+                            <td>UGX 300,000</td>
+                            <td><strong>UGX 1,200,000</strong></td>
+                            <td><span class="status-badge pending">Current</span></td>
+                            <td>
+                                <button class="action-icon-btn record-payment" title="Record Payment">💰</button>
+                                <button class="action-icon-btn" title="View Details">👁️</button>
+                                <button class="action-icon-btn" title="Send Reminder">📧</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>#INV-002</strong></td>
+                            <td>Kampala Groceries</td>
+                            <td>0701 987 654</td>
+                            <td>02/01/2026</td>
+                            <td>07/01/2026</td>
+                            <td>UGX 800,000</td>
+                            <td>UGX 0</td>
+                            <td><strong>UGX 800,000</strong></td>
+                            <td><span class="status-badge error">Overdue</span></td>
+                            <td>
+                                <button class="action-icon-btn record-payment" title="Record Payment">💰</button>
+                                <button class="action-icon-btn" title="View Details">👁️</button>
+                                <button class="action-icon-btn" title="Send Reminder">📧</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>#INV-003</strong></td>
+                            <td>Buganda Grain Co.</td>
+                            <td>0755 246 810</td>
+                            <td>07/01/2026</td>
+                            <td>06/02/2026</td>
+                            <td>UGX 1,500,000</td>
+                            <td>UGX 0</td>
+                            <td><strong>UGX 1,500,000</strong></td>
+                            <td><span class="status-badge pending">Current</span></td>
+                            <td>
+                                <button class="action-icon-btn record-payment" title="Record Payment">💰</button>
+                                <button class="action-icon-btn" title="View Details">👁️</button>
+                                <button class="action-icon-btn" title="Send Reminder">📧</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>#INV-004</strong></td>
+                            <td>Quality Foods Co.</td>
+                            <td>0782 555 123</td>
+                            <td>06/01/2026</td>
+                            <td>05/02/2026</td>
+                            <td>UGX 650,000</td>
+                            <td>UGX 200,000</td>
+                            <td><strong>UGX 450,000</strong></td>
+                            <td><span class="status-badge pending">Current</span></td>
+                            <td>
+                                <button class="action-icon-btn record-payment" title="Record Payment">💰</button>
+                                <button class="action-icon-btn" title="View Details">👁️</button>
+                                <button class="action-icon-btn" title="Send Reminder">📧</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>#INV-005</strong></td>
+                            <td>Ssemakula Traders</td>
+                            <td>0712 888 999</td>
+                            <td>08/01/2026</td>
+                            <td>07/02/2026</td>
+                            <td>UGX 550,000</td>
+                            <td>UGX 0</td>
+                            <td><strong>UGX 550,000</strong></td>
+                            <td><span class="status-badge pending">Current</span></td>
+                            <td>
+                                <button class="action-icon-btn record-payment" title="Record Payment">💰</button>
+                                <button class="action-icon-btn" title="View Details">👁️</button>
+                                <button class="action-icon-btn" title="Send Reminder">📧</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Recent Payments -->
+        <section class="data-section">
+            <div class="section-header">
+                <h2>Recent Payments</h2>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Customer</th>
+                            <th>Invoice #</th>
+                            <th>Amount Paid</th>
+                            <th>Payment Method</th>
+                            <th>Reference</th>
+                            <th>Received By</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>09/01/2026</td>
+                            <td>Nakato Foods Ltd</td>
+                            <td>#INV-001</td>
+                            <td>UGX 300,000</td>
+                            <td>Bank Transfer</td>
+                            <td>TXN-2026-0109-001</td>
+                            <td>John Doe</td>
+                        </tr>
+                        <tr>
+                            <td>08/01/2026</td>
+                            <td>Quality Foods Co.</td>
+                            <td>#INV-004</td>
+                            <td>UGX 200,000</td>
+                            <td>Mobile Money</td>
+                            <td>MM-12345678</td>
+                            <td>John Doe</td>
+                        </tr>
+                        <tr>
+                            <td>06/01/2026</td>
+                            <td>Mukono Distributors</td>
+                            <td>#INV-012</td>
+                            <td>UGX 500,000</td>
+                            <td>Cash</td>
+                            <td>RCPT-001234</td>
+                            <td>John Doe</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Overdue Alerts -->
+        <section class="data-section">
+            <div class="section-header">
+                <h2>⚠️ Overdue Payments</h2>
+            </div>
+            <div class="alerts-section">
+                <div class="alert-box warning">
+                    <span class="alert-icon">⚠️</span>
+                    <div class="alert-content">
+                        <strong>Kampala Groceries</strong> - UGX 800,000 overdue by 2 days (Due: 07/01/2026)
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Set current date
+        document.getElementById('paymentDate').valueAsDate = new Date();
+
+        // Customer balance data
+        const customerBalances = {
+            'nakato': 1200000,
+            'kampala': 800000,
+            'buganda': 1500000,
+            'quality': 450000,
+            'ssemakula': 550000
+        };
+
+        // Update outstanding balance when customer is selected
+        document.getElementById('customerSelect').addEventListener('change', function() {
+            const customer = this.value;
+            const balanceInput = document.getElementById('outstandingBalance');
+            
+            if (customer && customerBalances[customer]) {
+                balanceInput.value = `UGX ${customerBalances[customer].toLocaleString()}`;
+            } else {
+                balanceInput.value = '';
+            }
+            
+            calculateRemainingBalance();
+        });
+
+        // Calculate remaining balance
+        function calculateRemainingBalance() {
+            const customer = document.getElementById('customerSelect').value;
+            const paymentAmount = parseFloat(document.getElementById('paymentAmount').value) || 0;
+            const remainingInput = document.getElementById('remainingBalance');
+            
+            if (customer && customerBalances[customer]) {
+                const outstanding = customerBalances[customer];
+                const remaining = outstanding - paymentAmount;
+                remainingInput.value = remaining >= 0 ? `UGX ${remaining.toLocaleString()}` : 'Overpayment';
+                
+                if (remaining < 0) {
+                    remainingInput.style.color = '#f44336';
+                } else {
+                    remainingInput.style.color = '#4caf50';
+                }
+            } else {
+                remainingInput.value = '';
+            }
+        }
+
+        document.getElementById('paymentAmount').addEventListener('input', calculateRemainingBalance);
+
+        // Form submission
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            console.log('Payment recorded:', data);
+            alert('Payment recorded successfully!');
+            
+            this.reset();
+            document.getElementById('paymentDate').valueAsDate = new Date();
+        });
+
+        // Reset button
+        document.getElementById('resetBtn').addEventListener('click', function() {
+            document.getElementById('paymentForm').reset();
+            document.getElementById('paymentDate').valueAsDate = new Date();
+        });
+
+        // Record payment from table
+        document.querySelectorAll('.record-payment').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const row = this.closest('tr');
+                const customer = row.cells[1].textContent;
+                
+                alert(`Recording payment for ${customer}`);
+                document.querySelector('.form-section').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#creditSalesTable tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        });
+
+        // Filter by status
+        document.getElementById('filterStatus').addEventListener('change', function() {
+            const filterValue = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#creditSalesTable tr');
+            
+            rows.forEach(row => {
+                if (filterValue === '') {
+                    row.style.display = '';
+                } else {
+                    const statusBadge = row.querySelector('.status-badge');
+                    if (statusBadge) {
+                        const status = statusBadge.textContent.toLowerCase();
+                        if (filterValue === 'overdue' && status.includes('overdue')) {
+                            row.style.display = '';
+                        } else if (filterValue === 'current' && status.includes('current')) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    }
+                }
+            });
+        });
+
+        // Export functionality
+        document.getElementById('exportBtn').addEventListener('click', function() {
+            alert('Credit sales data export functionality coming soon!');
+        });
+
+        // Logout
+        document.querySelector('.logout-btn').addEventListener('click', function() {
+            if (confirm('Are you sure you want to logout?')) {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+</body>
+</html>
