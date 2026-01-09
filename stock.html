@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KGL - Stock Management</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <h1 class="logo">KGL</h1>
+            <span class="separator">|</span>
+            <span class="user-info">Manager: <strong id="managerName">John Doe</strong></span>
+            <span class="separator">|</span>
+            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></span>
+        </div>
+        <div class="header-right">
+            <button class="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="manager-dashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a href="procure.html">Procure</a>
+            </li>
+            <li class="nav-item active">
+                <a href="stock.html">Stock</a>
+            </li>
+            <li class="nav-item">
+                <a href="sales.html">Sales</a>
+            </li>
+            <li class="nav-item">
+                <a href="prices.html">Prices</a>
+            </li>
+            <li class="nav-item">
+                <a href="credit-sales.html">Credit Sales</a>
+            </li>
+            <li class="nav-item">
+                <a href="reports.html">Reports</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h2>Stock Management</h2>
+            <p class="subtitle">Monitor and manage inventory levels</p>
+        </div>
+
+        <!-- Stock Summary Cards -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <div class="stat-icon stock-icon">📦</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Total Stock</h3>
+                    <p class="stat-value" id="totalStock">15.5T</p>
+                    <span class="stat-label">All Produce Types</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon sales-icon">✅</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Adequate Stock</h3>
+                    <p class="stat-value" id="adequateStock">6</p>
+                    <span class="stat-label">Items Above Threshold</span>
+                </div>
+            </div>
+
+            <div class="stat-card alert-card">
+                <div class="stat-icon alert-icon">⚠️</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Low Stock</h3>
+                    <p class="stat-value" id="lowStock">2</p>
+                    <span class="stat-label">Items Need Restocking</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon credit-icon">📊</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Stock Value</h3>
+                    <p class="stat-value" id="stockValue">UGX 45M</p>
+                    <span class="stat-label">Total Inventory Value</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stock Table -->
+        <section class="data-section">
+            <div class="section-header">
+                <h2>Current Stock Levels</h2>
+                <div class="filter-controls">
+                    <input type="text" id="searchInput" placeholder="Search produce..." class="search-input">
+                    <select id="filterStatus" class="filter-select">
+                        <option value="">All Status</option>
+                        <option value="adequate">Adequate</option>
+                        <option value="low">Low Stock</option>
+                        <option value="critical">Critical</option>
+                    </select>
+                    <button class="action-btn" id="exportBtn">📥 Export</button>
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Produce Type</th>
+                            <th>Variety</th>
+                            <th>Current Stock (kg)</th>
+                            <th>Min. Threshold (kg)</th>
+                            <th>Unit Price (UGX/kg)</th>
+                            <th>Stock Value (UGX)</th>
+                            <th>Status</th>
+                            <th>Last Updated</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stockTable">
+                        <tr>
+                            <td><strong>Maize</strong></td>
+                            <td>Yellow Maize</td>
+                            <td>3,500</td>
+                            <td>500</td>
+                            <td>1,600</td>
+                            <td>5,600,000</td>
+                            <td><span class="status-badge success">Adequate</span></td>
+                            <td>09/01/2026</td>
+                            <td>
+                                <button class="action-icon-btn" title="View Details">👁️</button>
+                                <button class="action-icon-btn" title="Adjust Stock">✏️</button>
+                                <button class="action-icon-btn" title="History">📜</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Beans</strong></td>
+                            <td>Red Beans</td>
+                            <td>450</td>
+                            <td>500</td>
+                            <td>2,250</td>
+                            <td>1,012,500</td>
+                            <td><span class="status-badge warning">Low Stock</span></td>
+                            <td>09/01/2026</td>
+                            <td>
+                                <button class="action-icon-btn" title="View Details">👁️</button>
+                                <button class="action-icon-btn" title="Adjust Stock">✏️</button>
+                                <button class="action-icon-btn" title="History">📜</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rice</strong></td>
+                            <td>Sindano</td>
+                            <td>2,800</td>
+                            <td>400</td>
+                            <td>3,800</td>
+                            <td>10,640,000</td>
+                            <td><span class="status-badge success">Adequate</span></td>
+                            <td>08/01/2026</td>
+                            <td>
+                                <button class="action-icon-btn" title="View Details">👁️</button>
+                                <button class="action-icon-btn" title="Adjust Stock">✏️</button>
+                                <button class="action-icon-btn" title="History">📜</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wheat</strong></td>
+                            <td>Hard Red</td>
+                            <td>1,200</td>
+                            <td>300</td>
+                            <td>2,200</td>
+                            <td>2,640,000</td>
+                            <td><span class="status-badge success">Adequate</span></td>
+                            <td>08/01/2026</td>
+                            <td>
+                                <button class="action-icon-btn" title="View Details">👁️</button>
+                                <button class="action-icon-btn" title="Adjust Stock">✏️</button>
+                                <button class="action-icon-btn" title="History">📜</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Groundnuts</strong></td>
+                            <td>Roasted</td>
+                            <td>280</td>
+                            <td>300</td>
+                            <td>4,500</td>
+                            <td>1,260,000</td>
+                            <td><span class="status-badge warning">Low Stock</span></td>
+                            <td>09/01/2026</td>
+                            <td>
+                                <button class="action-icon-btn" title="View Details">👁️</button>
+                                <button class="action-icon-btn" title="Adjust Stock">✏️</button>
+                                <button class="action-icon-btn" title="History">📜</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Soybeans</strong></td>
+                            <td>Organic</td>
+                            <td>1,800</td>
+                            <td>400</td>
+                            <td>2,800</td>
+                            <td>5,040,000</td>
+                            <td><span class="status-badge success">Adequate</span></td>
+                            <td>08/01/2026</td>
+                            <td>
+                                <button class="action-icon-btn" title="View Details">👁️</button>
+                                <button class="action-icon-btn" title="Adjust Stock">✏️</button>
+                                <button class="action-icon-btn" title="History">📜</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sorghum</strong></td>
+                            <td>White</td>
+                            <td>950</td>
+                            <td>200</td>
+                            <td>1,800</td>
+                            <td>1,710,000</td>
+                            <td><span class="status-badge success">Adequate</span></td>
+                            <td>07/01/2026</td>
+                            <td>
+                                <button class="action-icon-btn" title="View Details">👁️</button>
+                                <button class="action-icon-btn" title="Adjust Stock">✏️</button>
+                                <button class="action-icon-btn" title="History">📜</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Millet</strong></td>
+                            <td>Pearl</td>
+                            <td>720</td>
+                            <td>250</td>
+                            <td>2,000</td>
+                            <td>1,440,000</td>
+                            <td><span class="status-badge success">Adequate</span></td>
+                            <td>07/01/2026</td>
+                            <td>
+                                <button class="action-icon-btn" title="View Details">👁️</button>
+                                <button class="action-icon-btn" title="Adjust Stock">✏️</button>
+                                <button class="action-icon-btn" title="History">📜</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Low Stock Alerts -->
+        <section class="data-section">
+            <div class="section-header">
+                <h2>⚠️ Low Stock Alerts</h2>
+            </div>
+            <div class="alerts-section">
+                <div class="alert-box warning">
+                    <span class="alert-icon">⚠️</span>
+                    <div class="alert-content">
+                        <strong>Beans (Red Beans):</strong> Current stock 450 kg is below minimum threshold of 500 kg. Restock needed urgently.
+                    </div>
+                </div>
+                <div class="alert-box warning">
+                    <span class="alert-icon">⚠️</span>
+                    <div class="alert-content">
+                        <strong>Groundnuts (Roasted):</strong> Current stock 280 kg is below minimum threshold of 300 kg. Restock needed urgently.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stock Adjustment Modal (Hidden by default) -->
+        <div id="adjustModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Adjust Stock</h3>
+                    <button class="close-btn" id="closeModal">&times;</button>
+                </div>
+                <form id="adjustStockForm" class="modal-form">
+                    <div class="form-group">
+                        <label for="adjustProduce">Produce</label>
+                        <input type="text" id="adjustProduce" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="adjustType">Adjustment Type *</label>
+                        <select id="adjustType" required>
+                            <option value="">Select adjustment type</option>
+                            <option value="add">Add Stock</option>
+                            <option value="remove">Remove Stock</option>
+                            <option value="correction">Stock Correction</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="adjustQuantity">Quantity (kg) *</label>
+                        <input type="number" id="adjustQuantity" step="0.01" min="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="adjustReason">Reason *</label>
+                        <textarea id="adjustReason" rows="3" required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" id="cancelBtn">Cancel</button>
+                        <button type="submit" class="btn-primary">Submit Adjustment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#stockTable tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        });
+
+        // Filter by status
+        document.getElementById('filterStatus').addEventListener('change', function() {
+            const filterValue = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#stockTable tr');
+            
+            rows.forEach(row => {
+                if (filterValue === '') {
+                    row.style.display = '';
+                } else {
+                    const statusBadge = row.querySelector('.status-badge');
+                    if (statusBadge) {
+                        const status = statusBadge.textContent.toLowerCase();
+                        if (filterValue === 'low' && status.includes('low')) {
+                            row.style.display = '';
+                        } else if (filterValue === 'adequate' && status.includes('adequate')) {
+                            row.style.display = '';
+                        } else if (filterValue === 'critical' && status.includes('critical')) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    }
+                }
+            });
+        });
+
+        // Export functionality
+        document.getElementById('exportBtn').addEventListener('click', function() {
+            alert('Stock data export functionality coming soon!');
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('adjustModal');
+        const closeBtn = document.getElementById('closeModal');
+        const cancelBtn = document.getElementById('cancelBtn');
+
+        document.querySelectorAll('.action-icon-btn[title="Adjust Stock"]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const row = this.closest('tr');
+                const produce = row.cells[0].textContent + ' - ' + row.cells[1].textContent;
+                document.getElementById('adjustProduce').value = produce;
+                modal.style.display = 'flex';
+            });
+        });
+
+        closeBtn.addEventListener('click', () => modal.style.display = 'none');
+        cancelBtn.addEventListener('click', () => modal.style.display = 'none');
+
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Form submission
+        document.getElementById('adjustStockForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            console.log('Stock adjustment:', data);
+            alert('Stock adjustment submitted successfully!');
+            
+            modal.style.display = 'none';
+            this.reset();
+        });
+
+        // Logout
+        document.querySelector('.logout-btn').addEventListener('click', function() {
+            if (confirm('Are you sure you want to logout?')) {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+
+    <style>
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #999;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .close-btn:hover {
+            color: #333;
+        }
+
+        .modal-form {
+            padding: 25px;
+        }
+
+        .modal-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .modal-form .form-actions {
+            margin-top: 25px;
+            padding-top: 0;
+            border-top: none;
+        }
+    </style>
+</body>
+</html>
