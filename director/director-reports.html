@@ -288,44 +288,6 @@
         </section>
     </main>
 
-    <script>
-        function showCategory(category) {
-            alert('Showing ' + category + ' reports');
-        }
-
-        function generateReport(reportType) {
-            alert('Generating ' + reportType + ' report...');
-        }
-
-        function generateCustomReport() {
-            const reportType = document.getElementById('reportType').value;
-            if (reportType === 'Choose report type...') {
-                alert('Please select a report type');
-                return;
-            }
-            alert('Generating custom report...');
-        }
-
-        function resetBuilder() {
-            document.getElementById('reportType').value = 'Choose report type...';
-        }
-
-        function downloadReport(id) {
-            alert('Downloading report ' + id);
-        }
-
-        function viewReport(id) {
-            alert('Viewing report ' + id);
-        }
-
-        // Logout
-        document.querySelector('.logout-btn').addEventListener('click', function() {
-            if (confirm('Are you sure you want to logout?')) {
-                window.location.href = 'login.html';
-            }
-        });
-    </script>
-
     <style>
         .page-header {
             margin-bottom: 30px;
