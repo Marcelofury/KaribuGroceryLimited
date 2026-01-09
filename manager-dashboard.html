@@ -14,7 +14,7 @@
             <span class="separator">|</span>
             <span class="user-info">Manager: <strong id="managerName">John Doe</strong></span>
             <span class="separator">|</span>
-            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></span>
+            <span class="branch-info">Branch: <strong id="branchName">Branch A - Kampala</strong></span>
         </div>
         <div class="header-right">
             <button class="logout-btn">Logout</button>
@@ -28,16 +28,16 @@
                 <a href="manager-dashboard.html">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a href="procure.html">Procure</a>
+                <a href="procure.html">Procure Stock</a>
             </li>
             <li class="nav-item">
-                <a href="stock.html">Stock</a>
+                <a href="stock.html">View Stock</a>
             </li>
             <li class="nav-item">
-                <a href="sales.html">Sales</a>
+                <a href="sales.html">Record Sale</a>
             </li>
             <li class="nav-item">
-                <a href="prices.html">Prices</a>
+                <a href="prices.html">Manage Prices</a>
             </li>
             <li class="nav-item">
                 <a href="credit-sales.html">Credit Sales</a>
@@ -50,13 +50,18 @@
 
     <!-- Main Content -->
     <main class="main-content">
+        <div class="welcome-section">
+            <h2>Manager Dashboard - Branch A</h2>
+            <p class="subtitle">Manage branch operations, procurement, and sales</p>
+        </div>
+
         <!-- Stats Cards -->
         <section class="stats-section">
             <div class="stat-card">
                 <div class="stat-icon stock-icon">📦</div>
                 <div class="stat-info">
                     <h3 class="stat-title">Total Stock</h3>
-                    <p class="stat-value" id="totalStock">15.5T</p>
+                    <p class="stat-value" id="totalStock">17,280 kg</p>
                     <span class="stat-label">All Produce</span>
                 </div>
             </div>
@@ -65,27 +70,56 @@
                 <div class="stat-icon sales-icon">💰</div>
                 <div class="stat-info">
                     <h3 class="stat-title">Today's Sales</h3>
-                    <p class="stat-value" id="todaySales">UGX 5,000,000</p>
-                    <span class="stat-label">Total Revenue</span>
+                    <p class="stat-value" id="todaySales">UGX 4,200,000</p>
+                    <span class="stat-label">12 Transactions</span>
                 </div>
             </div>
 
             <div class="stat-card alert-card">
                 <div class="stat-icon alert-icon">⚠️</div>
                 <div class="stat-info">
-                    <h3 class="stat-title">Low Stock</h3>
-                    <p class="stat-value" id="lowStock">2</p>
-                    <span class="stat-label">Items Need Restocking</span>
+                    <h3 class="stat-title">Low Stock Alert</h3>
+                    <p class="stat-value" id="lowStock">0</p>
+                    <span class="stat-label">Items Below 1000kg</span>
                 </div>
             </div>
 
             <div class="stat-card">
                 <div class="stat-icon credit-icon">📋</div>
                 <div class="stat-info">
-                    <h3 class="stat-title">Credit Sales</h3>
-                    <p class="stat-value" id="creditAmount">UGX 1,200,000</p>
-                    <span class="stat-label">Outstanding</span>
+                    <h3 class="stat-title">Credit Outstanding</h3>
+                    <p class="stat-value" id="creditAmount">UGX 2,800,000</p>
+                    <span class="stat-label">5 Customers</span>
                 </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="data-section">
+            <div class="section-header">
+                <h2>Quick Actions</h2>
+            </div>
+            <div class="quick-actions-grid">
+                <a href="procure.html" class="quick-action-card">
+                    <div class="action-icon">📥</div>
+                    <h3>Procure Stock</h3>
+                    <p>Record new produce procurement</p>
+                </a>
+                <a href="sales.html" class="quick-action-card">
+                    <div class="action-icon">🛒</div>
+                    <h3>Make Sale</h3>
+                    <p>Record a customer sale</p>
+                </a>
+                <a href="prices.html" class="quick-action-card">
+                    <div class="action-icon">💵</div>
+                    <h3>Set Prices</h3>
+                    <p>Update selling prices</p>
+                </a>
+                <a href="stock.html" class="quick-action-card">
+                    <div class="action-icon">📊</div>
+                    <h3>View Stock</h3>
+                    <p>Check stock levels</p>
+                </a>
             </div>
         </section>
 
@@ -93,11 +127,302 @@
         <section class="data-section">
             <div class="section-header">
                 <h2>Recent Procurements</h2>
-                <button class="action-btn">View All</button>
+                <a href="procure.html" class="action-btn">+ Add New</a>
             </div>
             <div class="table-container">
                 <table class="data-table">
                     <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Produce</th>
+                            <th>Quantity (kg)</th>
+                            <th>Cost (UGX)</th>
+                            <th>Dealer</th>
+                            <th>Contact</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>2026-01-09</td>
+                            <td>10:30 AM</td>
+                            <td><strong>Grain Maize</strong></td>
+                            <td>2,000</td>
+                            <td>3,200,000</td>
+                            <td>Paul Musoke</td>
+                            <td>+256 700 111 222</td>
+                        </tr>
+                        <tr>
+                            <td>2026-01-08</td>
+                            <td>02:15 PM</td>
+                            <td><strong>Beans (Red)</strong></td>
+                            <td>1,500</td>
+                            <td>3,300,000</td>
+                            <td>KGL Farm - Maganjo</td>
+                            <td>+256 700 333 444</td>
+                        </tr>
+                        <tr>
+                            <td>2026-01-08</td>
+                            <td>11:00 AM</td>
+                            <td><strong>G-nuts</strong></td>
+                            <td>1,000</td>
+                            <td>4,500,000</td>
+                            <td>Martha Nakato</td>
+                            <td>+256 700 555 666</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Today's Sales Summary -->
+        <section class="data-section">
+            <div class="section-header">
+                <h2>Today's Sales</h2>
+                <a href="sales.html" class="action-btn">View All</a>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Produce</th>
+                            <th>Quantity (kg)</th>
+                            <th>Amount (UGX)</th>
+                            <th>Buyer</th>
+                            <th>Sales Agent</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>02:45 PM</td>
+                            <td>Grain Maize</td>
+                            <td>500</td>
+                            <td>900,000</td>
+                            <td>David Okello</td>
+                            <td>Jane Smith</td>
+                            <td><span class="badge-cash">Cash</span></td>
+                        </tr>
+                        <tr>
+                            <td>01:30 PM</td>
+                            <td>Beans (White)</td>
+                            <td>300</td>
+                            <td>780,000</td>
+                            <td>Grace Nalubega</td>
+                            <td>Mike Opio</td>
+                            <td><span class="badge-mobile">Mobile</span></td>
+                        </tr>
+                        <tr>
+                            <td>11:15 AM</td>
+                            <td>Soybeans</td>
+                            <td>400</td>
+                            <td>1,080,000</td>
+                            <td>Peter Ssali</td>
+                            <td>Jane Smith</td>
+                            <td><span class="badge-credit">Credit</span></td>
+                        </tr>
+                        <tr>
+                            <td>09:00 AM</td>
+                            <td>Cow Peas</td>
+                            <td>250</td>
+                            <td>575,000</td>
+                            <td>Sarah Auma</td>
+                            <td>Mike Opio</td>
+                            <td><span class="badge-cash">Cash</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Current Stock Levels -->
+        <section class="data-section">
+            <div class="section-header">
+                <h2>Current Stock Levels</h2>
+                <a href="stock.html" class="action-btn">View Details</a>
+            </div>
+            <div class="stock-grid">
+                <div class="stock-item">
+                    <h4>Grain Maize</h4>
+                    <p class="stock-amount">5,000 kg</p>
+                    <span class="stock-status good">Sufficient</span>
+                </div>
+                <div class="stock-item">
+                    <h4>Beans (Red)</h4>
+                    <p class="stock-amount">3,450 kg</p>
+                    <span class="stock-status good">Sufficient</span>
+                </div>
+                <div class="stock-item">
+                    <h4>Beans (White)</h4>
+                    <p class="stock-amount">2,800 kg</p>
+                    <span class="stock-status good">Sufficient</span>
+                </div>
+                <div class="stock-item">
+                    <h4>Cow Peas</h4>
+                    <p class="stock-amount">1,800 kg</p>
+                    <span class="stock-status good">Sufficient</span>
+                </div>
+                <div class="stock-item">
+                    <h4>G-nuts</h4>
+                    <p class="stock-amount">2,280 kg</p>
+                    <span class="stock-status good">Sufficient</span>
+                </div>
+                <div class="stock-item">
+                    <h4>Soybeans</h4>
+                    <p class="stock-amount">1,950 kg</p>
+                    <span class="stock-status good">Sufficient</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Logout functionality
+        document.querySelector('.logout-btn').addEventListener('click', function() {
+            if (confirm('Are you sure you want to logout?')) {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+
+    <style>
+        .welcome-section {
+            margin-bottom: 30px;
+        }
+
+        .welcome-section h2 {
+            font-size: 26px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .welcome-section .subtitle {
+            font-size: 15px;
+            color: #666;
+        }
+
+        .quick-actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .quick-action-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s;
+        }
+
+        .quick-action-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border-color: #4a7c2c;
+        }
+
+        .action-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .quick-action-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .quick-action-card p {
+            font-size: 13px;
+            color: #666;
+            margin: 0;
+        }
+
+        .badge-cash {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-mobile {
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .badge-credit {
+            background: #fff3e0;
+            color: #e65100;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .stock-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stock-item {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stock-item h4 {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .stock-amount {
+            font-size: 22px;
+            font-weight: 700;
+            color: #4a7c2c;
+            margin: 10px 0;
+        }
+
+        .stock-status {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .stock-status.good {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .stock-status.low {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .stock-status.out {
+            background: #ffebee;
+            color: #c62828;
+        }
+    </style>
+</body>
+</html>
                         <tr>
                             <th>Date</th>
                             <th>Produce</th>
