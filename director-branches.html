@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KGL - Branch Management</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <h1 class="logo">KGL</h1>
+            <span class="separator">|</span>
+            <span class="user-info">Director: <strong id="directorName">James Mwesigwa</strong></span>
+            <span class="separator">|</span>
+            <span class="branch-info">View: <strong id="viewMode">All Branches</strong></span>
+        </div>
+        <div class="header-right">
+            <button class="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="director-dashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item active">
+                <a href="director-branches.html">Branches</a>
+            </li>
+            <li class="nav-item">
+                <a href="director-financial.html">Financial</a>
+            </li>
+            <li class="nav-item">
+                <a href="director-performance.html">Performance</a>
+            </li>
+            <li class="nav-item">
+                <a href="director-reports.html">Reports</a>
+            </li>
+            <li class="nav-item">
+                <a href="director-settings.html">Settings</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h2>🏢 Branch Management</h2>
+            <p class="subtitle">Monitor and manage all branch operations</p>
+        </div>
+
+        <!-- Branch Overview Cards -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <div class="stat-icon branch-icon">🏢</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Total Branches</h3>
+                    <p class="stat-value" id="totalBranches">3</p>
+                    <span class="stat-label">Active locations</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon sales-icon">💰</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Combined Sales</h3>
+                    <p class="stat-value" id="combinedSales">UGX 145M</p>
+                    <span class="stat-label">This month</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon staff-icon">👥</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Total Staff</h3>
+                    <p class="stat-value" id="totalStaff">38</p>
+                    <span class="stat-label">All employees</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon performance-icon">📊</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Avg Performance</h3>
+                    <p class="stat-value" id="avgPerformance">102%</p>
+                    <span class="stat-label">Target achievement</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Branch Cards -->
+        <section class="data-section">
+            <div class="section-header">
+                <h2>Branch Details</h2>
+                <button class="action-btn" onclick="showAddBranchModal()">+ Add New Branch</button>
+            </div>
+
+            <div class="branch-grid">
+                <!-- Branch A Card -->
+                <div class="branch-card">
+                    <div class="branch-header">
+                        <div class="branch-title-section">
+                            <h3>Branch A - Kampala</h3>
+                            <span class="status-badge success">Active</span>
+                        </div>
+                        <button class="btn-icon" onclick="viewBranchDetails('A')">👁️</button>
+                    </div>
+                    
+                    <div class="branch-info-section">
+                        <div class="info-row">
+                            <span class="info-label">📍 Location:</span>
+                            <span class="info-value">Plot 45, Nakasero Road</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">👤 Manager:</span>
+                            <span class="info-value">John Doe</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">📞 Phone:</span>
+                            <span class="info-value">+256 700 123 456</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">👥 Staff:</span>
+                            <span class="info-value">15 employees</span>
+                        </div>
+                    </div>
+
+                    <div class="branch-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Monthly Sales</span>
+                            <span class="metric-value">UGX 52M</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Target Achievement</span>
+                            <span class="metric-value achievement-good">104%</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Stock Value</span>
+                            <span class="metric-value">UGX 35M</span>
+                        </div>
+                    </div>
+
+                    <div class="branch-actions">
+                        <button class="btn-secondary" onclick="window.location.href='manager-dashboard.html?branch=A'">View Dashboard</button>
+                        <button class="btn-primary" onclick="editBranch('A')">Edit</button>
+                    </div>
+                </div>
+
+                <!-- Branch B Card -->
+                <div class="branch-card">
+                    <div class="branch-header">
+                        <div class="branch-title-section">
+                            <h3>Branch B - Entebbe</h3>
+                            <span class="status-badge success">Active</span>
+                        </div>
+                        <button class="btn-icon" onclick="viewBranchDetails('B')">👁️</button>
+                    </div>
+                    
+                    <div class="branch-info-section">
+                        <div class="info-row">
+                            <span class="info-label">📍 Location:</span>
+                            <span class="info-value">Entebbe Road, KM 12</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">👤 Manager:</span>
+                            <span class="info-value">Sarah Nakato</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">📞 Phone:</span>
+                            <span class="info-value">+256 700 234 567</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">👥 Staff:</span>
+                            <span class="info-value">12 employees</span>
+                        </div>
+                    </div>
+
+                    <div class="branch-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Monthly Sales</span>
+                            <span class="metric-value">UGX 48M</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Target Achievement</span>
+                            <span class="metric-value achievement-excellent">107%</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Stock Value</span>
+                            <span class="metric-value">UGX 28M</span>
+                        </div>
+                    </div>
+
+                    <div class="branch-actions">
+                        <button class="btn-secondary" onclick="window.location.href='manager-dashboard.html?branch=B'">View Dashboard</button>
+                        <button class="btn-primary" onclick="editBranch('B')">Edit</button>
+                    </div>
+                </div>
+
+                <!-- Branch C Card -->
+                <div class="branch-card">
+                    <div class="branch-header">
+                        <div class="branch-title-section">
+                            <h3>Branch C - Jinja</h3>
+                            <span class="status-badge warning">Needs Attention</span>
+                        </div>
+                        <button class="btn-icon" onclick="viewBranchDetails('C')">👁️</button>
+                    </div>
+                    
+                    <div class="branch-info-section">
+                        <div class="info-row">
+                            <span class="info-label">📍 Location:</span>
+                            <span class="info-value">Main Street, Jinja</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">👤 Manager:</span>
+                            <span class="info-value">Moses Ssemakula</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">📞 Phone:</span>
+                            <span class="info-value">+256 700 345 678</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">👥 Staff:</span>
+                            <span class="info-value">11 employees</span>
+                        </div>
+                    </div>
+
+                    <div class="branch-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Monthly Sales</span>
+                            <span class="metric-value">UGX 45M</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Target Achievement</span>
+                            <span class="metric-value achievement-warning">94%</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Stock Value</span>
+                            <span class="metric-value">UGX 26M</span>
+                        </div>
+                    </div>
+
+                    <div class="branch-actions">
+                        <button class="btn-secondary" onclick="window.location.href='manager-dashboard.html?branch=C'">View Dashboard</button>
+                        <button class="btn-primary" onclick="editBranch('C')">Edit</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Branch Comparison Table -->
+        <section class="data-section">
+            <div class="section-header">
+                <h2>Branch Comparison</h2>
+                <select class="filter-select" id="periodFilter">
+                    <option>This Month</option>
+                    <option>Last Month</option>
+                    <option>This Quarter</option>
+                    <option>This Year</option>
+                </select>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Branch</th>
+                            <th>Sales</th>
+                            <th>Target</th>
+                            <th>Achievement</th>
+                            <th>Transactions</th>
+                            <th>Avg Transaction</th>
+                            <th>Stock Turnover</th>
+                            <th>Profit Margin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Branch A - Kampala</strong></td>
+                            <td>UGX 52M</td>
+                            <td>UGX 50M</td>
+                            <td><span class="achievement-badge excellent">104%</span></td>
+                            <td>1,245</td>
+                            <td>UGX 41,767</td>
+                            <td>2.8x</td>
+                            <td class="profit-high">14.2%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Branch B - Entebbe</strong></td>
+                            <td>UGX 48M</td>
+                            <td>UGX 45M</td>
+                            <td><span class="achievement-badge excellent">107%</span></td>
+                            <td>1,120</td>
+                            <td>UGX 42,857</td>
+                            <td>3.2x</td>
+                            <td class="profit-high">15.8%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Branch C - Jinja</strong></td>
+                            <td>UGX 45M</td>
+                            <td>UGX 48M</td>
+                            <td><span class="achievement-badge good">94%</span></td>
+                            <td>1,050</td>
+                            <td>UGX 42,857</td>
+                            <td>2.5x</td>
+                            <td class="profit-medium">12.5%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Branch Details Modal -->
+    <div class="modal" id="branchDetailModal" style="display: none;">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2 id="modalBranchName">Branch Details</h2>
+                <button class="close-btn" onclick="closeBranchDetail()">×</button>
+            </div>
+            <div class="modal-body" id="branchDetailContent">
+                <!-- Branch details will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function viewBranchDetails(branchId) {
+            const branchData = {
+                'A': {
+                    name: 'Branch A - Kampala',
+                    location: 'Plot 45, Nakasero Road, Kampala',
+                    manager: 'John Doe',
+                    phone: '+256 700 123 456',
+                    email: 'kampala@kgl.co.ug',
+                    staff: 15,
+                    sales: '52M',
+                    target: '50M',
+                    achievement: '104%',
+                    stock: '35M',
+                    profit: '14.2%',
+                    opened: 'Jan 2020'
+                },
+                'B': {
+                    name: 'Branch B - Entebbe',
+                    location: 'Entebbe Road, KM 12',
+                    manager: 'Sarah Nakato',
+                    phone: '+256 700 234 567',
+                    email: 'entebbe@kgl.co.ug',
+                    staff: 12,
+                    sales: '48M',
+                    target: '45M',
+                    achievement: '107%',
+                    stock: '28M',
+                    profit: '15.8%',
+                    opened: 'Jun 2020'
+                },
+                'C': {
+                    name: 'Branch C - Jinja',
+                    location: 'Main Street, Jinja',
+                    manager: 'Moses Ssemakula',
+                    phone: '+256 700 345 678',
+                    email: 'jinja@kgl.co.ug',
+                    staff: 11,
+                    sales: '45M',
+                    target: '48M',
+                    achievement: '94%',
+                    stock: '26M',
+                    profit: '12.5%',
+                    opened: 'Mar 2021'
+                }
+            };
+
+            const branch = branchData[branchId];
+            document.getElementById('modalBranchName').textContent = branch.name;
+            
+            const content = `
+                <div class="detail-grid">
+                    <div class="detail-section">
+                        <h3>Branch Information</h3>
+                        <div class="detail-item">
+                            <span class="detail-label">Location:</span>
+                            <span class="detail-value">${branch.location}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Manager:</span>
+                            <span class="detail-value">${branch.manager}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Phone:</span>
+                            <span class="detail-value">${branch.phone}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Email:</span>
+                            <span class="detail-value">${branch.email}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Staff Count:</span>
+                            <span class="detail-value">${branch.staff} employees</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Opened:</span>
+                            <span class="detail-value">${branch.opened}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3>Performance Metrics</h3>
+                        <div class="detail-item">
+                            <span class="detail-label">Monthly Sales:</span>
+                            <span class="detail-value">UGX ${branch.sales}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Monthly Target:</span>
+                            <span class="detail-value">UGX ${branch.target}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Achievement:</span>
+                            <span class="detail-value"><strong>${branch.achievement}</strong></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Stock Value:</span>
+                            <span class="detail-value">UGX ${branch.stock}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Profit Margin:</span>
+                            <span class="detail-value">${branch.profit}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('branchDetailContent').innerHTML = content;
+            document.getElementById('branchDetailModal').style.display = 'flex';
+        }
+
+        function closeBranchDetail() {
+            document.getElementById('branchDetailModal').style.display = 'none';
+        }
+
+        function editBranch(branchId) {
+            alert('Edit functionality for Branch ' + branchId + ' would be implemented here');
+        }
+
+        function showAddBranchModal() {
+            alert('Add new branch functionality would be implemented here');
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('branchDetailModal');
+            if (event.target === modal) {
+                closeBranchDetail();
+            }
+        };
+
+        // Logout
+        document.querySelector('.logout-btn').addEventListener('click', function() {
+            if (confirm('Are you sure you want to logout?')) {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+
+    <style>
+        .page-header {
+            margin-bottom: 30px;
+        }
+
+        .page-header h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .page-header .subtitle {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Branch Grid */
+        .branch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .branch-card {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 0;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .branch-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border-color: #4a7c2c;
+        }
+
+        .branch-header {
+            background: linear-gradient(135deg, #4a7c2c 0%, #6ba83d 100%);
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .branch-title-section h3 {
+            margin: 0 0 8px 0;
+            font-size: 20px;
+        }
+
+        .branch-info-section {
+            padding: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .info-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .info-value {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .branch-metrics {
+            padding: 20px;
+            background: #fafafa;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .metric {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .metric-label {
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .metric-value {
+            font-size: 16px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .achievement-good {
+            color: #4caf50;
+        }
+
+        .achievement-excellent {
+            color: #2e7d32;
+        }
+
+        .achievement-warning {
+            color: #ff9800;
+        }
+
+        .branch-actions {
+            padding: 15px 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-secondary {
+            flex: 1;
+            padding: 10px 15px;
+            background: #f5f5f5;
+            color: #333;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .btn-primary {
+            flex: 1;
+            padding: 10px 15px;
+            background: #4a7c2c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #3a6322;
+        }
+
+        .btn-icon {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .btn-icon:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Achievement Badges */
+        .achievement-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .achievement-badge.excellent {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .achievement-badge.good {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+
+        /* Profit Colors */
+        .profit-high {
+            color: #4caf50;
+            font-weight: 600;
+        }
+
+        .profit-medium {
+            color: #ff9800;
+            font-weight: 600;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-content.large {
+            max-width: 900px;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 22px;
+            color: #333;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 30px;
+            color: #999;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            line-height: 1;
+        }
+
+        .close-btn:hover {
+            color: #333;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .detail-section {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .detail-section h3 {
+            font-size: 16px;
+            color: #4a7c2c;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #4a7c2c;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 12px;
+        }
+
+        .detail-label {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .detail-value {
+            font-size: 15px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* Stat Icons */
+        .branch-icon {
+            background: linear-gradient(135deg, #4a7c2c 0%, #6ba83d 100%);
+        }
+
+        .staff-icon {
+            background: linear-gradient(135deg, #2196f3 0%, #42a5f5 100%);
+        }
+
+        .performance-icon {
+            background: linear-gradient(135deg, #9c27b0 0%, #ba68c8 100%);
+        }
+
+        @media (max-width: 768px) {
+            .branch-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .branch-metrics {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>
