@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KGL - Make Sale</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <h1 class="logo">KGL</h1>
+            <span class="separator">|</span>
+            <span class="user-info">Sales Agent: <strong id="agentName">Jane Smith</strong></span>
+            <span class="separator">|</span>
+            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></span>
+        </div>
+        <div class="header-right">
+            <button class="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="sales-agent-dashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item active">
+                <a href="agent-make-sale.html">Make Sale</a>
+            </li>
+            <li class="nav-item">
+                <a href="agent-stock-view.html">Stock Availability</a>
+            </li>
+            <li class="nav-item">
+                <a href="agent-prices.html">Current Prices</a>
+            </li>
+            <li class="nav-item">
+                <a href="agent-my-sales.html">My Sales</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h2>🛒 Make a Sale</h2>
+            <p class="subtitle">Record a new customer transaction</p>
+        </div>
+
+        <!-- Sale Form -->
+        <div class="form-container">
+            <form id="saleForm" class="sale-form">
+                <!-- Customer Information -->
+                <div class="form-section">
+                    <h3 class="section-title">Customer Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="customerType">Customer Type <span class="required">*</span></label>
+                            <select id="customerType" required>
+                                <option value="">Select Customer Type</option>
+                                <option value="walk-in">Walk-in Customer</option>
+                                <option value="regular">Regular Customer</option>
+                                <option value="business">Business/Institution</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="customerNameGroup" style="display: none;">
+                            <label for="customerName">Customer Name</label>
+                            <input type="text" id="customerName" placeholder="Enter customer name">
+                        </div>
+                    </div>
+                    <div class="form-row" id="businessDetailsRow" style="display: none;">
+                        <div class="form-group">
+                            <label for="businessName">Business Name</label>
+                            <input type="text" id="businessName" placeholder="Enter business name">
+                        </div>
+                        <div class="form-group">
+                            <label for="customerPhone">Phone Number</label>
+                            <input type="tel" id="customerPhone" placeholder="0700000000">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sale Items -->
+                <div class="form-section">
+                    <h3 class="section-title">Sale Items</h3>
+                    <div id="saleItemsContainer">
+                        <!-- Sale items will be added here dynamically -->
+                    </div>
+                    <button type="button" class="btn-secondary" id="addItemBtn">+ Add Item</button>
+                </div>
+
+                <!-- Payment Information -->
+                <div class="form-section">
+                    <h3 class="section-title">Payment Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="paymentMethod">Payment Method <span class="required">*</span></label>
+                            <select id="paymentMethod" required>
+                                <option value="">Select Payment Method</option>
+                                <option value="cash">Cash</option>
+                                <option value="mobile">Mobile Money</option>
+                                <option value="bank">Bank Transfer</option>
+                                <option value="credit">Credit (On Account)</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="creditTermsGroup" style="display: none;">
+                            <label for="creditDays">Credit Terms (Days)</label>
+                            <input type="number" id="creditDays" placeholder="30" min="1" max="90">
+                        </div>
+                    </div>
+                    <div class="form-row" id="referenceRow" style="display: none;">
+                        <div class="form-group">
+                            <label for="paymentReference">Payment Reference/Transaction ID</label>
+                            <input type="text" id="paymentReference" placeholder="Enter reference number">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sale Summary -->
+                <div class="form-section sale-summary">
+                    <h3 class="section-title">Sale Summary</h3>
+                    <div class="summary-row">
+                        <span class="summary-label">Subtotal:</span>
+                        <span class="summary-value" id="subtotal">UGX 0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span class="summary-label">Tax (0%):</span>
+                        <span class="summary-value" id="tax">UGX 0</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span class="summary-label">Total Amount:</span>
+                        <span class="summary-value" id="totalAmount">UGX 0</span>
+                    </div>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" onclick="window.location.href='sales-agent-dashboard.html'">Cancel</button>
+                    <button type="submit" class="btn-primary">Complete Sale</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // Sample produce data (would typically come from backend)
+        const produceData = [
+            { id: 1, name: 'Maize', category: 'Cereals', price: 1800, stock: 5000, unit: 'kg' },
+            { id: 2, name: 'Beans (Red)', category: 'Legumes', price: 2400, stock: 450, unit: 'kg' },
+            { id: 3, name: 'Beans (White)', category: 'Legumes', price: 2600, stock: 800, unit: 'kg' },
+            { id: 4, name: 'Rice', category: 'Cereals', price: 4000, stock: 2000, unit: 'kg' },
+            { id: 5, name: 'Groundnuts', category: 'Legumes', price: 5000, stock: 280, unit: 'kg' },
+            { id: 6, name: 'Wheat', category: 'Cereals', price: 2500, stock: 1500, unit: 'kg' },
+            { id: 7, name: 'Sorghum', category: 'Cereals', price: 2200, stock: 900, unit: 'kg' },
+            { id: 8, name: 'Millet', category: 'Cereals', price: 2300, stock: 750, unit: 'kg' }
+        ];
+
+        let itemCounter = 0;
+        let saleItems = [];
+
+        // Customer type change handler
+        document.getElementById('customerType').addEventListener('change', function() {
+            const customerNameGroup = document.getElementById('customerNameGroup');
+            const businessDetailsRow = document.getElementById('businessDetailsRow');
+            
+            if (this.value === 'walk-in') {
+                customerNameGroup.style.display = 'none';
+                businessDetailsRow.style.display = 'none';
+            } else if (this.value === 'regular') {
+                customerNameGroup.style.display = 'block';
+                businessDetailsRow.style.display = 'none';
+            } else if (this.value === 'business') {
+                customerNameGroup.style.display = 'none';
+                businessDetailsRow.style.display = 'flex';
+            }
+        });
+
+        // Payment method change handler
+        document.getElementById('paymentMethod').addEventListener('change', function() {
+            const creditTermsGroup = document.getElementById('creditTermsGroup');
+            const referenceRow = document.getElementById('referenceRow');
+            
+            if (this.value === 'credit') {
+                creditTermsGroup.style.display = 'block';
+                referenceRow.style.display = 'none';
+            } else if (this.value === 'mobile' || this.value === 'bank') {
+                creditTermsGroup.style.display = 'none';
+                referenceRow.style.display = 'flex';
+            } else {
+                creditTermsGroup.style.display = 'none';
+                referenceRow.style.display = 'none';
+            }
+        });
+
+        // Add item button handler
+        document.getElementById('addItemBtn').addEventListener('click', function() {
+            addSaleItem();
+        });
+
+        function addSaleItem() {
+            itemCounter++;
+            const container = document.getElementById('saleItemsContainer');
+            
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'sale-item';
+            itemDiv.dataset.itemId = itemCounter;
+            
+            itemDiv.innerHTML = `
+                <div class="item-row">
+                    <div class="form-group flex-2">
+                        <label>Produce <span class="required">*</span></label>
+                        <select class="produce-select" required>
+                            <option value="">Select Produce</option>
+                            ${produceData.map(p => `
+                                <option value="${p.id}" data-price="${p.price}" data-stock="${p.stock}" data-unit="${p.unit}">
+                                    ${p.name} - UGX ${p.price.toLocaleString()}/${p.unit} (Stock: ${p.stock.toLocaleString()} ${p.unit})
+                                </option>
+                            `).join('')}
+                        </select>
+                    </div>
+                    <div class="form-group flex-1">
+                        <label>Quantity <span class="required">*</span></label>
+                        <input type="number" class="quantity-input" min="1" step="1" placeholder="0" required>
+                    </div>
+                    <div class="form-group flex-1">
+                        <label>Unit Price</label>
+                        <input type="text" class="unit-price" readonly placeholder="UGX 0">
+                    </div>
+                    <div class="form-group flex-1">
+                        <label>Amount</label>
+                        <input type="text" class="item-amount" readonly placeholder="UGX 0">
+                    </div>
+                    <div class="form-group flex-0">
+                        <label>&nbsp;</label>
+                        <button type="button" class="btn-remove" onclick="removeSaleItem(${itemCounter})">✕</button>
+                    </div>
+                </div>
+            `;
+            
+            container.appendChild(itemDiv);
+            
+            // Add event listeners for the new item
+            const produceSelect = itemDiv.querySelector('.produce-select');
+            const quantityInput = itemDiv.querySelector('.quantity-input');
+            const unitPriceInput = itemDiv.querySelector('.unit-price');
+            const itemAmountInput = itemDiv.querySelector('.item-amount');
+            
+            produceSelect.addEventListener('change', function() {
+                const selectedOption = this.options[this.selectedIndex];
+                const price = parseFloat(selectedOption.dataset.price) || 0;
+                const stock = parseFloat(selectedOption.dataset.stock) || 0;
+                const unit = selectedOption.dataset.unit || 'kg';
+                
+                unitPriceInput.value = price > 0 ? `UGX ${price.toLocaleString()}` : '';
+                quantityInput.max = stock;
+                quantityInput.placeholder = `Max: ${stock} ${unit}`;
+                
+                updateItemAmount(itemDiv);
+            });
+            
+            quantityInput.addEventListener('input', function() {
+                updateItemAmount(itemDiv);
+            });
+        }
+
+        function updateItemAmount(itemDiv) {
+            const produceSelect = itemDiv.querySelector('.produce-select');
+            const quantityInput = itemDiv.querySelector('.quantity-input');
+            const itemAmountInput = itemDiv.querySelector('.item-amount');
+            
+            const selectedOption = produceSelect.options[produceSelect.selectedIndex];
+            const price = parseFloat(selectedOption.dataset.price) || 0;
+            const quantity = parseFloat(quantityInput.value) || 0;
+            const stock = parseFloat(selectedOption.dataset.stock) || 0;
+            
+            if (quantity > stock) {
+                quantityInput.value = stock;
+                alert(`Only ${stock} units available in stock!`);
+            }
+            
+            const amount = price * quantity;
+            itemAmountInput.value = amount > 0 ? `UGX ${amount.toLocaleString()}` : '';
+            
+            updateSaleSummary();
+        }
+
+        function removeSaleItem(itemId) {
+            const itemDiv = document.querySelector(`[data-item-id="${itemId}"]`);
+            if (itemDiv) {
+                itemDiv.remove();
+                updateSaleSummary();
+            }
+        }
+
+        function updateSaleSummary() {
+            let subtotal = 0;
+            
+            document.querySelectorAll('.sale-item').forEach(itemDiv => {
+                const produceSelect = itemDiv.querySelector('.produce-select');
+                const quantityInput = itemDiv.querySelector('.quantity-input');
+                const selectedOption = produceSelect.options[produceSelect.selectedIndex];
+                const price = parseFloat(selectedOption.dataset.price) || 0;
+                const quantity = parseFloat(quantityInput.value) || 0;
+                
+                subtotal += price * quantity;
+            });
+            
+            const tax = 0; // No tax for now
+            const total = subtotal + tax;
+            
+            document.getElementById('subtotal').textContent = `UGX ${subtotal.toLocaleString()}`;
+            document.getElementById('tax').textContent = `UGX ${tax.toLocaleString()}`;
+            document.getElementById('totalAmount').textContent = `UGX ${total.toLocaleString()}`;
+        }
+
+        // Form submission
+        document.getElementById('saleForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const saleItemDivs = document.querySelectorAll('.sale-item');
+            if (saleItemDivs.length === 0) {
+                alert('Please add at least one item to the sale');
+                return;
+            }
+            
+            // Collect sale data
+            const saleData = {
+                customerType: document.getElementById('customerType').value,
+                customerName: document.getElementById('customerName').value,
+                businessName: document.getElementById('businessName').value,
+                customerPhone: document.getElementById('customerPhone').value,
+                paymentMethod: document.getElementById('paymentMethod').value,
+                paymentReference: document.getElementById('paymentReference').value,
+                creditDays: document.getElementById('creditDays').value,
+                items: [],
+                subtotal: 0,
+                total: 0,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Collect items
+            saleItemDivs.forEach(itemDiv => {
+                const produceSelect = itemDiv.querySelector('.produce-select');
+                const quantityInput = itemDiv.querySelector('.quantity-input');
+                const selectedOption = produceSelect.options[produceSelect.selectedIndex];
+                
+                const item = {
+                    produceId: selectedOption.value,
+                    produceName: selectedOption.textContent.split(' - ')[0],
+                    quantity: parseFloat(quantityInput.value),
+                    unitPrice: parseFloat(selectedOption.dataset.price),
+                    amount: parseFloat(quantityInput.value) * parseFloat(selectedOption.dataset.price)
+                };
+                
+                saleData.items.push(item);
+                saleData.subtotal += item.amount;
+            });
+            
+            saleData.total = saleData.subtotal;
+            
+            console.log('Sale Data:', saleData);
+            
+            // Here you would send the data to the backend
+            // For now, we'll just show a success message
+            alert('Sale recorded successfully!\\nTotal Amount: UGX ' + saleData.total.toLocaleString());
+            window.location.href = 'sales-agent-dashboard.html';
+        });
+
+        // Logout
+        document.querySelector('.logout-btn').addEventListener('click', function() {
+            if (confirm('Are you sure you want to logout?')) {
+                window.location.href = 'login.html';
+            }
+        });
+
+        // Add first item on page load
+        addSaleItem();
+    </script>
+
+    <style>
+        .page-header {
+            margin-bottom: 30px;
+        }
+
+        .page-header h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .page-header .subtitle {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .sale-form {
+            max-width: 1000px;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .form-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .required {
+            color: #d32f2f;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #4a7c2c;
+        }
+
+        .form-group input[readonly] {
+            background-color: #f5f5f5;
+            cursor: not-allowed;
+        }
+
+        /* Sale Items */
+        #saleItemsContainer {
+            margin-bottom: 15px;
+        }
+
+        .sale-item {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .item-row {
+            display: flex;
+            gap: 15px;
+            align-items: flex-end;
+        }
+
+        .flex-0 {
+            flex: 0 0 auto;
+        }
+
+        .flex-1 {
+            flex: 1;
+        }
+
+        .flex-2 {
+            flex: 2;
+        }
+
+        .btn-remove {
+            padding: 10px 15px;
+            background: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .btn-remove:hover {
+            background: #b71c1c;
+        }
+
+        .btn-secondary {
+            padding: 10px 20px;
+            background: #f5f5f5;
+            color: #333;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        /* Sale Summary */
+        .sale-summary {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 6px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .summary-row.total {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 2px solid #ddd;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .summary-label {
+            color: #555;
+        }
+
+        .summary-value {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .summary-row.total .summary-value {
+            color: #4a7c2c;
+        }
+
+        /* Form Actions */
+        .form-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn-cancel {
+            padding: 12px 30px;
+            background: #f5f5f5;
+            color: #333;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-cancel:hover {
+            background: #e0e0e0;
+        }
+
+        .btn-primary {
+            padding: 12px 30px;
+            background: #4a7c2c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #3a6322;
+        }
+    </style>
+</body>
+</html>
