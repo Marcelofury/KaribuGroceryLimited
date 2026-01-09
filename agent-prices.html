@@ -150,31 +150,14 @@
 
     <script>
         // Sample price data (would typically come from backend)
+        // KGL deals only in: Beans, Grain Maize, Cow peas, G-nuts, Soybeans
         const priceData = [
-            { id: 1, name: 'Maize', category: 'Cereals', price: 1800, bulkPrice: 1700, unit: 'kg', stock: 5000, lastUpdated: '2026-01-09' },
-            { id: 2, name: 'Beans (Red)', category: 'Legumes', price: 2400, bulkPrice: 2300, unit: 'kg', stock: 450, lastUpdated: '2026-01-09' },
-            { id: 3, name: 'Beans (White)', category: 'Legumes', price: 2600, bulkPrice: 2500, unit: 'kg', stock: 800, lastUpdated: '2026-01-09' },
-            { id: 4, name: 'Rice', category: 'Cereals', price: 4000, bulkPrice: 3800, unit: 'kg', stock: 2000, lastUpdated: '2026-01-09' },
-            { id: 5, name: 'Groundnuts', category: 'Legumes', price: 5000, bulkPrice: 4800, unit: 'kg', stock: 280, lastUpdated: '2026-01-09' },
-            { id: 6, name: 'Wheat', category: 'Cereals', price: 2500, bulkPrice: 2400, unit: 'kg', stock: 1500, lastUpdated: '2026-01-09' },
-            { id: 7, name: 'Sorghum', category: 'Cereals', price: 2200, bulkPrice: 2100, unit: 'kg', stock: 900, lastUpdated: '2026-01-09' },
-            { id: 8, name: 'Millet', category: 'Cereals', price: 2300, bulkPrice: 2200, unit: 'kg', stock: 750, lastUpdated: '2026-01-09' },
-            { id: 9, name: 'Soybeans', category: 'Legumes', price: 3200, bulkPrice: 3100, unit: 'kg', stock: 650, lastUpdated: '2026-01-09' },
-            { id: 10, name: 'Green Grams', category: 'Legumes', price: 3500, bulkPrice: 3400, unit: 'kg', stock: 550, lastUpdated: '2026-01-09' },
-            { id: 11, name: 'Cowpeas', category: 'Legumes', price: 2800, bulkPrice: 2700, unit: 'kg', stock: 480, lastUpdated: '2026-01-09' },
-            { id: 12, name: 'Lentils', category: 'Legumes', price: 4200, bulkPrice: 4000, unit: 'kg', stock: 420, lastUpdated: '2026-01-09' },
-            { id: 13, name: 'Cashew Nuts', category: 'Nuts', price: 8000, bulkPrice: 7800, unit: 'kg', stock: 320, lastUpdated: '2026-01-09' },
-            { id: 14, name: 'Peanuts (Raw)', category: 'Nuts', price: 4500, bulkPrice: 4300, unit: 'kg', stock: 600, lastUpdated: '2026-01-09' },
-            { id: 15, name: 'Sesame Seeds (White)', category: 'Seeds', price: 6500, bulkPrice: 6300, unit: 'kg', stock: 0, lastUpdated: '2026-01-08' },
-            { id: 16, name: 'Sesame Seeds (Black)', category: 'Seeds', price: 6800, bulkPrice: 6600, unit: 'kg', stock: 180, lastUpdated: '2026-01-09' },
-            { id: 17, name: 'Sunflower Seeds', category: 'Seeds', price: 5500, bulkPrice: 5300, unit: 'kg', stock: 0, lastUpdated: '2026-01-08' },
-            { id: 18, name: 'Pumpkin Seeds', category: 'Seeds', price: 7000, bulkPrice: 6800, unit: 'kg', stock: 220, lastUpdated: '2026-01-09' },
-            { id: 19, name: 'Barley', category: 'Cereals', price: 2800, bulkPrice: 2700, unit: 'kg', stock: 680, lastUpdated: '2026-01-09' },
-            { id: 20, name: 'Oats', category: 'Cereals', price: 3500, bulkPrice: 3400, unit: 'kg', stock: 520, lastUpdated: '2026-01-09' },
-            { id: 21, name: 'Quinoa', category: 'Cereals', price: 7500, bulkPrice: 7300, unit: 'kg', stock: 180, lastUpdated: '2026-01-09' },
-            { id: 22, name: 'Chickpeas', category: 'Legumes', price: 3800, bulkPrice: 3700, unit: 'kg', stock: 580, lastUpdated: '2026-01-09' },
-            { id: 23, name: 'Black Beans', category: 'Legumes', price: 3000, bulkPrice: 2900, unit: 'kg', stock: 420, lastUpdated: '2026-01-09' },
-            { id: 24, name: 'Kidney Beans', category: 'Legumes', price: 3200, bulkPrice: 3100, unit: 'kg', stock: 390, lastUpdated: '2026-01-09' }
+            { id: 1, name: 'Grain Maize', category: 'Cereals', price: 1800, bulkPrice: 1700, unit: 'kg', stock: 5000, lastUpdated: '2026-01-09' },
+            { id: 2, name: 'Beans (Red)', category: 'Legumes', price: 2400, bulkPrice: 2300, unit: 'kg', stock: 3450, lastUpdated: '2026-01-09' },
+            { id: 3, name: 'Beans (White)', category: 'Legumes', price: 2600, bulkPrice: 2500, unit: 'kg', stock: 2800, lastUpdated: '2026-01-09' },
+            { id: 4, name: 'Cow Peas', category: 'Legumes', price: 2300, bulkPrice: 2200, unit: 'kg', stock: 1800, lastUpdated: '2026-01-09' },
+            { id: 5, name: 'G-nuts (Groundnuts)', category: 'Legumes', price: 5000, bulkPrice: 4800, unit: 'kg', stock: 2280, lastUpdated: '2026-01-09' },
+            { id: 6, name: 'Soybeans', category: 'Legumes', price: 2700, bulkPrice: 2600, unit: 'kg', stock: 1950, lastUpdated: '2026-01-09' }
         ];
 
         function getStockStatus(stock) {
