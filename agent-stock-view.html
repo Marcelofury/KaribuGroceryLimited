@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KGL - Stock Availability</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <h1 class="logo">KGL</h1>
+            <span class="separator">|</span>
+            <span class="user-info">Sales Agent: <strong id="agentName">Jane Smith</strong></span>
+            <span class="separator">|</span>
+            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></span>
+        </div>
+        <div class="header-right">
+            <button class="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="sales-agent-dashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a href="agent-make-sale.html">Make Sale</a>
+            </li>
+            <li class="nav-item active">
+                <a href="agent-stock-view.html">Stock Availability</a>
+            </li>
+            <li class="nav-item">
+                <a href="agent-prices.html">Current Prices</a>
+            </li>
+            <li class="nav-item">
+                <a href="agent-my-sales.html">My Sales</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h2>📦 Stock Availability</h2>
+            <p class="subtitle">View current inventory levels</p>
+        </div>
+
+        <!-- Search and Filter -->
+        <div class="controls-section">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search by produce name...">
+            </div>
+            <div class="filter-controls">
+                <select id="categoryFilter">
+                    <option value="">All Categories</option>
+                    <option value="Cereals">Cereals</option>
+                    <option value="Legumes">Legumes</option>
+                    <option value="Nuts">Nuts</option>
+                    <option value="Seeds">Seeds</option>
+                </select>
+                <select id="stockLevelFilter">
+                    <option value="">All Stock Levels</option>
+                    <option value="in-stock">In Stock</option>
+                    <option value="low-stock">Low Stock</option>
+                    <option value="out-of-stock">Out of Stock</option>
+                </select>
+                <button class="refresh-btn" onclick="loadStockData()">🔄 Refresh</button>
+            </div>
+        </div>
+
+        <!-- Stock Summary Cards -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <div class="stat-icon stock-icon">📦</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Total Items</h3>
+                    <p class="stat-value" id="totalItems">24</p>
+                    <span class="stat-label">Produce types</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon success-icon">✅</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">In Stock</h3>
+                    <p class="stat-value" id="inStockItems">18</p>
+                    <span class="stat-label">Items available</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon warning-icon">⚠️</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Low Stock</h3>
+                    <p class="stat-value" id="lowStockItems">4</p>
+                    <span class="stat-label">Need attention</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon alert-icon">❌</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Out of Stock</h3>
+                    <p class="stat-value" id="outStockItems">2</p>
+                    <span class="stat-label">Items unavailable</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stock Alerts -->
+        <section class="data-section" id="alertsSection">
+            <div class="section-header">
+                <h2>⚠️ Stock Alerts</h2>
+            </div>
+            <div class="alerts-section">
+                <div class="alert-box warning">
+                    <span class="alert-icon">⚠️</span>
+                    <div class="alert-content">
+                        <strong>Low Stock:</strong> Beans (Red Beans) - Only 450 kg remaining (Reorder at 500 kg)
+                    </div>
+                </div>
+                <div class="alert-box warning">
+                    <span class="alert-icon">⚠️</span>
+                    <div class="alert-content">
+                        <strong>Low Stock:</strong> Groundnuts (Roasted) - Only 280 kg remaining (Reorder at 300 kg)
+                    </div>
+                </div>
+                <div class="alert-box danger">
+                    <span class="alert-icon">❌</span>
+                    <div class="alert-content">
+                        <strong>Out of Stock:</strong> Sesame Seeds (White) - 0 kg available
+                    </div>
+                </div>
+                <div class="alert-box danger">
+                    <span class="alert-icon">❌</span>
+                    <div class="alert-content">
+                        <strong>Out of Stock:</strong> Sunflower Seeds - 0 kg available
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stock Table -->
+        <section class="data-section">
+            <div class="section-header">
+                <h2>Current Stock Levels</h2>
+            </div>
+            <div class="table-container">
+                <table class="data-table" id="stockTable">
+                    <thead>
+                        <tr>
+                            <th>Produce</th>
+                            <th>Category</th>
+                            <th>Current Stock</th>
+                            <th>Unit</th>
+                            <th>Reorder Level</th>
+                            <th>Status</th>
+                            <th>Last Updated</th>
+                        </tr>
+                    </thead>
+                    <tbody id="stockTableBody">
+                        <!-- Stock data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Sample stock data (would typically come from backend)
+        const stockData = [
+            { id: 1, name: 'Maize', category: 'Cereals', stock: 5000, unit: 'kg', reorderLevel: 1000, lastUpdated: '2026-01-09 14:30' },
+            { id: 2, name: 'Beans (Red)', category: 'Legumes', stock: 450, unit: 'kg', reorderLevel: 500, lastUpdated: '2026-01-09 14:15' },
+            { id: 3, name: 'Beans (White)', category: 'Legumes', stock: 800, unit: 'kg', reorderLevel: 400, lastUpdated: '2026-01-09 14:15' },
+            { id: 4, name: 'Rice', category: 'Cereals', stock: 2000, unit: 'kg', reorderLevel: 800, lastUpdated: '2026-01-09 14:00' },
+            { id: 5, name: 'Groundnuts', category: 'Legumes', stock: 280, unit: 'kg', reorderLevel: 300, lastUpdated: '2026-01-09 13:45' },
+            { id: 6, name: 'Wheat', category: 'Cereals', stock: 1500, unit: 'kg', reorderLevel: 600, lastUpdated: '2026-01-09 14:20' },
+            { id: 7, name: 'Sorghum', category: 'Cereals', stock: 900, unit: 'kg', reorderLevel: 400, lastUpdated: '2026-01-09 14:10' },
+            { id: 8, name: 'Millet', category: 'Cereals', stock: 750, unit: 'kg', reorderLevel: 350, lastUpdated: '2026-01-09 14:05' },
+            { id: 9, name: 'Soybeans', category: 'Legumes', stock: 650, unit: 'kg', reorderLevel: 300, lastUpdated: '2026-01-09 13:50' },
+            { id: 10, name: 'Green Grams', category: 'Legumes', stock: 550, unit: 'kg', reorderLevel: 250, lastUpdated: '2026-01-09 13:40' },
+            { id: 11, name: 'Cowpeas', category: 'Legumes', stock: 480, unit: 'kg', reorderLevel: 200, lastUpdated: '2026-01-09 14:25' },
+            { id: 12, name: 'Lentils', category: 'Legumes', stock: 420, unit: 'kg', reorderLevel: 200, lastUpdated: '2026-01-09 14:00' },
+            { id: 13, name: 'Cashew Nuts', category: 'Nuts', stock: 320, unit: 'kg', reorderLevel: 150, lastUpdated: '2026-01-09 13:55' },
+            { id: 14, name: 'Peanuts (Raw)', category: 'Nuts', stock: 600, unit: 'kg', reorderLevel: 250, lastUpdated: '2026-01-09 14:10' },
+            { id: 15, name: 'Sesame Seeds (White)', category: 'Seeds', stock: 0, unit: 'kg', reorderLevel: 100, lastUpdated: '2026-01-08 16:00' },
+            { id: 16, name: 'Sesame Seeds (Black)', category: 'Seeds', stock: 180, unit: 'kg', reorderLevel: 100, lastUpdated: '2026-01-09 13:30' },
+            { id: 17, name: 'Sunflower Seeds', category: 'Seeds', stock: 0, unit: 'kg', reorderLevel: 150, lastUpdated: '2026-01-08 15:30' },
+            { id: 18, name: 'Pumpkin Seeds', category: 'Seeds', stock: 220, unit: 'kg', reorderLevel: 100, lastUpdated: '2026-01-09 14:05' },
+            { id: 19, name: 'Barley', category: 'Cereals', stock: 680, unit: 'kg', reorderLevel: 300, lastUpdated: '2026-01-09 13:45' },
+            { id: 20, name: 'Oats', category: 'Cereals', stock: 520, unit: 'kg', reorderLevel: 250, lastUpdated: '2026-01-09 14:15' },
+            { id: 21, name: 'Quinoa', category: 'Cereals', stock: 180, unit: 'kg', reorderLevel: 100, lastUpdated: '2026-01-09 13:50' },
+            { id: 22, name: 'Chickpeas', category: 'Legumes', stock: 580, unit: 'kg', reorderLevel: 250, lastUpdated: '2026-01-09 14:20' },
+            { id: 23, name: 'Black Beans', category: 'Legumes', stock: 420, unit: 'kg', reorderLevel: 200, lastUpdated: '2026-01-09 14:00' },
+            { id: 24, name: 'Kidney Beans', category: 'Legumes', stock: 390, unit: 'kg', reorderLevel: 200, lastUpdated: '2026-01-09 13:55' }
+        ];
+
+        function getStockStatus(stock, reorderLevel) {
+            if (stock === 0) return 'out-of-stock';
+            if (stock <= reorderLevel) return 'low-stock';
+            return 'in-stock';
+        }
+
+        function getStatusBadge(status) {
+            if (status === 'out-of-stock') {
+                return '<span class="status-badge danger">Out of Stock</span>';
+            } else if (status === 'low-stock') {
+                return '<span class="status-badge warning">Low Stock</span>';
+            } else {
+                return '<span class="status-badge success">In Stock</span>';
+            }
+        }
+
+        function loadStockData() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const categoryFilter = document.getElementById('categoryFilter').value;
+            const stockLevelFilter = document.getElementById('stockLevelFilter').value;
+
+            let filteredData = stockData.filter(item => {
+                const matchesSearch = item.name.toLowerCase().includes(searchTerm);
+                const matchesCategory = !categoryFilter || item.category === categoryFilter;
+                const itemStatus = getStockStatus(item.stock, item.reorderLevel);
+                const matchesStockLevel = !stockLevelFilter || itemStatus === stockLevelFilter;
+
+                return matchesSearch && matchesCategory && matchesStockLevel;
+            });
+
+            const tbody = document.getElementById('stockTableBody');
+            tbody.innerHTML = '';
+
+            filteredData.forEach(item => {
+                const status = getStockStatus(item.stock, item.reorderLevel);
+                const row = document.createElement('tr');
+                
+                row.innerHTML = `
+                    <td><strong>${item.name}</strong></td>
+                    <td>${item.category}</td>
+                    <td><strong>${item.stock.toLocaleString()}</strong></td>
+                    <td>${item.unit}</td>
+                    <td>${item.reorderLevel.toLocaleString()}</td>
+                    <td>${getStatusBadge(status)}</td>
+                    <td>${item.lastUpdated}</td>
+                `;
+                
+                tbody.appendChild(row);
+            });
+
+            // Update summary counts
+            const inStock = stockData.filter(item => getStockStatus(item.stock, item.reorderLevel) === 'in-stock').length;
+            const lowStock = stockData.filter(item => getStockStatus(item.stock, item.reorderLevel) === 'low-stock').length;
+            const outStock = stockData.filter(item => getStockStatus(item.stock, item.reorderLevel) === 'out-of-stock').length;
+
+            document.getElementById('totalItems').textContent = stockData.length;
+            document.getElementById('inStockItems').textContent = inStock;
+            document.getElementById('lowStockItems').textContent = lowStock;
+            document.getElementById('outStockItems').textContent = outStock;
+        }
+
+        // Search and filter handlers
+        document.getElementById('searchInput').addEventListener('input', loadStockData);
+        document.getElementById('categoryFilter').addEventListener('change', loadStockData);
+        document.getElementById('stockLevelFilter').addEventListener('change', loadStockData);
+
+        // Logout
+        document.querySelector('.logout-btn').addEventListener('click', function() {
+            if (confirm('Are you sure you want to logout?')) {
+                window.location.href = 'login.html';
+            }
+        });
+
+        // Load data on page load
+        loadStockData();
+    </script>
+
+    <style>
+        .page-header {
+            margin-bottom: 30px;
+        }
+
+        .page-header h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .page-header .subtitle {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Controls Section */
+        .controls-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #4a7c2c;
+        }
+
+        .filter-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .filter-controls select {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            background: white;
+            cursor: pointer;
+        }
+
+        .filter-controls select:focus {
+            outline: none;
+            border-color: #4a7c2c;
+        }
+
+        .refresh-btn {
+            padding: 10px 20px;
+            background: #4a7c2c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .refresh-btn:hover {
+            background: #3a6322;
+        }
+
+        /* Alerts */
+        .alerts-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .alert-box {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+
+        .alert-box.warning {
+            background: #fff8e1;
+            border-left-color: #ff9800;
+        }
+
+        .alert-box.danger {
+            background: #ffebee;
+            border-left-color: #d32f2f;
+        }
+
+        .alert-icon {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+
+        .alert-content {
+            flex: 1;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .alert-content strong {
+            font-weight: 600;
+        }
+
+        /* Status Icons */
+        .success-icon {
+            background: linear-gradient(135deg, #4caf50 0%, #66bb6a 100%);
+        }
+
+        .warning-icon {
+            background: linear-gradient(135deg, #ff9800 0%, #ffb74d 100%);
+        }
+
+        .alert-icon {
+            background: linear-gradient(135deg, #d32f2f 0%, #ef5350 100%);
+        }
+
+        @media (max-width: 768px) {
+            .controls-section {
+                flex-direction: column;
+            }
+
+            .filter-controls {
+                flex-wrap: wrap;
+                width: 100%;
+            }
+
+            .filter-controls select,
+            .refresh-btn {
+                flex: 1;
+            }
+        }
+    </style>
+</body>
+</html>
