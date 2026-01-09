@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KGL - Price Management</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <h1 class="logo">KGL</h1>
+            <span class="separator">|</span>
+            <span class="user-info">Manager: <strong id="managerName">John Doe</strong></span>
+            <span class="separator">|</span>
+            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></span>
+        </div>
+        <div class="header-right">
+            <button class="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="manager-dashboard.html">Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a href="procure.html">Procure</a>
+            </li>
+            <li class="nav-item">
+                <a href="stock.html">Stock</a>
+            </li>
+            <li class="nav-item">
+                <a href="sales.html">Sales</a>
+            </li>
+            <li class="nav-item active">
+                <a href="prices.html">Prices</a>
+            </li>
+            <li class="nav-item">
+                <a href="credit-sales.html">Credit Sales</a>
+            </li>
+            <li class="nav-item">
+                <a href="reports.html">Reports</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h2>Price Management</h2>
+            <p class="subtitle">View and update produce pricing</p>
+        </div>
+
+        <!-- Price Summary Cards -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <div class="stat-icon sales-icon">💲</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Average Price</h3>
+                    <p class="stat-value" id="avgPrice">UGX 2,450/kg</p>
+                    <span class="stat-label">Across All Produce</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon stock-icon">📈</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Price Increases</h3>
+                    <p class="stat-value" id="priceIncreases">3</p>
+                    <span class="stat-label">This Month</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon alert-icon">📉</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Price Decreases</h3>
+                    <p class="stat-value" id="priceDecreases">1</p>
+                    <span class="stat-label">This Month</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon credit-icon">🕒</div>
+                <div class="stat-info">
+                    <h3 class="stat-title">Last Updated</h3>
+                    <p class="stat-value" id="lastUpdate">09/01/2026</p>
+                    <span class="stat-label">Most Recent Change</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Update Price Form -->
+        <section class="form-section">
+            <div class="section-header" style="margin-bottom: 20px;">
+                <h2>Update Produce Price</h2>
+            </div>
+            <form id="priceForm" class="procurement-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="produceSelect">Select Produce *</label>
+                        <select id="produceSelect" name="produceSelect" required>
+                            <option value="">Select produce to update</option>
+                            <option value="maize">Maize - Yellow Maize</option>
+                            <option value="beans">Beans - Red Beans</option>
+                            <option value="rice">Rice - Sindano</option>
+                            <option value="wheat">Wheat - Hard Red</option>
+                            <option value="sorghum">Sorghum - White</option>
+                            <option value="millet">Millet - Pearl</option>
+                            <option value="groundnuts">Groundnuts - Roasted</option>
+                            <option value="soybeans">Soybeans - Organic</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="currentPrice">Current Price (UGX/kg)</label>
+                        <input 
+                            type="text" 
+                            id="currentPrice" 
+                            name="currentPrice" 
+                            placeholder="Current price"
+                            readonly
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="newPrice">New Price (UGX/kg) *</label>
+                        <input 
+                            type="number" 
+                            id="newPrice" 
+                            name="newPrice" 
+                            placeholder="Enter new price per kg"
+                            step="1"
+                            min="1"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="priceChange">Price Change</label>
+                        <input 
+                            type="text" 
+                            id="priceChange" 
+                            name="priceChange" 
+                            placeholder="Calculated change"
+                            readonly
+                        >
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="effectiveDate">Effective Date *</label>
+                        <input 
+                            type="date" 
+                            id="effectiveDate" 
+                            name="effectiveDate" 
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="priceType">Price Type *</label>
+                        <select id="priceType" name="priceType" required>
+                            <option value="selling">Selling Price</option>
+                            <option value="buying">Buying Price</option>
+                            <option value="both">Both</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label for="changeReason">Reason for Change *</label>
+                        <textarea 
+                            id="changeReason" 
+                            name="changeReason" 
+                            rows="3"
+                            placeholder="Explain the reason for price change (e.g., market conditions, supplier costs)"
+                            required
+                        ></textarea>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" id="resetBtn">Reset Form</button>
+                    <button type="submit" class="btn-primary">Update Price</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Current Prices Table -->
+        <section class="data-section">
+            <div class="section-header">
+                <h2>Current Prices</h2>
+                <div class="filter-controls">
+                    <input type="text" id="searchInput" placeholder="Search produce..." class="search-input">
+                    <select id="sortBy" class="filter-select">
+                        <option value="name">Sort by Name</option>
+                        <option value="price_asc">Price: Low to High</option>
+                        <option value="price_desc">Price: High to Low</option>
+                        <option value="change">Recent Changes</option>
+                    </select>
+                    <button class="action-btn" id="exportBtn">📥 Export</button>
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="data-table" id="pricesTable">
+                    <thead>
+                        <tr>
+                            <th>Produce Type</th>
+                            <th>Variety</th>
+                            <th>Buying Price (UGX/kg)</th>
+                            <th>Selling Price (UGX/kg)</th>
+                            <th>Margin</th>
+                            <th>Last Changed</th>
+                            <th>Change</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-produce="maize" data-price="1800">
+                            <td><strong>Maize</strong></td>
+                            <td>Yellow Maize</td>
+                            <td>UGX 1,600</td>
+                            <td>UGX 1,800</td>
+                            <td class="margin-positive">+12.5%</td>
+                            <td>09/01/2026</td>
+                            <td><span class="price-change up">↑ UGX 50</span></td>
+                            <td>
+                                <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
+                                <button class="action-icon-btn" title="Price History">📜</button>
+                            </td>
+                        </tr>
+                        <tr data-produce="beans" data-price="2400">
+                            <td><strong>Beans</strong></td>
+                            <td>Red Beans</td>
+                            <td>UGX 2,250</td>
+                            <td>UGX 2,400</td>
+                            <td class="margin-positive">+6.7%</td>
+                            <td>08/01/2026</td>
+                            <td><span class="price-change neutral">—</span></td>
+                            <td>
+                                <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
+                                <button class="action-icon-btn" title="Price History">📜</button>
+                            </td>
+                        </tr>
+                        <tr data-produce="rice" data-price="4000">
+                            <td><strong>Rice</strong></td>
+                            <td>Sindano</td>
+                            <td>UGX 3,800</td>
+                            <td>UGX 4,000</td>
+                            <td class="margin-positive">+5.3%</td>
+                            <td>07/01/2026</td>
+                            <td><span class="price-change up">↑ UGX 100</span></td>
+                            <td>
+                                <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
+                                <button class="action-icon-btn" title="Price History">📜</button>
+                            </td>
+                        </tr>
+                        <tr data-produce="wheat" data-price="2500">
+                            <td><strong>Wheat</strong></td>
+                            <td>Hard Red</td>
+                            <td>UGX 2,200</td>
+                            <td>UGX 2,500</td>
+                            <td class="margin-positive">+13.6%</td>
+                            <td>06/01/2026</td>
+                            <td><span class="price-change down">↓ UGX 50</span></td>
+                            <td>
+                                <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
+                                <button class="action-icon-btn" title="Price History">📜</button>
+                            </td>
+                        </tr>
+                        <tr data-produce="groundnuts" data-price="5000">
+                            <td><strong>Groundnuts</strong></td>
+                            <td>Roasted</td>
+                            <td>UGX 4,500</td>
+                            <td>UGX 5,000</td>
+                            <td class="margin-positive">+11.1%</td>
+                            <td>09/01/2026</td>
+                            <td><span class="price-change up">↑ UGX 200</span></td>
+                            <td>
+                                <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
+                                <button class="action-icon-btn" title="Price History">📜</button>
+                            </td>
+                        </tr>
+                        <tr data-produce="soybeans" data-price="3200">
+                            <td><strong>Soybeans</strong></td>
+                            <td>Organic</td>
+                            <td>UGX 2,800</td>
+                            <td>UGX 3,200</td>
+                            <td class="margin-positive">+14.3%</td>
+                            <td>08/01/2026</td>
+                            <td><span class="price-change neutral">—</span></td>
+                            <td>
+                                <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
+                                <button class="action-icon-btn" title="Price History">📜</button>
+                            </td>
+                        </tr>
+                        <tr data-produce="sorghum" data-price="2000">
+                            <td><strong>Sorghum</strong></td>
+                            <td>White</td>
+                            <td>UGX 1,800</td>
+                            <td>UGX 2,000</td>
+                            <td class="margin-positive">+11.1%</td>
+                            <td>05/01/2026</td>
+                            <td><span class="price-change neutral">—</span></td>
+                            <td>
+                                <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
+                                <button class="action-icon-btn" title="Price History">📜</button>
+                            </td>
+                        </tr>
+                        <tr data-produce="millet" data-price="2200">
+                            <td><strong>Millet</strong></td>
+                            <td>Pearl</td>
+                            <td>UGX 2,000</td>
+                            <td>UGX 2,200</td>
+                            <td class="margin-positive">+10.0%</td>
+                            <td>05/01/2026</td>
+                            <td><span class="price-change up">↑ UGX 100</span></td>
+                            <td>
+                                <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
+                                <button class="action-icon-btn" title="Price History">📜</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Recent Price Changes -->
+        <section class="data-section">
+            <div class="section-header">
+                <h2>Recent Price Changes</h2>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Produce</th>
+                            <th>Old Price</th>
+                            <th>New Price</th>
+                            <th>Change</th>
+                            <th>Reason</th>
+                            <th>Updated By</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>09/01/2026</td>
+                            <td><strong>Maize</strong></td>
+                            <td>UGX 1,750</td>
+                            <td>UGX 1,800</td>
+                            <td><span class="price-change up">+2.9%</span></td>
+                            <td>Increased supplier costs</td>
+                            <td>John Doe</td>
+                        </tr>
+                        <tr>
+                            <td>09/01/2026</td>
+                            <td><strong>Groundnuts</strong></td>
+                            <td>UGX 4,800</td>
+                            <td>UGX 5,000</td>
+                            <td><span class="price-change up">+4.2%</span></td>
+                            <td>High market demand</td>
+                            <td>John Doe</td>
+                        </tr>
+                        <tr>
+                            <td>07/01/2026</td>
+                            <td><strong>Rice</strong></td>
+                            <td>UGX 3,900</td>
+                            <td>UGX 4,000</td>
+                            <td><span class="price-change up">+2.6%</span></td>
+                            <td>Import costs increased</td>
+                            <td>John Doe</td>
+                        </tr>
+                        <tr>
+                            <td>06/01/2026</td>
+                            <td><strong>Wheat</strong></td>
+                            <td>UGX 2,550</td>
+                            <td>UGX 2,500</td>
+                            <td><span class="price-change down">-2.0%</span></td>
+                            <td>Promotion to increase sales</td>
+                            <td>John Doe</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Set current date as default
+        document.getElementById('effectiveDate').valueAsDate = new Date();
+
+        // Price data mapping
+        const priceData = {
+            'maize': 1800,
+            'beans': 2400,
+            'rice': 4000,
+            'wheat': 2500,
+            'groundnuts': 5000,
+            'soybeans': 3200,
+            'sorghum': 2000,
+            'millet': 2200
+        };
+
+        // Update current price when produce is selected
+        document.getElementById('produceSelect').addEventListener('change', function() {
+            const produce = this.value;
+            const currentPriceInput = document.getElementById('currentPrice');
+            
+            if (produce && priceData[produce]) {
+                currentPriceInput.value = `UGX ${priceData[produce].toLocaleString()}`;
+            } else {
+                currentPriceInput.value = '';
+            }
+            
+            // Clear price change
+            document.getElementById('priceChange').value = '';
+            document.getElementById('newPrice').value = '';
+        });
+
+        // Calculate price change
+        document.getElementById('newPrice').addEventListener('input', function() {
+            const produce = document.getElementById('produceSelect').value;
+            const newPrice = parseFloat(this.value) || 0;
+            const priceChangeInput = document.getElementById('priceChange');
+            
+            if (produce && priceData[produce] && newPrice > 0) {
+                const currentPrice = priceData[produce];
+                const change = newPrice - currentPrice;
+                const percentChange = ((change / currentPrice) * 100).toFixed(2);
+                const symbol = change > 0 ? '↑' : change < 0 ? '↓' : '—';
+                const color = change > 0 ? 'color: #4caf50' : change < 0 ? 'color: #f44336' : 'color: #999';
+                
+                priceChangeInput.value = `${symbol} UGX ${Math.abs(change).toLocaleString()} (${percentChange}%)`;
+                priceChangeInput.style = color;
+            } else {
+                priceChangeInput.value = '';
+            }
+        });
+
+        // Form submission
+        document.getElementById('priceForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            console.log('Price updated:', data);
+            alert('Price updated successfully!');
+            
+            this.reset();
+            document.getElementById('effectiveDate').valueAsDate = new Date();
+        });
+
+        // Reset button
+        document.getElementById('resetBtn').addEventListener('click', function() {
+            document.getElementById('priceForm').reset();
+            document.getElementById('effectiveDate').valueAsDate = new Date();
+        });
+
+        // Edit price from table
+        document.querySelectorAll('.edit-price').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const row = this.closest('tr');
+                const produce = row.dataset.produce;
+                const produceSelect = document.getElementById('produceSelect');
+                
+                produceSelect.value = produce;
+                produceSelect.dispatchEvent(new Event('change'));
+                
+                // Scroll to form
+                document.querySelector('.form-section').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const rows = document.querySelectorAll('#pricesTable tbody tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchTerm) ? '' : 'none';
+            });
+        });
+
+        // Sort functionality
+        document.getElementById('sortBy').addEventListener('change', function() {
+            const tbody = document.querySelector('#pricesTable tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            
+            rows.sort((a, b) => {
+                switch(this.value) {
+                    case 'price_asc':
+                        return parseInt(a.dataset.price) - parseInt(b.dataset.price);
+                    case 'price_desc':
+                        return parseInt(b.dataset.price) - parseInt(a.dataset.price);
+                    case 'name':
+                        return a.cells[0].textContent.localeCompare(b.cells[0].textContent);
+                    default:
+                        return 0;
+                }
+            });
+            
+            rows.forEach(row => tbody.appendChild(row));
+        });
+
+        // Export functionality
+        document.getElementById('exportBtn').addEventListener('click', function() {
+            alert('Price data export functionality coming soon!');
+        });
+
+        // Logout
+        document.querySelector('.logout-btn').addEventListener('click', function() {
+            if (confirm('Are you sure you want to logout?')) {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+
+    <style>
+        .margin-positive {
+            color: #4caf50;
+            font-weight: 600;
+        }
+
+        .margin-negative {
+            color: #f44336;
+            font-weight: 600;
+        }
+
+        .price-change {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .price-change.up {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .price-change.down {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .price-change.neutral {
+            background: #f5f5f5;
+            color: #999;
+        }
+    </style>
+</body>
+</html>
