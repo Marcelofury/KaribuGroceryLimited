@@ -172,31 +172,14 @@
 
     <script>
         // Sample stock data (would typically come from backend)
+        // KGL deals only in: Beans, Grain Maize, Cow peas, G-nuts, Soybeans
         const stockData = [
-            { id: 1, name: 'Maize', category: 'Cereals', stock: 5000, unit: 'kg', reorderLevel: 1000, lastUpdated: '2026-01-09 14:30' },
-            { id: 2, name: 'Beans (Red)', category: 'Legumes', stock: 450, unit: 'kg', reorderLevel: 500, lastUpdated: '2026-01-09 14:15' },
-            { id: 3, name: 'Beans (White)', category: 'Legumes', stock: 800, unit: 'kg', reorderLevel: 400, lastUpdated: '2026-01-09 14:15' },
-            { id: 4, name: 'Rice', category: 'Cereals', stock: 2000, unit: 'kg', reorderLevel: 800, lastUpdated: '2026-01-09 14:00' },
-            { id: 5, name: 'Groundnuts', category: 'Legumes', stock: 280, unit: 'kg', reorderLevel: 300, lastUpdated: '2026-01-09 13:45' },
-            { id: 6, name: 'Wheat', category: 'Cereals', stock: 1500, unit: 'kg', reorderLevel: 600, lastUpdated: '2026-01-09 14:20' },
-            { id: 7, name: 'Sorghum', category: 'Cereals', stock: 900, unit: 'kg', reorderLevel: 400, lastUpdated: '2026-01-09 14:10' },
-            { id: 8, name: 'Millet', category: 'Cereals', stock: 750, unit: 'kg', reorderLevel: 350, lastUpdated: '2026-01-09 14:05' },
-            { id: 9, name: 'Soybeans', category: 'Legumes', stock: 650, unit: 'kg', reorderLevel: 300, lastUpdated: '2026-01-09 13:50' },
-            { id: 10, name: 'Green Grams', category: 'Legumes', stock: 550, unit: 'kg', reorderLevel: 250, lastUpdated: '2026-01-09 13:40' },
-            { id: 11, name: 'Cowpeas', category: 'Legumes', stock: 480, unit: 'kg', reorderLevel: 200, lastUpdated: '2026-01-09 14:25' },
-            { id: 12, name: 'Lentils', category: 'Legumes', stock: 420, unit: 'kg', reorderLevel: 200, lastUpdated: '2026-01-09 14:00' },
-            { id: 13, name: 'Cashew Nuts', category: 'Nuts', stock: 320, unit: 'kg', reorderLevel: 150, lastUpdated: '2026-01-09 13:55' },
-            { id: 14, name: 'Peanuts (Raw)', category: 'Nuts', stock: 600, unit: 'kg', reorderLevel: 250, lastUpdated: '2026-01-09 14:10' },
-            { id: 15, name: 'Sesame Seeds (White)', category: 'Seeds', stock: 0, unit: 'kg', reorderLevel: 100, lastUpdated: '2026-01-08 16:00' },
-            { id: 16, name: 'Sesame Seeds (Black)', category: 'Seeds', stock: 180, unit: 'kg', reorderLevel: 100, lastUpdated: '2026-01-09 13:30' },
-            { id: 17, name: 'Sunflower Seeds', category: 'Seeds', stock: 0, unit: 'kg', reorderLevel: 150, lastUpdated: '2026-01-08 15:30' },
-            { id: 18, name: 'Pumpkin Seeds', category: 'Seeds', stock: 220, unit: 'kg', reorderLevel: 100, lastUpdated: '2026-01-09 14:05' },
-            { id: 19, name: 'Barley', category: 'Cereals', stock: 680, unit: 'kg', reorderLevel: 300, lastUpdated: '2026-01-09 13:45' },
-            { id: 20, name: 'Oats', category: 'Cereals', stock: 520, unit: 'kg', reorderLevel: 250, lastUpdated: '2026-01-09 14:15' },
-            { id: 21, name: 'Quinoa', category: 'Cereals', stock: 180, unit: 'kg', reorderLevel: 100, lastUpdated: '2026-01-09 13:50' },
-            { id: 22, name: 'Chickpeas', category: 'Legumes', stock: 580, unit: 'kg', reorderLevel: 250, lastUpdated: '2026-01-09 14:20' },
-            { id: 23, name: 'Black Beans', category: 'Legumes', stock: 420, unit: 'kg', reorderLevel: 200, lastUpdated: '2026-01-09 14:00' },
-            { id: 24, name: 'Kidney Beans', category: 'Legumes', stock: 390, unit: 'kg', reorderLevel: 200, lastUpdated: '2026-01-09 13:55' }
+            { id: 1, name: 'Grain Maize', category: 'Cereals', stock: 5000, unit: 'kg', reorderLevel: 1000, lastUpdated: '2026-01-09 14:30' },
+            { id: 2, name: 'Beans (Red)', category: 'Legumes', stock: 3450, unit: 'kg', reorderLevel: 1000, lastUpdated: '2026-01-09 14:15' },
+            { id: 3, name: 'Beans (White)', category: 'Legumes', stock: 2800, unit: 'kg', reorderLevel: 1000, lastUpdated: '2026-01-09 14:15' },
+            { id: 4, name: 'Cow Peas', category: 'Legumes', stock: 1800, unit: 'kg', reorderLevel: 1000, lastUpdated: '2026-01-09 14:00' },
+            { id: 5, name: 'G-nuts (Groundnuts)', category: 'Legumes', stock: 2280, unit: 'kg', reorderLevel: 1000, lastUpdated: '2026-01-09 13:45' },
+            { id: 6, name: 'Soybeans', category: 'Legumes', stock: 1950, unit: 'kg', reorderLevel: 1000, lastUpdated: '2026-01-09 14:20' }
         ];
 
         function getStockStatus(stock, reorderLevel) {
