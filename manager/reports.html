@@ -12,9 +12,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="#">KGL</a>
-            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white mx-2">|</span>
             <span class="navbar-text text-white">Manager: <strong id="managerName">John Doe</strong></small>
-            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white mx-2">|</span>
             <span class="navbar-text text-white">Branch: <strong id="branchName">Branch A</strong></small>
         </div>
         
@@ -23,72 +23,96 @@
     </div></nav>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom"><div class="container-fluid"><ul class="nav nav-pills">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container-fluid">
+            <ul class="nav nav-pills">
             <li class="nav-item">
-                <a href="manager-dashboard.html">Dashboard</a>
+                    <a class="nav-link" href="manager-dashboard.html">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a href="procure.html">Procure</a>
+                    <a class="nav-link" href="procure.html">Procure</a>
             </li>
             <li class="nav-item">
-                <a href="stock.html">Stock</a>
+                    <a class="nav-link" href="stock.html">Stock</a>
             </li>
             <li class="nav-item">
-                <a href="sales.html">Sales</a>
+                    <a class="nav-link" href="sales.html">Sales</a>
             </li>
             <li class="nav-item">
-                <a href="prices.html">Prices</a>
+                    <a class="nav-link" href="prices.html">Prices</a>
             </li>
             <li class="nav-item">
-                <a href="credit-sales.html">Credit Sales</a>
+                    <a class="nav-link" href="credit-sales.html">Credit Sales</a>
             </li>
             <li class="nav-item">
-                <a href="reports.html">Reports</a>
+                    <a class="nav-link active" href="reports.html">Reports</a>
             </li>
-        </ul></div></nav>
+        </ul>
+        </div>
+    </nav>
 
     <!-- Main Content -->
     <main class="container-fluid py-4">
         <div class="mb-4">
             <h2>Reports & Analytics</h2>
-            <p class="text-muted">Generate and view business reports</div>
+            <p class="text-muted">Generate and view business reports</p>
         </div>
 
         <!-- Quick Stats -->
         <div class="row g-4 mb-4">
-            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
-                <div class="fs-1 me-3"></div>
-                <div class="flex-grow-1">
-                    <h6 class="card-title text-muted mb-1">Total Reports</h3>
-                    <div class="fs-4 fw-bold" id="totalReports">47</div>
-                    <small class="text-muted">Generated This Month</small>
+            <div class="col-md-6 col-xl-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <h6 class="card-title text-muted mb-1">Total Reports</h6>
+                                <div class="fs-4 fw-bold" id="totalReports">47</div>
+                                <small class="text-muted">Generated This Month</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
-                <div class="fs-1 me-3"></div>
-                <div class="flex-grow-1">
-                    <h6 class="card-title text-muted mb-1">Monthly Revenue</h3>
-                    <div class="fs-4 fw-bold" id="monthlyRevenue">UGX 45M</div>
-                    <small class="text-muted">January 2026</small>
+            <div class="col-md-6 col-xl-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <h6 class="card-title text-muted mb-1">Monthly Revenue</h6>
+                                <div class="fs-4 fw-bold" id="monthlyRevenue">UGX 45M</div>
+                                <small class="text-muted">January 2026</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
-                <div class="fs-1 me-3"></div>
-                <div class="flex-grow-1">
-                    <h6 class="card-title text-muted mb-1">Growth Rate</h3>
-                    <div class="fs-4 fw-bold" id="growthRate">+15.2%</div>
-                    <small class="text-muted">Compared to Last Month</small>
+            <div class="col-md-6 col-xl-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <h6 class="card-title text-muted mb-1">Growth Rate</h6>
+                                <div class="fs-4 fw-bold" id="growthRate">+15.2%</div>
+                                <small class="text-muted">Compared to Last Month</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
-                <div class="fs-1 me-3"></div>
-                <div class="flex-grow-1">
-                    <h6 class="card-title text-muted mb-1">Target Progress</h3>
-                    <div class="fs-4 fw-bold" id="targetProgress">73%</div>
-                    <small class="text-muted">Of Monthly Goal</small>
+            <div class="col-md-6 col-xl-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <h6 class="card-title text-muted mb-1">Target Progress</h6>
+                                <div class="fs-4 fw-bold" id="targetProgress">73%</div>
+                                <small class="text-muted">Of Monthly Goal</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -352,7 +376,7 @@
     </main>
 
     <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>
 

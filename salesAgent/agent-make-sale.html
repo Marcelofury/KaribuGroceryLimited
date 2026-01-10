@@ -12,9 +12,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="#">KGL</a>
-            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white mx-2">|</span>
             <span class="navbar-text text-white">Sales Agent: <strong id="agentName">Jane Smith</strong></small>
-            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white mx-2">|</span>
             <span class="navbar-text text-white">Branch: <strong id="branchName">Branch A</strong></small>
         </div>
         
@@ -23,29 +23,33 @@
     </div></nav>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom"><div class="container-fluid"><ul class="nav nav-pills">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container-fluid">
+            <ul class="nav nav-pills">
             <li class="nav-item">
-                <a href="sales-agent-dashboard.html">Dashboard</a>
+                    <a class="nav-link" href="sales-agent-dashboard.html">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a href="agent-make-sale.html">Make Sale</a>
+                    <a class="nav-link active" href="agent-make-sale.html">Make Sale</a>
             </li>
             <li class="nav-item">
-                <a href="agent-stock-view.html">Stock Availability</a>
+                    <a class="nav-link" href="agent-stock-view.html">Stock Availability</a>
             </li>
             <li class="nav-item">
-                <a href="agent-prices.html">Current Prices</a>
+                    <a class="nav-link" href="agent-prices.html">Current Prices</a>
             </li>
             <li class="nav-item">
-                <a href="agent-my-sales.html">My Sales</a>
+                    <a class="nav-link" href="agent-my-sales.html">My Sales</a>
             </li>
-        </ul></div></nav>
+        </ul>
+        </div>
+    </nav>
 
     <!-- Main Content -->
     <main class="container-fluid py-4">
         <div class="mb-4">
             <h2> Make a Sale</h2>
-            <p class="text-muted">Record a new customer transaction</div>
+            <p class="text-muted">Record a new customer transaction</p>
         </div>
 
         <!-- Sale Form -->
@@ -143,242 +147,8 @@
         </div>
     </main>
 
-    <script>
-        // Sample produce data (would typically come from backend)
-        // KGL deals only in: Beans, Grain Maize, Cow peas, G-nuts, Soybeans
-        const produceData = [
-            { id: 1, name: 'Grain Maize', category: 'Cereals', price: 1800, stock: 5000, unit: 'kg' },
-            { id: 2, name: 'Beans (Red)', category: 'Legumes', price: 2400, stock: 3450, unit: 'kg' },
-            { id: 3, name: 'Beans (White)', category: 'Legumes', price: 2600, stock: 2800, unit: 'kg' },
-            { id: 4, name: 'Cow Peas', category: 'Legumes', price: 2300, stock: 1800, unit: 'kg' },
-            { id: 5, name: 'G-nuts (Groundnuts)', category: 'Legumes', price: 5000, stock: 2280, unit: 'kg' },
-            { id: 6, name: 'Soybeans', category: 'Legumes', price: 2700, stock: 1950, unit: 'kg' }
-        ];
-
-        let itemCounter = 0;
-        let saleItems = [];
-
-        // Customer type change handler
-        document.getElementById('customerType').addEventListener('change', function() {
-            const customerNameGroup = document.getElementById('customerNameGroup');
-            const businessDetailsRow = document.getElementById('businessDetailsRow');
-            
-            if (this.value === 'walk-in') {
-                customerNameGroup.style.display = 'none';
-                businessDetailsRow.style.display = 'none';
-            } else if (this.value === 'regular') {
-                customerNameGroup.style.display = 'block';
-                businessDetailsRow.style.display = 'none';
-            } else if (this.value === 'business') {
-                customerNameGroup.style.display = 'none';
-                businessDetailsRow.style.display = 'flex';
-            }
-        });
-
-        // Payment method change handler
-        document.getElementById('paymentMethod').addEventListener('change', function() {
-            const creditTermsGroup = document.getElementById('creditTermsGroup');
-            const referenceRow = document.getElementById('referenceRow');
-            
-            if (this.value === 'credit') {
-                creditTermsGroup.style.display = 'block';
-                referenceRow.style.display = 'none';
-            } else if (this.value === 'mobile' || this.value === 'bank') {
-                creditTermsGroup.style.display = 'none';
-                referenceRow.style.display = 'flex';
-            } else {
-                creditTermsGroup.style.display = 'none';
-                referenceRow.style.display = 'none';
-            }
-        });
-
-        // Add item button handler
-        document.getElementById('addItemBtn').addEventListener('click', function() {
-            addSaleItem();
-        });
-
-        function addSaleItem() {
-            itemCounter++;
-            const container = document.getElementById('saleItemsContainer');
-            
-            const itemDiv = document.createElement('div');
-            itemDiv.className = 'sale-item';
-            itemDiv.dataset.itemId = itemCounter;
-            
-            itemDiv.innerHTML = `
-                <div class="item-row">
-                    <div class="form-group flex-2">
-                        <label>Produce <span class="required">*</small></label>
-                        <select class="form-select" class="produce-select" required>
-                            <option value="">Select Produce</option>
-                            ${produceData.map(p => `
-                                <option value="${p.id}" data-price="${p.price}" data-stock="${p.stock}" data-unit="${p.unit}">
-                                    ${p.name} - UGX ${p.price.toLocaleString()}/${p.unit} (Stock: ${p.stock.toLocaleString()} ${p.unit})
-                                </option>
-                            `).join('')}
-                        </select>
-                    </div>
-                    <div class="form-group flex-1">
-                        <label>Quantity <span class="required">*</small></label>
-                        <input class="form-control" type="number" class="quantity-input" min="1" step="1" placeholder="0" required>
-                    </div>
-                    <div class="form-group flex-1">
-                        <label>Unit Price</label>
-                        <input class="form-control" type="text" class="unit-price" readonly placeholder="UGX 0">
-                    </div>
-                    <div class="form-group flex-1">
-                        <label>Amount</label>
-                        <input class="form-control" type="text" class="item-amount" readonly placeholder="UGX 0">
-                    </div>
-                    <div class="form-group flex-0">
-                        <label>&nbsp;</label>
-                        <button type="button" class="btn-remove" onclick="removeSaleItem(${itemCounter})">✕</button>
-                    </div>
-                </div>
-            `;
-            
-            container.appendChild(itemDiv);
-            
-            // Add event listeners for the new item
-            const produceSelect = itemDiv.querySelector('.produce-select');
-            const quantityInput = itemDiv.querySelector('.quantity-input');
-            const unitPriceInput = itemDiv.querySelector('.unit-price');
-            const itemAmountInput = itemDiv.querySelector('.item-amount');
-            
-            produceSelect.addEventListener('change', function() {
-                const selectedOption = this.options[this.selectedIndex];
-                const price = parseFloat(selectedOption.dataset.price) || 0;
-                const stock = parseFloat(selectedOption.dataset.stock) || 0;
-                const unit = selectedOption.dataset.unit || 'kg';
-                
-                unitPriceInput.value = price > 0 ? `UGX ${price.toLocaleString()}` : '';
-                quantityInput.max = stock;
-                quantityInput.placeholder = `Max: ${stock} ${unit}`;
-                
-                updateItemAmount(itemDiv);
-            });
-            
-            quantityInput.addEventListener('input', function() {
-                updateItemAmount(itemDiv);
-            });
-        }
-
-        function updateItemAmount(itemDiv) {
-            const produceSelect = itemDiv.querySelector('.produce-select');
-            const quantityInput = itemDiv.querySelector('.quantity-input');
-            const itemAmountInput = itemDiv.querySelector('.item-amount');
-            
-            const selectedOption = produceSelect.options[produceSelect.selectedIndex];
-            const price = parseFloat(selectedOption.dataset.price) || 0;
-            const quantity = parseFloat(quantityInput.value) || 0;
-            const stock = parseFloat(selectedOption.dataset.stock) || 0;
-            
-            if (quantity > stock) {
-                quantityInput.value = stock;
-                alert(`Only ${stock} units available in stock!`);
-            }
-            
-            const amount = price * quantity;
-            itemAmountInput.value = amount > 0 ? `UGX ${amount.toLocaleString()}` : '';
-            
-            updateSaleSummary();
-        }
-
-        function removeSaleItem(itemId) {
-            const itemDiv = document.querySelector(`[data-item-id="${itemId}"]`);
-            if (itemDiv) {
-                itemDiv.remove();
-                updateSaleSummary();
-            }
-        }
-
-        function updateSaleSummary() {
-            let subtotal = 0;
-            
-            document.querySelectorAll('.sale-item').forEach(itemDiv => {
-                const produceSelect = itemDiv.querySelector('.produce-select');
-                const quantityInput = itemDiv.querySelector('.quantity-input');
-                const selectedOption = produceSelect.options[produceSelect.selectedIndex];
-                const price = parseFloat(selectedOption.dataset.price) || 0;
-                const quantity = parseFloat(quantityInput.value) || 0;
-                
-                subtotal += price * quantity;
-            });
-            
-            const tax = 0; // No tax for now
-            const total = subtotal + tax;
-            
-            document.getElementById('subtotal').textContent = `UGX ${subtotal.toLocaleString()}`;
-            document.getElementById('tax').textContent = `UGX ${tax.toLocaleString()}`;
-            document.getElementById('totalAmount').textContent = `UGX ${total.toLocaleString()}`;
-        }
-
-        // Form submission
-        document.getElementById('saleForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const saleItemDivs = document.querySelectorAll('.sale-item');
-            if (saleItemDivs.length === 0) {
-                alert('Please add at least one item to the sale');
-                return;
-            }
-            
-            // Collect sale data
-            const saleData = {
-                customerType: document.getElementById('customerType').value,
-                customerName: document.getElementById('customerName').value,
-                businessName: document.getElementById('businessName').value,
-                customerPhone: document.getElementById('customerPhone').value,
-                paymentMethod: document.getElementById('paymentMethod').value,
-                paymentReference: document.getElementById('paymentReference').value,
-                creditDays: document.getElementById('creditDays').value,
-                items: [],
-                subtotal: 0,
-                total: 0,
-                timestamp: new Date().toISOString()
-            };
-            
-            // Collect items
-            saleItemDivs.forEach(itemDiv => {
-                const produceSelect = itemDiv.querySelector('.produce-select');
-                const quantityInput = itemDiv.querySelector('.quantity-input');
-                const selectedOption = produceSelect.options[produceSelect.selectedIndex];
-                
-                const item = {
-                    produceId: selectedOption.value,
-                    produceName: selectedOption.textContent.split(' - ')[0],
-                    quantity: parseFloat(quantityInput.value),
-                    unitPrice: parseFloat(selectedOption.dataset.price),
-                    amount: parseFloat(quantityInput.value) * parseFloat(selectedOption.dataset.price)
-                };
-                
-                saleData.items.push(item);
-                saleData.subtotal += item.amount;
-            });
-            
-            saleData.total = saleData.subtotal;
-            
-            console.log('Sale Data:', saleData);
-            
-            // Here you would send the data to the backend
-            // For now, we'll just show a success message
-            alert('Sale recorded successfully!\\nTotal Amount: UGX ' + saleData.total.toLocaleString());
-            window.location.href = 'sales-agent-dashboard.html';
-        });
-
-        // Logout
-        document.querySelector('.logout-btn').addEventListener('click', function() {
-            if (confirm('Are you sure you want to logout?')) {
-                window.location.href = 'login.html';
-            }
-        });
-
-        // Add first item on page load
-        addSaleItem();
-    </script>
-
     <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>
 

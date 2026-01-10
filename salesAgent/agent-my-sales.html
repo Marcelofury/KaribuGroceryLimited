@@ -12,9 +12,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="#">KGL</a>
-            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white mx-2">|</span>
             <span class="navbar-text text-white">Sales Agent: <strong id="agentName">Jane Smith</strong></small>
-            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white mx-2">|</span>
             <span class="navbar-text text-white">Branch: <strong id="branchName">Branch A</strong></small>
         </div>
         
@@ -23,66 +23,90 @@
     </div></nav>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom"><div class="container-fluid"><ul class="nav nav-pills">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container-fluid">
+            <ul class="nav nav-pills">
             <li class="nav-item">
-                <a href="sales-agent-dashboard.html">Dashboard</a>
+                    <a class="nav-link" href="sales-agent-dashboard.html">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a href="agent-make-sale.html">Make Sale</a>
+                    <a class="nav-link" href="agent-make-sale.html">Make Sale</a>
             </li>
             <li class="nav-item">
-                <a href="agent-stock-view.html">Stock Availability</a>
+                    <a class="nav-link" href="agent-stock-view.html">Stock Availability</a>
             </li>
             <li class="nav-item">
-                <a href="agent-prices.html">Current Prices</a>
+                    <a class="nav-link" href="agent-prices.html">Current Prices</a>
             </li>
             <li class="nav-item">
-                <a href="agent-my-sales.html">My Sales</a>
+                    <a class="nav-link active" href="agent-my-sales.html">My Sales</a>
             </li>
-        </ul></div></nav>
+        </ul>
+        </div>
+    </nav>
 
     <!-- Main Content -->
     <main class="container-fluid py-4">
         <div class="mb-4">
             <h2> My Sales History</h2>
-            <p class="text-muted">View and track your sales records</div>
+            <p class="text-muted">View and track your sales records</p>
         </div>
 
         <!-- Sales Summary -->
         <div class="row g-4 mb-4">
-            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
-                <div class="fs-1 me-3"></div>
-                <div class="flex-grow-1">
-                    <h6 class="card-title text-muted mb-1">Today's Sales</h3>
-                    <div class="fs-4 fw-bold" id="todaySales">UGX 2,400,000</div>
-                    <small class="text-muted">8 Transactions</small>
+            <div class="col-md-6 col-xl-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <h6 class="card-title text-muted mb-1">Today's Sales</h6>
+                                <div class="fs-4 fw-bold" id="todaySales">UGX 2,400,000</div>
+                                <small class="text-muted">8 Transactions</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
-                <div class="fs-1 me-3"></div>
-                <div class="flex-grow-1">
-                    <h6 class="card-title text-muted mb-1">This Week</h3>
-                    <div class="fs-4 fw-bold" id="weekSales">UGX 12,500,000</div>
-                    <small class="text-muted">45 Transactions</small>
+            <div class="col-md-6 col-xl-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <h6 class="card-title text-muted mb-1">This Week</h6>
+                                <div class="fs-4 fw-bold" id="weekSales">UGX 12,500,000</div>
+                                <small class="text-muted">45 Transactions</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
-                <div class="fs-1 me-3"></div>
-                <div class="flex-grow-1">
-                    <h6 class="card-title text-muted mb-1">This Month</h3>
-                    <div class="fs-4 fw-bold" id="monthSales">UGX 28,900,000</div>
-                    <small class="text-muted">124 Transactions</small>
+            <div class="col-md-6 col-xl-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <h6 class="card-title text-muted mb-1">This Month</h6>
+                                <div class="fs-4 fw-bold" id="monthSales">UGX 28,900,000</div>
+                                <small class="text-muted">124 Transactions</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
-                <div class="fs-1 me-3">💹</div>
-                <div class="flex-grow-1">
-                    <h6 class="card-title text-muted mb-1">Avg Transaction</h3>
-                    <div class="fs-4 fw-bold" id="avgSale">UGX 233,065</div>
-                    <small class="text-muted">Per sale</small>
+            <div class="col-md-6 col-xl-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <h6 class="card-title text-muted mb-1">Avg Transaction</h6>
+                                <div class="fs-4 fw-bold" id="avgSale">UGX 233,065</div>
+                                <small class="text-muted">Per sale</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -188,268 +212,8 @@
         </div>
     </div>
 
-    <script>
-        // Sample sales data (would typically come from backend)
-        const salesData = [
-            { id: 'SL-2026-001', date: '2026-01-09', time: '14:45', customer: 'Walk-in Customer', produce: 'Maize', quantity: 100, unit: 'kg', amount: 180000, payment: 'cash', status: 'completed', reference: 'CSH-001' },
-            { id: 'SL-2026-002', date: '2026-01-09', time: '13:30', customer: 'Nakato Foods Ltd', produce: 'Beans (Red)', quantity: 200, unit: 'kg', amount: 480000, payment: 'mobile', status: 'completed', reference: 'MM-12345' },
-            { id: 'SL-2026-003', date: '2026-01-09', time: '11:15', customer: 'Quality Foods Co.', produce: 'Rice', quantity: 150, unit: 'kg', amount: 600000, payment: 'credit', status: 'pending', reference: 'CR-789' },
-            { id: 'SL-2026-004', date: '2026-01-09', time: '10:00', customer: 'Walk-in Customer', produce: 'Groundnuts', quantity: 50, unit: 'kg', amount: 250000, payment: 'cash', status: 'completed', reference: 'CSH-002' },
-            { id: 'SL-2026-005', date: '2026-01-09', time: '09:20', customer: 'Ssemakula Traders', produce: 'Wheat', quantity: 300, unit: 'kg', amount: 750000, payment: 'bank', status: 'completed', reference: 'BNK-5678' },
-            { id: 'SL-2026-006', date: '2026-01-09', time: '08:45', customer: 'Walk-in Customer', produce: 'Beans (White)', quantity: 80, unit: 'kg', amount: 208000, payment: 'cash', status: 'completed', reference: 'CSH-003' },
-            { id: 'SL-2026-007', date: '2026-01-09', time: '08:10', customer: 'Fresh Market Ltd', produce: 'Sorghum', quantity: 120, unit: 'kg', amount: 264000, payment: 'mobile', status: 'completed', reference: 'MM-23456' },
-            { id: 'SL-2026-008', date: '2026-01-09', time: '07:30', customer: 'Walk-in Customer', produce: 'Millet', quantity: 60, unit: 'kg', amount: 138000, payment: 'cash', status: 'completed', reference: 'CSH-004' },
-            { id: 'SL-2026-009', date: '2026-01-08', time: '16:20', customer: 'Kampala Grocers', produce: 'Maize', quantity: 250, unit: 'kg', amount: 450000, payment: 'bank', status: 'completed', reference: 'BNK-4321' },
-            { id: 'SL-2026-010', date: '2026-01-08', time: '15:10', customer: 'Walk-in Customer', produce: 'Groundnuts', quantity: 40, unit: 'kg', amount: 200000, payment: 'cash', status: 'completed', reference: 'CSH-005' },
-            { id: 'SL-2026-011', date: '2026-01-08', time: '14:35', customer: 'Bright Foods', produce: 'Rice', quantity: 180, unit: 'kg', amount: 720000, payment: 'credit', status: 'pending', reference: 'CR-790' },
-            { id: 'SL-2026-012', date: '2026-01-08', time: '13:50', customer: 'Walk-in Customer', produce: 'Beans (Red)', quantity: 90, unit: 'kg', amount: 216000, payment: 'mobile', status: 'completed', reference: 'MM-34567' },
-            { id: 'SL-2026-013', date: '2026-01-08', time: '12:40', customer: 'Eastern Traders', produce: 'Wheat', quantity: 200, unit: 'kg', amount: 500000, payment: 'bank', status: 'completed', reference: 'BNK-6789' },
-            { id: 'SL-2026-014', date: '2026-01-08', time: '11:25', customer: 'Walk-in Customer', produce: 'Soybeans', quantity: 70, unit: 'kg', amount: 224000, payment: 'cash', status: 'completed', reference: 'CSH-006' },
-            { id: 'SL-2026-015', date: '2026-01-08', time: '10:15', customer: 'Mukwano Foods', produce: 'Green Grams', quantity: 100, unit: 'kg', amount: 350000, payment: 'credit', status: 'completed', reference: 'CR-791' }
-        ];
-
-        let currentPage = 1;
-        const itemsPerPage = 10;
-        let filteredData = [...salesData];
-
-        function loadSalesData() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            const dateFilter = document.getElementById('dateFilter').value;
-            const paymentFilter = document.getElementById('paymentFilter').value;
-            const statusFilter = document.getElementById('statusFilter').value;
-
-            filteredData = salesData.filter(sale => {
-                const matchesSearch = sale.customer.toLowerCase().includes(searchTerm) ||
-                                     sale.produce.toLowerCase().includes(searchTerm) ||
-                                     sale.id.toLowerCase().includes(searchTerm) ||
-                                     sale.reference.toLowerCase().includes(searchTerm);
-                
-                const matchesPayment = !paymentFilter || sale.payment === paymentFilter;
-                const matchesStatus = !statusFilter || sale.status === statusFilter;
-                
-                // Date filtering logic would go here
-                const matchesDate = true; // Simplified for now
-                
-                return matchesSearch && matchesPayment && matchesStatus && matchesDate;
-            });
-
-            renderSalesTable();
-            updateStats();
-        }
-
-        function renderSalesTable() {
-            const tbody = document.getElementById('salesTableBody');
-            tbody.innerHTML = '';
-
-            const startIndex = (currentPage - 1) * itemsPerPage;
-            const endIndex = startIndex + itemsPerPage;
-            const pageData = filteredData.slice(startIndex, endIndex);
-
-            pageData.forEach(sale => {
-                const row = document.createElement('tr');
-                
-                const statusClass = sale.status === 'completed' ? 'success' : 
-                                   sale.status === 'pending' ? 'warning' : 'danger';
-                
-                const paymentLabel = {
-                    'cash': 'Cash',
-                    'mobile': 'Mobile Money',
-                    'bank': 'Bank Transfer',
-                    'credit': 'Credit'
-                }[sale.payment] || sale.payment;
-                
-                row.innerHTML = `
-                    <td>${sale.date}<br><small>${sale.time}</small></td>
-                    <td><strong>${sale.id}</strong></td>
-                    <td>${sale.customer}</td>
-                    <td>${sale.produce}</td>
-                    <td>${sale.quantity} ${sale.unit}</td>
-                    <td><strong>UGX ${sale.amount.toLocaleString()}</strong></td>
-                    <td>${paymentLabel}</td>
-                    <td><span class="status-badge ${statusClass}">${sale.status.charAt(0).toUpperCase() + sale.status.slice(1)}</small></td>
-                    <td>
-                        <button class="btn-view" onclick="viewSaleDetail('${sale.id}')">👁️ View</button>
-                    </td>
-                `;
-                
-                tbody.appendChild(row);
-            });
-
-            // Update pagination
-            const totalPages = Math.ceil(filteredData.length / itemsPerPage);
-            document.getElementById('currentPage').textContent = currentPage;
-            document.getElementById('totalPages').textContent = totalPages;
-            document.getElementById('recordCount').textContent = filteredData.length;
-            
-            document.getElementById('prevBtn').disabled = currentPage === 1;
-            document.getElementById('nextBtn').disabled = currentPage === totalPages || totalPages === 0;
-        }
-
-        function changePage(direction) {
-            const totalPages = Math.ceil(filteredData.length / itemsPerPage);
-            const newPage = currentPage + direction;
-            
-            if (newPage >= 1 && newPage <= totalPages) {
-                currentPage = newPage;
-                renderSalesTable();
-            }
-        }
-
-        function viewSaleDetail(saleId) {
-            const sale = salesData.find(s => s.id === saleId);
-            if (!sale) return;
-            
-            const modal = document.getElementById('saleDetailModal');
-            const content = document.getElementById('saleDetailContent');
-            
-            const paymentLabel = {
-                'cash': 'Cash',
-                'mobile': 'Mobile Money',
-                'bank': 'Bank Transfer',
-                'credit': 'Credit'
-            }[sale.payment] || sale.payment;
-            
-            content.innerHTML = `
-                <div class="detail-section">
-                    <h3>Transaction Information</h3>
-                    <div class="detail-grid">
-                        <div class="detail-item">
-                            <span class="detail-label">Sale ID:</small>
-                            <span class="detail-value">${sale.id}</small>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Date & Time:</small>
-                            <span class="detail-value">${sale.date} at ${sale.time}</small>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Status:</small>
-                            <span class="detail-value"><span class="status-badge ${sale.status === 'completed' ? 'success' : 'warning'}">${sale.status.charAt(0).toUpperCase() + sale.status.slice(1)}</small></small>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="detail-section">
-                    <h3>Customer Information</h3>
-                    <div class="detail-grid">
-                        <div class="detail-item">
-                            <span class="detail-label">Customer:</small>
-                            <span class="detail-value">${sale.customer}</small>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="detail-section">
-                    <h3>Product Details</h3>
-                    <div class="detail-grid">
-                        <div class="detail-item">
-                            <span class="detail-label">Produce:</small>
-                            <span class="detail-value">${sale.produce}</small>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Quantity:</small>
-                            <span class="detail-value">${sale.quantity} ${sale.unit}</small>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="detail-section">
-                    <h3>Payment Information</h3>
-                    <div class="detail-grid">
-                        <div class="detail-item">
-                            <span class="detail-label">Payment Method:</small>
-                            <span class="detail-value">${paymentLabel}</small>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Reference:</small>
-                            <span class="detail-value">${sale.reference}</small>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">Total Amount:</small>
-                            <span class="detail-value"><strong>UGX ${sale.amount.toLocaleString()}</strong></small>
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            modal.style.display = 'flex';
-        }
-
-        function closeSaleDetail() {
-            document.getElementById('saleDetailModal').style.display = 'none';
-        }
-
-        function printReceipt() {
-            alert('Printing receipt...');
-            // Print functionality would go here
-        }
-
-        function exportSales() {
-            let csv = 'Date,Time,Sale ID,Customer,Produce,Quantity,Amount,Payment,Status,Reference\n';
-            
-            filteredData.forEach(sale => {
-                csv += `${sale.date},${sale.time},${sale.id},${sale.customer},${sale.produce},${sale.quantity} ${sale.unit},${sale.amount},${sale.payment},${sale.status},${sale.reference}\n`;
-            });
-            
-            const blob = new Blob([csv], { type: 'text/csv' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'my-sales-' + new Date().toISOString().split('T')[0] + '.csv';
-            a.click();
-            window.URL.revokeObjectURL(url);
-        }
-
-        function updateStats() {
-            // Calculate stats based on filtered data
-            const todayTotal = filteredData
-                .filter(s => s.date === '2026-01-09')
-                .reduce((sum, s) => sum + s.amount, 0);
-            
-            document.getElementById('todaySales').textContent = `UGX ${todayTotal.toLocaleString()}`;
-        }
-
-        // Date filter change handler
-        document.getElementById('dateFilter').addEventListener('change', function() {
-            const dateRangeSection = document.getElementById('dateRangeSection');
-            if (this.value === 'custom') {
-                dateRangeSection.style.display = 'block';
-            } else {
-                dateRangeSection.style.display = 'none';
-                loadSalesData();
-            }
-        });
-
-        function applyDateRange() {
-            // Apply custom date range logic here
-            loadSalesData();
-        }
-
-        // Event listeners
-        document.getElementById('searchInput').addEventListener('input', loadSalesData);
-        document.getElementById('paymentFilter').addEventListener('change', loadSalesData);
-        document.getElementById('statusFilter').addEventListener('change', loadSalesData);
-
-        // Logout
-        document.querySelector('.logout-btn').addEventListener('click', function() {
-            if (confirm('Are you sure you want to logout?')) {
-                window.location.href = 'login.html';
-            }
-        });
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            const modal = document.getElementById('saleDetailModal');
-            if (event.target === modal) {
-                closeSaleDetail();
-            }
-        };
-
-        // Load data on page load
-        loadSalesData();
-    </script>
-
     <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>
 

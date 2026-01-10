@@ -12,9 +12,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="#">KGL</a>
-            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white mx-2">|</span>
             <span class="navbar-text text-white">Sales Agent: <strong id="agentName">Jane Smith</strong></small>
-            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white mx-2">|</span>
             <span class="navbar-text text-white">Branch: <strong id="branchName">Branch A</strong></small>
         </div>
         
@@ -23,29 +23,33 @@
     </div></nav>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom"><div class="container-fluid"><ul class="nav nav-pills">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container-fluid">
+            <ul class="nav nav-pills">
             <li class="nav-item">
-                <a href="sales-agent-dashboard.html">Dashboard</a>
+                    <a class="nav-link" href="sales-agent-dashboard.html">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a href="agent-make-sale.html">Make Sale</a>
+                    <a class="nav-link" href="agent-make-sale.html">Make Sale</a>
             </li>
             <li class="nav-item">
-                <a href="agent-stock-view.html">Stock Availability</a>
+                    <a class="nav-link active" href="agent-stock-view.html">Stock Availability</a>
             </li>
             <li class="nav-item">
-                <a href="agent-prices.html">Current Prices</a>
+                    <a class="nav-link" href="agent-prices.html">Current Prices</a>
             </li>
             <li class="nav-item">
-                <a href="agent-my-sales.html">My Sales</a>
+                    <a class="nav-link" href="agent-my-sales.html">My Sales</a>
             </li>
-        </ul></div></nav>
+        </ul>
+        </div>
+    </nav>
 
     <!-- Main Content -->
     <main class="container-fluid py-4">
         <div class="mb-4">
             <h2> Stock Availability</h2>
-            <p class="text-muted">View current inventory levels</div>
+            <p class="text-muted">View current inventory levels</p>
         </div>
 
         <!-- Search and Filter -->
@@ -73,39 +77,59 @@
 
         <!-- Stock Summary Cards -->
         <div class="row g-4 mb-4">
-            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
-                <div class="fs-1 me-3"></div>
-                <div class="flex-grow-1">
-                    <h6 class="card-title text-muted mb-1">Total Items</h3>
-                    <div class="fs-4 fw-bold" id="totalItems">24</div>
-                    <small class="text-muted">Produce types</small>
+            <div class="col-md-6 col-xl-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <h6 class="card-title text-muted mb-1">Total Items</h6>
+                                <div class="fs-4 fw-bold" id="totalItems">24</div>
+                                <small class="text-muted">Produce types</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
-                <div class="fs-1 me-3"></div>
-                <div class="flex-grow-1">
-                    <h6 class="card-title text-muted mb-1">In Stock</h3>
-                    <div class="fs-4 fw-bold" id="inStockItems">18</div>
-                    <small class="text-muted">Items available</small>
+            <div class="col-md-6 col-xl-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <h6 class="card-title text-muted mb-1">In Stock</h6>
+                                <div class="fs-4 fw-bold" id="inStockItems">18</div>
+                                <small class="text-muted">Items available</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
-                <div class="fs-1 me-3"></div>
-                <div class="flex-grow-1">
-                    <h6 class="card-title text-muted mb-1">Low Stock</h3>
-                    <div class="fs-4 fw-bold" id="lowStockItems">4</div>
-                    <small class="text-muted">Need attention</small>
+            <div class="col-md-6 col-xl-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <h6 class="card-title text-muted mb-1">Low Stock</h6>
+                                <div class="fs-4 fw-bold" id="lowStockItems">4</div>
+                                <small class="text-muted">Need attention</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
-                <div class="fs-1 me-3">❌</div>
-                <div class="flex-grow-1">
-                    <h6 class="card-title text-muted mb-1">Out of Stock</h3>
-                    <div class="fs-4 fw-bold" id="outStockItems">2</div>
-                    <small class="text-muted">Items unavailable</small>
+            <div class="col-md-6 col-xl-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <h6 class="card-title text-muted mb-1">Out of Stock</h6>
+                                <div class="fs-4 fw-bold" id="outStockItems">2</div>
+                                <small class="text-muted">Items unavailable</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -169,97 +193,8 @@
         </div>
     </main>
 
-    <script>
-        // Sample stock data (would typically come from backend)
-        // KGL deals only in: Beans, Grain Maize, Cow peas, G-nuts, Soybeans
-        const stockData = [
-            { id: 1, name: 'Grain Maize', category: 'Cereals', stock: 5000, unit: 'kg', reorderLevel: 1000, lastUpdated: '2026-01-09 14:30' },
-            { id: 2, name: 'Beans (Red)', category: 'Legumes', stock: 3450, unit: 'kg', reorderLevel: 1000, lastUpdated: '2026-01-09 14:15' },
-            { id: 3, name: 'Beans (White)', category: 'Legumes', stock: 2800, unit: 'kg', reorderLevel: 1000, lastUpdated: '2026-01-09 14:15' },
-            { id: 4, name: 'Cow Peas', category: 'Legumes', stock: 1800, unit: 'kg', reorderLevel: 1000, lastUpdated: '2026-01-09 14:00' },
-            { id: 5, name: 'G-nuts (Groundnuts)', category: 'Legumes', stock: 2280, unit: 'kg', reorderLevel: 1000, lastUpdated: '2026-01-09 13:45' },
-            { id: 6, name: 'Soybeans', category: 'Legumes', stock: 1950, unit: 'kg', reorderLevel: 1000, lastUpdated: '2026-01-09 14:20' }
-        ];
-
-        function getStockStatus(stock, reorderLevel) {
-            if (stock === 0) return 'out-of-stock';
-            if (stock <= reorderLevel) return 'low-stock';
-            return 'in-stock';
-        }
-
-        function getStatusBadge(status) {
-            if (status === 'out-of-stock') {
-                return '<span class="status-badge danger">Out of Stock</small>';
-            } else if (status === 'low-stock') {
-                return '<span class="status-badge warning">Low Stock</small>';
-            } else {
-                return '<span class="badge bg-success">In Stock</small>';
-            }
-        }
-
-        function loadStockData() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            const categoryFilter = document.getElementById('categoryFilter').value;
-            const stockLevelFilter = document.getElementById('stockLevelFilter').value;
-
-            let filteredData = stockData.filter(item => {
-                const matchesSearch = item.name.toLowerCase().includes(searchTerm);
-                const matchesCategory = !categoryFilter || item.category === categoryFilter;
-                const itemStatus = getStockStatus(item.stock, item.reorderLevel);
-                const matchesStockLevel = !stockLevelFilter || itemStatus === stockLevelFilter;
-
-                return matchesSearch && matchesCategory && matchesStockLevel;
-            });
-
-            const tbody = document.getElementById('stockTableBody');
-            tbody.innerHTML = '';
-
-            filteredData.forEach(item => {
-                const status = getStockStatus(item.stock, item.reorderLevel);
-                const row = document.createElement('tr');
-                
-                row.innerHTML = `
-                    <td><strong>${item.name}</strong></td>
-                    <td>${item.category}</td>
-                    <td><strong>${item.stock.toLocaleString()}</strong></td>
-                    <td>${item.unit}</td>
-                    <td>${item.reorderLevel.toLocaleString()}</td>
-                    <td>${getStatusBadge(status)}</td>
-                    <td>${item.lastUpdated}</td>
-                `;
-                
-                tbody.appendChild(row);
-            });
-
-            // Update summary counts
-            const inStock = stockData.filter(item => getStockStatus(item.stock, item.reorderLevel) === 'in-stock').length;
-            const lowStock = stockData.filter(item => getStockStatus(item.stock, item.reorderLevel) === 'low-stock').length;
-            const outStock = stockData.filter(item => getStockStatus(item.stock, item.reorderLevel) === 'out-of-stock').length;
-
-            document.getElementById('totalItems').textContent = stockData.length;
-            document.getElementById('inStockItems').textContent = inStock;
-            document.getElementById('lowStockItems').textContent = lowStock;
-            document.getElementById('outStockItems').textContent = outStock;
-        }
-
-        // Search and filter handlers
-        document.getElementById('searchInput').addEventListener('input', loadStockData);
-        document.getElementById('categoryFilter').addEventListener('change', loadStockData);
-        document.getElementById('stockLevelFilter').addEventListener('change', loadStockData);
-
-        // Logout
-        document.querySelector('.logout-btn').addEventListener('click', function() {
-            if (confirm('Are you sure you want to logout?')) {
-                window.location.href = 'login.html';
-            }
-        });
-
-        // Load data on page load
-        loadStockData();
-    </script>
-
     <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>
 

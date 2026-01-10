@@ -12,9 +12,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="#">KGL</a>
-            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white mx-2">|</span>
             <span class="navbar-text text-white">Manager: <strong id="managerName">John Doe</strong></small>
-            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white mx-2">|</span>
             <span class="navbar-text text-white">Branch: <strong id="branchName">Branch A</strong></small>
         </div>
         
@@ -23,72 +23,96 @@
     </div></nav>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom"><div class="container-fluid"><ul class="nav nav-pills">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container-fluid">
+            <ul class="nav nav-pills">
             <li class="nav-item">
-                <a href="manager-dashboard.html">Dashboard</a>
+                    <a class="nav-link" href="manager-dashboard.html">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a href="procure.html">Procure</a>
+                    <a class="nav-link" href="procure.html">Procure</a>
             </li>
             <li class="nav-item">
-                <a href="stock.html">Stock</a>
+                    <a class="nav-link" href="stock.html">Stock</a>
             </li>
             <li class="nav-item">
-                <a href="sales.html">Sales</a>
+                    <a class="nav-link" href="sales.html">Sales</a>
             </li>
             <li class="nav-item">
-                <a href="prices.html">Prices</a>
+                    <a class="nav-link" href="prices.html">Prices</a>
             </li>
             <li class="nav-item">
-                <a href="credit-sales.html">Credit Sales</a>
+                    <a class="nav-link active" href="credit-sales.html">Credit Sales</a>
             </li>
             <li class="nav-item">
-                <a href="reports.html">Reports</a>
+                    <a class="nav-link" href="reports.html">Reports</a>
             </li>
-        </ul></div></nav>
+        </ul>
+        </div>
+    </nav>
 
     <!-- Main Content -->
     <main class="container-fluid py-4">
         <div class="mb-4">
             <h2>Credit Sales Management</h2>
-            <p class="text-muted">Track and manage credit sales and payments</div>
+            <p class="text-muted">Track and manage credit sales and payments</p>
         </div>
 
         <!-- Credit Summary Cards -->
         <div class="row g-4 mb-4">
-            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
-                <div class="fs-1 me-3"></div>
-                <div class="flex-grow-1">
-                    <h6 class="card-title text-muted mb-1">Total Outstanding</h3>
-                    <div class="fs-4 fw-bold" id="totalOutstanding">UGX 4,500,000</div>
-                    <small class="text-muted">All Credit Sales</small>
+            <div class="col-md-6 col-xl-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <h6 class="card-title text-muted mb-1">Total Outstanding</h6>
+                                <div class="fs-4 fw-bold" id="totalOutstanding">UGX 4,500,000</div>
+                                <small class="text-muted">All Credit Sales</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="stat-card alert-card">
-                <div class="fs-1 me-3"></div>
-                <div class="flex-grow-1">
-                    <h6 class="card-title text-muted mb-1">Overdue</h3>
-                    <div class="fs-4 fw-bold" id="overdueAmount">UGX 800,000</div>
-                    <small class="text-muted">Past Due Date</small>
+            <div class="col-md-6 col-xl-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <h6 class="card-title text-muted mb-1">Overdue</h6>
+                                <div class="fs-4 fw-bold" id="overdueAmount">UGX 800,000</div>
+                                <small class="text-muted">Past Due Date</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
-                <div class="fs-1 me-3"></div>
-                <div class="flex-grow-1">
-                    <h6 class="card-title text-muted mb-1">Collected This Month</h3>
-                    <div class="fs-4 fw-bold" id="collectedMonth">UGX 2,200,000</div>
-                    <small class="text-muted">Payments Received</small>
+            <div class="col-md-6 col-xl-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <h6 class="card-title text-muted mb-1">Collected This Month</h6>
+                                <div class="fs-4 fw-bold" id="collectedMonth">UGX 2,200,000</div>
+                                <small class="text-muted">Payments Received</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
-                <div class="fs-1 me-3">👥</div>
-                <div class="flex-grow-1">
-                    <h6 class="card-title text-muted mb-1">Active Customers</h3>
-                    <div class="fs-4 fw-bold" id="activeCustomers">12</div>
-                    <small class="text-muted">With Outstanding Balance</small>
+            <div class="col-md-6 col-xl-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <h6 class="card-title text-muted mb-1">Active Customers</h6>
+                                <div class="fs-4 fw-bold" id="activeCustomers">12</div>
+                                <small class="text-muted">With Outstanding Balance</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -393,138 +417,8 @@
         </div>
     </main>
 
-    <script>
-        // Set current date
-        document.getElementById('paymentDate').valueAsDate = new Date();
-
-        // Customer balance data
-        const customerBalances = {
-            'nakato': 1200000,
-            'kampala': 800000,
-            'buganda': 1500000,
-            'quality': 450000,
-            'ssemakula': 550000
-        };
-
-        // Update outstanding balance when customer is selected
-        document.getElementById('customerSelect').addEventListener('change', function() {
-            const customer = this.value;
-            const balanceInput = document.getElementById('outstandingBalance');
-            
-            if (customer && customerBalances[customer]) {
-                balanceInput.value = `UGX ${customerBalances[customer].toLocaleString()}`;
-            } else {
-                balanceInput.value = '';
-            }
-            
-            calculateRemainingBalance();
-        });
-
-        // Calculate remaining balance
-        function calculateRemainingBalance() {
-            const customer = document.getElementById('customerSelect').value;
-            const paymentAmount = parseFloat(document.getElementById('paymentAmount').value) || 0;
-            const remainingInput = document.getElementById('remainingBalance');
-            
-            if (customer && customerBalances[customer]) {
-                const outstanding = customerBalances[customer];
-                const remaining = outstanding - paymentAmount;
-                remainingInput.value = remaining >= 0 ? `UGX ${remaining.toLocaleString()}` : 'Overpayment';
-                
-                if (remaining < 0) {
-                    remainingInput.style.color = '#f44336';
-                } else {
-                    remainingInput.style.color = '#4caf50';
-                }
-            } else {
-                remainingInput.value = '';
-            }
-        }
-
-        document.getElementById('paymentAmount').addEventListener('input', calculateRemainingBalance);
-
-        // Form submission
-        document.getElementById('paymentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            console.log('Payment recorded:', data);
-            alert('Payment recorded successfully!');
-            
-            this.reset();
-            document.getElementById('paymentDate').valueAsDate = new Date();
-        });
-
-        // Reset button
-        document.getElementById('resetBtn').addEventListener('click', function() {
-            document.getElementById('paymentForm').reset();
-            document.getElementById('paymentDate').valueAsDate = new Date();
-        });
-
-        // Record payment from table
-        document.querySelectorAll('.record-payment').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const row = this.closest('tr');
-                const customer = row.cells[1].textContent;
-                
-                alert(`Recording payment for ${customer}`);
-                document.querySelector('.form-section').scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Search functionality
-        document.getElementById('searchInput').addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const rows = document.querySelectorAll('#creditSalesTable tr');
-            
-            rows.forEach(row => {
-                const text = row.textContent.toLowerCase();
-                row.style.display = text.includes(searchTerm) ? '' : 'none';
-            });
-        });
-
-        // Filter by status
-        document.getElementById('filterStatus').addEventListener('change', function() {
-            const filterValue = this.value.toLowerCase();
-            const rows = document.querySelectorAll('#creditSalesTable tr');
-            
-            rows.forEach(row => {
-                if (filterValue === '') {
-                    row.style.display = '';
-                } else {
-                    const statusBadge = row.querySelector('.status-badge');
-                    if (statusBadge) {
-                        const status = statusBadge.textContent.toLowerCase();
-                        if (filterValue === 'overdue' && status.includes('overdue')) {
-                            row.style.display = '';
-                        } else if (filterValue === 'current' && status.includes('current')) {
-                            row.style.display = '';
-                        } else {
-                            row.style.display = 'none';
-                        }
-                    }
-                }
-            });
-        });
-
-        // Export functionality
-        document.getElementById('exportBtn').addEventListener('click', function() {
-            alert('Credit sales data export functionality coming soon!');
-        });
-
-        // Logout
-        document.querySelector('.logout-btn').addEventListener('click', function() {
-            if (confirm('Are you sure you want to logout?')) {
-                window.location.href = 'login.html';
-            }
-        });
-    </script>
-
     <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>
-
 

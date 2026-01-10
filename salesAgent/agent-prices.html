@@ -12,9 +12,9 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="#">KGL</a>
-            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white mx-2">|</span>
             <span class="navbar-text text-white">Sales Agent: <strong id="agentName">Jane Smith</strong></small>
-            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white mx-2">|</span>
             <span class="navbar-text text-white">Branch: <strong id="branchName">Branch A</strong></small>
         </div>
         
@@ -23,66 +23,90 @@
     </div></nav>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom"><div class="container-fluid"><ul class="nav nav-pills">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container-fluid">
+            <ul class="nav nav-pills">
             <li class="nav-item">
-                <a href="sales-agent-dashboard.html">Dashboard</a>
+                    <a class="nav-link" href="sales-agent-dashboard.html">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a href="agent-make-sale.html">Make Sale</a>
+                    <a class="nav-link" href="agent-make-sale.html">Make Sale</a>
             </li>
             <li class="nav-item">
-                <a href="agent-stock-view.html">Stock Availability</a>
+                    <a class="nav-link" href="agent-stock-view.html">Stock Availability</a>
             </li>
             <li class="nav-item">
-                <a href="agent-prices.html">Current Prices</a>
+                    <a class="nav-link active" href="agent-prices.html">Current Prices</a>
             </li>
             <li class="nav-item">
-                <a href="agent-my-sales.html">My Sales</a>
+                    <a class="nav-link" href="agent-my-sales.html">My Sales</a>
             </li>
-        </ul></div></nav>
+        </ul>
+        </div>
+    </nav>
 
     <!-- Main Content -->
     <main class="container-fluid py-4">
         <div class="mb-4">
             <h2> Current Prices</h2>
-            <p class="text-muted">View up-to-date pricing for all produce</div>
+            <p class="text-muted">View up-to-date pricing for all produce</p>
         </div>
 
         <!-- Price Summary Cards -->
         <div class="row g-4 mb-4">
-            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
-                <div class="fs-1 me-3"></div>
-                <div class="flex-grow-1">
-                    <h6 class="card-title text-muted mb-1">Total Items</h3>
-                    <div class="fs-4 fw-bold" id="totalItems">24</div>
-                    <small class="text-muted">Priced items</small>
+            <div class="col-md-6 col-xl-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <h6 class="card-title text-muted mb-1">Total Items</h6>
+                                <div class="fs-4 fw-bold" id="totalItems">24</div>
+                                <small class="text-muted">Priced items</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
-                <div class="fs-1 me-3">🔄</div>
-                <div class="flex-grow-1">
-                    <h6 class="card-title text-muted mb-1">Last Updated</h3>
-                    <div class="fs-4 fw-bold" id="lastUpdated">Today</div>
-                    <small class="text-muted">Jan 9, 2026</small>
+            <div class="col-md-6 col-xl-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <h6 class="card-title text-muted mb-1">Last Updated</h6>
+                                <div class="fs-4 fw-bold" id="lastUpdated">Today</div>
+                                <small class="text-muted">Jan 9, 2026</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
-                <div class="fs-1 me-3"></div>
-                <div class="flex-grow-1">
-                    <h6 class="card-title text-muted mb-1">Price Range</h3>
-                    <div class="fs-4 fw-bold" id="priceRange">1.8K - 8K</div>
-                    <small class="text-muted">UGX per kg</small>
+            <div class="col-md-6 col-xl-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <h6 class="card-title text-muted mb-1">Price Range</h6>
+                                <div class="fs-4 fw-bold" id="priceRange">1.8K - 8K</div>
+                                <small class="text-muted">UGX per kg</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
-                <div class="fs-1 me-3"></div>
-                <div class="flex-grow-1">
-                    <h6 class="card-title text-muted mb-1">Categories</h3>
-                    <div class="fs-4 fw-bold" id="totalCategories">4</div>
-                    <small class="text-muted">Product categories</small>
+            <div class="col-md-6 col-xl-3">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <div class="flex-grow-1">
+                                <h6 class="card-title text-muted mb-1">Categories</h6>
+                                <div class="fs-4 fw-bold" id="totalCategories">4</div>
+                                <small class="text-muted">Product categories</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -147,156 +171,8 @@
         </div>
     </main>
 
-    <script>
-        // Sample price data (would typically come from backend)
-        // KGL deals only in: Beans, Grain Maize, Cow peas, G-nuts, Soybeans
-        const priceData = [
-            { id: 1, name: 'Grain Maize', category: 'Cereals', price: 1800, bulkPrice: 1700, unit: 'kg', stock: 5000, lastUpdated: '2026-01-09' },
-            { id: 2, name: 'Beans (Red)', category: 'Legumes', price: 2400, bulkPrice: 2300, unit: 'kg', stock: 3450, lastUpdated: '2026-01-09' },
-            { id: 3, name: 'Beans (White)', category: 'Legumes', price: 2600, bulkPrice: 2500, unit: 'kg', stock: 2800, lastUpdated: '2026-01-09' },
-            { id: 4, name: 'Cow Peas', category: 'Legumes', price: 2300, bulkPrice: 2200, unit: 'kg', stock: 1800, lastUpdated: '2026-01-09' },
-            { id: 5, name: 'G-nuts (Groundnuts)', category: 'Legumes', price: 5000, bulkPrice: 4800, unit: 'kg', stock: 2280, lastUpdated: '2026-01-09' },
-            { id: 6, name: 'Soybeans', category: 'Legumes', price: 2700, bulkPrice: 2600, unit: 'kg', stock: 1950, lastUpdated: '2026-01-09' }
-        ];
-
-        function getStockStatus(stock) {
-            if (stock === 0) return 'Out of Stock';
-            if (stock < 500) return 'Low Stock';
-            return 'In Stock';
-        }
-
-        function getStatusClass(stock) {
-            if (stock === 0) return 'danger';
-            if (stock < 500) return 'warning';
-            return 'success';
-        }
-
-        function loadPriceCards() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            const categoryFilter = document.getElementById('categoryFilter').value;
-            const sortBy = document.getElementById('sortBy').value;
-
-            let filteredData = priceData.filter(item => {
-                const matchesSearch = item.name.toLowerCase().includes(searchTerm);
-                const matchesCategory = !categoryFilter || item.category === categoryFilter;
-                return matchesSearch && matchesCategory;
-            });
-
-            // Sort data
-            filteredData.sort((a, b) => {
-                switch(sortBy) {
-                    case 'name-asc':
-                        return a.name.localeCompare(b.name);
-                    case 'name-desc':
-                        return b.name.localeCompare(a.name);
-                    case 'price-asc':
-                        return a.price - b.price;
-                    case 'price-desc':
-                        return b.price - a.price;
-                    default:
-                        return 0;
-                }
-            });
-
-            const grid = document.getElementById('priceGrid');
-            grid.innerHTML = '';
-
-            filteredData.forEach(item => {
-                const card = document.createElement('div');
-                card.className = 'price-card';
-                
-                const statusClass = getStatusClass(item.stock);
-                const stockStatus = getStockStatus(item.stock);
-                
-                card.innerHTML = `
-                    <div class="price-card-header">
-                        <h3 class="produce-name">${item.name}</h3>
-                        <span class="produce-category">${item.category}</small>
-                    </div>
-                    <div class="price-card-body">
-                        <div class="main-price">
-                            <span class="price-label">Regular Price</small>
-                            <span class="price-value">UGX ${item.price.toLocaleString()}</small>
-                            <span class="price-unit">per ${item.unit}</small>
-                        </div>
-                        <div class="bulk-price">
-                            <span class="bulk-label">Bulk Price (100+ ${item.unit})</small>
-                            <span class="bulk-value">UGX ${item.bulkPrice.toLocaleString()}</small>
-                        </div>
-                    </div>
-                    <div class="price-card-footer">
-                        <span class="status-badge ${statusClass}">${stockStatus}</small>
-                        <span class="stock-qty">${item.stock > 0 ? item.stock.toLocaleString() + ' ' + item.unit : 'N/A'}</small>
-                    </div>
-                `;
-                
-                grid.appendChild(card);
-            });
-
-            loadPriceTable(filteredData);
-        }
-
-        function loadPriceTable(data) {
-            const tbody = document.getElementById('priceTableBody');
-            tbody.innerHTML = '';
-
-            data.forEach(item => {
-                const row = document.createElement('tr');
-                const statusClass = getStatusClass(item.stock);
-                const stockStatus = getStockStatus(item.stock);
-                
-                row.innerHTML = `
-                    <td><strong>${item.name}</strong></td>
-                    <td>${item.category}</td>
-                    <td><strong>UGX ${item.price.toLocaleString()}</strong></td>
-                    <td>${item.unit}</td>
-                    <td>UGX ${item.bulkPrice.toLocaleString()}</td>
-                    <td><span class="status-badge ${statusClass}">${stockStatus}</small></td>
-                    <td>${item.lastUpdated}</td>
-                `;
-                
-                tbody.appendChild(row);
-            });
-        }
-
-        function printPriceList() {
-            window.print();
-        }
-
-        function exportToCSV() {
-            let csv = 'Produce,Category,Unit Price,Unit,Bulk Price (100+),Stock Status,Last Updated\n';
-            
-            priceData.forEach(item => {
-                csv += `${item.name},${item.category},${item.price},${item.unit},${item.bulkPrice},${getStockStatus(item.stock)},${item.lastUpdated}\n`;
-            });
-            
-            const blob = new Blob([csv], { type: 'text/csv' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'kgl-price-list-' + new Date().toISOString().split('T')[0] + '.csv';
-            a.click();
-            window.URL.revokeObjectURL(url);
-        }
-
-        // Event listeners
-        document.getElementById('searchInput').addEventListener('input', loadPriceCards);
-        document.getElementById('categoryFilter').addEventListener('change', loadPriceCards);
-        document.getElementById('sortBy').addEventListener('change', loadPriceCards);
-
-        // Logout
-        document.querySelector('.logout-btn').addEventListener('click', function() {
-            if (confirm('Are you sure you want to logout?')) {
-                window.location.href = 'login.html';
-            }
-        });
-
-        // Load data on page load
-        loadPriceCards();
-    </script>
-
     <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>
 
