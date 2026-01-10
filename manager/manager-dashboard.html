@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KGL - Manager Dashboard</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="header-left">
-            <h1 class="logo">KGL</h1>
-            <span class="separator">|</span>
-            <span class="user-info">Manager: <strong id="managerName">John Doe</strong></span>
-            <span class="separator">|</span>
-            <span class="branch-info">Branch: <strong id="branchName">Branch A - Kampala</strong></span>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">KGL</a>
+            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white">Manager: <strong id="managerName">John Doe</strong></small>
+            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white">Branch: <strong id="branchName">Branch A - Kampala</strong></small>
         </div>
-        <div class="header-right">
-            <button class="logout-btn">Logout</button>
+        
+            <button class="btn btn-outline-light btn-sm ms-auto">Logout</button>
         </div>
-    </header>
+    </div></nav>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <ul class="nav-menu">
-            <li class="nav-item active">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom"><div class="container-fluid"><ul class="nav nav-pills">
+            <li class="nav-item">
                 <a href="manager-dashboard.html">Dashboard</a>
             </li>
             <li class="nav-item">
@@ -45,93 +45,92 @@
             <li class="nav-item">
                 <a href="reports.html">Reports</a>
             </li>
-        </ul>
-    </nav>
+        </ul></div></nav>
 
     <!-- Main Content -->
-    <main class="main-content">
+    <main class="container-fluid py-4">
         <div class="welcome-section">
             <h2>Manager Dashboard - Branch A</h2>
-            <p class="subtitle">Manage branch operations, procurement, and sales</p>
+            <p class="text-muted">Manage branch operations, procurement, and sales</div>
         </div>
 
         <!-- Stats Cards -->
-        <section class="stats-section">
-            <div class="stat-card">
-                <div class="stat-icon stock-icon">📦</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Total Stock</h3>
-                    <p class="stat-value" id="totalStock">17,280 kg</p>
-                    <span class="stat-label">All Produce</span>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">📦</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Total Stock</h3>
+                    <div class="fs-4 fw-bold" id="totalStock">17,280 kg</div>
+                    <small class="text-muted">All Produce</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon sales-icon">💰</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Today's Sales</h3>
-                    <p class="stat-value" id="todaySales">UGX 4,200,000</p>
-                    <span class="stat-label">12 Transactions</span>
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">💰</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Today's Sales</h3>
+                    <div class="fs-4 fw-bold" id="todaySales">UGX 4,200,000</div>
+                    <small class="text-muted">12 Transactions</small>
                 </div>
             </div>
 
             <div class="stat-card alert-card">
-                <div class="stat-icon alert-icon">⚠️</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Low Stock Alert</h3>
-                    <p class="stat-value" id="lowStock">0</p>
-                    <span class="stat-label">Items Below 1000kg</span>
+                <div class="fs-1 me-3">⚠️</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Low Stock Alert</h3>
+                    <div class="fs-4 fw-bold" id="lowStock">0</div>
+                    <small class="text-muted">Items Below 1000kg</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon credit-icon">📋</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Credit Outstanding</h3>
-                    <p class="stat-value" id="creditAmount">UGX 2,800,000</p>
-                    <span class="stat-label">5 Customers</span>
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">📋</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Credit Outstanding</h3>
+                    <div class="fs-4 fw-bold" id="creditAmount">UGX 2,800,000</div>
+                    <small class="text-muted">5 Customers</small>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Quick Actions -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>Quick Actions</h2>
             </div>
             <div class="quick-actions-grid">
                 <a href="procure.html" class="quick-action-card">
                     <div class="action-icon">📥</div>
                     <h3>Procure Stock</h3>
-                    <p>Record new produce procurement</p>
+                    <p>Record new produce procurement</div>
                 </a>
                 <a href="sales.html" class="quick-action-card">
                     <div class="action-icon">🛒</div>
                     <h3>Make Sale</h3>
-                    <p>Record a customer sale</p>
+                    <p>Record a customer sale</div>
                 </a>
                 <a href="prices.html" class="quick-action-card">
                     <div class="action-icon">💵</div>
                     <h3>Set Prices</h3>
-                    <p>Update selling prices</p>
+                    <p>Update selling prices</div>
                 </a>
                 <a href="stock.html" class="quick-action-card">
                     <div class="action-icon">📊</div>
                     <h3>View Stock</h3>
-                    <p>Check stock levels</p>
+                    <p>Check stock levels</div>
                 </a>
             </div>
-        </section>
+        </div>
 
         <!-- Recent Procurements -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>Recent Procurements</h2>
                 <a href="procure.html" class="action-btn">+ Add New</a>
             </div>
-            <div class="table-container">
-                <table class="data-table">
-                    <thead>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped align-middle">
+                    <thead class="table-light">
                         <tr>
                             <th>Date</th>
                             <th>Time</th>
@@ -173,17 +172,17 @@
                     </tbody>
                 </table>
             </div>
-        </section>
+        </div>
 
         <!-- Today's Sales Summary -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>Today's Sales</h2>
                 <a href="sales.html" class="action-btn">View All</a>
             </div>
-            <div class="table-container">
-                <table class="data-table">
-                    <thead>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped align-middle">
+                    <thead class="table-light">
                         <tr>
                             <th>Time</th>
                             <th>Produce</th>
@@ -202,7 +201,7 @@
                             <td>900,000</td>
                             <td>David Okello</td>
                             <td>Jane Smith</td>
-                            <td><span class="badge-cash">Cash</span></td>
+                            <td><span class="badge bg-success">Cash</small></td>
                         </tr>
                         <tr>
                             <td>01:30 PM</td>
@@ -211,7 +210,7 @@
                             <td>780,000</td>
                             <td>Grace Nalubega</td>
                             <td>Mike Opio</td>
-                            <td><span class="badge-mobile">Mobile</span></td>
+                            <td><span class="badge bg-info">Mobile</small></td>
                         </tr>
                         <tr>
                             <td>11:15 AM</td>
@@ -220,7 +219,7 @@
                             <td>1,080,000</td>
                             <td>Peter Ssali</td>
                             <td>Jane Smith</td>
-                            <td><span class="badge-credit">Credit</span></td>
+                            <td><span class="badge-credit">Credit</small></td>
                         </tr>
                         <tr>
                             <td>09:00 AM</td>
@@ -229,52 +228,52 @@
                             <td>575,000</td>
                             <td>Sarah Auma</td>
                             <td>Mike Opio</td>
-                            <td><span class="badge-cash">Cash</span></td>
+                            <td><span class="badge bg-success">Cash</small></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </section>
+        </div>
 
         <!-- Current Stock Levels -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>Current Stock Levels</h2>
                 <a href="stock.html" class="action-btn">View Details</a>
             </div>
             <div class="stock-grid">
                 <div class="stock-item">
                     <h4>Grain Maize</h4>
-                    <p class="stock-amount">5,000 kg</p>
-                    <span class="stock-status good">Sufficient</span>
+                    <p class="stock-amount">5,000 kg</div>
+                    <span class="stock-status good">Sufficient</small>
                 </div>
                 <div class="stock-item">
                     <h4>Beans (Red)</h4>
-                    <p class="stock-amount">3,450 kg</p>
-                    <span class="stock-status good">Sufficient</span>
+                    <p class="stock-amount">3,450 kg</div>
+                    <span class="stock-status good">Sufficient</small>
                 </div>
                 <div class="stock-item">
                     <h4>Beans (White)</h4>
-                    <p class="stock-amount">2,800 kg</p>
-                    <span class="stock-status good">Sufficient</span>
+                    <p class="stock-amount">2,800 kg</div>
+                    <span class="stock-status good">Sufficient</small>
                 </div>
                 <div class="stock-item">
                     <h4>Cow Peas</h4>
-                    <p class="stock-amount">1,800 kg</p>
-                    <span class="stock-status good">Sufficient</span>
+                    <p class="stock-amount">1,800 kg</div>
+                    <span class="stock-status good">Sufficient</small>
                 </div>
                 <div class="stock-item">
                     <h4>G-nuts</h4>
-                    <p class="stock-amount">2,280 kg</p>
-                    <span class="stock-status good">Sufficient</span>
+                    <p class="stock-amount">2,280 kg</div>
+                    <span class="stock-status good">Sufficient</small>
                 </div>
                 <div class="stock-item">
                     <h4>Soybeans</h4>
-                    <p class="stock-amount">1,950 kg</p>
-                    <span class="stock-status good">Sufficient</span>
+                    <p class="stock-amount">1,950 kg</div>
+                    <span class="stock-status good">Sufficient</small>
                 </div>
             </div>
-        </section>
+        </div>
     </main>
 
     <script>
@@ -421,6 +420,9 @@
             color: #c62828;
         }
     </style>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
                         <tr>
@@ -476,23 +478,26 @@
                     </tbody>
                 </table>
             </div>
-        </section>
+        </div>
 
         <!-- Alerts Section -->
         <section class="alerts-section">
             <div class="alert-box warning">
-                <span class="alert-icon">⚠️</span>
+                <span class="alert-icon">⚠️</small>
                 <div class="alert-content">
                     <strong>Low Stock Alert:</strong> Beans stock is below 500kg
                 </div>
             </div>
             <div class="alert-box warning">
-                <span class="alert-icon">⚠️</span>
+                <span class="alert-icon">⚠️</small>
                 <div class="alert-content">
                     <strong>Low Stock Alert:</strong> G-nuts stock is below 300kg
                 </div>
             </div>
-        </section>
+        </div>
     </main>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -4,134 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KGL - Reports & Analytics</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="header-left">
-            <h1 class="logo">KGL</h1>
-            <span class="separator">|</span>
-            <span class="user-info">Director: <strong id="directorName">Mr. Orban</strong></span>
-            <span class="separator">|</span>
-            <span class="branch-info">View: <strong id="viewMode">All Branches</strong></span>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">KGL</a>
+            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white">Director: <strong id="directorName">Mr. Orban</strong></small>
+            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white">View: <strong id="viewMode">All Branches</strong></small>
         </div>
-        <div class="header-right">
-            <button class="logout-btn">Logout</button>
+        
+            <button class="btn btn-outline-light btn-sm ms-auto">Logout</button>
         </div>
-    </header>
+    </div></nav>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <ul class="nav-menu">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom"><div class="container-fluid"><ul class="nav nav-pills">
             <li class="nav-item">
                 <a href="director-dashboard.html">Dashboard</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a href="director-reports.html">View Reports</a>
             </li>
-        </ul>
-    </nav>
+        </ul></div></nav>
 
     <!-- Main Content -->
-    <main class="main-content">
-        <div class="page-header">
+    <main class="container-fluid py-4">
+        <div class="mb-4">
             <h2>📊 View Reports</h2>
-            <p class="subtitle">View generated business reports (Read-Only)</p>
+            <p class="text-muted">View generated business reports (Read-Only)</div>
         </div>
 
         <!-- Quick Report Stats -->
-        <section class="stats-section">
-            <div class="stat-card">
-                <div class="stat-icon reports-icon">📄</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Total Reports</h3>
-                    <p class="stat-value">45</p>
-                    <span class="stat-label">Generated this month</span>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">📄</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Total Reports</h3>
+                    <div class="fs-4 fw-bold">45</div>
+                    <small class="text-muted">Generated this month</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon scheduled-icon">⏰</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Scheduled Reports</h3>
-                    <p class="stat-value">8</p>
-                    <span class="stat-label">Automated delivery</span>
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">⏰</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Scheduled Reports</h3>
+                    <div class="fs-4 fw-bold">8</div>
+                    <small class="text-muted">Automated delivery</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon recent-icon">🕒</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Last Generated</h3>
-                    <p class="stat-value">Today</p>
-                    <span class="stat-label">10:30 AM</span>
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">🕒</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Last Generated</h3>
+                    <div class="fs-4 fw-bold">Today</div>
+                    <small class="text-muted">10:30 AM</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon export-icon">📥</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Downloads</h3>
-                    <p class="stat-value">128</p>
-                    <span class="stat-label">This month</span>
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">📥</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Downloads</h3>
+                    <div class="fs-4 fw-bold">128</div>
+                    <small class="text-muted">This month</small>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Report Categories -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>Report Categories</h2>
             </div>
             <div class="report-categories">
                 <div class="category-card" onclick="showCategory('financial')">
                     <div class="category-icon">💰</div>
                     <h3>Financial Reports</h3>
-                    <p>Income statements, cash flow, balance sheets</p>
-                    <span class="report-count">12 reports</span>
+                    <p>Income statements, cash flow, balance sheets</div>
+                    <span class="report-count">12 reports</small>
                 </div>
 
                 <div class="category-card" onclick="showCategory('sales')">
                     <div class="category-icon">📈</div>
                     <h3>Sales Reports</h3>
-                    <p>Sales analysis, trends, forecasts</p>
-                    <span class="report-count">15 reports</span>
+                    <p>Sales analysis, trends, forecasts</div>
+                    <span class="report-count">15 reports</small>
                 </div>
 
                 <div class="category-card" onclick="showCategory('inventory')">
                     <div class="category-icon">📦</div>
                     <h3>Inventory Reports</h3>
-                    <p>Stock levels, turnover, valuation</p>
-                    <span class="report-count">10 reports</span>
+                    <p>Stock levels, turnover, valuation</div>
+                    <span class="report-count">10 reports</small>
                 </div>
 
                 <div class="category-card" onclick="showCategory('performance')">
                     <div class="category-icon">🎯</div>
                     <h3>Performance Reports</h3>
-                    <p>KPIs, targets, staff performance</p>
-                    <span class="report-count">8 reports</span>
+                    <p>KPIs, targets, staff performance</div>
+                    <span class="report-count">8 reports</small>
                 </div>
 
                 <div class="category-card" onclick="showCategory('customer')">
                     <div class="category-icon">👥</div>
                     <h3>Customer Reports</h3>
-                    <p>Customer analysis, satisfaction, retention</p>
-                    <span class="report-count">6 reports</span>
+                    <p>Customer analysis, satisfaction, retention</div>
+                    <span class="report-count">6 reports</small>
                 </div>
 
                 <div class="category-card" onclick="showCategory('custom')">
                     <div class="category-icon">⚙️</div>
                     <h3>Custom Reports</h3>
-                    <p>Create your own custom reports</p>
-                    <span class="report-count">Create new</span>
+                    <p>Create your own custom reports</div>
+                    <span class="report-count">Create new</small>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Quick Reports -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>Available Reports (View Only)</h2>
             </div>
             <div class="quick-reports-grid">
@@ -140,10 +139,10 @@
                         <div class="report-icon">📊</div>
                         <div>
                             <h4>Monthly Sales Summary</h4>
-                            <p>Comprehensive sales overview for the current month</p>
+                            <p>Comprehensive sales overview for the current month</div>
                         </div>
                     </div>
-                    <span class="view-only-badge">📥 View/Download</span>
+                    <span class="view-only-badge">📥 View/Download</small>
                 </div>
 
                 <div class="quick-report-item">
@@ -151,10 +150,10 @@
                         <div class="report-icon">💰</div>
                         <div>
                             <h4>Profit & Loss Statement</h4>
-                            <p>Detailed P&L for selected period</p>
+                            <p>Detailed P&L for selected period</div>
                         </div>
                     </div>
-                    <span class="view-only-badge">📥 View/Download</span>
+                    <span class="view-only-badge">📥 View/Download</small>
                 </div>
 
                 <div class="quick-report-item">
@@ -162,10 +161,10 @@
                         <div class="report-icon">📦</div>
                         <div>
                             <h4>Stock Valuation Report</h4>
-                            <p>Current inventory value across all branches</p>
+                            <p>Current inventory value across all branches</div>
                         </div>
                     </div>
-                    <span class="view-only-badge">📥 View/Download</span>
+                    <span class="view-only-badge">📥 View/Download</small>
                 </div>
 
                 <div class="quick-report-item">
@@ -173,10 +172,10 @@
                         <div class="report-icon">🏢</div>
                         <div>
                             <h4>Branch Comparison</h4>
-                            <p>Performance comparison across all branches</p>
+                            <p>Performance comparison across all branches</div>
                         </div>
                     </div>
-                    <span class="view-only-badge">📥 View/Download</span>
+                    <span class="view-only-badge">📥 View/Download</small>
                 </div>
 
                 <div class="quick-report-item">
@@ -184,10 +183,10 @@
                         <div class="report-icon">💳</div>
                         <div>
                             <h4>Credit Sales Report</h4>
-                            <p>Outstanding credit and collection status</p>
+                            <p>Outstanding credit and collection status</div>
                         </div>
                     </div>
-                    <span class="view-only-badge">📥 View/Download</span>
+                    <span class="view-only-badge">📥 View/Download</small>
                 </div>
 
                 <div class="quick-report-item">
@@ -195,22 +194,22 @@
                         <div class="report-icon">👥</div>
                         <div>
                             <h4>Staff Performance</h4>
-                            <p>Individual and team performance metrics</p>
+                            <p>Individual and team performance metrics</div>
                         </div>
                     </div>
-                    <span class="view-only-badge">📥 View/Download</span>
+                    <span class="view-only-badge">📥 View/Download</small>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Recent Reports -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>Recent Reports</h2>
             </div>
-            <div class="table-container">
-                <table class="data-table">
-                    <thead>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped align-middle">
+                    <thead class="table-light">
                         <tr>
                             <th>Report Name</th>
                             <th>Type</th>
@@ -228,7 +227,7 @@
                             <td>Jan 2026</td>
                             <td>Jan 9, 2026 10:30</td>
                             <td>James Mwesigwa</td>
-                            <td><span class="format-badge pdf">PDF</span></td>
+                            <td><span class="format-badge pdf">PDF</small></td>
                             <td>
                                 <button class="btn-icon" onclick="downloadReport(1)" title="Download">📥</button>
                                 <button class="btn-icon" onclick="viewReport(1)" title="View">👁️</button>
@@ -240,7 +239,7 @@
                             <td>Dec 2025</td>
                             <td>Jan 5, 2026 14:15</td>
                             <td>James Mwesigwa</td>
-                            <td><span class="format-badge excel">Excel</span></td>
+                            <td><span class="format-badge excel">Excel</small></td>
                             <td>
                                 <button class="btn-icon" onclick="downloadReport(2)">📥</button>
                                 <button class="btn-icon" onclick="viewReport(2)">👁️</button>
@@ -252,7 +251,7 @@
                             <td>Jan 2026</td>
                             <td>Jan 8, 2026 09:00</td>
                             <td>System Auto</td>
-                            <td><span class="format-badge csv">CSV</span></td>
+                            <td><span class="format-badge csv">CSV</small></td>
                             <td>
                                 <button class="btn-icon" onclick="downloadReport(3)">📥</button>
                                 <button class="btn-icon" onclick="viewReport(3)">👁️</button>
@@ -264,7 +263,7 @@
                             <td>Q4 2025</td>
                             <td>Jan 2, 2026 16:45</td>
                             <td>James Mwesigwa</td>
-                            <td><span class="format-badge pdf">PDF</span></td>
+                            <td><span class="format-badge pdf">PDF</small></td>
                             <td>
                                 <button class="btn-icon" onclick="downloadReport(4)">📥</button>
                                 <button class="btn-icon" onclick="viewReport(4)">👁️</button>
@@ -276,7 +275,7 @@
                             <td>Dec 2025</td>
                             <td>Jan 3, 2026 11:20</td>
                             <td>James Mwesigwa</td>
-                            <td><span class="format-badge excel">Excel</span></td>
+                            <td><span class="format-badge excel">Excel</small></td>
                             <td>
                                 <button class="btn-icon" onclick="downloadReport(5)">📥</button>
                                 <button class="btn-icon" onclick="viewReport(5)">👁️</button>
@@ -285,7 +284,7 @@
                     </tbody>
                 </table>
             </div>
-        </section>
+        </div>
     </main>
 
     <script>
@@ -642,5 +641,8 @@
             }
         }
     </style>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

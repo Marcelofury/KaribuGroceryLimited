@@ -4,30 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KGL - Procure Stock</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="header-left">
-            <h1 class="logo">KGL</h1>
-            <span class="separator">|</span>
-            <span class="user-info">Manager: <strong id="managerName">John Doe</strong></span>
-            <span class="separator">|</span>
-            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></span>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">KGL</a>
+            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white">Manager: <strong id="managerName">John Doe</strong></small>
+            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white">Branch: <strong id="branchName">Branch A</strong></small>
         </div>
-        <div class="header-right">
-            <button class="logout-btn">Logout</button>
+        
+            <button class="btn btn-outline-light btn-sm ms-auto">Logout</button>
         </div>
-    </header>
+    </div></nav>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <ul class="nav-menu">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom"><div class="container-fluid"><ul class="nav nav-pills">
             <li class="nav-item">
                 <a href="manager-dashboard.html">Dashboard</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a href="procure.html">Procure</a>
             </li>
             <li class="nav-item">
@@ -45,23 +45,22 @@
             <li class="nav-item">
                 <a href="reports.html">Reports</a>
             </li>
-        </ul>
-    </nav>
+        </ul></div></nav>
 
     <!-- Main Content -->
-    <main class="main-content">
-        <div class="page-header">
+    <main class="container-fluid py-4">
+        <div class="mb-4">
             <h2>Procure Stock</h2>
-            <p class="subtitle">Add new stock procurement</p>
+            <p class="text-muted">Add new stock procurement</div>
         </div>
 
         <!-- Procurement Form -->
         <section class="form-section">
             <form id="procurementForm" class="procurement-form">
                 <div class="form-row">
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="produceType">Produce Type *</label>
-                        <select id="produceType" name="produceType" required>
+                        <select class="form-select" id="produceType" name="produceType" required>
                             <option value="">Select produce type</option>
                             <option value="grain-maize">Grain Maize</option>
                             <option value="beans">Beans</option>
@@ -71,9 +70,9 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="quantity">Quantity (Tonnes) *</label>
-                        <input 
+                        <input class="form-control" 
                             type="number" 
                             id="quantity" 
                             name="quantity" 
@@ -86,9 +85,9 @@
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="unitPrice">Unit Price (UGX per kg) *</label>
-                        <input 
+                        <input class="form-control" 
                             type="number" 
                             id="unitPrice" 
                             name="unitPrice" 
@@ -99,9 +98,9 @@
                         >
                     </div>
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="totalCost">Total Cost (UGX)</label>
-                        <input 
+                        <input class="form-control" 
                             type="text" 
                             id="totalCost" 
                             name="totalCost" 
@@ -112,9 +111,9 @@
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="supplier">Supplier Name *</label>
-                        <input 
+                        <input class="form-control" 
                             type="text" 
                             id="supplier" 
                             name="supplier" 
@@ -123,9 +122,9 @@
                         >
                     </div>
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="supplierContact">Supplier Contact</label>
-                        <input 
+                        <input class="form-control" 
                             type="tel" 
                             id="supplierContact" 
                             name="supplierContact" 
@@ -135,9 +134,9 @@
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="procurementDate">Procurement Date *</label>
-                        <input 
+                        <input class="form-control" 
                             type="date" 
                             id="procurementDate" 
                             name="procurementDate" 
@@ -145,9 +144,9 @@
                         >
                     </div>
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="paymentMethod">Payment Method *</label>
-                        <select id="paymentMethod" name="paymentMethod" required>
+                        <select class="form-select" id="paymentMethod" name="paymentMethod" required>
                             <option value="">Select payment method</option>
                             <option value="cash">Cash</option>
                             <option value="bank_transfer">Bank Transfer</option>
@@ -171,18 +170,18 @@
 
                 <div class="form-actions">
                     <button type="button" class="btn-secondary" id="resetBtn">Reset Form</button>
-                    <button type="submit" class="btn-primary">Submit Procurement</button>
+                    <button type="submit" class="btn btn-primary" class="btn-primary">Submit Procurement</button>
                 </div>
             </form>
-        </section>
+        </div>
 
         <!-- Recent Procurements -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>Recent Procurements</h2>
                 <div class="filter-controls">
-                    <input type="text" id="searchInput" placeholder="Search..." class="search-input">
-                    <select id="filterProduce" class="filter-select">
+                    <input class="form-control" type="text" id="searchInput" placeholder="Search..." class="search-input">
+                    <select class="form-select" id="filterProduce" class="filter-select">
                         <option value="">All Produce</option>
                         <option value="maize">Maize</option>
                         <option value="beans">Beans</option>
@@ -190,9 +189,9 @@
                     </select>
                 </div>
             </div>
-            <div class="table-container">
-                <table class="data-table">
-                    <thead>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped align-middle">
+                    <thead class="table-light">
                         <tr>
                             <th>Date</th>
                             <th>Produce</th>
@@ -214,7 +213,7 @@
                             <td>UGX 6,000,000</td>
                             <td>Mukasa Farms</td>
                             <td>Bank Transfer</td>
-                            <td><span class="status-badge success">Completed</span></td>
+                            <td><span class="badge bg-success">Completed</small></td>
                             <td>
                                 <button class="action-icon-btn" title="View Details">👁️</button>
                                 <button class="action-icon-btn" title="Edit">✏️</button>
@@ -229,7 +228,7 @@
                             <td>UGX 8,750,000</td>
                             <td>Nakato Traders</td>
                             <td>Cash</td>
-                            <td><span class="status-badge success">Completed</span></td>
+                            <td><span class="badge bg-success">Completed</small></td>
                             <td>
                                 <button class="action-icon-btn" title="View Details">👁️</button>
                                 <button class="action-icon-btn" title="Edit">✏️</button>
@@ -244,7 +243,7 @@
                             <td>UGX 7,600,000</td>
                             <td>Ssemakula Ltd</td>
                             <td>Mobile Money</td>
-                            <td><span class="status-badge pending">Pending</span></td>
+                            <td><span class="badge bg-warning">Pending</small></td>
                             <td>
                                 <button class="action-icon-btn" title="View Details">👁️</button>
                                 <button class="action-icon-btn" title="Edit">✏️</button>
@@ -259,7 +258,7 @@
                             <td>UGX 9,900,000</td>
                             <td>Kampala Grain Co.</td>
                             <td>Credit</td>
-                            <td><span class="status-badge warning">Credit</span></td>
+                            <td><span class="status-badge warning">Credit</small></td>
                             <td>
                                 <button class="action-icon-btn" title="View Details">👁️</button>
                                 <button class="action-icon-btn" title="Edit">✏️</button>
@@ -274,7 +273,7 @@
                             <td>UGX 2,700,000</td>
                             <td>Buganda Supplies</td>
                             <td>Bank Transfer</td>
-                            <td><span class="status-badge success">Completed</span></td>
+                            <td><span class="badge bg-success">Completed</small></td>
                             <td>
                                 <button class="action-icon-btn" title="View Details">👁️</button>
                                 <button class="action-icon-btn" title="Edit">✏️</button>
@@ -284,7 +283,7 @@
                     </tbody>
                 </table>
             </div>
-        </section>
+        </div>
     </main>
 
     <script>
@@ -358,5 +357,8 @@
             }
         });
     </script>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KGL - Sales Agent Dashboard</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="header-left">
-            <h1 class="logo">KGL</h1>
-            <span class="separator">|</span>
-            <span class="user-info">Sales Agent: <strong id="agentName">Jane Smith</strong></span>
-            <span class="separator">|</span>
-            <span class="branch-info">Branch: <strong id="branchName">Branch A - Kampala</strong></span>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">KGL</a>
+            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white">Sales Agent: <strong id="agentName">Jane Smith</strong></small>
+            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white">Branch: <strong id="branchName">Branch A - Kampala</strong></small>
         </div>
-        <div class="header-right">
-            <button class="logout-btn">Logout</button>
+        
+            <button class="btn btn-outline-light btn-sm ms-auto">Logout</button>
         </div>
-    </header>
+    </div></nav>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <ul class="nav-menu">
-            <li class="nav-item active">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom"><div class="container-fluid"><ul class="nav nav-pills">
+            <li class="nav-item">
                 <a href="sales-agent-dashboard.html">Dashboard</a>
             </li>
             <li class="nav-item">
@@ -39,93 +39,92 @@
             <li class="nav-item">
                 <a href="agent-my-sales.html">My Sales</a>
             </li>
-        </ul>
-    </nav>
+        </ul></div></nav>
 
     <!-- Main Content -->
-    <main class="main-content">
+    <main class="container-fluid py-4">
         <div class="welcome-section">
-            <h2>Welcome back, <span id="agentNameDisplay">Jane Smith</span>! 👋</h2>
-            <p class="subtitle">Serve customers and track your sales performance</p>
+            <h2>Welcome back, <span id="agentNameDisplay">Jane Smith</small>! 👋</h2>
+            <p class="text-muted">Serve customers and track your sales performance</div>
         </div>
 
         <!-- Today's Stats -->
-        <section class="stats-section">
-            <div class="stat-card">
-                <div class="stat-icon sales-icon">💰</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Today's Sales</h3>
-                    <p class="stat-value" id="todaySales">UGX 2,400,000</p>
-                    <span class="stat-label">6 Transactions</span>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">💰</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Today's Sales</h3>
+                    <div class="fs-4 fw-bold" id="todaySales">UGX 2,400,000</div>
+                    <small class="text-muted">6 Transactions</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon stock-icon">📊</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">This Week</h3>
-                    <p class="stat-value" id="weekSales">UGX 12,500,000</p>
-                    <span class="stat-label">32 Transactions</span>
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">📊</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">This Week</h3>
+                    <div class="fs-4 fw-bold" id="weekSales">UGX 12,500,000</div>
+                    <small class="text-muted">32 Transactions</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon credit-icon">📈</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">This Month</h3>
-                    <p class="stat-value" id="monthSales">UGX 28,900,000</p>
-                    <span class="stat-label">98 Transactions</span>
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">📈</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">This Month</h3>
+                    <div class="fs-4 fw-bold" id="monthSales">UGX 28,900,000</div>
+                    <small class="text-muted">98 Transactions</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon alert-icon">🎯</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Target Progress</h3>
-                    <p class="stat-value" id="targetProgress">82%</p>
-                    <span class="stat-label">Of Monthly Goal</span>
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">🎯</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Target Progress</h3>
+                    <div class="fs-4 fw-bold" id="targetProgress">82%</div>
+                    <small class="text-muted">Of Monthly Goal</small>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Quick Actions -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>Quick Actions</h2>
             </div>
             <div class="quick-actions-grid">
                 <a href="agent-make-sale.html" class="quick-action-card primary-action">
                     <div class="action-icon">🛒</div>
                     <h3>Make a Sale</h3>
-                    <p>Record a new customer sale</p>
+                    <p>Record a new customer sale</div>
                 </a>
                 <a href="agent-stock-view.html" class="quick-action-card">
                     <div class="action-icon">📦</div>
                     <h3>Check Stock</h3>
-                    <p>View available products</p>
+                    <p>View available products</div>
                 </a>
                 <a href="agent-prices.html" class="quick-action-card">
                     <div class="action-icon">💵</div>
                     <h3>View Prices</h3>
-                    <p>Current selling prices</p>
+                    <p>Current selling prices</div>
                 </a>
                 <a href="agent-my-sales.html" class="quick-action-card">
                     <div class="action-icon">📋</div>
                     <h3>My Sales History</h3>
-                    <p>View past transactions</p>
+                    <p>View past transactions</div>
                 </a>
             </div>
-        </section>
+        </div>
 
         <!-- Recent Sales -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>Recent Sales</h2>
                 <a href="agent-my-sales.html" class="action-btn">View All</a>
             </div>
-            <div class="table-container">
-                <table class="data-table">
-                    <thead>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped align-middle">
+                    <thead class="table-light">
                         <tr>
                             <th>Time</th>
                             <th>Produce</th>
@@ -142,7 +141,7 @@
                             <td>500</td>
                             <td>900,000</td>
                             <td>David Okello</td>
-                            <td><span class="badge-cash">Cash</span></td>
+                            <td><span class="badge bg-success">Cash</small></td>
                         </tr>
                         <tr>
                             <td>01:30 PM</td>
@@ -150,7 +149,7 @@
                             <td>300</td>
                             <td>780,000</td>
                             <td>Grace Nalubega</td>
-                            <td><span class="badge-mobile">Mobile</span></td>
+                            <td><span class="badge bg-info">Mobile</small></td>
                         </tr>
                         <tr>
                             <td>11:15 AM</td>
@@ -158,7 +157,7 @@
                             <td>200</td>
                             <td>540,000</td>
                             <td>Peter Ssali</td>
-                            <td><span class="badge-cash">Cash</span></td>
+                            <td><span class="badge bg-success">Cash</small></td>
                         </tr>
                         <tr>
                             <td>10:00 AM</td>
@@ -166,7 +165,7 @@
                             <td>100</td>
                             <td>500,000</td>
                             <td>Sarah Auma</td>
-                            <td><span class="badge-bank">Bank</span></td>
+                            <td><span class="badge bg-primary">Bank</small></td>
                         </tr>
                         <tr>
                             <td>09:20 AM</td>
@@ -174,56 +173,56 @@
                             <td>150</td>
                             <td>345,000</td>
                             <td>John Mukasa</td>
-                            <td><span class="badge-mobile">Mobile</span></td>
+                            <td><span class="badge bg-info">Mobile</small></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </section>
+        </div>
 
         <!-- Stock Availability -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>Current Stock Availability</h2>
                 <a href="agent-stock-view.html" class="action-btn">View Details</a>
             </div>
             <div class="stock-grid">
                 <div class="stock-item available">
                     <h4>Grain Maize</h4>
-                    <p class="stock-amount">5,000 kg</p>
-                    <span class="stock-status">✅ Available</span>
+                    <p class="stock-amount">5,000 kg</div>
+                    <span class="stock-status">✅ Available</small>
                 </div>
                 <div class="stock-item available">
                     <h4>Beans (Red)</h4>
-                    <p class="stock-amount">3,450 kg</p>
-                    <span class="stock-status">✅ Available</span>
+                    <p class="stock-amount">3,450 kg</div>
+                    <span class="stock-status">✅ Available</small>
                 </div>
                 <div class="stock-item available">
                     <h4>Beans (White)</h4>
-                    <p class="stock-amount">2,800 kg</p>
-                    <span class="stock-status">✅ Available</span>
+                    <p class="stock-amount">2,800 kg</div>
+                    <span class="stock-status">✅ Available</small>
                 </div>
                 <div class="stock-item available">
                     <h4>Cow Peas</h4>
-                    <p class="stock-amount">1,800 kg</p>
-                    <span class="stock-status">✅ Available</span>
+                    <p class="stock-amount">1,800 kg</div>
+                    <span class="stock-status">✅ Available</small>
                 </div>
                 <div class="stock-item available">
                     <h4>G-nuts</h4>
-                    <p class="stock-amount">2,280 kg</p>
-                    <span class="stock-status">✅ Available</span>
+                    <p class="stock-amount">2,280 kg</div>
+                    <span class="stock-status">✅ Available</small>
                 </div>
                 <div class="stock-item available">
                     <h4>Soybeans</h4>
-                    <p class="stock-amount">1,950 kg</p>
-                    <span class="stock-status">✅ Available</span>
+                    <p class="stock-amount">1,950 kg</div>
+                    <span class="stock-status">✅ Available</small>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Current Prices -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>Current Selling Prices</h2>
                 <a href="agent-prices.html" class="action-btn">Full Price List</a>
             </div>
@@ -231,75 +230,75 @@
                 <div class="price-card">
                     <h4>Grain Maize</h4>
                     <div class="price-info">
-                        <span class="price-label">Regular:</span>
-                        <span class="price-value">UGX 1,800/kg</span>
+                        <span class="price-label">Regular:</small>
+                        <span class="price-value">UGX 1,800/kg</small>
                     </div>
                     <div class="price-info bulk">
-                        <span class="price-label">Bulk (≥1000kg):</span>
-                        <span class="price-value">UGX 1,700/kg</span>
+                        <span class="price-label">Bulk (≥1000kg):</small>
+                        <span class="price-value">UGX 1,700/kg</small>
                     </div>
                 </div>
                 <div class="price-card">
                     <h4>Beans (Red)</h4>
                     <div class="price-info">
-                        <span class="price-label">Regular:</span>
-                        <span class="price-value">UGX 2,400/kg</span>
+                        <span class="price-label">Regular:</small>
+                        <span class="price-value">UGX 2,400/kg</small>
                     </div>
                     <div class="price-info bulk">
-                        <span class="price-label">Bulk (≥1000kg):</span>
-                        <span class="price-value">UGX 2,300/kg</span>
+                        <span class="price-label">Bulk (≥1000kg):</small>
+                        <span class="price-value">UGX 2,300/kg</small>
                     </div>
                 </div>
                 <div class="price-card">
                     <h4>Beans (White)</h4>
                     <div class="price-info">
-                        <span class="price-label">Regular:</span>
-                        <span class="price-value">UGX 2,600/kg</span>
+                        <span class="price-label">Regular:</small>
+                        <span class="price-value">UGX 2,600/kg</small>
                     </div>
                     <div class="price-info bulk">
-                        <span class="price-label">Bulk (≥1000kg):</span>
-                        <span class="price-value">UGX 2,500/kg</span>
+                        <span class="price-label">Bulk (≥1000kg):</small>
+                        <span class="price-value">UGX 2,500/kg</small>
                     </div>
                 </div>
                 <div class="price-card">
                     <h4>Cow Peas</h4>
                     <div class="price-info">
-                        <span class="price-label">Regular:</span>
-                        <span class="price-value">UGX 2,300/kg</span>
+                        <span class="price-label">Regular:</small>
+                        <span class="price-value">UGX 2,300/kg</small>
                     </div>
                     <div class="price-info bulk">
-                        <span class="price-label">Bulk (≥1000kg):</span>
-                        <span class="price-value">UGX 2,200/kg</span>
+                        <span class="price-label">Bulk (≥1000kg):</small>
+                        <span class="price-value">UGX 2,200/kg</small>
                     </div>
                 </div>
                 <div class="price-card">
                     <h4>G-nuts (Groundnuts)</h4>
                     <div class="price-info">
-                        <span class="price-label">Regular:</span>
-                        <span class="price-value">UGX 5,000/kg</span>
+                        <span class="price-label">Regular:</small>
+                        <span class="price-value">UGX 5,000/kg</small>
                     </div>
                     <div class="price-info bulk">
-                        <span class="price-label">Bulk (≥1000kg):</span>
-                        <span class="price-value">UGX 4,800/kg</span>
+                        <span class="price-label">Bulk (≥1000kg):</small>
+                        <span class="price-value">UGX 4,800/kg</small>
                     </div>
                 </div>
                 <div class="price-card">
                     <h4>Soybeans</h4>
                     <div class="price-info">
-                        <span class="price-label">Regular:</span>
-                        <span class="price-value">UGX 2,700/kg</span>
+                        <span class="price-label">Regular:</small>
+                        <span class="price-value">UGX 2,700/kg</small>
                     </div>
                     <div class="price-info bulk">
-                        <span class="price-label">Bulk (≥1000kg):</span>
-                        <span class="price-value">UGX 2,600/kg</span>
+                        <span class="price-label">Bulk (≥1000kg):</small>
+                        <span class="price-value">UGX 2,600/kg</small>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Performance Chart -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>My Performance This Month</h2>
             </div>
             <div class="performance-chart">
@@ -326,10 +325,10 @@
                     <div class="bar-container">
                         <div class="bar-fill current" style="width: 45%;">UGX 4.9M</div>
                     </div>
-                    <span class="current-label">(In Progress)</span>
+                    <span class="current-label">(In Progress)</small>
                 </div>
             </div>
-        </section>
+        </div>
     </main>
 
     <script>
@@ -569,36 +568,39 @@
             margin-left: 10px;
         }
     </style>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
                 </a>
                 <a href="agent-stock-view.html" class="quick-action-card">
                     <div class="action-icon">📦</div>
                     <h3>Check Stock</h3>
-                    <p>View available inventory</p>
+                    <p>View available inventory</div>
                 </a>
                 <a href="agent-prices.html" class="quick-action-card">
                     <div class="action-icon">💲</div>
                     <h3>View Prices</h3>
-                    <p>Check current pricing</p>
+                    <p>Check current pricing</div>
                 </a>
                 <a href="agent-my-sales.html" class="quick-action-card">
                     <div class="action-icon">📋</div>
                     <h3>My Sales History</h3>
-                    <p>View your sales records</p>
+                    <p>View your sales records</div>
                 </a>
             </div>
-        </section>
+        </div>
 
         <!-- Recent Sales -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>Today's Sales</h2>
                 <button class="action-btn">View All</button>
             </div>
-            <div class="table-container">
-                <table class="data-table">
-                    <thead>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped align-middle">
+                    <thead class="table-light">
                         <tr>
                             <th>Time</th>
                             <th>Customer</th>
@@ -617,7 +619,7 @@
                             <td>100 kg</td>
                             <td>UGX 180,000</td>
                             <td>Cash</td>
-                            <td><span class="status-badge success">Completed</span></td>
+                            <td><span class="badge bg-success">Completed</small></td>
                         </tr>
                         <tr>
                             <td>1:30 PM</td>
@@ -626,7 +628,7 @@
                             <td>200 kg</td>
                             <td>UGX 480,000</td>
                             <td>Mobile Money</td>
-                            <td><span class="status-badge success">Completed</span></td>
+                            <td><span class="badge bg-success">Completed</small></td>
                         </tr>
                         <tr>
                             <td>11:15 AM</td>
@@ -635,7 +637,7 @@
                             <td>150 kg</td>
                             <td>UGX 600,000</td>
                             <td>Credit</td>
-                            <td><span class="status-badge pending">Pending</span></td>
+                            <td><span class="badge bg-warning">Pending</small></td>
                         </tr>
                         <tr>
                             <td>10:00 AM</td>
@@ -644,7 +646,7 @@
                             <td>50 kg</td>
                             <td>UGX 250,000</td>
                             <td>Cash</td>
-                            <td><span class="status-badge success">Completed</span></td>
+                            <td><span class="badge bg-success">Completed</small></td>
                         </tr>
                         <tr>
                             <td>9:20 AM</td>
@@ -653,16 +655,16 @@
                             <td>300 kg</td>
                             <td>UGX 750,000</td>
                             <td>Bank Transfer</td>
-                            <td><span class="status-badge success">Completed</span></td>
+                            <td><span class="badge bg-success">Completed</small></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </section>
+        </div>
 
         <!-- Performance Chart -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>This Week's Performance</h2>
             </div>
             <div class="performance-chart">
@@ -716,28 +718,28 @@
                     <div class="bar-value">—</div>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Stock Alerts -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>⚠️ Stock Alerts</h2>
             </div>
             <div class="alerts-section">
                 <div class="alert-box warning">
-                    <span class="alert-icon">⚠️</span>
+                    <span class="alert-icon">⚠️</small>
                     <div class="alert-content">
                         <strong>Low Stock:</strong> Beans (Red Beans) - Only 450 kg remaining
                     </div>
                 </div>
                 <div class="alert-box warning">
-                    <span class="alert-icon">⚠️</span>
+                    <span class="alert-icon">⚠️</small>
                     <div class="alert-content">
                         <strong>Low Stock:</strong> Groundnuts (Roasted) - Only 280 kg remaining
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     </main>
 
     <script>
@@ -863,5 +865,8 @@
             margin-top: 5px;
         }
     </style>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KGL - Sales</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="header-left">
-            <h1 class="logo">KGL</h1>
-            <span class="separator">|</span>
-            <span class="user-info">Manager: <strong id="managerName">John Doe</strong></span>
-            <span class="separator">|</span>
-            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></span>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">KGL</a>
+            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white">Manager: <strong id="managerName">John Doe</strong></small>
+            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white">Branch: <strong id="branchName">Branch A</strong></small>
         </div>
-        <div class="header-right">
-            <button class="logout-btn">Logout</button>
+        
+            <button class="btn btn-outline-light btn-sm ms-auto">Logout</button>
         </div>
-    </header>
+    </div></nav>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <ul class="nav-menu">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom"><div class="container-fluid"><ul class="nav nav-pills">
             <li class="nav-item">
                 <a href="manager-dashboard.html">Dashboard</a>
             </li>
@@ -33,7 +33,7 @@
             <li class="nav-item">
                 <a href="stock.html">Stock</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a href="sales.html">Sales</a>
             </li>
             <li class="nav-item">
@@ -45,65 +45,64 @@
             <li class="nav-item">
                 <a href="reports.html">Reports</a>
             </li>
-        </ul>
-    </nav>
+        </ul></div></nav>
 
     <!-- Main Content -->
-    <main class="main-content">
-        <div class="page-header">
+    <main class="container-fluid py-4">
+        <div class="mb-4">
             <h2>Sales Management</h2>
-            <p class="subtitle">Record and track sales transactions</p>
+            <p class="text-muted">Record and track sales transactions</div>
         </div>
 
         <!-- Sales Summary Cards -->
-        <section class="stats-section">
-            <div class="stat-card">
-                <div class="stat-icon sales-icon">💰</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Today's Sales</h3>
-                    <p class="stat-value" id="todaySales">UGX 5,000,000</p>
-                    <span class="stat-label">Total Revenue</span>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">💰</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Today's Sales</h3>
+                    <div class="fs-4 fw-bold" id="todaySales">UGX 5,000,000</div>
+                    <small class="text-muted">Total Revenue</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon stock-icon">🏦</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Cash Sales</h3>
-                    <p class="stat-value" id="cashSales">UGX 3,800,000</p>
-                    <span class="stat-label">76% of Total</span>
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">🏦</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Cash Sales</h3>
+                    <div class="fs-4 fw-bold" id="cashSales">UGX 3,800,000</div>
+                    <small class="text-muted">76% of Total</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon credit-icon">📋</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Credit Sales</h3>
-                    <p class="stat-value" id="creditSalesAmount">UGX 1,200,000</p>
-                    <span class="stat-label">24% of Total</span>
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">📋</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Credit Sales</h3>
+                    <div class="fs-4 fw-bold" id="creditSalesAmount">UGX 1,200,000</div>
+                    <small class="text-muted">24% of Total</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon alert-icon">📊</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Transactions</h3>
-                    <p class="stat-value" id="transactionCount">23</p>
-                    <span class="stat-label">Total Today</span>
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">📊</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Transactions</h3>
+                    <div class="fs-4 fw-bold" id="transactionCount">23</div>
+                    <small class="text-muted">Total Today</small>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- New Sale Form -->
         <section class="form-section">
-            <div class="section-header" style="margin-bottom: 20px;">
+            <div class="card-header bg-white" style="margin-bottom: 20px;">
                 <h2>Record New Sale</h2>
             </div>
             <form id="salesForm" class="procurement-form">
                 <div class="form-row">
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="customerName">Customer Name *</label>
-                        <input 
+                        <input class="form-control" 
                             type="text" 
                             id="customerName" 
                             name="customerName" 
@@ -112,9 +111,9 @@
                         >
                     </div>
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="customerContact">Customer Contact</label>
-                        <input 
+                        <input class="form-control" 
                             type="tel" 
                             id="customerContact" 
                             name="customerContact" 
@@ -124,9 +123,9 @@
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="produceType">Produce Type *</label>
-                        <select id="produceType" name="produceType" required>
+                        <select class="form-select" id="produceType" name="produceType" required>
                             <option value="">Select produce type</option>
                             <option value="maize">Maize - Yellow Maize</option>
                             <option value="beans">Beans - Red Beans</option>
@@ -139,9 +138,9 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="quantity">Quantity (kg) *</label>
-                        <input 
+                        <input class="form-control" 
                             type="number" 
                             id="quantity" 
                             name="quantity" 
@@ -154,9 +153,9 @@
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="unitPrice">Unit Price (UGX per kg) *</label>
-                        <input 
+                        <input class="form-control" 
                             type="number" 
                             id="unitPrice" 
                             name="unitPrice" 
@@ -167,9 +166,9 @@
                         >
                     </div>
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="totalAmount">Total Amount (UGX)</label>
-                        <input 
+                        <input class="form-control" 
                             type="text" 
                             id="totalAmount" 
                             name="totalAmount" 
@@ -180,9 +179,9 @@
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="paymentType">Payment Type *</label>
-                        <select id="paymentType" name="paymentType" required>
+                        <select class="form-select" id="paymentType" name="paymentType" required>
                             <option value="">Select payment type</option>
                             <option value="cash">Cash</option>
                             <option value="credit">Credit</option>
@@ -191,9 +190,9 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="saleDate">Sale Date *</label>
-                        <input 
+                        <input class="form-control" 
                             type="date" 
                             id="saleDate" 
                             name="saleDate" 
@@ -205,18 +204,18 @@
                 <!-- Credit Sale Fields (Hidden by default) -->
                 <div id="creditFields" style="display: none;">
                     <div class="form-row">
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="creditDueDate">Due Date *</label>
-                            <input 
+                            <input class="form-control" 
                                 type="date" 
                                 id="creditDueDate" 
                                 name="creditDueDate"
                             >
                         </div>
 
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="creditTerms">Credit Terms (Days)</label>
-                            <input 
+                            <input class="form-control" 
                                 type="number" 
                                 id="creditTerms" 
                                 name="creditTerms"
@@ -241,31 +240,31 @@
 
                 <div class="form-actions">
                     <button type="button" class="btn-secondary" id="resetBtn">Reset Form</button>
-                    <button type="submit" class="btn-primary">Record Sale</button>
+                    <button type="submit" class="btn btn-primary" class="btn-primary">Record Sale</button>
                 </div>
             </form>
-        </section>
+        </div>
 
         <!-- Sales History -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>Sales History</h2>
                 <div class="filter-controls">
-                    <input type="text" id="searchInput" placeholder="Search..." class="search-input">
-                    <select id="filterPayment" class="filter-select">
+                    <input class="form-control" type="text" id="searchInput" placeholder="Search..." class="search-input">
+                    <select class="form-select" id="filterPayment" class="filter-select">
                         <option value="">All Payments</option>
                         <option value="cash">Cash</option>
                         <option value="credit">Credit</option>
                         <option value="mobile_money">Mobile Money</option>
                         <option value="bank_transfer">Bank Transfer</option>
                     </select>
-                    <input type="date" id="filterDate" class="filter-select">
+                    <input class="form-control" type="date" id="filterDate" class="filter-select">
                     <button class="action-btn" id="exportBtn">📥 Export</button>
                 </div>
             </div>
-            <div class="table-container">
-                <table class="data-table">
-                    <thead>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped align-middle">
+                    <thead class="table-light">
                         <tr>
                             <th>Receipt #</th>
                             <th>Date</th>
@@ -289,7 +288,7 @@
                             <td>UGX 1,800</td>
                             <td>UGX 900,000</td>
                             <td>Cash</td>
-                            <td><span class="status-badge success">Paid</span></td>
+                            <td><span class="badge bg-success">Paid</small></td>
                             <td>
                                 <button class="action-icon-btn" title="View Receipt">👁️</button>
                                 <button class="action-icon-btn" title="Print">🖨️</button>
@@ -304,7 +303,7 @@
                             <td>UGX 2,400</td>
                             <td>UGX 720,000</td>
                             <td>Mobile Money</td>
-                            <td><span class="status-badge success">Paid</span></td>
+                            <td><span class="badge bg-success">Paid</small></td>
                             <td>
                                 <button class="action-icon-btn" title="View Receipt">👁️</button>
                                 <button class="action-icon-btn" title="Print">🖨️</button>
@@ -319,7 +318,7 @@
                             <td>UGX 4,000</td>
                             <td>UGX 800,000</td>
                             <td>Credit</td>
-                            <td><span class="status-badge pending">Pending</span></td>
+                            <td><span class="badge bg-warning">Pending</small></td>
                             <td>
                                 <button class="action-icon-btn" title="View Receipt">👁️</button>
                                 <button class="action-icon-btn" title="Print">🖨️</button>
@@ -334,7 +333,7 @@
                             <td>UGX 2,500</td>
                             <td>UGX 1,000,000</td>
                             <td>Bank Transfer</td>
-                            <td><span class="status-badge success">Paid</span></td>
+                            <td><span class="badge bg-success">Paid</small></td>
                             <td>
                                 <button class="action-icon-btn" title="View Receipt">👁️</button>
                                 <button class="action-icon-btn" title="Print">🖨️</button>
@@ -349,7 +348,7 @@
                             <td>UGX 3,200</td>
                             <td>UGX 800,000</td>
                             <td>Cash</td>
-                            <td><span class="status-badge success">Paid</span></td>
+                            <td><span class="badge bg-success">Paid</small></td>
                             <td>
                                 <button class="action-icon-btn" title="View Receipt">👁️</button>
                                 <button class="action-icon-btn" title="Print">🖨️</button>
@@ -364,7 +363,7 @@
                             <td>UGX 5,000</td>
                             <td>UGX 750,000</td>
                             <td>Mobile Money</td>
-                            <td><span class="status-badge success">Paid</span></td>
+                            <td><span class="badge bg-success">Paid</small></td>
                             <td>
                                 <button class="action-icon-btn" title="View Receipt">👁️</button>
                                 <button class="action-icon-btn" title="Print">🖨️</button>
@@ -379,7 +378,7 @@
                             <td>UGX 2,000</td>
                             <td>UGX 1,200,000</td>
                             <td>Credit</td>
-                            <td><span class="status-badge pending">Pending</span></td>
+                            <td><span class="badge bg-warning">Pending</small></td>
                             <td>
                                 <button class="action-icon-btn" title="View Receipt">👁️</button>
                                 <button class="action-icon-btn" title="Print">🖨️</button>
@@ -388,7 +387,7 @@
                     </tbody>
                 </table>
             </div>
-        </section>
+        </div>
     </main>
 
     <script>
@@ -512,5 +511,8 @@
             }
         });
     </script>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

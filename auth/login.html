@@ -4,58 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KGL - Login</title>
-    <link rel="stylesheet" href="css/login.css">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <div class="login-container">
-        <div class="login-box">
-            <div class="logo-section">
-                <h1>KGL</h1>
-                <p>Karibu Groceries LTD</p>
+<body class="bg-light">
+    <!-- Container: Centers content with max-width -->
+    <div class="container">
+        <!-- Row: Bootstrap grid row -->
+        <div class="row justify-content-center align-items-center min-vh-100">
+            <!-- col-md-6: 6 columns wide on medium+ screens, col-lg-5: 5 columns on large+ -->
+            <div class="col-md-6 col-lg-5">
+                <!-- Card: Bootstrap card component for elevated box design -->
+                <div class="card shadow-lg">
+                    <!-- Card Body: Main content area with padding -->
+                    <div class="card-body p-5">
+                        <!-- Logo Section -->
+                        <div class="text-center mb-4">
+                            <!-- display-4: Large heading, fw-bold: Bold font weight -->
+                            <h1 class="display-4 fw-bold text-primary">KGL</h1>
+                            <!-- text-muted: Gray text color -->
+                            <p class="text-muted">Karibu Groceries LTD</p>
+                        </div>
+
+                        <!-- Form -->
+                        <form id="loginForm">
+                            <!-- mb-3: Margin bottom spacing -->
+                            <div class="mb-3">
+                                <!-- form-label: Bootstrap label styling -->
+                                <label for="username" class="form-label">Username</label>
+                                <!-- form-control: Bootstrap input styling with consistent size/borders -->
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="username" 
+                                    name="username" 
+                                    placeholder="Enter your username"
+                                    required
+                                >
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input 
+                                    type="password" 
+                                    class="form-control" 
+                                    id="password" 
+                                    name="password" 
+                                    placeholder="Enter your password"
+                                    required
+                                >
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="role" class="form-label">Select Role</label>
+                                <!-- form-select: Bootstrap select dropdown styling -->
+                                <select class="form-select" id="role" name="role" required>
+                                    <option value="">Choose your role</option>
+                                    <option value="director">Director</option>
+                                    <option value="manager">Manager</option>
+                                    <option value="sales_agent">Sales Agent</option>
+                                </select>
+                            </div>
+
+                            <!-- btn: Base button class, btn-primary: Primary color button, w-100: Full width -->
+                            <button type="submit" class="btn btn-primary w-100 mb-3">Login</button>
+
+                            <!-- text-center: Center align text -->
+                            <div class="text-center">
+                                <small class="text-muted">
+                                    Don't have an account? 
+                                    <!-- link-primary: Bootstrap link with primary color -->
+                                    <a href="registration.html" class="link-primary text-decoration-none">Register here</a>
+                                </small>
+                            </div>
+                        </form>
+
+                        <!-- alert: Bootstrap alert component, alert-danger: Red error styling, d-none: Display none (hidden) -->
+                        <div class="alert alert-danger mt-3 d-none" role="alert" id="errorMessage"></div>
+                    </div>
+                </div>
             </div>
-
-            <form id="loginForm" class="login-form">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input 
-                        type="text" 
-                        id="username" 
-                        name="username" 
-                        placeholder="Enter your username"
-                        required
-                    >
-                </div>
-
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input 
-                        type="password" 
-                        id="password" 
-                        name="password" 
-                        placeholder="Enter your password"
-                        required
-                    >
-                </div>
-
-                <div class="form-group">
-                    <label for="role">Select Role</label>
-                    <select id="role" name="role" required>
-                        <option value="">Choose your role</option>
-                        <option value="director">Director</option>
-                        <option value="manager">Manager</option>
-                        <option value="sales_agent">Sales Agent</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="login-btn">Login</button>
-
-                <div class="register-link">
-                    Don't have an account? <a href="registration.html">Register here</a>
-                </div>
-            </form>
-
-            <div class="error-message" id="errorMessage"></div>
         </div>
     </div>
+    
+    <!-- Bootstrap 5 JS Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

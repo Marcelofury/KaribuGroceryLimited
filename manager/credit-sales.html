@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KGL - Credit Sales Management</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="header-left">
-            <h1 class="logo">KGL</h1>
-            <span class="separator">|</span>
-            <span class="user-info">Manager: <strong id="managerName">John Doe</strong></span>
-            <span class="separator">|</span>
-            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></span>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">KGL</a>
+            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white">Manager: <strong id="managerName">John Doe</strong></small>
+            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white">Branch: <strong id="branchName">Branch A</strong></small>
         </div>
-        <div class="header-right">
-            <button class="logout-btn">Logout</button>
+        
+            <button class="btn btn-outline-light btn-sm ms-auto">Logout</button>
         </div>
-    </header>
+    </div></nav>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <ul class="nav-menu">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom"><div class="container-fluid"><ul class="nav nav-pills">
             <li class="nav-item">
                 <a href="manager-dashboard.html">Dashboard</a>
             </li>
@@ -39,71 +39,70 @@
             <li class="nav-item">
                 <a href="prices.html">Prices</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a href="credit-sales.html">Credit Sales</a>
             </li>
             <li class="nav-item">
                 <a href="reports.html">Reports</a>
             </li>
-        </ul>
-    </nav>
+        </ul></div></nav>
 
     <!-- Main Content -->
-    <main class="main-content">
-        <div class="page-header">
+    <main class="container-fluid py-4">
+        <div class="mb-4">
             <h2>Credit Sales Management</h2>
-            <p class="subtitle">Track and manage credit sales and payments</p>
+            <p class="text-muted">Track and manage credit sales and payments</div>
         </div>
 
         <!-- Credit Summary Cards -->
-        <section class="stats-section">
-            <div class="stat-card">
-                <div class="stat-icon credit-icon">💳</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Total Outstanding</h3>
-                    <p class="stat-value" id="totalOutstanding">UGX 4,500,000</p>
-                    <span class="stat-label">All Credit Sales</span>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">💳</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Total Outstanding</h3>
+                    <div class="fs-4 fw-bold" id="totalOutstanding">UGX 4,500,000</div>
+                    <small class="text-muted">All Credit Sales</small>
                 </div>
             </div>
 
             <div class="stat-card alert-card">
-                <div class="stat-icon alert-icon">⚠️</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Overdue</h3>
-                    <p class="stat-value" id="overdueAmount">UGX 800,000</p>
-                    <span class="stat-label">Past Due Date</span>
+                <div class="fs-1 me-3">⚠️</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Overdue</h3>
+                    <div class="fs-4 fw-bold" id="overdueAmount">UGX 800,000</div>
+                    <small class="text-muted">Past Due Date</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon sales-icon">✅</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Collected This Month</h3>
-                    <p class="stat-value" id="collectedMonth">UGX 2,200,000</p>
-                    <span class="stat-label">Payments Received</span>
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">✅</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Collected This Month</h3>
+                    <div class="fs-4 fw-bold" id="collectedMonth">UGX 2,200,000</div>
+                    <small class="text-muted">Payments Received</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon stock-icon">👥</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Active Customers</h3>
-                    <p class="stat-value" id="activeCustomers">12</p>
-                    <span class="stat-label">With Outstanding Balance</span>
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">👥</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Active Customers</h3>
+                    <div class="fs-4 fw-bold" id="activeCustomers">12</div>
+                    <small class="text-muted">With Outstanding Balance</small>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Record Payment Form -->
         <section class="form-section">
-            <div class="section-header" style="margin-bottom: 20px;">
+            <div class="card-header bg-white" style="margin-bottom: 20px;">
                 <h2>Record Payment</h2>
             </div>
             <form id="paymentForm" class="procurement-form">
                 <div class="form-row">
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="customerSelect">Select Customer *</label>
-                        <select id="customerSelect" name="customerSelect" required>
+                        <select class="form-select" id="customerSelect" name="customerSelect" required>
                             <option value="">Select customer</option>
                             <option value="nakato">Nakato Foods Ltd - UGX 1,200,000</option>
                             <option value="kampala">Kampala Groceries - UGX 800,000</option>
@@ -113,9 +112,9 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="outstandingBalance">Outstanding Balance</label>
-                        <input 
+                        <input class="form-control" 
                             type="text" 
                             id="outstandingBalance" 
                             name="outstandingBalance" 
@@ -126,9 +125,9 @@
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="paymentAmount">Payment Amount (UGX) *</label>
-                        <input 
+                        <input class="form-control" 
                             type="number" 
                             id="paymentAmount" 
                             name="paymentAmount" 
@@ -139,9 +138,9 @@
                         >
                     </div>
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="remainingBalance">Remaining Balance</label>
-                        <input 
+                        <input class="form-control" 
                             type="text" 
                             id="remainingBalance" 
                             name="remainingBalance" 
@@ -152,9 +151,9 @@
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="paymentMethod">Payment Method *</label>
-                        <select id="paymentMethod" name="paymentMethod" required>
+                        <select class="form-select" id="paymentMethod" name="paymentMethod" required>
                             <option value="">Select payment method</option>
                             <option value="cash">Cash</option>
                             <option value="mobile_money">Mobile Money</option>
@@ -163,9 +162,9 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="paymentDate">Payment Date *</label>
-                        <input 
+                        <input class="form-control" 
                             type="date" 
                             id="paymentDate" 
                             name="paymentDate" 
@@ -175,9 +174,9 @@
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="referenceNumber">Reference Number</label>
-                        <input 
+                        <input class="form-control" 
                             type="text" 
                             id="referenceNumber" 
                             name="referenceNumber" 
@@ -185,9 +184,9 @@
                         >
                     </div>
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="receivedBy">Received By *</label>
-                        <input 
+                        <input class="form-control" 
                             type="text" 
                             id="receivedBy" 
                             name="receivedBy" 
@@ -211,18 +210,18 @@
 
                 <div class="form-actions">
                     <button type="button" class="btn-secondary" id="resetBtn">Reset Form</button>
-                    <button type="submit" class="btn-primary">Record Payment</button>
+                    <button type="submit" class="btn btn-primary" class="btn-primary">Record Payment</button>
                 </div>
             </form>
-        </section>
+        </div>
 
         <!-- Outstanding Credit Sales -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>Outstanding Credit Sales</h2>
                 <div class="filter-controls">
-                    <input type="text" id="searchInput" placeholder="Search customer..." class="search-input">
-                    <select id="filterStatus" class="filter-select">
+                    <input class="form-control" type="text" id="searchInput" placeholder="Search customer..." class="search-input">
+                    <select class="form-select" id="filterStatus" class="filter-select">
                         <option value="">All Status</option>
                         <option value="current">Current</option>
                         <option value="overdue">Overdue</option>
@@ -231,9 +230,9 @@
                     <button class="action-btn" id="exportBtn">📥 Export</button>
                 </div>
             </div>
-            <div class="table-container">
-                <table class="data-table">
-                    <thead>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped align-middle">
+                    <thead class="table-light">
                         <tr>
                             <th>Invoice #</th>
                             <th>Customer Name</th>
@@ -257,7 +256,7 @@
                             <td>UGX 1,500,000</td>
                             <td>UGX 300,000</td>
                             <td><strong>UGX 1,200,000</strong></td>
-                            <td><span class="status-badge pending">Current</span></td>
+                            <td><span class="badge bg-warning">Current</small></td>
                             <td>
                                 <button class="action-icon-btn record-payment" title="Record Payment">💰</button>
                                 <button class="action-icon-btn" title="View Details">👁️</button>
@@ -273,7 +272,7 @@
                             <td>UGX 800,000</td>
                             <td>UGX 0</td>
                             <td><strong>UGX 800,000</strong></td>
-                            <td><span class="status-badge error">Overdue</span></td>
+                            <td><span class="badge bg-danger">Overdue</small></td>
                             <td>
                                 <button class="action-icon-btn record-payment" title="Record Payment">💰</button>
                                 <button class="action-icon-btn" title="View Details">👁️</button>
@@ -289,7 +288,7 @@
                             <td>UGX 1,500,000</td>
                             <td>UGX 0</td>
                             <td><strong>UGX 1,500,000</strong></td>
-                            <td><span class="status-badge pending">Current</span></td>
+                            <td><span class="badge bg-warning">Current</small></td>
                             <td>
                                 <button class="action-icon-btn record-payment" title="Record Payment">💰</button>
                                 <button class="action-icon-btn" title="View Details">👁️</button>
@@ -305,7 +304,7 @@
                             <td>UGX 650,000</td>
                             <td>UGX 200,000</td>
                             <td><strong>UGX 450,000</strong></td>
-                            <td><span class="status-badge pending">Current</span></td>
+                            <td><span class="badge bg-warning">Current</small></td>
                             <td>
                                 <button class="action-icon-btn record-payment" title="Record Payment">💰</button>
                                 <button class="action-icon-btn" title="View Details">👁️</button>
@@ -321,7 +320,7 @@
                             <td>UGX 550,000</td>
                             <td>UGX 0</td>
                             <td><strong>UGX 550,000</strong></td>
-                            <td><span class="status-badge pending">Current</span></td>
+                            <td><span class="badge bg-warning">Current</small></td>
                             <td>
                                 <button class="action-icon-btn record-payment" title="Record Payment">💰</button>
                                 <button class="action-icon-btn" title="View Details">👁️</button>
@@ -331,16 +330,16 @@
                     </tbody>
                 </table>
             </div>
-        </section>
+        </div>
 
         <!-- Recent Payments -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>Recent Payments</h2>
             </div>
-            <div class="table-container">
-                <table class="data-table">
-                    <thead>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped align-middle">
+                    <thead class="table-light">
                         <tr>
                             <th>Date</th>
                             <th>Customer</th>
@@ -382,22 +381,22 @@
                     </tbody>
                 </table>
             </div>
-        </section>
+        </div>
 
         <!-- Overdue Alerts -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>⚠️ Overdue Payments</h2>
             </div>
             <div class="alerts-section">
                 <div class="alert-box warning">
-                    <span class="alert-icon">⚠️</span>
+                    <span class="alert-icon">⚠️</small>
                     <div class="alert-content">
                         <strong>Kampala Groceries</strong> - UGX 800,000 overdue by 2 days (Due: 07/01/2026)
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
     </main>
 
     <script>
@@ -528,5 +527,8 @@
             }
         });
     </script>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

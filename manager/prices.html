@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KGL - Price Management</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="header-left">
-            <h1 class="logo">KGL</h1>
-            <span class="separator">|</span>
-            <span class="user-info">Manager: <strong id="managerName">John Doe</strong></span>
-            <span class="separator">|</span>
-            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></span>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">KGL</a>
+            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white">Manager: <strong id="managerName">John Doe</strong></small>
+            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white">Branch: <strong id="branchName">Branch A</strong></small>
         </div>
-        <div class="header-right">
-            <button class="logout-btn">Logout</button>
+        
+            <button class="btn btn-outline-light btn-sm ms-auto">Logout</button>
         </div>
-    </header>
+    </div></nav>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <ul class="nav-menu">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom"><div class="container-fluid"><ul class="nav nav-pills">
             <li class="nav-item">
                 <a href="manager-dashboard.html">Dashboard</a>
             </li>
@@ -36,7 +36,7 @@
             <li class="nav-item">
                 <a href="sales.html">Sales</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a href="prices.html">Prices</a>
             </li>
             <li class="nav-item">
@@ -45,65 +45,64 @@
             <li class="nav-item">
                 <a href="reports.html">Reports</a>
             </li>
-        </ul>
-    </nav>
+        </ul></div></nav>
 
     <!-- Main Content -->
-    <main class="main-content">
-        <div class="page-header">
+    <main class="container-fluid py-4">
+        <div class="mb-4">
             <h2>Price Management</h2>
-            <p class="subtitle">View and update produce pricing</p>
+            <p class="text-muted">View and update produce pricing</div>
         </div>
 
         <!-- Price Summary Cards -->
-        <section class="stats-section">
-            <div class="stat-card">
-                <div class="stat-icon sales-icon">💲</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Average Price</h3>
-                    <p class="stat-value" id="avgPrice">UGX 2,450/kg</p>
-                    <span class="stat-label">Across All Produce</span>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">💲</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Average Price</h3>
+                    <div class="fs-4 fw-bold" id="avgPrice">UGX 2,450/kg</div>
+                    <small class="text-muted">Across All Produce</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon stock-icon">📈</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Price Increases</h3>
-                    <p class="stat-value" id="priceIncreases">3</p>
-                    <span class="stat-label">This Month</span>
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">📈</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Price Increases</h3>
+                    <div class="fs-4 fw-bold" id="priceIncreases">3</div>
+                    <small class="text-muted">This Month</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon alert-icon">📉</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Price Decreases</h3>
-                    <p class="stat-value" id="priceDecreases">1</p>
-                    <span class="stat-label">This Month</span>
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">📉</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Price Decreases</h3>
+                    <div class="fs-4 fw-bold" id="priceDecreases">1</div>
+                    <small class="text-muted">This Month</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon credit-icon">🕒</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Last Updated</h3>
-                    <p class="stat-value" id="lastUpdate">09/01/2026</p>
-                    <span class="stat-label">Most Recent Change</span>
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">🕒</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Last Updated</h3>
+                    <div class="fs-4 fw-bold" id="lastUpdate">09/01/2026</div>
+                    <small class="text-muted">Most Recent Change</small>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Update Price Form -->
         <section class="form-section">
-            <div class="section-header" style="margin-bottom: 20px;">
+            <div class="card-header bg-white" style="margin-bottom: 20px;">
                 <h2>Update Produce Price</h2>
             </div>
             <form id="priceForm" class="procurement-form">
                 <div class="form-row">
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="produceSelect">Select Produce *</label>
-                        <select id="produceSelect" name="produceSelect" required>
+                        <select class="form-select" id="produceSelect" name="produceSelect" required>
                             <option value="">Select produce to update</option>
                             <option value="maize">Maize - Yellow Maize</option>
                             <option value="beans">Beans - Red Beans</option>
@@ -116,9 +115,9 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="currentPrice">Current Price (UGX/kg)</label>
-                        <input 
+                        <input class="form-control" 
                             type="text" 
                             id="currentPrice" 
                             name="currentPrice" 
@@ -129,9 +128,9 @@
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="newPrice">New Price (UGX/kg) *</label>
-                        <input 
+                        <input class="form-control" 
                             type="number" 
                             id="newPrice" 
                             name="newPrice" 
@@ -142,9 +141,9 @@
                         >
                     </div>
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="priceChange">Price Change</label>
-                        <input 
+                        <input class="form-control" 
                             type="text" 
                             id="priceChange" 
                             name="priceChange" 
@@ -155,9 +154,9 @@
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="effectiveDate">Effective Date *</label>
-                        <input 
+                        <input class="form-control" 
                             type="date" 
                             id="effectiveDate" 
                             name="effectiveDate" 
@@ -165,9 +164,9 @@
                         >
                     </div>
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="priceType">Price Type *</label>
-                        <select id="priceType" name="priceType" required>
+                        <select class="form-select" id="priceType" name="priceType" required>
                             <option value="selling">Selling Price</option>
                             <option value="buying">Buying Price</option>
                             <option value="both">Both</option>
@@ -190,18 +189,18 @@
 
                 <div class="form-actions">
                     <button type="button" class="btn-secondary" id="resetBtn">Reset Form</button>
-                    <button type="submit" class="btn-primary">Update Price</button>
+                    <button type="submit" class="btn btn-primary" class="btn-primary">Update Price</button>
                 </div>
             </form>
-        </section>
+        </div>
 
         <!-- Current Prices Table -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>Current Prices</h2>
                 <div class="filter-controls">
-                    <input type="text" id="searchInput" placeholder="Search produce..." class="search-input">
-                    <select id="sortBy" class="filter-select">
+                    <input class="form-control" type="text" id="searchInput" placeholder="Search produce..." class="search-input">
+                    <select class="form-select" id="sortBy" class="filter-select">
                         <option value="name">Sort by Name</option>
                         <option value="price_asc">Price: Low to High</option>
                         <option value="price_desc">Price: High to Low</option>
@@ -210,9 +209,9 @@
                     <button class="action-btn" id="exportBtn">📥 Export</button>
                 </div>
             </div>
-            <div class="table-container">
+            <div class="table-responsive">
                 <table class="data-table" id="pricesTable">
-                    <thead>
+                    <thead class="table-light">
                         <tr>
                             <th>Produce Type</th>
                             <th>Variety</th>
@@ -232,7 +231,7 @@
                             <td>UGX 1,800</td>
                             <td class="margin-positive">+12.5%</td>
                             <td>09/01/2026</td>
-                            <td><span class="price-change up">↑ UGX 50</span></td>
+                            <td><span class="price-change up">↑ UGX 50</small></td>
                             <td>
                                 <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
                                 <button class="action-icon-btn" title="Price History">📜</button>
@@ -245,7 +244,7 @@
                             <td>UGX 2,400</td>
                             <td class="margin-positive">+6.7%</td>
                             <td>08/01/2026</td>
-                            <td><span class="price-change neutral">—</span></td>
+                            <td><span class="price-change neutral">—</small></td>
                             <td>
                                 <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
                                 <button class="action-icon-btn" title="Price History">📜</button>
@@ -258,7 +257,7 @@
                             <td>UGX 4,000</td>
                             <td class="margin-positive">+5.3%</td>
                             <td>07/01/2026</td>
-                            <td><span class="price-change up">↑ UGX 100</span></td>
+                            <td><span class="price-change up">↑ UGX 100</small></td>
                             <td>
                                 <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
                                 <button class="action-icon-btn" title="Price History">📜</button>
@@ -271,7 +270,7 @@
                             <td>UGX 2,500</td>
                             <td class="margin-positive">+13.6%</td>
                             <td>06/01/2026</td>
-                            <td><span class="price-change down">↓ UGX 50</span></td>
+                            <td><span class="price-change down">↓ UGX 50</small></td>
                             <td>
                                 <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
                                 <button class="action-icon-btn" title="Price History">📜</button>
@@ -284,7 +283,7 @@
                             <td>UGX 5,000</td>
                             <td class="margin-positive">+11.1%</td>
                             <td>09/01/2026</td>
-                            <td><span class="price-change up">↑ UGX 200</span></td>
+                            <td><span class="price-change up">↑ UGX 200</small></td>
                             <td>
                                 <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
                                 <button class="action-icon-btn" title="Price History">📜</button>
@@ -297,7 +296,7 @@
                             <td>UGX 3,200</td>
                             <td class="margin-positive">+14.3%</td>
                             <td>08/01/2026</td>
-                            <td><span class="price-change neutral">—</span></td>
+                            <td><span class="price-change neutral">—</small></td>
                             <td>
                                 <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
                                 <button class="action-icon-btn" title="Price History">📜</button>
@@ -310,7 +309,7 @@
                             <td>UGX 2,000</td>
                             <td class="margin-positive">+11.1%</td>
                             <td>05/01/2026</td>
-                            <td><span class="price-change neutral">—</span></td>
+                            <td><span class="price-change neutral">—</small></td>
                             <td>
                                 <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
                                 <button class="action-icon-btn" title="Price History">📜</button>
@@ -323,7 +322,7 @@
                             <td>UGX 2,200</td>
                             <td class="margin-positive">+10.0%</td>
                             <td>05/01/2026</td>
-                            <td><span class="price-change up">↑ UGX 100</span></td>
+                            <td><span class="price-change up">↑ UGX 100</small></td>
                             <td>
                                 <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
                                 <button class="action-icon-btn" title="Price History">📜</button>
@@ -332,16 +331,16 @@
                     </tbody>
                 </table>
             </div>
-        </section>
+        </div>
 
         <!-- Recent Price Changes -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>Recent Price Changes</h2>
             </div>
-            <div class="table-container">
-                <table class="data-table">
-                    <thead>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped align-middle">
+                    <thead class="table-light">
                         <tr>
                             <th>Date</th>
                             <th>Produce</th>
@@ -358,7 +357,7 @@
                             <td><strong>Maize</strong></td>
                             <td>UGX 1,750</td>
                             <td>UGX 1,800</td>
-                            <td><span class="price-change up">+2.9%</span></td>
+                            <td><span class="price-change up">+2.9%</small></td>
                             <td>Increased supplier costs</td>
                             <td>John Doe</td>
                         </tr>
@@ -367,7 +366,7 @@
                             <td><strong>Groundnuts</strong></td>
                             <td>UGX 4,800</td>
                             <td>UGX 5,000</td>
-                            <td><span class="price-change up">+4.2%</span></td>
+                            <td><span class="price-change up">+4.2%</small></td>
                             <td>High market demand</td>
                             <td>John Doe</td>
                         </tr>
@@ -376,7 +375,7 @@
                             <td><strong>Rice</strong></td>
                             <td>UGX 3,900</td>
                             <td>UGX 4,000</td>
-                            <td><span class="price-change up">+2.6%</span></td>
+                            <td><span class="price-change up">+2.6%</small></td>
                             <td>Import costs increased</td>
                             <td>John Doe</td>
                         </tr>
@@ -385,14 +384,14 @@
                             <td><strong>Wheat</strong></td>
                             <td>UGX 2,550</td>
                             <td>UGX 2,500</td>
-                            <td><span class="price-change down">-2.0%</span></td>
+                            <td><span class="price-change down">-2.0%</small></td>
                             <td>Promotion to increase sales</td>
                             <td>John Doe</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </section>
+        </div>
     </main>
 
     <script>
@@ -561,5 +560,8 @@
             color: #999;
         }
     </style>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KGL - Current Prices</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="header-left">
-            <h1 class="logo">KGL</h1>
-            <span class="separator">|</span>
-            <span class="user-info">Sales Agent: <strong id="agentName">Jane Smith</strong></span>
-            <span class="separator">|</span>
-            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></span>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">KGL</a>
+            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white">Sales Agent: <strong id="agentName">Jane Smith</strong></small>
+            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white">Branch: <strong id="branchName">Branch A</strong></small>
         </div>
-        <div class="header-right">
-            <button class="logout-btn">Logout</button>
+        
+            <button class="btn btn-outline-light btn-sm ms-auto">Logout</button>
         </div>
-    </header>
+    </div></nav>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <ul class="nav-menu">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom"><div class="container-fluid"><ul class="nav nav-pills">
             <li class="nav-item">
                 <a href="sales-agent-dashboard.html">Dashboard</a>
             </li>
@@ -33,75 +33,74 @@
             <li class="nav-item">
                 <a href="agent-stock-view.html">Stock Availability</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a href="agent-prices.html">Current Prices</a>
             </li>
             <li class="nav-item">
                 <a href="agent-my-sales.html">My Sales</a>
             </li>
-        </ul>
-    </nav>
+        </ul></div></nav>
 
     <!-- Main Content -->
-    <main class="main-content">
-        <div class="page-header">
+    <main class="container-fluid py-4">
+        <div class="mb-4">
             <h2>💲 Current Prices</h2>
-            <p class="subtitle">View up-to-date pricing for all produce</p>
+            <p class="text-muted">View up-to-date pricing for all produce</div>
         </div>
 
         <!-- Price Summary Cards -->
-        <section class="stats-section">
-            <div class="stat-card">
-                <div class="stat-icon price-icon">📋</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Total Items</h3>
-                    <p class="stat-value" id="totalItems">24</p>
-                    <span class="stat-label">Priced items</span>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">📋</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Total Items</h3>
+                    <div class="fs-4 fw-bold" id="totalItems">24</div>
+                    <small class="text-muted">Priced items</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon update-icon">🔄</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Last Updated</h3>
-                    <p class="stat-value" id="lastUpdated">Today</p>
-                    <span class="stat-label">Jan 9, 2026</span>
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">🔄</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Last Updated</h3>
+                    <div class="fs-4 fw-bold" id="lastUpdated">Today</div>
+                    <small class="text-muted">Jan 9, 2026</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon range-icon">📊</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Price Range</h3>
-                    <p class="stat-value" id="priceRange">1.8K - 8K</p>
-                    <span class="stat-label">UGX per kg</span>
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">📊</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Price Range</h3>
+                    <div class="fs-4 fw-bold" id="priceRange">1.8K - 8K</div>
+                    <small class="text-muted">UGX per kg</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon category-icon">📦</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Categories</h3>
-                    <p class="stat-value" id="totalCategories">4</p>
-                    <span class="stat-label">Product categories</span>
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">📦</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Categories</h3>
+                    <div class="fs-4 fw-bold" id="totalCategories">4</div>
+                    <small class="text-muted">Product categories</small>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Search and Filter -->
         <div class="controls-section">
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Search by produce name...">
+                <input class="form-control" type="text" id="searchInput" placeholder="Search by produce name...">
             </div>
             <div class="filter-controls">
-                <select id="categoryFilter">
+                <select class="form-select" id="categoryFilter">
                     <option value="">All Categories</option>
                     <option value="Cereals">Cereals</option>
                     <option value="Legumes">Legumes</option>
                     <option value="Nuts">Nuts</option>
                     <option value="Seeds">Seeds</option>
                 </select>
-                <select id="sortBy">
+                <select class="form-select" id="sortBy">
                     <option value="name-asc">Name (A-Z)</option>
                     <option value="name-desc">Name (Z-A)</option>
                     <option value="price-asc">Price (Low to High)</option>
@@ -111,25 +110,25 @@
         </div>
 
         <!-- Price Cards Grid -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>Price List</h2>
                 <button class="action-btn" onclick="printPriceList()">🖨️ Print</button>
             </div>
             <div class="price-grid" id="priceGrid">
                 <!-- Price cards will be populated here -->
             </div>
-        </section>
+        </div>
 
         <!-- Price Table (Alternative View) -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>Detailed Price Table</h2>
                 <button class="action-btn" onclick="exportToCSV()">📥 Export CSV</button>
             </div>
-            <div class="table-container">
+            <div class="table-responsive">
                 <table class="data-table" id="priceTable">
-                    <thead>
+                    <thead class="table-light">
                         <tr>
                             <th>Produce</th>
                             <th>Category</th>
@@ -145,7 +144,7 @@
                     </tbody>
                 </table>
             </div>
-        </section>
+        </div>
     </main>
 
     <script>
@@ -212,22 +211,22 @@
                 card.innerHTML = `
                     <div class="price-card-header">
                         <h3 class="produce-name">${item.name}</h3>
-                        <span class="produce-category">${item.category}</span>
+                        <span class="produce-category">${item.category}</small>
                     </div>
                     <div class="price-card-body">
                         <div class="main-price">
-                            <span class="price-label">Regular Price</span>
-                            <span class="price-value">UGX ${item.price.toLocaleString()}</span>
-                            <span class="price-unit">per ${item.unit}</span>
+                            <span class="price-label">Regular Price</small>
+                            <span class="price-value">UGX ${item.price.toLocaleString()}</small>
+                            <span class="price-unit">per ${item.unit}</small>
                         </div>
                         <div class="bulk-price">
-                            <span class="bulk-label">Bulk Price (100+ ${item.unit})</span>
-                            <span class="bulk-value">UGX ${item.bulkPrice.toLocaleString()}</span>
+                            <span class="bulk-label">Bulk Price (100+ ${item.unit})</small>
+                            <span class="bulk-value">UGX ${item.bulkPrice.toLocaleString()}</small>
                         </div>
                     </div>
                     <div class="price-card-footer">
-                        <span class="status-badge ${statusClass}">${stockStatus}</span>
-                        <span class="stock-qty">${item.stock > 0 ? item.stock.toLocaleString() + ' ' + item.unit : 'N/A'}</span>
+                        <span class="status-badge ${statusClass}">${stockStatus}</small>
+                        <span class="stock-qty">${item.stock > 0 ? item.stock.toLocaleString() + ' ' + item.unit : 'N/A'}</small>
                     </div>
                 `;
                 
@@ -252,7 +251,7 @@
                     <td><strong>UGX ${item.price.toLocaleString()}</strong></td>
                     <td>${item.unit}</td>
                     <td>UGX ${item.bulkPrice.toLocaleString()}</td>
-                    <td><span class="status-badge ${statusClass}">${stockStatus}</span></td>
+                    <td><span class="status-badge ${statusClass}">${stockStatus}</small></td>
                     <td>${item.lastUpdated}</td>
                 `;
                 
@@ -511,5 +510,8 @@
             }
         }
     </style>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

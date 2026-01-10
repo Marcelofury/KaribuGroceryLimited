@@ -4,30 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KGL - Make Sale</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="header-left">
-            <h1 class="logo">KGL</h1>
-            <span class="separator">|</span>
-            <span class="user-info">Sales Agent: <strong id="agentName">Jane Smith</strong></span>
-            <span class="separator">|</span>
-            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></span>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">KGL</a>
+            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white">Sales Agent: <strong id="agentName">Jane Smith</strong></small>
+            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white">Branch: <strong id="branchName">Branch A</strong></small>
         </div>
-        <div class="header-right">
-            <button class="logout-btn">Logout</button>
+        
+            <button class="btn btn-outline-light btn-sm ms-auto">Logout</button>
         </div>
-    </header>
+    </div></nav>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <ul class="nav-menu">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom"><div class="container-fluid"><ul class="nav nav-pills">
             <li class="nav-item">
                 <a href="sales-agent-dashboard.html">Dashboard</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a href="agent-make-sale.html">Make Sale</a>
             </li>
             <li class="nav-item">
@@ -39,14 +39,13 @@
             <li class="nav-item">
                 <a href="agent-my-sales.html">My Sales</a>
             </li>
-        </ul>
-    </nav>
+        </ul></div></nav>
 
     <!-- Main Content -->
-    <main class="main-content">
-        <div class="page-header">
+    <main class="container-fluid py-4">
+        <div class="mb-4">
             <h2>🛒 Make a Sale</h2>
-            <p class="subtitle">Record a new customer transaction</p>
+            <p class="text-muted">Record a new customer transaction</div>
         </div>
 
         <!-- Sale Form -->
@@ -56,9 +55,9 @@
                 <div class="form-section">
                     <h3 class="section-title">Customer Information</h3>
                     <div class="form-row">
-                        <div class="form-group">
-                            <label for="customerType">Customer Type <span class="required">*</span></label>
-                            <select id="customerType" required>
+                        <div class="mb-3">
+                            <label for="customerType">Customer Type <span class="required">*</small></label>
+                            <select class="form-select" id="customerType" required>
                                 <option value="">Select Customer Type</option>
                                 <option value="walk-in">Walk-in Customer</option>
                                 <option value="regular">Regular Customer</option>
@@ -67,17 +66,17 @@
                         </div>
                         <div class="form-group" id="customerNameGroup" style="display: none;">
                             <label for="customerName">Customer Name</label>
-                            <input type="text" id="customerName" placeholder="Enter customer name">
+                            <input class="form-control" type="text" id="customerName" placeholder="Enter customer name">
                         </div>
                     </div>
                     <div class="form-row" id="businessDetailsRow" style="display: none;">
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="businessName">Business Name</label>
-                            <input type="text" id="businessName" placeholder="Enter business name">
+                            <input class="form-control" type="text" id="businessName" placeholder="Enter business name">
                         </div>
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="customerPhone">Phone Number</label>
-                            <input type="tel" id="customerPhone" placeholder="0700000000">
+                            <input class="form-control" type="tel" id="customerPhone" placeholder="0700000000">
                         </div>
                     </div>
                 </div>
@@ -95,9 +94,9 @@
                 <div class="form-section">
                     <h3 class="section-title">Payment Information</h3>
                     <div class="form-row">
-                        <div class="form-group">
-                            <label for="paymentMethod">Payment Method <span class="required">*</span></label>
-                            <select id="paymentMethod" required>
+                        <div class="mb-3">
+                            <label for="paymentMethod">Payment Method <span class="required">*</small></label>
+                            <select class="form-select" id="paymentMethod" required>
                                 <option value="">Select Payment Method</option>
                                 <option value="cash">Cash</option>
                                 <option value="mobile">Mobile Money</option>
@@ -107,13 +106,13 @@
                         </div>
                         <div class="form-group" id="creditTermsGroup" style="display: none;">
                             <label for="creditDays">Credit Terms (Days)</label>
-                            <input type="number" id="creditDays" placeholder="30" min="1" max="90">
+                            <input class="form-control" type="number" id="creditDays" placeholder="30" min="1" max="90">
                         </div>
                     </div>
                     <div class="form-row" id="referenceRow" style="display: none;">
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="paymentReference">Payment Reference/Transaction ID</label>
-                            <input type="text" id="paymentReference" placeholder="Enter reference number">
+                            <input class="form-control" type="text" id="paymentReference" placeholder="Enter reference number">
                         </div>
                     </div>
                 </div>
@@ -122,23 +121,23 @@
                 <div class="form-section sale-summary">
                     <h3 class="section-title">Sale Summary</h3>
                     <div class="summary-row">
-                        <span class="summary-label">Subtotal:</span>
-                        <span class="summary-value" id="subtotal">UGX 0</span>
+                        <span class="summary-label">Subtotal:</small>
+                        <span class="summary-value" id="subtotal">UGX 0</small>
                     </div>
                     <div class="summary-row">
-                        <span class="summary-label">Tax (0%):</span>
-                        <span class="summary-value" id="tax">UGX 0</span>
+                        <span class="summary-label">Tax (0%):</small>
+                        <span class="summary-value" id="tax">UGX 0</small>
                     </div>
                     <div class="summary-row total">
-                        <span class="summary-label">Total Amount:</span>
-                        <span class="summary-value" id="totalAmount">UGX 0</span>
+                        <span class="summary-label">Total Amount:</small>
+                        <span class="summary-value" id="totalAmount">UGX 0</small>
                     </div>
                 </div>
 
                 <!-- Form Actions -->
                 <div class="form-actions">
                     <button type="button" class="btn-cancel" onclick="window.location.href='sales-agent-dashboard.html'">Cancel</button>
-                    <button type="submit" class="btn-primary">Complete Sale</button>
+                    <button type="submit" class="btn btn-primary" class="btn-primary">Complete Sale</button>
                 </div>
             </form>
         </div>
@@ -209,8 +208,8 @@
             itemDiv.innerHTML = `
                 <div class="item-row">
                     <div class="form-group flex-2">
-                        <label>Produce <span class="required">*</span></label>
-                        <select class="produce-select" required>
+                        <label>Produce <span class="required">*</small></label>
+                        <select class="form-select" class="produce-select" required>
                             <option value="">Select Produce</option>
                             ${produceData.map(p => `
                                 <option value="${p.id}" data-price="${p.price}" data-stock="${p.stock}" data-unit="${p.unit}">
@@ -220,16 +219,16 @@
                         </select>
                     </div>
                     <div class="form-group flex-1">
-                        <label>Quantity <span class="required">*</span></label>
-                        <input type="number" class="quantity-input" min="1" step="1" placeholder="0" required>
+                        <label>Quantity <span class="required">*</small></label>
+                        <input class="form-control" type="number" class="quantity-input" min="1" step="1" placeholder="0" required>
                     </div>
                     <div class="form-group flex-1">
                         <label>Unit Price</label>
-                        <input type="text" class="unit-price" readonly placeholder="UGX 0">
+                        <input class="form-control" type="text" class="unit-price" readonly placeholder="UGX 0">
                     </div>
                     <div class="form-group flex-1">
                         <label>Amount</label>
-                        <input type="text" class="item-amount" readonly placeholder="UGX 0">
+                        <input class="form-control" type="text" class="item-amount" readonly placeholder="UGX 0">
                     </div>
                     <div class="form-group flex-0">
                         <label>&nbsp;</label>
@@ -606,5 +605,8 @@
             background: #3a6322;
         }
     </style>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

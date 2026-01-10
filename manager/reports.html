@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KGL - Reports</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
-        <div class="header-left">
-            <h1 class="logo">KGL</h1>
-            <span class="separator">|</span>
-            <span class="user-info">Manager: <strong id="managerName">John Doe</strong></span>
-            <span class="separator">|</span>
-            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></span>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">KGL</a>
+            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white">Manager: <strong id="managerName">John Doe</strong></small>
+            <span class="navbar-text text-white mx-2">|</small>
+            <span class="navbar-text text-white">Branch: <strong id="branchName">Branch A</strong></small>
         </div>
-        <div class="header-right">
-            <button class="logout-btn">Logout</button>
+        
+            <button class="btn btn-outline-light btn-sm ms-auto">Logout</button>
         </div>
-    </header>
+    </div></nav>
 
     <!-- Navigation -->
-    <nav class="navbar">
-        <ul class="nav-menu">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom"><div class="container-fluid"><ul class="nav nav-pills">
             <li class="nav-item">
                 <a href="manager-dashboard.html">Dashboard</a>
             </li>
@@ -42,68 +42,67 @@
             <li class="nav-item">
                 <a href="credit-sales.html">Credit Sales</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a href="reports.html">Reports</a>
             </li>
-        </ul>
-    </nav>
+        </ul></div></nav>
 
     <!-- Main Content -->
-    <main class="main-content">
-        <div class="page-header">
+    <main class="container-fluid py-4">
+        <div class="mb-4">
             <h2>Reports & Analytics</h2>
-            <p class="subtitle">Generate and view business reports</p>
+            <p class="text-muted">Generate and view business reports</div>
         </div>
 
         <!-- Quick Stats -->
-        <section class="stats-section">
-            <div class="stat-card">
-                <div class="stat-icon sales-icon">📊</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Total Reports</h3>
-                    <p class="stat-value" id="totalReports">47</p>
-                    <span class="stat-label">Generated This Month</span>
+        <div class="row g-4 mb-4">
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">📊</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Total Reports</h3>
+                    <div class="fs-4 fw-bold" id="totalReports">47</div>
+                    <small class="text-muted">Generated This Month</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon stock-icon">💰</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Monthly Revenue</h3>
-                    <p class="stat-value" id="monthlyRevenue">UGX 45M</p>
-                    <span class="stat-label">January 2026</span>
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">💰</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Monthly Revenue</h3>
+                    <div class="fs-4 fw-bold" id="monthlyRevenue">UGX 45M</div>
+                    <small class="text-muted">January 2026</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon credit-icon">📈</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Growth Rate</h3>
-                    <p class="stat-value" id="growthRate">+15.2%</p>
-                    <span class="stat-label">Compared to Last Month</span>
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">📈</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Growth Rate</h3>
+                    <div class="fs-4 fw-bold" id="growthRate">+15.2%</div>
+                    <small class="text-muted">Compared to Last Month</small>
                 </div>
             </div>
 
-            <div class="stat-card">
-                <div class="stat-icon alert-icon">🎯</div>
-                <div class="stat-info">
-                    <h3 class="stat-title">Target Progress</h3>
-                    <p class="stat-value" id="targetProgress">73%</p>
-                    <span class="stat-label">Of Monthly Goal</span>
+            <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
+                <div class="fs-1 me-3">🎯</div>
+                <div class="flex-grow-1">
+                    <h6 class="card-title text-muted mb-1">Target Progress</h3>
+                    <div class="fs-4 fw-bold" id="targetProgress">73%</div>
+                    <small class="text-muted">Of Monthly Goal</small>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Report Generator -->
         <section class="form-section">
-            <div class="section-header" style="margin-bottom: 20px;">
+            <div class="card-header bg-white" style="margin-bottom: 20px;">
                 <h2>Generate Report</h2>
             </div>
             <form id="reportForm" class="procurement-form">
                 <div class="form-row">
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="reportType">Report Type *</label>
-                        <select id="reportType" name="reportType" required>
+                        <select class="form-select" id="reportType" name="reportType" required>
                             <option value="">Select report type</option>
                             <option value="sales">Sales Report</option>
                             <option value="procurement">Procurement Report</option>
@@ -116,9 +115,9 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="reportPeriod">Report Period *</label>
-                        <select id="reportPeriod" name="reportPeriod" required>
+                        <select class="form-select" id="reportPeriod" name="reportPeriod" required>
                             <option value="">Select period</option>
                             <option value="today">Today</option>
                             <option value="yesterday">Yesterday</option>
@@ -136,18 +135,18 @@
                 <!-- Custom Date Range (Hidden by default) -->
                 <div id="customDateRange" style="display: none;">
                     <div class="form-row">
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="startDate">Start Date *</label>
-                            <input 
+                            <input class="form-control" 
                                 type="date" 
                                 id="startDate" 
                                 name="startDate"
                             >
                         </div>
 
-                        <div class="form-group">
+                        <div class="mb-3">
                             <label for="endDate">End Date *</label>
-                            <input 
+                            <input class="form-control" 
                                 type="date" 
                                 id="endDate" 
                                 name="endDate"
@@ -157,9 +156,9 @@
                 </div>
 
                 <div class="form-row">
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="reportFormat">Output Format *</label>
-                        <select id="reportFormat" name="reportFormat" required>
+                        <select class="form-select" id="reportFormat" name="reportFormat" required>
                             <option value="pdf">PDF Document</option>
                             <option value="excel">Excel Spreadsheet</option>
                             <option value="csv">CSV File</option>
@@ -167,9 +166,9 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="mb-3">
                         <label for="groupBy">Group By</label>
-                        <select id="groupBy" name="groupBy">
+                        <select class="form-select" id="groupBy" name="groupBy">
                             <option value="">No Grouping</option>
                             <option value="date">By Date</option>
                             <option value="produce">By Produce Type</option>
@@ -185,16 +184,16 @@
                         <label>Include in Report</label>
                         <div class="checkbox-group">
                             <label class="checkbox-label">
-                                <input type="checkbox" name="includeSummary" checked> Summary Statistics
+                                <input class="form-control" type="checkbox" name="includeSummary" checked> Summary Statistics
                             </label>
                             <label class="checkbox-label">
-                                <input type="checkbox" name="includeCharts" checked> Charts & Graphs
+                                <input class="form-control" type="checkbox" name="includeCharts" checked> Charts & Graphs
                             </label>
                             <label class="checkbox-label">
-                                <input type="checkbox" name="includeDetails"> Detailed Transactions
+                                <input class="form-control" type="checkbox" name="includeDetails"> Detailed Transactions
                             </label>
                             <label class="checkbox-label">
-                                <input type="checkbox" name="includeComparisons"> Period Comparisons
+                                <input class="form-control" type="checkbox" name="includeComparisons"> Period Comparisons
                             </label>
                         </div>
                     </div>
@@ -202,64 +201,64 @@
 
                 <div class="form-actions">
                     <button type="button" class="btn-secondary" id="previewBtn">👁️ Preview</button>
-                    <button type="submit" class="btn-primary">📥 Generate Report</button>
+                    <button type="submit" class="btn btn-primary" class="btn-primary">📥 Generate Report</button>
                 </div>
             </form>
-        </section>
+        </div>
 
         <!-- Quick Reports -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>Quick Reports</h2>
-                <p style="color: #666; font-size: 14px;">Generate common reports with one click</p>
+                <p style="color: #666; font-size: 14px;">Generate common reports with one click</div>
             </div>
             <div class="quick-reports-grid">
                 <div class="quick-report-card">
                     <div class="report-icon">📊</div>
                     <h3>Daily Sales</h3>
-                    <p>Today's sales summary</p>
+                    <p>Today's sales summary</div>
                     <button class="quick-report-btn">Generate</button>
                 </div>
                 <div class="quick-report-card">
                     <div class="report-icon">📦</div>
                     <h3>Stock Levels</h3>
-                    <p>Current inventory status</p>
+                    <p>Current inventory status</div>
                     <button class="quick-report-btn">Generate</button>
                 </div>
                 <div class="quick-report-card">
                     <div class="report-icon">💳</div>
                     <h3>Credit Summary</h3>
-                    <p>Outstanding credits</p>
+                    <p>Outstanding credits</div>
                     <button class="quick-report-btn">Generate</button>
                 </div>
                 <div class="quick-report-card">
                     <div class="report-icon">💰</div>
                     <h3>Weekly Revenue</h3>
-                    <p>Past 7 days income</p>
+                    <p>Past 7 days income</div>
                     <button class="quick-report-btn">Generate</button>
                 </div>
                 <div class="quick-report-card">
                     <div class="report-icon">📈</div>
                     <h3>Monthly Summary</h3>
-                    <p>Full month analysis</p>
+                    <p>Full month analysis</div>
                     <button class="quick-report-btn">Generate</button>
                 </div>
                 <div class="quick-report-card">
                     <div class="report-icon">🎯</div>
                     <h3>Target vs Actual</h3>
-                    <p>Performance metrics</p>
+                    <p>Performance metrics</div>
                     <button class="quick-report-btn">Generate</button>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Recent Reports -->
-        <section class="data-section">
-            <div class="section-header">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
                 <h2>Recent Reports</h2>
                 <div class="filter-controls">
-                    <input type="text" id="searchInput" placeholder="Search reports..." class="search-input">
-                    <select id="filterType" class="filter-select">
+                    <input class="form-control" type="text" id="searchInput" placeholder="Search reports..." class="search-input">
+                    <select class="form-select" id="filterType" class="filter-select">
                         <option value="">All Types</option>
                         <option value="sales">Sales</option>
                         <option value="procurement">Procurement</option>
@@ -268,9 +267,9 @@
                     </select>
                 </div>
             </div>
-            <div class="table-container">
-                <table class="data-table">
-                    <thead>
+            <div class="table-responsive">
+                <table class="table table-hover table-striped align-middle">
+                    <thead class="table-light">
                         <tr>
                             <th>Report Name</th>
                             <th>Type</th>
@@ -288,7 +287,7 @@
                             <td>09/01/2026</td>
                             <td>09/01/2026 10:30 AM</td>
                             <td>John Doe</td>
-                            <td><span class="format-badge pdf">PDF</span></td>
+                            <td><span class="format-badge pdf">PDF</small></td>
                             <td>
                                 <button class="action-icon-btn" title="Download">📥</button>
                                 <button class="action-icon-btn" title="View">👁️</button>
@@ -302,7 +301,7 @@
                             <td>This Week</td>
                             <td>08/01/2026 03:15 PM</td>
                             <td>John Doe</td>
-                            <td><span class="format-badge excel">Excel</span></td>
+                            <td><span class="format-badge excel">Excel</small></td>
                             <td>
                                 <button class="action-icon-btn" title="Download">📥</button>
                                 <button class="action-icon-btn" title="View">👁️</button>
@@ -316,7 +315,7 @@
                             <td>This Month</td>
                             <td>07/01/2026 11:20 AM</td>
                             <td>John Doe</td>
-                            <td><span class="format-badge pdf">PDF</span></td>
+                            <td><span class="format-badge pdf">PDF</small></td>
                             <td>
                                 <button class="action-icon-btn" title="Download">📥</button>
                                 <button class="action-icon-btn" title="View">👁️</button>
@@ -330,7 +329,7 @@
                             <td>Last Week</td>
                             <td>06/01/2026 09:45 AM</td>
                             <td>John Doe</td>
-                            <td><span class="format-badge excel">Excel</span></td>
+                            <td><span class="format-badge excel">Excel</small></td>
                             <td>
                                 <button class="action-icon-btn" title="Download">📥</button>
                                 <button class="action-icon-btn" title="View">👁️</button>
@@ -344,7 +343,7 @@
                             <td>December 2025</td>
                             <td>01/01/2026 02:30 PM</td>
                             <td>John Doe</td>
-                            <td><span class="format-badge pdf">PDF</span></td>
+                            <td><span class="format-badge pdf">PDF</small></td>
                             <td>
                                 <button class="action-icon-btn" title="Download">📥</button>
                                 <button class="action-icon-btn" title="View">👁️</button>
@@ -355,7 +354,7 @@
                     </tbody>
                 </table>
             </div>
-        </section>
+        </div>
     </main>
 
     <script>
@@ -542,5 +541,8 @@
             color: #1565c0;
         }
     </style>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
