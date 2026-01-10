@@ -1,11 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KGL - Sales Agent Dashboard</title>
+<<<<<<< HEAD
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+=======
+    <link rel="stylesheet" href="C:\Users\USER\KGL\css\dashboard.css">
+>>>>>>> cb42777d37c7754250e5c526086fee1e883d25c9
 </head>
 <body>
     <!-- Header -->
@@ -44,6 +48,7 @@
     <!-- Main Content -->
     <main class="container-fluid py-4">
         <div class="welcome-section">
+<<<<<<< HEAD
             <h2>Welcome back, <span id="agentNameDisplay">Jane Smith</small>! 👋</h2>
             <p class="text-muted">Serve customers and track your sales performance</div>
         </div>
@@ -84,6 +89,36 @@
                     <div class="fs-4 fw-bold" id="targetProgress">82%</div>
                     <small class="text-muted">Of Monthly Goal</small>
                 </div>
+=======
+            <h2>Welcome back, <span id="agentNameDisplay">Jane Smith</span>!</h2>
+            <p class="subtitle">Serve customers and track your sales performance</p>
+        </div>
+
+        <!-- Today's Stats -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <h3 class="stat-title">Today's Sales</h3>
+                <p class="stat-value" id="todaySales">UGX 2,400,000</p>
+                <span class="stat-label">6 Transactions</span>
+            </div>
+
+            <div class="stat-card">
+                <h3 class="stat-title">This Week</h3>
+                <p class="stat-value" id="weekSales">UGX 12,500,000</p>
+                <span class="stat-label">32 Transactions</span>
+            </div>
+
+            <div class="stat-card">
+                <h3 class="stat-title">This Month</h3>
+                <p class="stat-value" id="monthSales">UGX 28,900,000</p>
+                <span class="stat-label">98 Transactions</span>
+            </div>
+
+            <div class="stat-card">
+                <h3 class="stat-title">Target Progress</h3>
+                <p class="stat-value" id="targetProgress">82%</p>
+                <span class="stat-label">Of Monthly Goal</span>
+>>>>>>> cb42777d37c7754250e5c526086fee1e883d25c9
             </div>
         </div>
 
@@ -94,22 +129,18 @@
             </div>
             <div class="quick-actions-grid">
                 <a href="agent-make-sale.html" class="quick-action-card primary-action">
-                    <div class="action-icon">🛒</div>
                     <h3>Make a Sale</h3>
                     <p>Record a new customer sale</div>
                 </a>
                 <a href="agent-stock-view.html" class="quick-action-card">
-                    <div class="action-icon">📦</div>
                     <h3>Check Stock</h3>
                     <p>View available products</div>
                 </a>
                 <a href="agent-prices.html" class="quick-action-card">
-                    <div class="action-icon">💵</div>
                     <h3>View Prices</h3>
                     <p>Current selling prices</div>
                 </a>
                 <a href="agent-my-sales.html" class="quick-action-card">
-                    <div class="action-icon">📋</div>
                     <h3>My Sales History</h3>
                     <p>View past transactions</div>
                 </a>
@@ -330,15 +361,6 @@
             </div>
         </div>
     </main>
-
-    <script>
-        // Logout functionality
-        document.querySelector('.logout-btn').addEventListener('click', function() {
-            if (confirm('Are you sure you want to logout?')) {
-                window.location.href = 'login.html';
-            }
-        });
-    </script>
 
     <style>
         .welcome-section {
@@ -742,15 +764,6 @@
         </div>
     </main>
 
-    <script>
-        // Logout
-        document.querySelector('.logout-btn').addEventListener('click', function() {
-            if (confirm('Are you sure you want to logout?')) {
-                window.location.href = 'login.html';
-            }
-        });
-    </script>
-
     <style>
         .welcome-section {
             margin-bottom: 30px;
@@ -870,3 +883,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+

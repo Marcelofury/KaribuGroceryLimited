@@ -1,11 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KGL - My Sales</title>
+<<<<<<< HEAD
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+=======
+    <link rel="stylesheet" href="C:\Users\USER\KGL\css\dashboard.css">
+>>>>>>> cb42777d37c7754250e5c526086fee1e883d25c9
 </head>
 <body>
     <!-- Header -->
@@ -42,6 +46,7 @@
         </ul></div></nav>
 
     <!-- Main Content -->
+<<<<<<< HEAD
     <main class="container-fluid py-4">
         <div class="mb-4">
             <h2>📋 My Sales History</h2>
@@ -84,6 +89,38 @@
                     <div class="fs-4 fw-bold" id="avgSale">UGX 233,065</div>
                     <small class="text-muted">Per sale</small>
                 </div>
+=======
+    <main class="main-content">
+        <div class="page-header">
+            <h2>My Sales History</h2>
+            <p class="subtitle">View and track your sales records</p>
+        </div>
+
+        <!-- Sales Summary -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <h3 class="stat-title">Today's Sales</h3>
+                <p class="stat-value" id="todaySales">UGX 2,400,000</p>
+                <span class="stat-label">8 Transactions</span>
+            </div>
+
+            <div class="stat-card">
+                <h3 class="stat-title">This Week</h3>
+                <p class="stat-value" id="weekSales">UGX 12,500,000</p>
+                <span class="stat-label">45 Transactions</span>
+            </div>
+
+            <div class="stat-card">
+                <h3 class="stat-title">This Month</h3>
+                <p class="stat-value" id="monthSales">UGX 28,900,000</p>
+                <span class="stat-label">124 Transactions</span>
+            </div>
+
+            <div class="stat-card">
+                <h3 class="stat-title">Avg Transaction</h3>
+                <p class="stat-value" id="avgSale">UGX 233,065</p>
+                <span class="stat-label">Per sale</span>
+>>>>>>> cb42777d37c7754250e5c526086fee1e883d25c9
             </div>
         </div>
 
@@ -114,7 +151,7 @@
                     <option value="pending">Pending</option>
                     <option value="cancelled">Cancelled</option>
                 </select>
-                <button class="action-btn" onclick="exportSales()">📥 Export</button>
+                <button class="action-btn" onclick="exportSales()">Export</button>
             </div>
         </div>
 
@@ -188,6 +225,7 @@
         </div>
     </div>
 
+<<<<<<< HEAD
     <script>
         // Sample sales data (would typically come from backend)
         const salesData = [
@@ -448,6 +486,8 @@
         loadSalesData();
     </script>
 
+=======
+>>>>>>> cb42777d37c7754250e5c526086fee1e883d25c9
     <style>
         .page-header {
             margin-bottom: 30px;
@@ -780,3 +820,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+

@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KGL - Reports</title>
+<<<<<<< HEAD
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -19,6 +20,21 @@
         </div>
         
             <button class="btn btn-outline-light btn-sm ms-auto">Logout</button>
+=======
+    <link rel="stylesheet" href="C:\Users\USER\KGL\css\dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <h1 class="logo">KGL</h1>
+            <span class="separator">|</span>
+            <span class="user-info">Manager: <strong id="managerName">John Doe</strong></span>
+            <span class="separator">|</span>
+            <span class="branch-info">Branch: <strong id="branchName">Branch A</strong></div>
+        <div class="header-right">
+            <button class="logout-btn">Logout</button>
+>>>>>>> cb42777d37c7754250e5c526086fee1e883d25c9
         </div>
     </div></nav>
 
@@ -55,6 +71,7 @@
         </div>
 
         <!-- Quick Stats -->
+<<<<<<< HEAD
         <div class="row g-4 mb-4">
             <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
                 <div class="fs-1 me-3">📊</div>
@@ -90,6 +107,31 @@
                     <div class="fs-4 fw-bold" id="targetProgress">73%</div>
                     <small class="text-muted">Of Monthly Goal</small>
                 </div>
+=======
+        <section class="stats-section">
+            <div class="stat-card">
+                <h3 class="stat-title">Total Reports</h3>
+                <p class="stat-value" id="totalReports">47</p>
+                <span class="stat-label">Generated This Month</span>
+            </div>
+
+            <div class="stat-card">
+                <h3 class="stat-title">Monthly Revenue</h3>
+                <p class="stat-value" id="monthlyRevenue">UGX 45M</p>
+                <span class="stat-label">January 2026</span>
+            </div>
+
+            <div class="stat-card">
+                <h3 class="stat-title">Growth Rate</h3>
+                <p class="stat-value" id="growthRate">+15.2%</p>
+                <span class="stat-label">Compared to Last Month</span>
+            </div>
+
+            <div class="stat-card">
+                <h3 class="stat-title">Target Progress</h3>
+                <p class="stat-value" id="targetProgress">73%</p>
+                <span class="stat-label">Of Monthly Goal</span>
+>>>>>>> cb42777d37c7754250e5c526086fee1e883d25c9
             </div>
         </div>
 
@@ -200,8 +242,13 @@
                 </div>
 
                 <div class="form-actions">
+<<<<<<< HEAD
                     <button type="button" class="btn-secondary" id="previewBtn">👁️ Preview</button>
                     <button type="submit" class="btn btn-primary" class="btn-primary">📥 Generate Report</button>
+=======
+                    <button type="button" class="btn-secondary" id="previewBtn">Preview</button>
+                    <button type="submit" class="btn-primary">📥 Generate Report</button>
+>>>>>>> cb42777d37c7754250e5c526086fee1e883d25c9
                 </div>
             </form>
         </div>
@@ -214,37 +261,31 @@
             </div>
             <div class="quick-reports-grid">
                 <div class="quick-report-card">
-                    <div class="report-icon">📊</div>
                     <h3>Daily Sales</h3>
                     <p>Today's sales summary</div>
                     <button class="quick-report-btn">Generate</button>
                 </div>
                 <div class="quick-report-card">
-                    <div class="report-icon">📦</div>
                     <h3>Stock Levels</h3>
                     <p>Current inventory status</div>
                     <button class="quick-report-btn">Generate</button>
                 </div>
                 <div class="quick-report-card">
-                    <div class="report-icon">💳</div>
                     <h3>Credit Summary</h3>
                     <p>Outstanding credits</div>
                     <button class="quick-report-btn">Generate</button>
                 </div>
                 <div class="quick-report-card">
-                    <div class="report-icon">💰</div>
                     <h3>Weekly Revenue</h3>
                     <p>Past 7 days income</div>
                     <button class="quick-report-btn">Generate</button>
                 </div>
                 <div class="quick-report-card">
-                    <div class="report-icon">📈</div>
                     <h3>Monthly Summary</h3>
                     <p>Full month analysis</div>
                     <button class="quick-report-btn">Generate</button>
                 </div>
                 <div class="quick-report-card">
-                    <div class="report-icon">🎯</div>
                     <h3>Target vs Actual</h3>
                     <p>Performance metrics</div>
                     <button class="quick-report-btn">Generate</button>
@@ -282,12 +323,16 @@
                     </thead>
                     <tbody id="reportsTable">
                         <tr>
-                            <td><strong>Daily Sales Report</strong></td>
+                            <td></strong></td>
                             <td>Sales</td>
                             <td>09/01/2026</td>
                             <td>09/01/2026 10:30 AM</td>
                             <td>John Doe</td>
+<<<<<<< HEAD
                             <td><span class="format-badge pdf">PDF</small></td>
+=======
+                            <td></span></td>
+>>>>>>> cb42777d37c7754250e5c526086fee1e883d25c9
                             <td>
                                 <button class="action-icon-btn" title="Download">📥</button>
                                 <button class="action-icon-btn" title="View">👁️</button>
@@ -296,12 +341,16 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>Stock Level Report</strong></td>
+                            <td></strong></td>
                             <td>Stock</td>
                             <td>This Week</td>
                             <td>08/01/2026 03:15 PM</td>
                             <td>John Doe</td>
+<<<<<<< HEAD
                             <td><span class="format-badge excel">Excel</small></td>
+=======
+                            <td></span></td>
+>>>>>>> cb42777d37c7754250e5c526086fee1e883d25c9
                             <td>
                                 <button class="action-icon-btn" title="Download">📥</button>
                                 <button class="action-icon-btn" title="View">👁️</button>
@@ -310,12 +359,16 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>Credit Sales Summary</strong></td>
+                            <td></strong></td>
                             <td>Credit</td>
                             <td>This Month</td>
                             <td>07/01/2026 11:20 AM</td>
                             <td>John Doe</td>
+<<<<<<< HEAD
                             <td><span class="format-badge pdf">PDF</small></td>
+=======
+                            <td></span></td>
+>>>>>>> cb42777d37c7754250e5c526086fee1e883d25c9
                             <td>
                                 <button class="action-icon-btn" title="Download">📥</button>
                                 <button class="action-icon-btn" title="View">👁️</button>
@@ -324,12 +377,16 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>Procurement Report</strong></td>
+                            <td></strong></td>
                             <td>Procurement</td>
                             <td>Last Week</td>
                             <td>06/01/2026 09:45 AM</td>
                             <td>John Doe</td>
+<<<<<<< HEAD
                             <td><span class="format-badge excel">Excel</small></td>
+=======
+                            <td></span></td>
+>>>>>>> cb42777d37c7754250e5c526086fee1e883d25c9
                             <td>
                                 <button class="action-icon-btn" title="Download">📥</button>
                                 <button class="action-icon-btn" title="View">👁️</button>
@@ -338,12 +395,16 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>Monthly Financial Summary</strong></td>
+                            <td></strong></td>
                             <td>Financial</td>
                             <td>December 2025</td>
                             <td>01/01/2026 02:30 PM</td>
                             <td>John Doe</td>
+<<<<<<< HEAD
                             <td><span class="format-badge pdf">PDF</small></td>
+=======
+                            <td></span></td>
+>>>>>>> cb42777d37c7754250e5c526086fee1e883d25c9
                             <td>
                                 <button class="action-icon-btn" title="Download">📥</button>
                                 <button class="action-icon-btn" title="View">👁️</button>
@@ -356,88 +417,6 @@
             </div>
         </div>
     </main>
-
-    <script>
-        // Show/hide custom date range
-        document.getElementById('reportPeriod').addEventListener('change', function() {
-            const customDateRange = document.getElementById('customDateRange');
-            const startDate = document.getElementById('startDate');
-            const endDate = document.getElementById('endDate');
-            
-            if (this.value === 'custom') {
-                customDateRange.style.display = 'block';
-                startDate.required = true;
-                endDate.required = true;
-            } else {
-                customDateRange.style.display = 'none';
-                startDate.required = false;
-                endDate.required = false;
-            }
-        });
-
-        // Preview button
-        document.getElementById('previewBtn').addEventListener('click', function() {
-            const reportType = document.getElementById('reportType').value;
-            if (!reportType) {
-                alert('Please select a report type first.');
-                return;
-            }
-            alert('Report preview will be displayed here.');
-        });
-
-        // Form submission
-        document.getElementById('reportForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            console.log('Generating report:', data);
-            alert('Report generated successfully! Download will start shortly.');
-        });
-
-        // Quick reports
-        document.querySelectorAll('.quick-report-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const reportCard = this.closest('.quick-report-card');
-                const reportName = reportCard.querySelector('h3').textContent;
-                alert(`Generating ${reportName}...`);
-            });
-        });
-
-        // Search functionality
-        document.getElementById('searchInput').addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const rows = document.querySelectorAll('#reportsTable tr');
-            
-            rows.forEach(row => {
-                const text = row.textContent.toLowerCase();
-                row.style.display = text.includes(searchTerm) ? '' : 'none';
-            });
-        });
-
-        // Filter by type
-        document.getElementById('filterType').addEventListener('change', function() {
-            const filterValue = this.value.toLowerCase();
-            const rows = document.querySelectorAll('#reportsTable tr');
-            
-            rows.forEach(row => {
-                if (filterValue === '') {
-                    row.style.display = '';
-                } else {
-                    const type = row.cells[1].textContent.toLowerCase();
-                    row.style.display = type.includes(filterValue) ? '' : 'none';
-                }
-            });
-        });
-
-        // Logout
-        document.querySelector('.logout-btn').addEventListener('click', function() {
-            if (confirm('Are you sure you want to logout?')) {
-                window.location.href = 'login.html';
-            }
-        });
-    </script>
 
     <style>
         /* Quick Reports Grid */
@@ -546,3 +525,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+

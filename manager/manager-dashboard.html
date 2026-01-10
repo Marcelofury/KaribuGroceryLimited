@@ -1,11 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KGL - Manager Dashboard</title>
+<<<<<<< HEAD
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+=======
+    <link rel="stylesheet" href="C:\Users\USER\KGL\css\dashboard.css">
+>>>>>>> cb42777d37c7754250e5c526086fee1e883d25c9
 </head>
 <body>
     <!-- Header -->
@@ -55,6 +59,7 @@
         </div>
 
         <!-- Stats Cards -->
+<<<<<<< HEAD
         <div class="row g-4 mb-4">
             <div class="col-md-6 col-xl-3"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><div class="d-flex align-items-center">
                 <div class="fs-1 me-3">📦</div>
@@ -90,6 +95,31 @@
                     <div class="fs-4 fw-bold" id="creditAmount">UGX 2,800,000</div>
                     <small class="text-muted">5 Customers</small>
                 </div>
+=======
+        <section class="stats-section">
+            <div class="stat-card">
+                <h3 class="stat-title">Total Stock</h3>
+                <p class="stat-value" id="totalStock">17,280 kg</p>
+                <span class="stat-label">All Produce</span>
+            </div>
+
+            <div class="stat-card">
+                <h3 class="stat-title">Today's Sales</h3>
+                <p class="stat-value" id="todaySales">UGX 4,200,000</p>
+                <span class="stat-label">12 Transactions</span>
+            </div>
+
+            <div class="stat-card alert-card">
+                <h3 class="stat-title">Low Stock Alert</h3>
+                <p class="stat-value" id="lowStock">0</p>
+                <span class="stat-label">Items Below 1000kg</span>
+            </div>
+
+            <div class="stat-card">
+                <h3 class="stat-title">Credit Outstanding</h3>
+                <p class="stat-value" id="creditAmount">UGX 2,800,000</p>
+                <span class="stat-label">5 Customers</span>
+>>>>>>> cb42777d37c7754250e5c526086fee1e883d25c9
             </div>
         </div>
 
@@ -100,22 +130,18 @@
             </div>
             <div class="quick-actions-grid">
                 <a href="procure.html" class="quick-action-card">
-                    <div class="action-icon">📥</div>
                     <h3>Procure Stock</h3>
                     <p>Record new produce procurement</div>
                 </a>
                 <a href="sales.html" class="quick-action-card">
-                    <div class="action-icon">🛒</div>
                     <h3>Make Sale</h3>
                     <p>Record a customer sale</div>
                 </a>
                 <a href="prices.html" class="quick-action-card">
-                    <div class="action-icon">💵</div>
                     <h3>Set Prices</h3>
                     <p>Update selling prices</div>
                 </a>
                 <a href="stock.html" class="quick-action-card">
-                    <div class="action-icon">📊</div>
                     <h3>View Stock</h3>
                     <p>Check stock levels</div>
                 </a>
@@ -275,15 +301,6 @@
             </div>
         </div>
     </main>
-
-    <script>
-        // Logout functionality
-        document.querySelector('.logout-btn').addEventListener('click', function() {
-            if (confirm('Are you sure you want to logout?')) {
-                window.location.href = 'login.html';
-            }
-        });
-    </script>
 
     <style>
         .welcome-section {
@@ -501,3 +518,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
