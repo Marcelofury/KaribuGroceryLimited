@@ -144,16 +144,24 @@
         <!-- Stock Table -->
         <section class="card shadow-sm mb-4">
             <div class="card-header bg-white">
-                <h2>Current Stock Levels</h2>
-                <div class="filter-controls">
-                    <input class="form-control" type="text" id="searchInput" placeholder="Search produce..." class="search-input">
-                    <select class="form-select" id="filterStatus" class="filter-select">
-                        <option value="">All Status</option>
-                        <option value="adequate">Adequate</option>
-                        <option value="low">Low Stock</option>
-                        <option value="critical">Critical</option>
-                    </select>
-                    <button class="action-btn" id="exportBtn">Export</button>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="mb-0">Current Stock Levels</h2>
+                </div>
+                <div class="row g-2">
+                    <div class="col-md-6">
+                        <input type="text" id="searchInput" placeholder="Search produce..." class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <select id="filterStatus" class="form-select">
+                            <option value="">All Status</option>
+                            <option value="adequate">Adequate</option>
+                            <option value="low">Low Stock</option>
+                            <option value="critical">Critical</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-success w-100" id="exportBtn">Export</button>
+                    </div>
                 </div>
             </div>
             <div class="table-responsive">
@@ -182,9 +190,11 @@
                             <td><span class="badge bg-success">Adequate</span></td>
                             <td>09/01/2026</td>
                             <td>
-                                <button class="action-icon-btn" title="View Details">View</button>
-                                <button class="action-icon-btn" title="Adjust Stock">Edit</button>
-                                <button class="action-icon-btn" title="History">History</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-outline-primary" title="View Details">View</button>
+                                    <button class="btn btn-sm btn-outline-success" title="Adjust Stock">Edit</button>
+                                    <button class="btn btn-sm btn-outline-info" title="History">History</button>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -197,9 +207,11 @@
                             <td><span class="badge bg-warning">Low Stock</span></td>
                             <td>09/01/2026</td>
                             <td>
-                                <button class="action-icon-btn" title="View Details">View</button>
-                                <button class="action-icon-btn" title="Adjust Stock">Edit</button>
-                                <button class="action-icon-btn" title="History">History</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-outline-primary" title="View Details">View</button>
+                                    <button class="btn btn-sm btn-outline-success" title="Adjust Stock">Edit</button>
+                                    <button class="btn btn-sm btn-outline-info" title="History">History</button>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -212,9 +224,11 @@
                             <td><span class="badge bg-success">Adequate</span></td>
                             <td>08/01/2026</td>
                             <td>
-                                <button class="action-icon-btn" title="View Details">View</button>
-                                <button class="action-icon-btn" title="Adjust Stock">Edit</button>
-                                <button class="action-icon-btn" title="History">History</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-outline-primary" title="View Details">View</button>
+                                    <button class="btn btn-sm btn-outline-success" title="Adjust Stock">Edit</button>
+                                    <button class="btn btn-sm btn-outline-info" title="History">History</button>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -227,9 +241,11 @@
                             <td><span class="badge bg-success">Adequate</span></td>
                             <td>08/01/2026</td>
                             <td>
-                                <button class="action-icon-btn" title="View Details">View</button>
-                                <button class="action-icon-btn" title="Adjust Stock">Edit</button>
-                                <button class="action-icon-btn" title="History">History</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-outline-primary" title="View Details">View</button>
+                                    <button class="btn btn-sm btn-outline-success" title="Adjust Stock">Edit</button>
+                                    <button class="btn btn-sm btn-outline-info" title="History">History</button>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -242,9 +258,11 @@
                             <td><span class="badge bg-warning">Low Stock</span></td>
                             <td>09/01/2026</td>
                             <td>
-                                <button class="action-icon-btn" title="View Details">View</button>
-                                <button class="action-icon-btn" title="Adjust Stock">Edit</button>
-                                <button class="action-icon-btn" title="History">History</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-outline-primary" title="View Details">View</button>
+                                    <button class="btn btn-sm btn-outline-success" title="Adjust Stock">Edit</button>
+                                    <button class="btn btn-sm btn-outline-info" title="History">History</button>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -257,9 +275,11 @@
                             <td><span class="badge bg-success">Adequate</span></td>
                             <td>08/01/2026</td>
                             <td>
-                                <button class="action-icon-btn" title="View Details">👁️</button>
-                                <button class="action-icon-btn" title="Adjust Stock">✏️</button>
-                                <button class="action-icon-btn" title="History">📜</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-outline-primary" title="View Details">View</button>
+                                    <button class="btn btn-sm btn-outline-success" title="Adjust Stock">Edit</button>
+                                    <button class="btn btn-sm btn-outline-info" title="History">History</button>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -272,9 +292,11 @@
                             <td><span class="badge bg-success">Adequate</span></td>
                             <td>07/01/2026</td>
                             <td>
-                                <button class="action-icon-btn" title="View Details">👁️</button>
-                                <button class="action-icon-btn" title="Adjust Stock">✏️</button>
-                                <button class="action-icon-btn" title="History">📜</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-outline-primary" title="View Details">View</button>
+                                    <button class="btn btn-sm btn-outline-success" title="Adjust Stock">Edit</button>
+                                    <button class="btn btn-sm btn-outline-info" title="History">History</button>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -287,36 +309,36 @@
                             <td><span class="badge bg-success">Adequate</span></td>
                             <td>07/01/2026</td>
                             <td>
-                                <button class="action-icon-btn" title="View Details">👁️</button>
-                                <button class="action-icon-btn" title="Adjust Stock">✏️</button>
-                                <button class="action-icon-btn" title="History">📜</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-outline-primary" title="View Details">View</button>
+                                    <button class="btn btn-sm btn-outline-success" title="Adjust Stock">Edit</button>
+                                    <button class="btn btn-sm btn-outline-info" title="History">History</button>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
+        </section>
 
         <!-- Low Stock Alerts -->
         <section class="card shadow-sm mb-4">
             <div class="card-header bg-white">
-                <h2> Low Stock Alerts</h2>
+                <h2 class="mb-0">⚠️ Low Stock Alerts</h2>
             </div>
-            <div class="alerts-section">
-                <div class="alert-box warning">
-                    <span class="alert-icon">⚠️</span>
-                    <div class="alert-content">
+            <div class="card-body">
+                <div class="alert alert-warning d-flex align-items-start mb-3" role="alert">
+                    <div>
                         <strong>Beans (Red Beans):</strong> Current stock 450 kg is below minimum threshold of 500 kg. Restock needed urgently.
                     </div>
                 </div>
-                <div class="alert-box warning">
-                    <span class="alert-icon">⚠️</span>
-                    <div class="alert-content">
+                <div class="alert alert-warning d-flex align-items-start mb-0" role="alert">
+                    <div>
                         <strong>Groundnuts (Roasted):</strong> Current stock 280 kg is below minimum threshold of 300 kg. Restock needed urgently.
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Stock Adjustment Modal (Hidden by default) -->
         <div id="adjustModal" class="modal">

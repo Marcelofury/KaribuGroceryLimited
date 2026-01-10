@@ -83,9 +83,13 @@
             <div class="container-fluid">
 
         <!-- Procurement Form -->
-        <section class="form-section">
-            <form id="procurementForm" class="procurement-form">
-                <div class="form-row">
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
+                <h2 class="mb-0">Procure Stock</h2>
+            </div>
+            <div class="card-body">
+            <form id="procurementForm">
+                <div class="row g-3">
                     <div class="mb-3">
                         <label for="produceType">Produce Type *</label>
                         <select class="form-select" id="produceType" name="produceType" required>
@@ -98,8 +102,8 @@
                         </select>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="quantity">Quantity (Tonnes) *</label>
+                    <div class="col-md-6">
+                        <label for="quantity" class="form-label">Quantity (Tonnes) *</label>
                         <input class="form-control" 
                             type="number" 
                             id="quantity" 
@@ -112,9 +116,9 @@
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="mb-3">
-                        <label for="unitPrice">Unit Price (UGX per kg) *</label>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="unitPrice" class="form-label">Unit Price (UGX per kg) *</label>
                         <input class="form-control" 
                             type="number" 
                             id="unitPrice" 
@@ -126,8 +130,8 @@
                         >
                     </div>
 
-                    <div class="mb-3">
-                        <label for="totalCost">Total Cost (UGX)</label>
+                    <div class="col-md-6">
+                        <label for="totalCost" class="form-label">Total Cost (UGX)</label>
                         <input class="form-control" 
                             type="text" 
                             id="totalCost" 
@@ -138,9 +142,9 @@
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="mb-3">
-                        <label for="supplier">Supplier Name *</label>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="supplier" class="form-label">Supplier Name *</label>
                         <input class="form-control" 
                             type="text" 
                             id="supplier" 
@@ -150,8 +154,8 @@
                         >
                     </div>
 
-                    <div class="mb-3">
-                        <label for="supplierContact">Supplier Contact</label>
+                    <div class="col-md-6">
+                        <label for="supplierContact" class="form-label">Supplier Contact</label>
                         <input class="form-control" 
                             type="tel" 
                             id="supplierContact" 
@@ -161,9 +165,9 @@
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="mb-3">
-                        <label for="procurementDate">Procurement Date *</label>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="procurementDate" class="form-label">Procurement Date *</label>
                         <input class="form-control" 
                             type="date" 
                             id="procurementDate" 
@@ -172,8 +176,8 @@
                         >
                     </div>
 
-                    <div class="mb-3">
-                        <label for="paymentMethod">Payment Method *</label>
+                    <div class="col-md-6">
+                        <label for="paymentMethod" class="form-label">Payment Method *</label>
                         <select class="form-select" id="paymentMethod" name="paymentMethod" required>
                             <option value="">Select payment method</option>
                             <option value="cash">Cash</option>
@@ -184,36 +188,45 @@
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group full-width">
-                        <label for="notes">Additional Notes</label>
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label for="notes" class="form-label">Additional Notes</label>
                         <textarea 
+                            class="form-control"
                             id="notes" 
                             name="notes" 
                             rows="3"
                             placeholder="Enter any additional notes or remarks"
                         ></textarea>
+                    </div>
                 </div>
 
-                <div class="form-actions">
-                    <button type="button" class="btn-secondary" id="resetBtn">Reset Form</button>
-                    <button type="submit" class="btn btn-primary" class="btn-primary">Submit Procurement</button>
+                <div class="d-flex gap-2 mt-3">
+                    <button type="button" class="btn btn-secondary" id="resetBtn">Reset Form</button>
+                    <button type="submit" class="btn btn-primary">Submit Procurement</button>
                 </div>
             </form>
-        </div>
+            </div>
+        </section>
 
         <!-- Recent Procurements -->
         <section class="card shadow-sm mb-4">
             <div class="card-header bg-white">
-                <h2>Recent Procurements</h2>
-                <div class="filter-controls">
-                    <input class="form-control" type="text" id="searchInput" placeholder="Search..." class="search-input">
-                    <select class="form-select" id="filterProduce" class="filter-select">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="mb-0">Recent Procurements</h2>
+                </div>
+                <div class="row g-2">
+                    <div class="col-md-8">
+                        <input type="text" id="searchInput" placeholder="Search..." class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <select id="filterProduce" class="form-select">
                         <option value="">All Produce</option>
                         <option value="maize">Maize</option>
                         <option value="beans">Beans</option>
                         <option value="rice">Rice</option>
                     </select>
+                    </div>
                 </div>
             </div>
             <div class="table-responsive">
@@ -242,9 +255,11 @@
                             <td>Bank Transfer</td>
                             <td><span class="badge bg-success">Completed</span></td>
                             <td>
-                                <button class="action-icon-btn" title="View Details">👁️</button>
-                                <button class="action-icon-btn" title="Edit">✏️</button>
-                                <button class="action-icon-btn" title="Print">🖨️</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-outline-primary" title="View Details">👁️</button>
+                                    <button class="btn btn-sm btn-outline-success" title="Edit">✏️</button>
+                                    <button class="btn btn-sm btn-outline-secondary" title="Print">🖨️</button>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -257,9 +272,11 @@
                             <td>Cash</td>
                             <td><span class="badge bg-success">Completed</span></td>
                             <td>
-                                <button class="action-icon-btn" title="View Details">👁️</button>
-                                <button class="action-icon-btn" title="Edit">✏️</button>
-                                <button class="action-icon-btn" title="Print">🖨️</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-outline-primary" title="View Details">👁️</button>
+                                    <button class="btn btn-sm btn-outline-success" title="Edit">✏️</button>
+                                    <button class="btn btn-sm btn-outline-secondary" title="Print">🖨️</button>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -272,9 +289,11 @@
                             <td>Mobile Money</td>
                             <td><span class="badge bg-warning">Pending</span></td>
                             <td>
-                                <button class="action-icon-btn" title="View Details">👁️</button>
-                                <button class="action-icon-btn" title="Edit">✏️</button>
-                                <button class="action-icon-btn" title="Print">🖨️</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-outline-primary" title="View Details">👁️</button>
+                                    <button class="btn btn-sm btn-outline-success" title="Edit">✏️</button>
+                                    <button class="btn btn-sm btn-outline-secondary" title="Print">🖨️</button>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -287,9 +306,11 @@
                             <td>Credit</td>
                             <td><span class="badge bg-warning">Credit</span></td>
                             <td>
-                                <button class="action-icon-btn" title="View Details">👁️</button>
-                                <button class="action-icon-btn" title="Edit">✏️</button>
-                                <button class="action-icon-btn" title="Print">🖨️</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-outline-primary" title="View Details">👁️</button>
+                                    <button class="btn btn-sm btn-outline-success" title="Edit">✏️</button>
+                                    <button class="btn btn-sm btn-outline-secondary" title="Print">🖨️</button>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -302,9 +323,11 @@
                             <td>Bank Transfer</td>
                             <td><span class="badge bg-success">Completed</span></td>
                             <td>
-                                <button class="action-icon-btn" title="View Details">👁️</button>
-                                <button class="action-icon-btn" title="Edit">✏️</button>
-                                <button class="action-icon-btn" title="Print">🖨️</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-outline-primary" title="View Details">👁️</button>
+                                    <button class="btn btn-sm btn-outline-success" title="Edit">✏️</button>
+                                    <button class="btn btn-sm btn-outline-secondary" title="Print">🖨️</button>
+                                </div>
                             </td>
                         </tr>
                     </tbody>

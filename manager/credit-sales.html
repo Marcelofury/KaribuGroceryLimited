@@ -142,14 +142,15 @@
         </div>
 
         <!-- Record Payment Form -->
-        <section class="form-section">
-            <div class="card-header bg-white" style="margin-bottom: 20px;">
-                <h2>Record Payment</h2>
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
+                <h2 class="mb-0">Record Payment</h2>
             </div>
-            <form id="paymentForm" class="procurement-form">
-                <div class="form-row">
-                    <div class="mb-3">
-                        <label for="customerSelect">Select Customer *</label>
+            <div class="card-body">
+            <form id="paymentForm">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="customerSelect" class="form-label">Select Customer *</label>
                         <select class="form-select" id="customerSelect" name="customerSelect" required>
                             <option value="">Select customer</option>
                             <option value="nakato">Nakato Foods Ltd - UGX 1,200,000</option>
@@ -160,8 +161,8 @@
                         </select>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="outstandingBalance">Outstanding Balance</label>
+                    <div class="col-md-6">
+                        <label for="outstandingBalance" class="form-label">Outstanding Balance</label>
                         <input class="form-control" 
                             type="text" 
                             id="outstandingBalance" 
@@ -172,9 +173,9 @@
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="mb-3">
-                        <label for="paymentAmount">Payment Amount (UGX) *</label>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="paymentAmount" class="form-label">Payment Amount (UGX) *</label>
                         <input class="form-control" 
                             type="number" 
                             id="paymentAmount" 
@@ -186,8 +187,8 @@
                         >
                     </div>
 
-                    <div class="mb-3">
-                        <label for="remainingBalance">Remaining Balance</label>
+                    <div class="col-md-6">
+                        <label for="remainingBalance" class="form-label">Remaining Balance</label>
                         <input class="form-control" 
                             type="text" 
                             id="remainingBalance" 
@@ -198,9 +199,9 @@
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="mb-3">
-                        <label for="paymentMethod">Payment Method *</label>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="paymentMethod" class="form-label">Payment Method *</label>
                         <select class="form-select" id="paymentMethod" name="paymentMethod" required>
                             <option value="">Select payment method</option>
                             <option value="cash">Cash</option>
@@ -210,8 +211,8 @@
                         </select>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="paymentDate">Payment Date *</label>
+                    <div class="col-md-6">
+                        <label for="paymentDate" class="form-label">Payment Date *</label>
                         <input class="form-control" 
                             type="date" 
                             id="paymentDate" 
@@ -221,9 +222,9 @@
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="mb-3">
-                        <label for="referenceNumber">Reference Number</label>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="referenceNumber" class="form-label">Reference Number</label>
                         <input class="form-control" 
                             type="text" 
                             id="referenceNumber" 
@@ -232,8 +233,8 @@
                         >
                     </div>
 
-                    <div class="mb-3">
-                        <label for="receivedBy">Received By *</label>
+                    <div class="col-md-6">
+                        <label for="receivedBy" class="form-label">Received By *</label>
                         <input class="form-control" 
                             type="text" 
                             id="receivedBy" 
@@ -244,37 +245,48 @@
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group full-width">
-                        <label for="paymentNotes">Payment Notes</label>
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label for="paymentNotes" class="form-label">Payment Notes</label>
                         <textarea 
+                            class="form-control"
                             id="paymentNotes" 
                             name="paymentNotes" 
                             rows="2"
                             placeholder="Any additional notes about this payment"
-                        ></div>
+                        ></textarea>
+                    </div>
                 </div>
 
-                <div class="form-actions">
-                    <button type="button" class="btn-secondary" id="resetBtn">Reset Form</button>
-                    <button type="submit" class="btn btn-primary" class="btn-primary">Record Payment</button>
+                <div class="d-flex gap-2 mt-3">
+                    <button type="button" class="btn btn-secondary" id="resetBtn">Reset Form</button>
+                    <button type="submit" class="btn btn-primary">Record Payment</button>
                 </div>
             </form>
-        </div>
+            </div>
+        </section>
 
         <!-- Outstanding Credit Sales -->
         <section class="card shadow-sm mb-4">
             <div class="card-header bg-white">
-                <h2>Outstanding Credit Sales</h2>
-                <div class="filter-controls">
-                    <input class="form-control" type="text" id="searchInput" placeholder="Search customer..." class="search-input">
-                    <select class="form-select" id="filterStatus" class="filter-select">
-                        <option value="">All Status</option>
-                        <option value="current">Current</option>
-                        <option value="overdue">Overdue</option>
-                        <option value="critical">Critical</option>
-                    </select>
-                    <button class="action-btn" id="exportBtn"> Export</button>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="mb-0">Outstanding Credit Sales</h2>
+                </div>
+                <div class="row g-2">
+                    <div class="col-md-6">
+                        <input type="text" id="searchInput" placeholder="Search customer..." class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <select id="filterStatus" class="form-select">
+                            <option value="">All Status</option>
+                            <option value="current">Current</option>
+                            <option value="overdue">Overdue</option>
+                            <option value="critical">Critical</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-success w-100" id="exportBtn">Export</button>
+                    </div>
                 </div>
             </div>
             <div class="table-responsive">
@@ -295,7 +307,7 @@
                     </thead>
                     <tbody id="creditSalesTable">
                         <tr>
-                            <td></strong></td>
+                            <td><strong>#INV-001</strong></td>
                             <td>Nakato Foods Ltd</td>
                             <td>0772 123 456</td>
                             <td>05/01/2026</td>
@@ -303,14 +315,16 @@
                             <td>UGX 1,500,000</td>
                             <td>UGX 300,000</td>
                             <td><strong>UGX 1,200,000</strong></td>
-                            <td><span class="badge bg-warning">Current</small></td>
+                            <td><span class="badge bg-warning">Current</span></td>
                             <td>
-                                <button class="btn-primary" title="Record Payment">Payment</button>
-                                <button class="btn-secondary" title="View Details">View</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-primary" title="Record Payment">Payment</button>
+                                    <button class="btn btn-sm btn-secondary" title="View Details">View</button>
+                                </div>
                             </td>
                         </tr>
                         <tr>
-                            <td></strong></td>
+                            <td><strong>#INV-002</strong></td>
                             <td>Kampala Groceries</td>
                             <td>0701 987 654</td>
                             <td>02/01/2026</td>
@@ -318,14 +332,16 @@
                             <td>UGX 800,000</td>
                             <td>UGX 0</td>
                             <td><strong>UGX 800,000</strong></td>
-                            <td><span class="badge bg-danger">Overdue</small></td>
+                            <td><span class="badge bg-danger">Overdue</span></td>
                             <td>
-                                <button class="btn-primary" title="Record Payment">Payment</button>
-                                <button class="btn-secondary" title="View Details">View</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-primary" title="Record Payment">Payment</button>
+                                    <button class="btn btn-sm btn-secondary" title="View Details">View</button>
+                                </div>
                             </td>
                         </tr>
                         <tr>
-                            <td></strong></td>
+                            <td><strong>#INV-003</strong></td>
                             <td>Buganda Grain Co.</td>
                             <td>0755 246 810</td>
                             <td>07/01/2026</td>
@@ -333,14 +349,16 @@
                             <td>UGX 1,500,000</td>
                             <td>UGX 0</td>
                             <td><strong>UGX 1,500,000</strong></td>
-                            <td><span class="badge bg-warning">Current</small></td>
+                            <td><span class="badge bg-warning">Current</span></td>
                             <td>
-                                <button class="btn-primary" title="Record Payment">Payment</button>
-                                <button class="btn-secondary" title="View Details">View</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-primary" title="Record Payment">Payment</button>
+                                    <button class="btn btn-sm btn-secondary" title="View Details">View</button>
+                                </div>
                             </td>
                         </tr>
                         <tr>
-                            <td></strong></td>
+                            <td><strong>#INV-004</strong></td>
                             <td>Quality Foods Co.</td>
                             <td>0782 555 123</td>
                             <td>06/01/2026</td>
@@ -348,14 +366,16 @@
                             <td>UGX 650,000</td>
                             <td>UGX 200,000</td>
                             <td><strong>UGX 450,000</strong></td>
-                            <td><span class="badge bg-warning">Current</small></td>
+                            <td><span class="badge bg-warning">Current</span></td>
                             <td>
-                                <button class="action-icon-btn record-payment" title="Record Payment"></button>
-                                <button class="btn-primary" title="Record Payment">Payment</button>
-                                <button class="btn-secondary" title="View Details">View
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-primary" title="Record Payment">Payment</button>
+                                    <button class="btn btn-sm btn-secondary" title="View Details">View</button>
+                                </div>
+                            </td>
                         </tr>
                         <tr>
-                            <td></strong></td>
+                            <td><strong>#INV-005</strong></td>
                             <td>Ssemakula Traders</td>
                             <td>0712 888 999</td>
                             <td>08/01/2026</td>
@@ -363,21 +383,23 @@
                             <td>UGX 550,000</td>
                             <td>UGX 0</td>
                             <td><strong>UGX 550,000</strong></td>
-                            <td><span class="badge bg-warning">Current</small></td>
+                            <td><span class="badge bg-warning">Current</span></td>
                             <td>
-                                <button class="action-icon-btn record-payment" title="Record Payment"></button>
-                                <button class="btn-primary" title="Record Payment">Payment</button>
-                                <button class="btn-secondary" title="View Details">View
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-primary" title="Record Payment">Payment</button>
+                                    <button class="btn btn-sm btn-secondary" title="View Details">View</button>
+                                </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
+        </section>
 
         <!-- Recent Payments -->
         <section class="card shadow-sm mb-4">
             <div class="card-header bg-white">
-                <h2>Recent Payments</h2>
+                <h2 class="mb-0">Recent Payments</h2>
             </div>
             <div class="table-responsive">
                 <table class="table table-hover table-striped align-middle">
@@ -423,22 +445,22 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        </section>
 
         <!-- Overdue Alerts -->
         <section class="card shadow-sm mb-4">
             <div class="card-header bg-white">
-                <h2> Overdue Payments</h2>
+                <h2 class="mb-0">⚠️ Overdue Payments</h2>
             </div>
-            <div class="alerts-section">
-                <div class="alert-box warning">
-                    <span class="alert-icon"></small>
-                    <div class="alert-content">
+            <div class="card-body">
+                <div class="alert alert-warning d-flex align-items-center" role="alert">
+                    <div>
                         <strong>Kampala Groceries</strong> - UGX 800,000 overdue by 2 days (Due: 07/01/2026)
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
             </div>
         </main>
     </div>
@@ -447,4 +469,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-

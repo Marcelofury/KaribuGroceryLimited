@@ -142,14 +142,15 @@
         </div>
 
         <!-- Update Price Form -->
-        <section class="form-section">
+        <section class="card shadow-sm mb-4">
             <div class="card-header bg-white">
-                <h2>Update Produce Price</h2>
+                <h2 class="mb-0">Update Produce Price</h2>
             </div>
-            <form id="priceForm" class="procurement-form">
-                <div class="form-row">
-                    <div class="mb-3">
-                        <label for="produceSelect">Select Produce *</label>
+            <div class="card-body">
+            <form id="priceForm">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="produceSelect" class="form-label">Select Produce *</label>
                         <select class="form-select" id="produceSelect" name="produceSelect" required>
                             <option value="">Select produce to update</option>
                             <option value="maize">Maize - Yellow Maize</option>
@@ -163,8 +164,8 @@
                         </select>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="currentPrice">Current Price (UGX/kg)</label>
+                    <div class="col-md-6">
+                        <label for="currentPrice" class="form-label">Current Price (UGX/kg)</label>
                         <input class="form-control" 
                             type="text" 
                             id="currentPrice" 
@@ -175,9 +176,9 @@
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="mb-3">
-                        <label for="newPrice">New Price (UGX/kg) *</label>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="newPrice" class="form-label">New Price (UGX/kg) *</label>
                         <input class="form-control" 
                             type="number" 
                             id="newPrice" 
@@ -189,8 +190,8 @@
                         >
                     </div>
 
-                    <div class="mb-3">
-                        <label for="priceChange">Price Change</label>
+                    <div class="col-md-6">
+                        <label for="priceChange" class="form-label">Price Change</label>
                         <input class="form-control" 
                             type="text" 
                             id="priceChange" 
@@ -201,9 +202,9 @@
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="mb-3">
-                        <label for="effectiveDate">Effective Date *</label>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="effectiveDate" class="form-label">Effective Date *</label>
                         <input class="form-control" 
                             type="date" 
                             id="effectiveDate" 
@@ -212,8 +213,8 @@
                         >
                     </div>
 
-                    <div class="mb-3">
-                        <label for="priceType">Price Type *</label>
+                    <div class="col-md-6">
+                        <label for="priceType" class="form-label">Price Type *</label>
                         <select class="form-select" id="priceType" name="priceType" required>
                             <option value="selling">Selling Price</option>
                             <option value="buying">Buying Price</option>
@@ -222,42 +223,53 @@
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group full-width">
-                        <label for="changeReason">Reason for Change *</label>
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label for="changeReason" class="form-label">Reason for Change *</label>
                         <textarea 
+                            class="form-control"
                             id="changeReason" 
                             name="changeReason" 
                             rows="3"
                             placeholder="Explain the reason for price change (e.g., market conditions, supplier costs)"
                             required
-                        ></div>
+                        ></textarea>
+                    </div>
                 </div>
 
-                <div class="form-actions">
-                    <button type="button" class="btn-secondary" id="resetBtn">Reset Form</button>
-                    <button type="submit" class="btn btn-primary" class="btn-primary">Update Price</button>
+                <div class="d-flex gap-2 mt-3">
+                    <button type="button" class="btn btn-secondary" id="resetBtn">Reset Form</button>
+                    <button type="submit" class="btn btn-primary">Update Price</button>
                 </div>
             </form>
-        </div>
+            </div>
+        </section>
 
         <!-- Current Prices Table -->
         <section class="card shadow-sm mb-4">
             <div class="card-header bg-white">
-                <h2>Current Prices</h2>
-                <div class="filter-controls">
-                    <input class="form-control" type="text" id="searchInput" placeholder="Search produce..." class="search-input">
-                    <select class="form-select" id="sortBy" class="filter-select">
-                        <option value="name">Sort by Name</option>
-                        <option value="price_asc">Price: Low to High</option>
-                        <option value="price_desc">Price: High to Low</option>
-                        <option value="change">Recent Changes</option>
-                    </select>
-                    <button class="action-btn" id="exportBtn"> Export</button>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="mb-0">Current Prices</h2>
+                </div>
+                <div class="row g-2">
+                    <div class="col-md-6">
+                        <input type="text" id="searchInput" placeholder="Search produce..." class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <select id="sortBy" class="form-select">
+                            <option value="name">Sort by Name</option>
+                            <option value="price_asc">Price: Low to High</option>
+                            <option value="price_desc">Price: High to Low</option>
+                            <option value="change">Recent Changes</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-success w-100" id="exportBtn">Export</button>
+                    </div>
                 </div>
             </div>
             <div class="table-responsive">
-                <table class="data-table" id="pricesTable">
+                <table class="table table-hover table-striped align-middle" id="pricesTable">
                     <thead class="table-light">
                         <tr>
                             <th>Produce Type</th>
@@ -272,118 +284,134 @@
                     </thead>
                     <tbody>
                         <tr data-produce="maize" data-price="1800">
-                            <td></strong></td>
+                            <td><strong>Maize</strong></td>
                             <td>Yellow Maize</td>
                             <td>UGX 1,600</td>
                             <td>UGX 1,800</td>
-                            <td class="margin-positive">+12.5%</td>
+                            <td class="text-success">+12.5%</td>
                             <td>09/01/2026</td>
-                            <td><span class="price-change up"> UGX 50</small></td>
+                            <td><span class="badge bg-success">↑ UGX 50</span></td>
                             <td>
-                                <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
-                                <button class="action-icon-btn" title="Price History">📜</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-outline-success" title="Edit Price">Edit</button>
+                                    <button class="btn btn-sm btn-outline-info" title="Price History">History</button>
+                                </div>
                             </td>
                         </tr>
                         <tr data-produce="beans" data-price="2400">
-                            <td></strong></td>
+                            <td><strong>Beans</strong></td>
                             <td>Red Beans</td>
                             <td>UGX 2,250</td>
                             <td>UGX 2,400</td>
-                            <td class="margin-positive">+6.7%</td>
+                            <td class="text-success">+6.7%</td>
                             <td>08/01/2026</td>
-                            <td><span class="price-change neutral">—</small></td>
+                            <td><span class="badge bg-secondary">—</span></td>
                             <td>
-                                <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
-                                <button class="action-icon-btn" title="Price History">📜</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-outline-success" title="Edit Price">Edit</button>
+                                    <button class="btn btn-sm btn-outline-info" title="Price History">History</button>
+                                </div>
                             </td>
                         </tr>
                         <tr data-produce="rice" data-price="4000">
-                            <td></strong></td>
+                            <td><strong>Rice</strong></td>
                             <td>Sindano</td>
                             <td>UGX 3,800</td>
                             <td>UGX 4,000</td>
-                            <td class="margin-positive">+5.3%</td>
+                            <td class="text-success">+5.3%</td>
                             <td>07/01/2026</td>
-                            <td><span class="price-change up"> UGX 100</small></td>
+                            <td><span class="badge bg-success">↑ UGX 100</span></td>
                             <td>
-                                <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
-                                <button class="action-icon-btn" title="Price History">📜</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-outline-success" title="Edit Price">Edit</button>
+                                    <button class="btn btn-sm btn-outline-info" title="Price History">History</button>
+                                </div>
                             </td>
                         </tr>
                         <tr data-produce="wheat" data-price="2500">
-                            <td></strong></td>
+                            <td><strong>Wheat</strong></td>
                             <td>Hard Red</td>
                             <td>UGX 2,200</td>
                             <td>UGX 2,500</td>
-                            <td class="margin-positive">+13.6%</td>
+                            <td class="text-success">+13.6%</td>
                             <td>06/01/2026</td>
-                            <td><span class="price-change down"> UGX 50</small></td>
+                            <td><span class="badge bg-danger">↓ UGX 50</span></td>
                             <td>
-                                <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
-                                <button class="action-icon-btn" title="Price History">📜</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-outline-success" title="Edit Price">Edit</button>
+                                    <button class="btn btn-sm btn-outline-info" title="Price History">History</button>
+                                </div>
                             </td>
                         </tr>
                         <tr data-produce="groundnuts" data-price="5000">
-                            <td></strong></td>
+                            <td><strong>Groundnuts</strong></td>
                             <td>Roasted</td>
                             <td>UGX 4,500</td>
                             <td>UGX 5,000</td>
-                            <td class="margin-positive">+11.1%</td>
+                            <td class="text-success">+11.1%</td>
                             <td>09/01/2026</td>
-                            <td><span class="price-change up"> UGX 200</small></td>
+                            <td><span class="badge bg-success">↑ UGX 200</span></td>
                             <td>
-                                <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
-                                <button class="action-icon-btn" title="Price History">📜</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-outline-success" title="Edit Price">Edit</button>
+                                    <button class="btn btn-sm btn-outline-info" title="Price History">History</button>
+                                </div>
                             </td>
                         </tr>
                         <tr data-produce="soybeans" data-price="3200">
-                            <td></strong></td>
+                            <td><strong>Soybeans</strong></td>
                             <td>Organic</td>
                             <td>UGX 2,800</td>
                             <td>UGX 3,200</td>
-                            <td class="margin-positive">+14.3%</td>
+                            <td class="text-success">+14.3%</td>
                             <td>08/01/2026</td>
-                            <td><span class="price-change neutral">—</small></td>
+                            <td><span class="badge bg-secondary">—</span></td>
                             <td>
-                                <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
-                                <button class="action-icon-btn" title="Price History">📜</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-outline-success" title="Edit Price">Edit</button>
+                                    <button class="btn btn-sm btn-outline-info" title="Price History">History</button>
+                                </div>
                             </td>
                         </tr>
                         <tr data-produce="sorghum" data-price="2000">
-                            <td></strong></td>
+                            <td><strong>Sorghum</strong></td>
                             <td>White</td>
                             <td>UGX 1,800</td>
                             <td>UGX 2,000</td>
-                            <td class="margin-positive">+11.1%</td>
+                            <td class="text-success">+11.1%</td>
                             <td>05/01/2026</td>
-                            <td><span class="price-change neutral">—</small></td>
+                            <td><span class="badge bg-secondary">—</span></td>
                             <td>
-                                <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
-                                <button class="action-icon-btn" title="Price History">📜</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-outline-success" title="Edit Price">Edit</button>
+                                    <button class="btn btn-sm btn-outline-info" title="Price History">History</button>
+                                </div>
                             </td>
                         </tr>
                         <tr data-produce="millet" data-price="2200">
-                            <td></strong></td>
+                            <td><strong>Millet</strong></td>
                             <td>Pearl</td>
                             <td>UGX 2,000</td>
                             <td>UGX 2,200</td>
-                            <td class="margin-positive">+10.0%</td>
+                            <td class="text-success">+10.0%</td>
                             <td>05/01/2026</td>
-                            <td><span class="price-change up"> UGX 100</small></td>
+                            <td><span class="badge bg-success">↑ UGX 100</span></td>
                             <td>
-                                <button class="action-icon-btn edit-price" title="Edit Price">✏️</button>
-                                <button class="action-icon-btn" title="Price History">📜</button>
+                                <div class="d-flex gap-1">
+                                    <button class="btn btn-sm btn-outline-success" title="Edit Price">Edit</button>
+                                    <button class="btn btn-sm btn-outline-info" title="Price History">History</button>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
+        </section>
 
         <!-- Recent Price Changes -->
         <section class="card shadow-sm mb-4">
             <div class="card-header bg-white">
-                <h2>Recent Price Changes</h2>
+                <h2 class="mb-0">Recent Price Changes</h2>
             </div>
             <div class="table-responsive">
                 <table class="table table-hover table-striped align-middle">

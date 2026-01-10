@@ -150,31 +150,50 @@
             <div class="card-header bg-white">
                 <h2>Quick Actions</h2>
             </div>
-            <div class="quick-actions-grid">
-                <a href="procure.html" class="quick-action-card">
-                    <h3>Procure Stock</h3>
-                    <p>Record new produce procurement</p>
-                </a>
-                <a href="sales.html" class="quick-action-card">
-                    <h3>Make Sale</h3>
-                    <p>Record a customer sale</p>
-                </a>
-                <a href="prices.html" class="quick-action-card">
-                    <h3>Set Prices</h3>
-                    <p>Update selling prices</p>
-                </a>
-                <a href="stock.html" class="quick-action-card">
-                    <h3>View Stock</h3>
-                    <p>Check stock levels</p>
-                </a>
+            <div class="card-body">
+                <div class="row g-3">
+                <div class="row g-3">
+                    <div class="col-md-6 col-lg-3">
+                        <a href="procure.html" class="text-decoration-none">
+                            <div class="card h-100 text-center p-3 border-success">
+                                <h3 class="h5 text-success">Procure Stock</h3>
+                                <p class="text-muted mb-0 small">Record new produce procurement</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <a href="sales.html" class="text-decoration-none">
+                            <div class="card h-100 text-center p-3 border-success">
+                                <h3 class="h5 text-success">Make Sale</h3>
+                                <p class="text-muted mb-0 small">Record a customer sale</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <a href="prices.html" class="text-decoration-none">
+                            <div class="card h-100 text-center p-3 border-success">
+                                <h3 class="h5 text-success">Set Prices</h3>
+                                <p class="text-muted mb-0 small">Update selling prices</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <a href="stock.html" class="text-decoration-none">
+                            <div class="card h-100 text-center p-3 border-success">
+                                <h3 class="h5 text-success">View Stock</h3>
+                                <p class="text-muted mb-0 small">Check stock levels</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
 
         <!-- Recent Procurements -->
         <section class="card shadow-sm mb-4">
-            <div class="card-header bg-white">
-                <h2>Recent Procurements</h2>
-                <a href="procure.html" class="action-btn">+ Add New</a>
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <h2 class="mb-0">Recent Procurements</h2>
+                <a href="procure.html" class="btn btn-success btn-sm">+ Add New</a>
             </div>
             <div class="table-responsive">
                 <table class="table table-hover table-striped align-middle">
@@ -224,9 +243,9 @@
 
         <!-- Today's Sales Summary -->
         <section class="card shadow-sm mb-4">
-            <div class="card-header bg-white">
-                <h2>Today's Sales</h2>
-                <a href="sales.html" class="action-btn">View All</a>
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <h2 class="mb-0">Today's Sales</h2>
+                <a href="sales.html" class="btn btn-success btn-sm">View All</a>
             </div>
             <div class="table-responsive">
                 <table class="table table-hover table-striped align-middle">
@@ -281,49 +300,77 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        
 
         <!-- Current Stock Levels -->
         <section class="card shadow-sm mb-4">
-            <div class="card-header bg-white">
-                <h2>Current Stock Levels</h2>
-                <a href="stock.html" class="action-btn">View Details</a>
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <h2 class="mb-0">Current Stock Levels</h2>
+                <a href="stock.html" class="btn btn-success btn-sm">View Details</a>
             </div>
-            <div class="stock-grid">
-                <div class="stock-item">
-                    <h4>Grain Maize</h4>
-                    <p class="stock-amount">5,000 kg</p>
-                    <span class="stock-status good">Sufficient</span>
-                </div>
-                <div class="stock-item">
-                    <h4>Beans (Red)</h4>
-                    <p class="stock-amount">3,450 kg</p>
-                    <span class="stock-status good">Sufficient</span>
-                </div>
-                <div class="stock-item">
-                    <h4>Beans (White)</h4>
-                    <p class="stock-amount">2,800 kg</p>
-                    <span class="stock-status good">Sufficient</span>
-                </div>
-                <div class="stock-item">
-                    <h4>Cow Peas</h4>
-                    <p class="stock-amount">1,800 kg</p>
-                    <span class="stock-status good">Sufficient</span>
-                </div>
-                <div class="stock-item">
-                    <h4>G-nuts</h4>
-                    <p class="stock-amount">2,280 kg</p>
-                    <span class="stock-status good">Sufficient</span>
-                </div>
-                <div class="stock-item">
-                    <h4>Soybeans</h4>
-                    <p class="stock-amount">1,950 kg</p>
-                    <span class="stock-status good">Sufficient</span>
+            <div class="card-body">
+                <div class="row g-3">
+                <div class="row g-3">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-success h-100">
+                            <div class="card-body text-center">
+                                <h4 class="h5">Grain Maize</h4>
+                                <p class="fs-4 fw-bold text-success mb-2">5,000 kg</p>
+                                <span class="badge bg-success">Sufficient</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-success h-100">
+                            <div class="card-body text-center">
+                                <h4 class="h5">Beans (Red)</h4>
+                                <p class="fs-4 fw-bold text-success mb-2">3,450 kg</p>
+                                <span class="badge bg-success">Sufficient</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-success h-100">
+                            <div class="card-body text-center">
+                                <h4 class="h5">Beans (White)</h4>
+                                <p class="fs-4 fw-bold text-success mb-2">2,800 kg</p>
+                                <span class="badge bg-success">Sufficient</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-success h-100">
+                            <div class="card-body text-center">
+                                <h4 class="h5">Cow Peas</h4>
+                                <p class="fs-4 fw-bold text-success mb-2">1,800 kg</p>
+                                <span class="badge bg-success">Sufficient</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-success h-100">
+                            <div class="card-body text-center">
+                                <h4 class="h5">G-nuts</h4>
+                                <p class="fs-4 fw-bold text-success mb-2">2,280 kg</p>
+                                <span class="badge bg-success">Sufficient</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-success h-100">
+                            <div class="card-body text-center">
+                                <h4 class="h5">Soybeans</h4>
+                                <p class="fs-4 fw-bold text-success mb-2">1,950 kg</p>
+                                <span class="badge bg-success">Sufficient</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
             </div>
         </main>
+    </div>
     </div>
 
     <!-- Bootstrap 5 JS Bundle -->

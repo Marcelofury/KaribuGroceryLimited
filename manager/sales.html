@@ -147,14 +147,15 @@
         </div>
 
         <!-- New Sale Form -->
-        <section class="form-section">
-            <div class="card-header bg-white" style="margin-bottom: 20px;">
-                <h2>Record New Sale</h2>
+        <section class="card shadow-sm mb-4">
+            <div class="card-header bg-white">
+                <h2 class="mb-0">Record New Sale</h2>
             </div>
-            <form id="salesForm" class="procurement-form">
-                <div class="form-row">
-                    <div class="mb-3">
-                        <label for="customerName">Customer Name *</label>
+            <div class="card-body">
+            <form id="salesForm">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="customerName" class="form-label">Customer Name *</label>
                         <input class="form-control" 
                             type="text" 
                             id="customerName" 
@@ -164,8 +165,8 @@
                         >
                     </div>
 
-                    <div class="mb-3">
-                        <label for="customerContact">Customer Contact</label>
+                    <div class="col-md-6">
+                        <label for="customerContact" class="form-label">Customer Contact</label>
                         <input class="form-control" 
                             type="tel" 
                             id="customerContact" 
@@ -175,9 +176,9 @@
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="mb-3">
-                        <label for="produceType">Produce Type *</label>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="produceType" class="form-label">Produce Type *</label>
                         <select class="form-select" id="produceType" name="produceType" required>
                             <option value="">Select produce type</option>
                             <option value="maize">Maize - Yellow Maize</option>
@@ -191,8 +192,8 @@
                         </select>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="quantity">Quantity (kg) *</label>
+                    <div class="col-md-6">
+                        <label for="quantity" class="form-label">Quantity (kg) *</label>
                         <input class="form-control" 
                             type="number" 
                             id="quantity" 
@@ -205,9 +206,9 @@
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="mb-3">
-                        <label for="unitPrice">Unit Price (UGX per kg) *</label>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="unitPrice" class="form-label">Unit Price (UGX per kg) *</label>
                         <input class="form-control" 
                             type="number" 
                             id="unitPrice" 
@@ -219,8 +220,8 @@
                         >
                     </div>
 
-                    <div class="mb-3">
-                        <label for="totalAmount">Total Amount (UGX)</label>
+                    <div class="col-md-6">
+                        <label for="totalAmount" class="form-label">Total Amount (UGX)</label>
                         <input class="form-control" 
                             type="text" 
                             id="totalAmount" 
@@ -231,9 +232,9 @@
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="mb-3">
-                        <label for="paymentType">Payment Type *</label>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="paymentType" class="form-label">Payment Type *</label>
                         <select class="form-select" id="paymentType" name="paymentType" required>
                             <option value="">Select payment type</option>
                             <option value="cash">Cash</option>
@@ -243,8 +244,8 @@
                         </select>
                     </div>
 
-                    <div class="mb-3">
-                        <label for="saleDate">Sale Date *</label>
+                    <div class="col-md-6">
+                        <label for="saleDate" class="form-label">Sale Date *</label>
                         <input class="form-control" 
                             type="date" 
                             id="saleDate" 
@@ -256,9 +257,9 @@
 
                 <!-- Credit Sale Fields (Hidden by default) -->
                 <div id="creditFields" style="display: none;">
-                    <div class="form-row">
-                        <div class="mb-3">
-                            <label for="creditDueDate">Due Date *</label>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="creditDueDate" class="form-label">Due Date *</label>
                             <input class="form-control" 
                                 type="date" 
                                 id="creditDueDate" 
@@ -266,8 +267,8 @@
                             >
                         </div>
 
-                        <div class="mb-3">
-                            <label for="creditTerms">Credit Terms (Days)</label>
+                        <div class="col-md-6">
+                            <label for="creditTerms" class="form-label">Credit Terms (Days)</label>
                             <input class="form-control" 
                                 type="number" 
                                 id="creditTerms" 
@@ -279,39 +280,52 @@
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group full-width">
-                        <label for="notes">Additional Notes</label>
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label for="notes" class="form-label">Additional Notes</label>
                         <textarea 
+                            class="form-control"
                             id="notes" 
                             name="notes" 
-                            rows="3"
-                            placeholder="Enter any additional notes"
+                            rows="2"
+                            placeholder="Any additional notes about this sale"
                         ></textarea>
+                    </div>
                 </div>
 
-                <div class="form-actions">
-                    <button type="button" class="btn-secondary" id="resetBtn">Reset Form</button>
-                    <button type="submit" class="btn btn-primary" class="btn-primary">Record Sale</button>
+                <div class="d-flex gap-2 mt-3">
+                    <button type="button" class="btn btn-secondary" id="resetBtn">Reset Form</button>
+                    <button type="submit" class="btn btn-primary">Record Sale</button>
                 </div>
             </form>
-        </div>
+            </div>
+        </section>
 
         <!-- Sales History -->
         <section class="card shadow-sm mb-4">
             <div class="card-header bg-white">
-                <h2>Sales History</h2>
-                <div class="filter-controls">
-                    <input class="form-control" type="text" id="searchInput" placeholder="Search..." class="search-input">
-                    <select class="form-select" id="filterPayment" class="filter-select">
-                        <option value="">All Payments</option>
-                        <option value="cash">Cash</option>
-                        <option value="credit">Credit</option>
-                        <option value="mobile_money">Mobile Money</option>
-                        <option value="bank_transfer">Bank Transfer</option>
-                    </select>
-                    <input class="form-control" type="date" id="filterDate" class="filter-select">
-                    <button class="action-btn" id="exportBtn"> Export</button>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="mb-0">Sales History</h2>
+                </div>
+                <div class="row g-2">
+                    <div class="col-md-4">
+                        <input type="text" id="searchInput" placeholder="Search..." class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <select id="filterPayment" class="form-select">
+                            <option value="">All Payments</option>
+                            <option value="cash">Cash</option>
+                            <option value="credit">Credit</option>
+                            <option value="mobile_money">Mobile Money</option>
+                            <option value="bank_transfer">Bank Transfer</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="date" id="filterDate" class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-success w-100" id="exportBtn">Export</button>
+                    </div>
                 </div>
             </div>
             <div class="table-responsive">
@@ -332,7 +346,7 @@
                     </thead>
                     <tbody id="salesTable">
                         <tr>
-                            <td></strong></td>
+                            <td><strong>#RCP-001</strong></td>
                             <td>09/01/2026</td>
                             <td>Nakato Foods Ltd</td>
                             <td>Maize</td>
@@ -340,14 +354,23 @@
                             <td>UGX 1,800</td>
                             <td>UGX 900,000</td>
                             <td>Cash</td>
-                            <td><span class="badge bg-success">Paid</small></td>
+                            <td><span class="badge bg-success">Paid</span></td>
                             <td>
-                                <button class="action-icon-btn" title="View Receipt">👁️</button>
-                                <button class="action-icon-btn" title="Print">🖨️</button>
+                                <div class="row g-1">
+                                    <div class="col-6">
+                                        <button class="btn btn-sm btn-outline-primary w-100" title="View Receipt">View</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-sm btn-outline-info" title="Edit">Edit</button>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-sm btn-outline-secondary w-100" title="Print">Print</button>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         <tr>
-                            <td></strong></td>
+                            <td><strong>#RCP-002</strong></td>
                             <td>09/01/2026</td>
                             <td>Ssemakula Traders</td>
                             <td>Beans</td>
@@ -355,14 +378,23 @@
                             <td>UGX 2,400</td>
                             <td>UGX 720,000</td>
                             <td>Mobile Money</td>
-                            <td><span class="badge bg-success">Paid</small></td>
+                            <td><span class="badge bg-success">Paid</span></td>
                             <td>
-                                <button class="action-icon-btn" title="View Receipt">👁️</button>
-                                <button class="action-icon-btn" title="Print">🖨️</button>
+                                <div class="row g-1">
+                                    <div class="col-6">
+                                        <button class="btn btn-sm btn-outline-primary w-100" title="View Receipt">View</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-sm btn-outline-info" title="Edit">Edit</button>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-sm btn-outline-secondary w-100" title="Print">Print</button>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         <tr>
-                            <td></strong></td>
+                            <td><strong>#RCP-003</strong></td>
                             <td>09/01/2026</td>
                             <td>Kampala Groceries</td>
                             <td>Rice</td>
@@ -370,14 +402,23 @@
                             <td>UGX 4,000</td>
                             <td>UGX 800,000</td>
                             <td>Credit</td>
-                            <td><span class="badge bg-warning">Pending</small></td>
+                            <td><span class="badge bg-warning">Pending</span></td>
                             <td>
-                                <button class="action-icon-btn" title="View Receipt">👁️</button>
-                                <button class="action-icon-btn" title="Print">🖨️</button>
+                                <div class="row g-1">
+                                    <div class="col-6">
+                                        <button class="btn btn-sm btn-outline-primary w-100" title="View Receipt">View</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-sm btn-outline-info" title="Edit">Edit</button>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-sm btn-outline-secondary w-100" title="Print">Print</button>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         <tr>
-                            <td></strong></td>
+                            <td><strong>#RCP-004</strong></td>
                             <td>09/01/2026</td>
                             <td>Mukasa Enterprises</td>
                             <td>Wheat</td>
@@ -385,14 +426,23 @@
                             <td>UGX 2,500</td>
                             <td>UGX 1,000,000</td>
                             <td>Bank Transfer</td>
-                            <td><span class="badge bg-success">Paid</small></td>
+                            <td><span class="badge bg-success">Paid</span></td>
                             <td>
-                                <button class="action-icon-btn" title="View Receipt">👁️</button>
-                                <button class="action-icon-btn" title="Print">🖨️</button>
+                                <div class="row g-1">
+                                    <div class="col-6">
+                                        <button class="btn btn-sm btn-outline-primary w-100" title="View Receipt">View</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-sm btn-outline-info" title="Edit">Edit</button>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-sm btn-outline-secondary w-100" title="Print">Print</button>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         <tr>
-                            <td></strong></td>
+                            <td><strong>#RCP-005</strong></td>
                             <td>08/01/2026</td>
                             <td>Quality Foods Co.</td>
                             <td>Soybeans</td>
@@ -402,8 +452,17 @@
                             <td>Cash</td>
                             <td><span class="badge bg-success">Paid</small></td>
                             <td>
-                                <button class="action-icon-btn" title="View Receipt">👁️</button>
-                                <button class="action-icon-btn" title="Print">🖨️</button>
+                                <div class="row g-1">
+                                    <div class="col-6">
+                                        <button class="btn btn-sm btn-outline-primary w-100" title="View Receipt">View</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-sm btn-outline-info" title="Edit">Edit</button>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-sm btn-outline-secondary w-100" title="Print">Print</button>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -417,8 +476,17 @@
                             <td>Mobile Money</td>
                             <td><span class="badge bg-success">Paid</small></td>
                             <td>
-                                <button class="action-icon-btn" title="View Receipt">👁️</button>
-                                <button class="action-icon-btn" title="Print">🖨️</button>
+                                <div class="row g-1">
+                                    <div class="col-6">
+                                        <button class="btn btn-sm btn-outline-primary w-100" title="View Receipt">View</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-sm btn-outline-info" title="Edit">Edit</button>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-sm btn-outline-secondary w-100" title="Print">Print</button>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         <tr>
@@ -432,8 +500,17 @@
                             <td>Credit</td>
                             <td><span class="badge bg-warning">Pending</small></td>
                             <td>
-                                <button class="action-icon-btn" title="View Receipt">👁️</button>
-                                <button class="action-icon-btn" title="Print">🖨️</button>
+                                <div class="row g-1">
+                                    <div class="col-6">
+                                        <button class="btn btn-sm btn-outline-primary w-100" title="View Receipt">View</button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-sm btn-outline-info" title="Edit">Edit</button>
+                                    </div>
+                                    <div class="col-12">
+                                        <button class="btn btn-sm btn-outline-secondary w-100" title="Print">Print</button>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     </tbody>

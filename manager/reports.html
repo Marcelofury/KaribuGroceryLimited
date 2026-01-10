@@ -142,12 +142,13 @@
         </div>
 
         <!-- Report Generator -->
-        <section class="form-section">
+        <section class="card shadow-sm mb-4">
             <div class="card-header bg-white">
-                <h2>Generate Report</h2>
+                <h2 class="mb-0">Generate Report</h2>
             </div>
-            <form id="reportForm" class="procurement-form">
-                <div class="form-row">
+            <div class="card-body">
+            <form id="reportForm">
+                <div class="row g-3">
                     <div class="mb-3">
                         <label for="reportType">Report Type *</label>
                         <select class="form-select" id="reportType" name="reportType" required>
@@ -182,7 +183,7 @@
 
                 <!-- Custom Date Range (Hidden by default) -->
                 <div id="customDateRange">
-                    <div class="form-row">
+                    <div class="row g-3">
                         <div class="mb-3">
                             <label for="startDate">Start Date *</label>
                             <input class="form-control" 
@@ -227,86 +228,123 @@
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group full-width">
-                        <label>Include in Report</label>
-                        <div class="checkbox-group">
-                            <label class="checkbox-label">
-                                <input class="form-control" type="checkbox" name="includeSummary" checked> Summary Statistics
-                            </label>
-                            <label class="checkbox-label">
-                                <input class="form-control" type="checkbox" name="includeCharts" checked> Charts & Graphs
-                            </label>
-                            <label class="checkbox-label">
-                                <input class="form-control" type="checkbox" name="includeDetails"> Detailed Transactions
-                            </label>
-                            <label class="checkbox-label">
-                                <input class="form-control" type="checkbox" name="includeComparisons"> Period Comparisons
-                            </label>
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label class="form-label">Include in Report</label>
+                        <div class="d-flex flex-wrap gap-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="includeSummary" id="includeSummary" checked>
+                                <label class="form-check-label" for="includeSummary">Summary Statistics</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="includeCharts" id="includeCharts" checked>
+                                <label class="form-check-label" for="includeCharts">Charts & Graphs</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="includeDetails" id="includeDetails">
+                                <label class="form-check-label" for="includeDetails">Detailed Transactions</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="includeComparisons" id="includeComparisons">
+                                <label class="form-check-label" for="includeComparisons">Period Comparisons</label>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="form-actions">
-                    <button type="button" class="btn-secondary" id="previewBtn">👁️ Preview</button>
-                    <button type="submit" class="btn btn-primary" class="btn-primary"> Generate Report</button>
+                <div class="d-flex gap-2 mt-3">
+                    <button type="button" class="btn btn-secondary" id="previewBtn">👁️ Preview</button>
+                    <button type="submit" class="btn btn-primary">📊 Generate Report</button>
                 </div>
             </form>
-        </div>
+            </div>
+        </section>
 
         <!-- Quick Reports -->
         <section class="card shadow-sm mb-4">
             <div class="card-header bg-white">
-                <h2>Quick Reports</h2>
-                <p>Generate common reports with one click</div>
+                <h2 class="mb-1">Quick Reports</h2>
+                <p class="text-muted small mb-0">Generate common reports with one click</p>
             </div>
-            <div class="quick-reports-grid">
-                <div class="quick-report-card">
-                    <h3>Daily Sales</h3>
-                    <p>Today's sales summary</div>
-                    <button class="quick-report-btn">Generate</button>
+            <div class="card-body">
+            <div class="row g-3">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-success">
+                        <div class="card-body text-center">
+                            <h3 class="h5 text-success">Daily Sales</h3>
+                            <p class="text-muted small mb-3">Today's sales summary</p>
+                            <button class="btn btn-success btn-sm w-100">Generate</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="quick-report-card">
-                    <h3>Stock Levels</h3>
-                    <p>Current inventory status</div>
-                    <button class="quick-report-btn">Generate</button>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-success">
+                        <div class="card-body text-center">
+                            <h3 class="h5 text-success">Stock Levels</h3>
+                            <p class="text-muted small mb-3">Current inventory status</p>
+                            <button class="btn btn-success btn-sm w-100">Generate</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="quick-report-card">
-                    <h3>Credit Summary</h3>
-                    <p>Outstanding credits</div>
-                    <button class="quick-report-btn">Generate</button>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-success">
+                        <div class="card-body text-center">
+                            <h3 class="h5 text-success">Credit Summary</h3>
+                            <p class="text-muted small mb-3">Outstanding credits</p>
+                            <button class="btn btn-success btn-sm w-100">Generate</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="quick-report-card">
-                    <h3>Weekly Revenue</h3>
-                    <p>Past 7 days income</div>
-                    <button class="quick-report-btn">Generate</button>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-success">
+                        <div class="card-body text-center">
+                            <h3 class="h5 text-success">Weekly Revenue</h3>
+                            <p class="text-muted small mb-3">Past 7 days income</p>
+                            <button class="btn btn-success btn-sm w-100">Generate</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="quick-report-card">
-                    <h3>Monthly Summary</h3>
-                    <p>Full month analysis</div>
-                    <button class="quick-report-btn">Generate</button>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-success">
+                        <div class="card-body text-center">
+                            <h3 class="h5 text-success">Monthly Summary</h3>
+                            <p class="text-muted small mb-3">Full month analysis</p>
+                            <button class="btn btn-success btn-sm w-100">Generate</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="quick-report-card">
-                    <h3>Target vs Actual</h3>
-                    <p>Performance metrics</div>
-                    <button class="quick-report-btn">Generate</button>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-success">
+                        <div class="card-body text-center">
+                            <h3 class="h5 text-success">Target vs Actual</h3>
+                            <p class="text-muted small mb-3">Performance metrics</p>
+                            <button class="btn btn-success btn-sm w-100">Generate</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+            </div>
+        </section>
 
         <!-- Recent Reports -->
         <section class="card shadow-sm mb-4">
             <div class="card-header bg-white">
-                <h2>Recent Reports</h2>
-                <div class="filter-controls">
-                    <input class="form-control" type="text" id="searchInput" placeholder="Search reports..." class="search-input">
-                    <select class="form-select" id="filterType" class="filter-select">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2 class="mb-0">Recent Reports</h2>
+                </div>
+                <div class="row g-2">
+                    <div class="col-md-8">
+                        <input type="text" id="searchInput" placeholder="Search reports..." class="form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <select id="filterType" class="form-select">
                         <option value="">All Types</option>
                         <option value="sales">Sales</option>
                         <option value="procurement">Procurement</option>
                         <option value="stock">Stock</option>
                         <option value="financial">Financial</option>
                     </select>
+                    </div>
                 </div>
             </div>
             <div class="table-responsive">
@@ -324,79 +362,79 @@
                     </thead>
                     <tbody id="reportsTable">
                         <tr>
-                            <td></strong></td>
+                            <td><strong>Daily Sales Report</strong></td>
                             <td>Sales</td>
                             <td>09/01/2026</td>
                             <td>09/01/2026 10:30 AM</td>
                             <td>John Doe</td>
-                            <td><span class="format-badge pdf">PDF</small></td>
+                            <td><span class="badge bg-danger">PDF</span></td>
                             <td>
-                                <button class="action-icon-btn" title="Download"></button>
-                                <button class="action-icon-btn" title="View">👁️</button>
-                                <button class="action-icon-btn" title="Share">📤</button>
-                                <button class="action-icon-btn" title="Print">🖨️</button>
+                                <button class="btn btn-sm btn-outline-success" title="Download">Download</button>
+                                <button class="btn btn-sm btn-outline-primary" title="View">View</button>
+                                
+                                <button class="btn btn-sm btn-outline-secondary" title="Print">Print</button>
                             </td>
                         </tr>
                         <tr>
-                            <td></strong></td>
+                            <td><strong>Weekly Stock Report</strong></td>
                             <td>Stock</td>
                             <td>This Week</td>
                             <td>08/01/2026 03:15 PM</td>
                             <td>John Doe</td>
-                            <td><span class="format-badge excel">Excel</small></td>
+                            <td><span class="badge bg-success">Excel</span></td>
                             <td>
-                                <button class="action-icon-btn" title="Download"></button>
-                                <button class="action-icon-btn" title="View">👁️</button>
-                                <button class="action-icon-btn" title="Share">📤</button>
-                                <button class="action-icon-btn" title="Print">🖨️</button>
+                                <button class="btn btn-sm btn-outline-success" title="Download">Download</button>
+                                <button class="btn btn-sm btn-outline-primary" title="View">View</button>
+                               
+                                <button class="btn btn-sm btn-outline-secondary" title="Print">Print</button>
                             </td>
                         </tr>
                         <tr>
-                            <td></strong></td>
+                            <td><strong>Monthly Credit Report</strong></td>
                             <td>Credit</td>
                             <td>This Month</td>
                             <td>07/01/2026 11:20 AM</td>
                             <td>John Doe</td>
-                            <td><span class="format-badge pdf">PDF</small></td>
+                            <td><span class="badge bg-danger">PDF</span></td>
                             <td>
-                                <button class="action-icon-btn" title="Download"></button>
-                                <button class="action-icon-btn" title="View">👁️</button>
-                                <button class="action-icon-btn" title="Share">📤</button>
-                                <button class="action-icon-btn" title="Print">🖨️</button>
+                                <button class="btn btn-sm btn-outline-success" title="Download">Download</button>
+                                <button class="btn btn-sm btn-outline-primary" title="View">View</button>
+                                
+                                <button class="btn btn-sm btn-outline-secondary" title="Print">Print</button>
                             </td>
                         </tr>
                         <tr>
-                            <td></strong></td>
+                            <td><strong>Procurement Report</strong></td>
                             <td>Procurement</td>
                             <td>Last Week</td>
                             <td>06/01/2026 09:45 AM</td>
                             <td>John Doe</td>
-                            <td><span class="format-badge excel">Excel</small></td>
+                            <td><span class="badge bg-success">Excel</span></td>
                             <td>
-                                <button class="action-icon-btn" title="Download"></button>
-                                <button class="action-icon-btn" title="View">👁️</button>
-                                <button class="action-icon-btn" title="Share">📤</button>
-                                <button class="action-icon-btn" title="Print">🖨️</button>
+                                <button class="btn btn-sm btn-outline-success" title="Download">Download</button>
+                                <button class="btn btn-sm btn-outline-primary" title="View">view</button>
+                        
+                                <button class="btn btn-sm btn-outline-secondary" title="Print">Print</button>
                             </td>
                         </tr>
                         <tr>
-                            <td></strong></td>
+                            <td><strong>Financial Summary</strong></td>
                             <td>Financial</td>
                             <td>December 2025</td>
                             <td>01/01/2026 02:30 PM</td>
                             <td>John Doe</td>
-                            <td><span class="format-badge pdf">PDF</small></td>
+                            <td><span class="badge bg-danger">PDF</span></td>
                             <td>
-                                <button class="action-icon-btn" title="Download"></button>
-                                <button class="action-icon-btn" title="View">👁️</button>
-                                <button class="action-icon-btn" title="Share">📤</button>
-                                <button class="action-icon-btn" title="Print">🖨️</button>
+                                <button class="btn btn-sm btn-outline-success" title="Download">Download</button>
+                                <button class="btn btn-sm btn-outline-primary" title="View">View</button>
+                               
+                                <button class="btn btn-sm btn-outline-secondary" title="Print">Print</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
+        </section>
             </div>
         </main>
     </div>
