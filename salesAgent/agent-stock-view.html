@@ -9,69 +9,88 @@
 </head>
 <body>
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="#">KGL</a>
             <span class="navbar-text text-white mx-2">|</span>
             <span class="navbar-text text-white">Sales Agent: <strong>Kamwanga Raheem</strong></span>
             <span class="navbar-text text-white mx-2">|</span>
             <span class="navbar-text text-white">Branch: <strong>Branch A</strong></span>
-        </div>
-        
             <button class="btn btn-outline-light btn-sm ms-auto">Logout</button>
-        </div>
-    </div></nav>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <div class="container-fluid">
-            <ul class="nav nav-pills">
-            <li class="nav-item">
-                    <a class="nav-link" href="sales-agent-dashboard.html">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="agent-make-sale.html">Make Sale</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link active" href="agent-stock-view.html">Stock Availability</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="agent-prices.html">Current Prices</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="agent-my-sales.html">My Sales</a>
-            </li>
-        </ul>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="container-fluid py-4">
+    <!-- Sidebar and Main Content Layout -->
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav class="bg-dark text-white" style="width: 250px; min-height: 100vh;">
+            <div class="p-3">
+                <h6 class="text-uppercase text-success mb-3">Navigation</h6>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2">
+                        <a class="nav-link text-white" href="sales-agent-dashboard.html">
+                            <span class="me-2">&#128200;</span> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link text-white" href="agent-make-sale.html">
+                            <span class="me-2">+</span> Make Sale
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link text-white bg-success rounded" href="agent-stock-view.html">
+                            <span class="me-2">&#9776;</span> Stock Availability
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link text-white" href="agent-prices.html">
+                            <span class="me-2">&#8373;</span> Current Prices
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link text-white" href="agent-my-sales.html">
+                            <span class="me-2">&#128196;</span> My Sales
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 p-4" style="background-color: #f8f9fa;">
         <div class="mb-4">
             <h2> Stock Availability</h2>
             <p class="text-muted">View current inventory levels</p>
         </div>
 
         <!-- Search and Filter -->
-        <div class="controls-section">
-            <div class="search-box">
-                <input class="form-control" type="text" id="searchInput" placeholder="Search by produce name...">
-            </div>
-            <div class="filter-controls">
-                <select class="form-select" id="categoryFilter">
-                    <option value="">All Categories</option>
-                    <option value="Cereals">Cereals</option>
-                    <option value="Legumes">Legumes</option>
-                    <option value="Nuts">Nuts</option>
-                    <option value="Seeds">Seeds</option>
-                </select>
-                <select class="form-select" id="stockLevelFilter">
-                    <option value="">All Stock Levels</option>
-                    <option value="in-stock">In Stock</option>
-                    <option value="low-stock">Low Stock</option>
-                    <option value="out-of-stock">Out of Stock</option>
-                </select>
-                <button class="refresh-btn" onclick="loadStockData()">Refresh</button>
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <input class="form-control" type="text" id="searchInput" placeholder="Search by produce name...">
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" id="categoryFilter">
+                            <option value="">All Categories</option>
+                            <option value="Cereals">Cereals</option>
+                            <option value="Legumes">Legumes</option>
+                            <option value="Nuts">Nuts</option>
+                            <option value="Seeds">Seeds</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" id="stockLevelFilter">
+                            <option value="">All Stock Levels</option>
+                            <option value="in-stock">In Stock</option>
+                            <option value="low-stock">Low Stock</option>
+                            <option value="out-of-stock">Out of Stock</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary w-100" onclick="loadStockData()">Refresh</button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -137,43 +156,43 @@
         <!-- Stock Alerts -->
         <section class="card shadow-sm mb-4" id="alertsSection">
             <div class="card-header bg-white">
-                <h2> Stock Alerts</h2>
+                <h5 class="mb-0">Stock Alerts</h5>
             </div>
-            <div class="alerts-section">
-                <div class="alert-box warning">
-                    <span class="alert-icon"></small>
-                    <div class="alert-content">
+            <div class="card-body">
+                <div class="alert alert-warning d-flex align-items-center mb-3" role="alert">
+                    <div class="me-3 fs-5">&#9888;</div>
+                    <div>
                         <strong>Low Stock:</strong> Beans (Red Beans) - Only 450 kg remaining (Reorder at 500 kg)
                     </div>
                 </div>
-                <div class="alert-box warning">
-                    <span class="alert-icon"></small>
-                    <div class="alert-content">
+                <div class="alert alert-warning d-flex align-items-center mb-3" role="alert">
+                    <div class="me-3 fs-5">&#9888;</div>
+                    <div>
                         <strong>Low Stock:</strong> Groundnuts (Roasted) - Only 280 kg remaining (Reorder at 300 kg)
                     </div>
                 </div>
-                <div class="alert-box danger">
-                    <span class="alert-icon">❌</small>
-                    <div class="alert-content">
+                <div class="alert alert-danger d-flex align-items-center mb-3" role="alert">
+                    <div class="me-3 fs-5">&#10060;</div>
+                    <div>
                         <strong>Out of Stock:</strong> Sesame Seeds (White) - 0 kg available
                     </div>
                 </div>
-                <div class="alert-box danger">
-                    <span class="alert-icon">❌</small>
-                    <div class="alert-content">
+                <div class="alert alert-danger d-flex align-items-center mb-0" role="alert">
+                    <div class="me-3 fs-5">&#10060;</div>
+                    <div>
                         <strong>Out of Stock:</strong> Sunflower Seeds - 0 kg available
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Stock Table -->
         <section class="card shadow-sm mb-4">
             <div class="card-header bg-white">
-                <h2>Current Stock Levels</h2>
+                <h5 class="mb-0">Current Stock Levels</h5>
             </div>
             <div class="table-responsive">
-                <table class="data-table" id="stockTable">
+                <table class="table table-hover table-striped align-middle mb-0" id="stockTable">
                     <thead class="table-light">
                         <tr>
                             <th>Produce</th>

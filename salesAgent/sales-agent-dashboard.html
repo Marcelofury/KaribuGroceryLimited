@@ -9,44 +9,55 @@
 </head>
 <body>
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="#">KGL</a>
             <span class="navbar-text text-white mx-2">|</span>
             <span class="navbar-text text-white">Sales Agent: <strong>Kamwanga Raheem</strong></span>
             <span class="navbar-text text-white mx-2">|</span>
             <span class="navbar-text text-white">Branch: <strong>Branch A - Kampala</strong></span>
-        </div>
-        
             <button class="btn btn-outline-light btn-sm ms-auto">Logout</button>
-        </div>
-    </div></nav>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <div class="container-fluid">
-            <ul class="nav nav-pills">
-            <li class="nav-item">
-                    <a class="nav-link active" href="sales-agent-dashboard.html">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="agent-make-sale.html">Make Sale</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="agent-stock-view.html">Stock Availability</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="agent-prices.html">Current Prices</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="agent-my-sales.html">My Sales</a>
-            </li>
-        </ul>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="container-fluid py-4">
+    <!-- Sidebar and Main Content Layout -->
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav class="bg-dark text-white" style="width: 250px; min-height: 100vh;">
+            <div class="p-3">
+                <h6 class="text-uppercase text-success mb-3">Navigation</h6>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2">
+                        <a class="nav-link text-white bg-success rounded" href="sales-agent-dashboard.html">
+                            <span class="me-2">&#128200;</span> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link text-white" href="agent-make-sale.html">
+                            <span class="me-2">+</span> Make Sale
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link text-white" href="agent-stock-view.html">
+                            <span class="me-2">&#9776;</span> Stock Availability
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link text-white" href="agent-prices.html">
+                            <span class="me-2">&#8373;</span> Current Prices
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link text-white" href="agent-my-sales.html">
+                            <span class="me-2">&#128196;</span> My Sales
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 p-4" style="background-color: #f8f9fa;">
         <div class="mb-4">
             <h2>Welcome back, Kamwanga Raheem! </h2>
             <p class="text-muted">Serve customers and track your sales performance</p>
@@ -112,35 +123,58 @@
         </div>
 
         <!-- Quick Actions -->
-        <section class="card shadow-sm mb-4">
-            <div class="card-header bg-white">
-                <h2>Quick Actions</h2>
+        <div class="row g-3 mb-4">
+            <div class="col-md-6 col-lg-3">
+                <a href="agent-make-sale.html" class="text-decoration-none">
+                    <div class="card border-primary shadow-sm h-100 hover-card">
+                        <div class="card-body text-center p-4">
+                            <div class="display-6 text-primary mb-3">+</div>
+                            <h5 class="card-title text-primary mb-2">Make a Sale</h5>
+                            <p class="card-text text-muted small">Record a new customer sale</p>
+                        </div>
+                    </div>
+                </a>
             </div>
-            <div class="quick-actions-grid">
-                <a href="agent-make-sale.html" class="quick-action-card primary-action">
-                    <h3>Make a Sale</h3>
-                    <p>Record a new customer sale</div>
+            <div class="col-md-6 col-lg-3">
+                <a href="agent-stock-view.html" class="text-decoration-none">
+                    <div class="card border-success shadow-sm h-100 hover-card">
+                        <div class="card-body text-center p-4">
+                            <div class="display-6 text-success mb-3">&#9776;</div>
+                            <h5 class="card-title text-success mb-2">Check Stock</h5>
+                            <p class="card-text text-muted small">View available products</p>
+                        </div>
+                    </div>
                 </a>
-                <a href="agent-stock-view.html" class="quick-action-card">
-                    <h3>Check Stock</h3>
-                    <p>View available products</div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <a href="agent-prices.html" class="text-decoration-none">
+                    <div class="card border-info shadow-sm h-100 hover-card">
+                        <div class="card-body text-center p-4">
+                            <div class="display-6 text-info mb-3">&#8373;</div>
+                            <h5 class="card-title text-info mb-2">View Prices</h5>
+                            <p class="card-text text-muted small">Current selling prices</p>
+                        </div>
+                    </div>
                 </a>
-                <a href="agent-prices.html" class="quick-action-card">
-                    <h3>View Prices</h3>
-                    <p>Current selling prices</div>
-                </a>
-                <a href="agent-my-sales.html" class="quick-action-card">
-                    <h3>My Sales History</h3>
-                    <p>View past transactions</div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <a href="agent-my-sales.html" class="text-decoration-none">
+                    <div class="card border-warning shadow-sm h-100 hover-card">
+                        <div class="card-body text-center p-4">
+                            <div class="display-6 text-warning mb-3">&#128196;</div>
+                            <h5 class="card-title text-warning mb-2">My Sales History</h5>
+                            <p class="card-text text-muted small">View past transactions</p>
+                        </div>
+                    </div>
                 </a>
             </div>
         </div>
 
         <!-- Recent Sales -->
         <section class="card shadow-sm mb-4">
-            <div class="card-header bg-white">
-                <h2>Recent Sales</h2>
-                <a href="agent-my-sales.html" class="action-btn">View All</a>
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Recent Sales</h5>
+                <a href="agent-my-sales.html" class="btn btn-sm btn-outline-primary">View All</a>
             </div>
             <div class="table-responsive">
                 <table class="table table-hover table-striped align-middle">
@@ -202,332 +236,221 @@
 
         <!-- Stock Availability -->
         <section class="card shadow-sm mb-4">
-            <div class="card-header bg-white">
-                <h2>Current Stock Availability</h2>
-                <a href="agent-stock-view.html" class="action-btn">View Details</a>
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Current Stock Availability</h5>
+                <a href="agent-stock-view.html" class="btn btn-sm btn-outline-primary">View Details</a>
             </div>
-            <div class="stock-grid">
-                <div class="stock-item available">
-                    <h4>Grain Maize</h4>
-                    <p class="stock-amount">5,000 kg</div>
-                    <span class="stock-status"> Available</small>
-                </div>
-                <div class="stock-item available">
-                    <h4>Beans (Red)</h4>
-                    <p class="stock-amount">3,450 kg</div>
-                    <span class="stock-status"> Available</small>
-                </div>
-                <div class="stock-item available">
-                    <h4>Beans (White)</h4>
-                    <p class="stock-amount">2,800 kg</div>
-                    <span class="stock-status"> Available</small>
-                </div>
-                <div class="stock-item available">
-                    <h4>Cow Peas</h4>
-                    <p class="stock-amount">1,800 kg</div>
-                    <span class="stock-status"> Available</small>
-                </div>
-                <div class="stock-item available">
-                    <h4>G-nuts</h4>
-                    <p class="stock-amount">2,280 kg</div>
-                    <span class="stock-status"> Available</small>
-                </div>
-                <div class="stock-item available">
-                    <h4>Soybeans</h4>
-                    <p class="stock-amount">1,950 kg</div>
-                    <span class="stock-status"> Available</small>
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-success">
+                            <div class="card-body">
+                                <h6 class="card-title">Grain Maize</h6>
+                                <p class="card-text fs-5 fw-bold text-success mb-1">5,000 kg</p>
+                                <span class="badge bg-success">Available</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-success">
+                            <div class="card-body">
+                                <h6 class="card-title">Beans (Red)</h6>
+                                <p class="card-text fs-5 fw-bold text-success mb-1">3,450 kg</p>
+                                <span class="badge bg-success">Available</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-success">
+                            <div class="card-body">
+                                <h6 class="card-title">Beans (White)</h6>
+                                <p class="card-text fs-5 fw-bold text-success mb-1">2,800 kg</p>
+                                <span class="badge bg-success">Available</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-success">
+                            <div class="card-body">
+                                <h6 class="card-title">Cow Peas</h6>
+                                <p class="card-text fs-5 fw-bold text-success mb-1">1,800 kg</p>
+                                <span class="badge bg-success">Available</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-success">
+                            <div class="card-body">
+                                <h6 class="card-title">G-nuts</h6>
+                                <p class="card-text fs-5 fw-bold text-success mb-1">2,280 kg</p>
+                                <span class="badge bg-success">Available</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-success">
+                            <div class="card-body">
+                                <h6 class="card-title">Soybeans</h6>
+                                <p class="card-text fs-5 fw-bold text-success mb-1">1,950 kg</p>
+                                <span class="badge bg-success">Available</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Current Prices -->
         <section class="card shadow-sm mb-4">
-            <div class="card-header bg-white">
-                <h2>Current Selling Prices</h2>
-                <a href="agent-prices.html" class="action-btn">Full Price List</a>
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Current Selling Prices</h5>
+                <a href="agent-prices.html" class="btn btn-sm btn-outline-primary">Full Price List</a>
             </div>
-            <div class="prices-grid">
-                <div class="price-card">
-                    <h4>Grain Maize</h4>
-                    <div class="price-info">
-                        <span class="price-label">Regular:</small>
-                        <span class="price-value">UGX 1,800/kg</small>
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-info">
+                            <div class="card-body">
+                                <h6 class="card-title">Grain Maize</h6>
+                                <div class="mb-2">
+                                    <small class="text-muted">Regular:</small>
+                                    <span class="fw-bold text-dark ms-2">UGX 1,800/kg</span>
+                                </div>
+                                <div>
+                                    <small class="text-muted">Bulk (1000kg+):</small>
+                                    <span class="fw-bold text-success ms-2">UGX 1,700/kg</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="price-info bulk">
-                        <span class="price-label">Bulk (≥1000kg):</small>
-                        <span class="price-value">UGX 1,700/kg</small>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-info">
+                            <div class="card-body">
+                                <h6 class="card-title">Beans (Red)</h6>
+                                <div class="mb-2">
+                                    <small class="text-muted">Regular:</small>
+                                    <span class="fw-bold text-dark ms-2">UGX 2,400/kg</span>
+                                </div>
+                                <div>
+                                    <small class="text-muted">Bulk (1000kg+):</small>
+                                    <span class="fw-bold text-success ms-2">UGX 2,300/kg</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="price-card">
-                    <h4>Beans (Red)</h4>
-                    <div class="price-info">
-                        <span class="price-label">Regular:</small>
-                        <span class="price-value">UGX 2,400/kg</small>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-info">
+                            <div class="card-body">
+                                <h6 class="card-title">Beans (White)</h6>
+                                <div class="mb-2">
+                                    <small class="text-muted">Regular:</small>
+                                    <span class="fw-bold text-dark ms-2">UGX 2,600/kg</span>
+                                </div>
+                                <div>
+                                    <small class="text-muted">Bulk (1000kg+):</small>
+                                    <span class="fw-bold text-success ms-2">UGX 2,500/kg</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="price-info bulk">
-                        <span class="price-label">Bulk (≥1000kg):</small>
-                        <span class="price-value">UGX 2,300/kg</small>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-info">
+                            <div class="card-body">
+                                <h6 class="card-title">Cow Peas</h6>
+                                <div class="mb-2">
+                                    <small class="text-muted">Regular:</small>
+                                    <span class="fw-bold text-dark ms-2">UGX 2,300/kg</span>
+                                </div>
+                                <div>
+                                    <small class="text-muted">Bulk (1000kg+):</small>
+                                    <span class="fw-bold text-success ms-2">UGX 2,200/kg</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="price-card">
-                    <h4>Beans (White)</h4>
-                    <div class="price-info">
-                        <span class="price-label">Regular:</small>
-                        <span class="price-value">UGX 2,600/kg</small>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-info">
+                            <div class="card-body">
+                                <h6 class="card-title">G-nuts (Groundnuts)</h6>
+                                <div class="mb-2">
+                                    <small class="text-muted">Regular:</small>
+                                    <span class="fw-bold text-dark ms-2">UGX 5,000/kg</span>
+                                </div>
+                                <div>
+                                    <small class="text-muted">Bulk (1000kg+):</small>
+                                    <span class="fw-bold text-success ms-2">UGX 4,800/kg</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="price-info bulk">
-                        <span class="price-label">Bulk (≥1000kg):</small>
-                        <span class="price-value">UGX 2,500/kg</small>
-                    </div>
-                </div>
-                <div class="price-card">
-                    <h4>Cow Peas</h4>
-                    <div class="price-info">
-                        <span class="price-label">Regular:</small>
-                        <span class="price-value">UGX 2,300/kg</small>
-                    </div>
-                    <div class="price-info bulk">
-                        <span class="price-label">Bulk (≥1000kg):</small>
-                        <span class="price-value">UGX 2,200/kg</small>
-                    </div>
-                </div>
-                <div class="price-card">
-                    <h4>G-nuts (Groundnuts)</h4>
-                    <div class="price-info">
-                        <span class="price-label">Regular:</small>
-                        <span class="price-value">UGX 5,000/kg</small>
-                    </div>
-                    <div class="price-info bulk">
-                        <span class="price-label">Bulk (≥1000kg):</small>
-                        <span class="price-value">UGX 4,800/kg</small>
-                    </div>
-                </div>
-                <div class="price-card">
-                    <h4>Soybeans</h4>
-                    <div class="price-info">
-                        <span class="price-label">Regular:</small>
-                        <span class="price-value">UGX 2,700/kg</small>
-                    </div>
-                    <div class="price-info bulk">
-                        <span class="price-label">Bulk (≥1000kg):</small>
-                        <span class="price-value">UGX 2,600/kg</small>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-info">
+                            <div class="card-body">
+                                <h6 class="card-title">Soybeans</h6>
+                                <div class="mb-2">
+                                    <small class="text-muted">Regular:</small>
+                                    <span class="fw-bold text-dark ms-2">UGX 2,700/kg</span>
+                                </div>
+                                <div>
+                                    <small class="text-muted">Bulk (1000kg+):</small>
+                                    <span class="fw-bold text-success ms-2">UGX 2,600/kg</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Performance Chart -->
         <section class="card shadow-sm mb-4">
             <div class="card-header bg-white">
-                <h2>My Performance This Month</h2>
+                <h5 class="mb-0">My Performance This Month</h5>
             </div>
-            <div class="performance-chart">
-                <div class="chart-bar">
-                    <div class="bar-label">Week 1</div>
-                    <div class="bar-container">
-                        <div class="bar-fill">UGX 7.5M</div>
+            <div class="card-body">
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="text-muted">Week 1</span>
+                        <span class="fw-bold text-primary">UGX 7.5M</span>
+                    </div>
+                    <div class="progress" style="height: 30px;">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
-                <div class="chart-bar">
-                    <div class="bar-label">Week 2</div>
-                    <div class="bar-container">
-                        <div class="bar-fill">UGX 8.5M</div>
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="text-muted">Week 2</span>
+                        <span class="fw-bold text-success">UGX 8.5M</span>
+                    </div>
+                    <div class="progress" style="height: 30px;">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
-                <div class="chart-bar">
-                    <div class="bar-label">Week 3</div>
-                    <div class="bar-container">
-                        <div class="bar-fill">UGX 8.0M</div>
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="text-muted">Week 3</span>
+                        <span class="fw-bold text-info">UGX 8.0M</span>
+                    </div>
+                    <div class="progress" style="height: 30px;">
+                        <div class="progress-bar bg-info" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                 </div>
-                <div class="chart-bar">
-                    <div class="bar-label">Week 4</div>
-                    <div class="bar-container">
-                        <div class="bar-fill current">UGX 4.9M</div>
+                <div class="mb-2">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="text-muted">Week 4 <small class="text-muted">(In Progress)</small></span>
+                        <span class="fw-bold text-warning">UGX 4.9M</span>
                     </div>
-                    <span class="current-label">(In Progress)</small>
+                    <div class="progress" style="height: 30px;">
+                        <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 49%;" aria-valuenow="49" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
+    </div>
 
-    <!-- Bootstrap 5 JS Bundle -->
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-                </a>
-                <a href="agent-stock-view.html" class="quick-action-card">
-                    <div class="action-icon"></div>
-                    <h3>Check Stock</h3>
-                    <p>View available inventory</div>
-                </a>
-                <a href="agent-prices.html" class="quick-action-card">
-                    <div class="action-icon"></div>
-                    <h3>View Prices</h3>
-                    <p>Check current pricing</div>
-                </a>
-                <a href="agent-my-sales.html" class="quick-action-card">
-                    <div class="action-icon"></div>
-                    <h3>My Sales History</h3>
-                    <p>View your sales records</div>
-                </a>
-            </div>
-        </div>
-
-        <!-- Recent Sales -->
-        <section class="card shadow-sm mb-4">
-            <div class="card-header bg-white">
-                <h2>Today's Sales</h2>
-                <button class="action-btn">View All</button>
-            </div>
-            <div class="table-responsive">
-                <table class="table table-hover table-striped align-middle">
-                    <thead class="table-light">
-                        <tr>
-                            <th>Time</th>
-                            <th>Customer</th>
-                            <th>Produce</th>
-                            <th>Quantity</th>
-                            <th>Amount</th>
-                            <th>Payment</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>2:45 PM</td>
-                            <td>Walk-in Customer</td>
-                            <td>Maize</td>
-                            <td>100 kg</td>
-                            <td>UGX 180,000</td>
-                            <td>Cash</td>
-                            <td><span class="badge bg-success">Completed</small></td>
-                        </tr>
-                        <tr>
-                            <td>1:30 PM</td>
-                            <td>Nakato Foods Ltd</td>
-                            <td>Beans</td>
-                            <td>200 kg</td>
-                            <td>UGX 480,000</td>
-                            <td>Mobile Money</td>
-                            <td><span class="badge bg-success">Completed</small></td>
-                        </tr>
-                        <tr>
-                            <td>11:15 AM</td>
-                            <td>Quality Foods Co.</td>
-                            <td>Rice</td>
-                            <td>150 kg</td>
-                            <td>UGX 600,000</td>
-                            <td>Credit</td>
-                            <td><span class="badge bg-warning">Pending</small></td>
-                        </tr>
-                        <tr>
-                            <td>10:00 AM</td>
-                            <td>Walk-in Customer</td>
-                            <td>Groundnuts</td>
-                            <td>50 kg</td>
-                            <td>UGX 250,000</td>
-                            <td>Cash</td>
-                            <td><span class="badge bg-success">Completed</small></td>
-                        </tr>
-                        <tr>
-                            <td>9:20 AM</td>
-                            <td>Ssemakula Traders</td>
-                            <td>Wheat</td>
-                            <td>300 kg</td>
-                            <td>UGX 750,000</td>
-                            <td>Bank Transfer</td>
-                            <td><span class="badge bg-success">Completed</small></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- Performance Chart -->
-        <section class="card shadow-sm mb-4">
-            <div class="card-header bg-white">
-                <h2>This Week's Performance</h2>
-            </div>
-            <div class="performance-chart">
-                <div class="chart-bar">
-                    <div class="bar-label">Mon</div>
-                    <div class="bar-container">
-                        <div class="bar" title="UGX 1,800,000"></div>
-                    </div>
-                    <div class="bar-value">1.8M</div>
-                </div>
-                <div class="chart-bar">
-                    <div class="bar-label">Tue</div>
-                    <div class="bar-container">
-                        <div class="bar" title="UGX 2,100,000"></div>
-                    </div>
-                    <div class="bar-value">2.1M</div>
-                </div>
-                <div class="chart-bar">
-                    <div class="bar-label">Wed</div>
-                    <div class="bar-container">
-                        <div class="bar" title="UGX 1,500,000"></div>
-                    </div>
-                    <div class="bar-value">1.5M</div>
-                </div>
-                <div class="chart-bar">
-                    <div class="bar-label">Thu</div>
-                    <div class="bar-container">
-                        <div class="bar" title="UGX 2,300,000"></div>
-                    </div>
-                    <div class="bar-value">2.3M</div>
-                </div>
-                <div class="chart-bar">
-                    <div class="bar-label">Fri</div>
-                    <div class="bar-container">
-                        <div class="bar" title="UGX 1,900,000"></div>
-                    </div>
-                    <div class="bar-value">1.9M</div>
-                </div>
-                <div class="chart-bar">
-                    <div class="bar-label">Sat</div>
-                    <div class="bar-container">
-                        <div class="bar" title="UGX 2,400,000"></div>
-                    </div>
-                    <div class="bar-value">2.4M</div>
-                </div>
-                <div class="chart-bar">
-                    <div class="bar-label">Sun</div>
-                    <div class="bar-container">
-                        <div class="bar inactive" title="Not yet"></div>
-                    </div>
-                    <div class="bar-value">—</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Stock Alerts -->
-        <section class="card shadow-sm mb-4">
-            <div class="card-header bg-white">
-                <h2> Stock Alerts</h2>
-            </div>
-            <div class="alerts-section">
-                <div class="alert-box warning">
-                    <span class="alert-icon"></small>
-                    <div class="alert-content">
-                        <strong>Low Stock:</strong> Beans (Red Beans) - Only 450 kg remaining
-                    </div>
-                </div>
-                <div class="alert-box warning">
-                    <span class="alert-icon"></small>
-                    <div class="alert-content">
-                        <strong>Low Stock:</strong> Groundnuts (Roasted) - Only 280 kg remaining
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Bootstrap 5 JS Bundle -->
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
-
+             

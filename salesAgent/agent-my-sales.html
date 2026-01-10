@@ -9,44 +9,55 @@
 </head>
 <body>
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="#">KGL</a>
             <span class="navbar-text text-white mx-2">|</span>
             <span class="navbar-text text-white">Sales Agent: <strong>Kamwanga Raheem</strong></span>
             <span class="navbar-text text-white mx-2">|</span>
             <span class="navbar-text text-white">Branch: <strong>Branch A</strong></span>
-        </div>
-        
             <button class="btn btn-outline-light btn-sm ms-auto">Logout</button>
-        </div>
-    </div></nav>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <div class="container-fluid">
-            <ul class="nav nav-pills">
-            <li class="nav-item">
-                    <a class="nav-link" href="sales-agent-dashboard.html">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="agent-make-sale.html">Make Sale</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="agent-stock-view.html">Stock Availability</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="agent-prices.html">Current Prices</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link active" href="agent-my-sales.html">My Sales</a>
-            </li>
-        </ul>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="container-fluid py-4">
+    <!-- Sidebar and Main Content Layout -->
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav class="bg-dark text-white" style="width: 250px; min-height: 100vh;">
+            <div class="p-3">
+                <h6 class="text-uppercase text-success mb-3">Navigation</h6>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2">
+                        <a class="nav-link text-white" href="sales-agent-dashboard.html">
+                            <span class="me-2">&#128200;</span> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link text-white" href="agent-make-sale.html">
+                            <span class="me-2">+</span> Make Sale
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link text-white" href="agent-stock-view.html">
+                            <span class="me-2">&#9776;</span> Stock Availability
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link text-white" href="agent-prices.html">
+                            <span class="me-2">&#8373;</span> Current Prices
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a class="nav-link text-white bg-success rounded" href="agent-my-sales.html">
+                            <span class="me-2">&#128196;</span> My Sales
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="flex-grow-1 p-4" style="background-color: #f8f9fa;">
         <div class="mb-4">
             <h2> My Sales History</h2>
             <p class="text-muted">View and track your sales records</p>
@@ -112,61 +123,75 @@
         </div>
 
         <!-- Filters and Search -->
-        <div class="controls-section">
-            <div class="search-box">
-                <input class="form-control" type="text" id="searchInput" placeholder="Search by customer, produce, or reference...">
-            </div>
-            <div class="filter-controls">
-                <select class="form-select" id="dateFilter">
-                    <option value="today">Today</option>
-                    <option value="yesterday">Yesterday</option>
-                    <option value="week">This Week</option>
-                    <option value="month">This Month</option>
-                    <option value="last-month">Last Month</option>
-                    <option value="custom">Custom Range</option>
-                </select>
-                <select class="form-select" id="paymentFilter">
-                    <option value="">All Payments</option>
-                    <option value="cash">Cash</option>
-                    <option value="mobile">Mobile Money</option>
-                    <option value="bank">Bank Transfer</option>
-                    <option value="credit">Credit</option>
-                </select>
-                <select class="form-select" id="statusFilter">
-                    <option value="">All Status</option>
-                    <option value="completed">Completed</option>
-                    <option value="pending">Pending</option>
-                    <option value="cancelled">Cancelled</option>
-                </select>
-                <button class="action-btn" onclick="exportSales()">Export</button>
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <input class="form-control" type="text" id="searchInput" placeholder="Search by customer, produce, or reference...">
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-select" id="dateFilter">
+                            <option value="today">Today</option>
+                            <option value="yesterday">Yesterday</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                            <option value="last-month">Last Month</option>
+                            <option value="custom">Custom Range</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-select" id="paymentFilter">
+                            <option value="">All Payments</option>
+                            <option value="cash">Cash</option>
+                            <option value="mobile">Mobile Money</option>
+                            <option value="bank">Bank Transfer</option>
+                            <option value="credit">Credit</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-select" id="statusFilter">
+                            <option value="">All Status</option>
+                            <option value="completed">Completed</option>
+                            <option value="pending">Pending</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-success w-100" onclick="exportSales()">Export</button>
+                    </div>
+                </div>
             </div>
         </div>
 
         <!-- Custom Date Range (Hidden by default) -->
-        <div class="date-range-section" id="dateRangeSection">
-            <div class="date-inputs">
-                <div class="mb-3">
-                    <label for="startDate">From:</label>
-                    <input class="form-control" type="date" id="startDate">
+        <div class="card shadow-sm mb-4 d-none" id="dateRangeSection">
+            <div class="card-body">
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-4">
+                        <label for="startDate" class="form-label">From:</label>
+                        <input class="form-control" type="date" id="startDate">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="endDate" class="form-label">To:</label>
+                        <input class="form-control" type="date" id="endDate">
+                    </div>
+                    <div class="col-md-4">
+                        <button class="btn btn-primary w-100" onclick="applyDateRange()">Apply Date Range</button>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="endDate">To:</label>
-                    <input class="form-control" type="date" id="endDate">
-                </div>
-                <button class="btn-primary" onclick="applyDateRange()">Apply</button>
             </div>
         </div>
 
         <!-- Sales Table -->
         <section class="card shadow-sm mb-4">
-            <div class="card-header bg-white">
-                <h2>Sales Records</h2>
-                <div class="header-actions">
-                    <span class="record-count">Showing <strong id="recordCount">0</strong> records</small>
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Sales Records</h5>
+                <div>
+                    <span class="text-muted">Showing <strong id="recordCount">0</strong> records</span>
                 </div>
             </div>
             <div class="table-responsive">
-                <table class="data-table" id="salesTable">
+                <table class="table table-hover table-striped align-middle mb-0" id="salesTable">
                     <thead class="table-light">
                         <tr>
                             <th>Date & Time</th>
@@ -187,13 +212,15 @@
             </div>
 
             <!-- Pagination -->
-            <div class="pagination" id="pagination">
-                <button class="page-btn" id="prevBtn" onclick="changePage(-1)">← Previous</button>
-                <span class="page-info">Page <strong id="currentPage">1</strong> of <strong id="totalPages">1</strong></small>
-                <button class="page-btn" id="nextBtn" onclick="changePage(1)">Next </button>
+            <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+                <button class="btn btn-outline-secondary btn-sm" id="prevBtn" onclick="changePage(-1)">Previous</button>
+                <span class="text-muted">Page <strong id="currentPage">1</strong> of <strong id="totalPages">1</strong></span>
+                <button class="btn btn-outline-secondary btn-sm" id="nextBtn" onclick="changePage(1)">Next</button>
             </div>
-        </div>
+        </section>
     </main>
+    </div>
+    </div>
 
     <!-- Sale Detail Modal -->
     <div class="modal" id="saleDetailModal">
