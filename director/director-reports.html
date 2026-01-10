@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KGL - Director Reports</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- HEADER: navbar: Bootstrap navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">KGL</a>
+            <span class="navbar-text text-white mx-2">|</span>
+            <span class="navbar-text text-white">Director: <strong>Butera Marcel</strong></span>
+            <span class="navbar-text text-white mx-2">|</span>
+            <span class="navbar-text text-white">View: <strong>All Branches</strong></span>
+            <button class="btn btn-outline-light btn-sm ms-auto">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Secondary Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container-fluid">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" href="director-dashboard.html">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="director-reports.html">Reports</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="container-fluid py-4">
+        <div class="mb-4">
+            <h2 class="fw-bold">Business Reports</h2>
+            <p class="text-muted">View and download comprehensive business reports across all branches</p>
+        </div>
+
+        <!-- Filter Section -->
+        <section class="card shadow-sm mb-4">
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <label class="form-label">Branch</label>
+                        <select class="form-select">
+                            <option value="">All Branches</option>
+                            <option>Branch A - Kampala</option>
+                            <option>Branch B - Entebbe</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Report Type</label>
+                        <select class="form-select">
+                            <option value="">All Types</option>
+                            <option>Sales Reports</option>
+                            <option>Financial Reports</option>
+                            <option>Inventory Reports</option>
+                            <option>Performance Reports</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Period</label>
+                        <select class="form-select">
+                            <option>This Month</option>
+                            <option>Last Month</option>
+                            <option>This Quarter</option>
+                            <option>This Year</option>
+                            <option>Custom Range</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 d-flex align-items-end">
+                        <button class="btn btn-success w-100">Apply Filters</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reports Grid -->
+        <div class="row g-4">
+            <!-- Monthly Sales Report -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <div class="text-center mb-3" style="font-size: 2.5rem;">📊</div>
+                        <h3 class="h5 fw-bold text-success mb-2">Monthly Sales Report</h3>
+                        <p class="text-muted small mb-3">
+                            Comprehensive sales analysis for January 2026 across all branches including revenue breakdown, product performance, and sales trends.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                            <div>
+                                <span class="badge bg-success rounded-pill">New</span>
+                                <small class="ms-2 text-muted">Generated: Jan 10, 2026</small>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-success btn-sm">View</a>
+                                <a href="#" class="btn btn-primary btn-sm">📥 PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Branch Performance Report -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <div class="text-center mb-3" style="font-size: 2.5rem;">🏆</div>
+                        <h3 class="h5 fw-bold text-success mb-2">Branch Performance Comparison</h3>
+                        <p class="text-muted small mb-3">
+                            Side-by-side comparison of all branch performance metrics including sales targets, stock turnover, and profitability analysis.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                            <div>
+                                <span class="badge bg-success rounded-pill">New</span>
+                                <small class="ms-2 text-muted">Generated: Jan 10, 2026</small>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-success btn-sm">View</a>
+                                <a href="#" class="btn btn-primary btn-sm">📥 PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financial Summary -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <div class="text-center mb-3" style="font-size: 2.5rem;">💰</div>
+                        <h3 class="h5 fw-bold text-success mb-2">Financial Summary - Q1 2026</h3>
+                        <p class="text-muted small mb-3">
+                            Quarterly financial overview including revenue, expenses, profit margins, and cash flow analysis for the first quarter.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                            <div>
+                                <span class="badge bg-success rounded-pill">New</span>
+                                <small class="ms-2 text-muted">Generated: Jan 9, 2026</small>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-success btn-sm">View</a>
+                                <a href="#" class="btn btn-primary btn-sm">📥 PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inventory Report -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <div class="text-center mb-3" style="font-size: 2.5rem;">📦</div>
+                        <h3 class="h5 fw-bold text-success mb-2">Consolidated Inventory Report</h3>
+                        <p class="text-muted small mb-3">
+                            Complete inventory analysis across all branches showing stock levels, low stock alerts, and procurement recommendations.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                            <div>
+                                <span class="badge bg-success rounded-pill">New</span>
+                                <small class="ms-2 text-muted">Generated: Jan 10, 2026</small>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-success btn-sm">View</a>
+                                <a href="#" class="btn btn-primary btn-sm">📥 PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Credit Sales Report -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <div class="text-center mb-3" style="font-size: 2.5rem;">💳</div>
+                        <h3 class="h5 fw-bold text-success mb-2">Credit Sales & Collections</h3>
+                        <p class="text-muted small mb-3">
+                            Detailed report on credit sales, outstanding amounts, collection rates, and customer payment patterns across all branches.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                            <div>
+                                <span class="badge bg-success rounded-pill">New</span>
+                                <small class="ms-2 text-muted">Generated: Jan 9, 2026</small>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-success btn-sm">View</a>
+                                <a href="#" class="btn btn-primary btn-sm">📥 PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Performance Report -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <div class="text-center mb-3" style="font-size: 2.5rem;">📈</div>
+                        <h3 class="h5 fw-bold text-success mb-2">Top Products Analysis</h3>
+                        <p class="text-muted small mb-3">
+                            Analysis of best and worst performing products including sales volume, profit margins, and market trends.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                            <div>
+                                <span class="badge bg-success rounded-pill">New</span>
+                                <small class="ms-2 text-muted">Generated: Jan 10, 2026</small>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-success btn-sm">View</a>
+                                <a href="#" class="btn btn-primary btn-sm">📥 PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Procurement Report -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <div class="text-center mb-3" style="font-size: 2.5rem;">🚚</div>
+                        <h3 class="h5 fw-bold text-success mb-2">Procurement & Supplier Analysis</h3>
+                        <p class="text-muted small mb-3">
+                            Comprehensive procurement report showing supplier performance, purchase patterns, and cost optimization opportunities.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                            <div>
+                                <span class="badge bg-warning text-dark rounded-pill">3 days old</span>
+                                <small class="ms-2 text-muted">Generated: Jan 7, 2026</small>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-success btn-sm">View</a>
+                                <a href="#" class="btn btn-primary btn-sm">📥 PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profit & Loss Statement -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <div class="text-center mb-3" style="font-size: 2.5rem;">📋</div>
+                        <h3 class="h5 fw-bold text-success mb-2">Profit & Loss Statement</h3>
+                        <p class="text-muted small mb-3">
+                            Monthly P&L statement showing detailed breakdown of revenues, costs, operating expenses, and net profit for all operations.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                            <div>
+                                <span class="badge bg-success rounded-pill">New</span>
+                                <small class="ms-2 text-muted">Generated: Jan 9, 2026</small>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-success btn-sm">View</a>
+                                <a href="#" class="btn btn-primary btn-sm">📥 PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Analysis Report -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <div class="text-center mb-3" style="font-size: 2.5rem;">👥</div>
+                        <h3 class="h5 fw-bold text-success mb-2">Customer Behavior Analysis</h3>
+                        <p class="text-muted small mb-3">
+                            Analysis of customer purchase patterns, repeat customers, average transaction values, and customer segmentation insights.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                            <div>
+                                <span class="badge bg-success rounded-pill">New</span>
+                                <small class="ms-2 text-muted">Generated: Jan 10, 2026</small>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-success btn-sm">View</a>
+                                <a href="#" class="btn btn-primary btn-sm">📥 PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Year-End Report -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <div class="text-center mb-3" style="font-size: 2.5rem;">🎯</div>
+                        <h3 class="h5 fw-bold text-success mb-2">2025 Year-End Report</h3>
+                        <p class="text-muted small mb-3">
+                            Complete annual report for 2025 including full year financial performance, growth metrics, and strategic insights.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                            <div>
+                                <span class="badge bg-warning text-dark rounded-pill">11 days old</span>
+                                <small class="ms-2 text-muted">Generated: Dec 30, 2025</small>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-success btn-sm">View</a>
+                                <a href="#" class="btn btn-primary btn-sm">📥 PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manager Performance Report -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <div class="text-center mb-3" style="font-size: 2.5rem;">👔</div>
+                        <h3 class="h5 fw-bold text-success mb-2">Manager Performance Evaluation</h3>
+                        <p class="text-muted small mb-3">
+                            Performance evaluation of branch managers including KPI achievement, operational efficiency, and team management metrics.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                            <div>
+                                <span class="badge bg-success rounded-pill">New</span>
+                                <small class="ms-2 text-muted">Generated: Jan 10, 2026</small>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-success btn-sm">View</a>
+                                <a href="#" class="btn btn-primary btn-sm">📥 PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Market Trends Report -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <div class="text-center mb-3" style="font-size: 2.5rem;">📉</div>
+                        <h3 class="h5 fw-bold text-success mb-2">Market Trends & Forecasting</h3>
+                        <p class="text-muted small mb-3">
+                            Market analysis report covering price trends, demand patterns, seasonal variations, and future market forecasts.
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                            <div>
+                                <span class="badge bg-warning text-dark rounded-pill">5 days old</span>
+                                <small class="ms-2 text-muted">Generated: Jan 5, 2026</small>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-success btn-sm">View</a>
+                                <a href="#" class="btn btn-primary btn-sm">📥 PDF</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-light text-center py-3 mt-5 border-top">
+        <small class="text-muted">© 2026 Karibu Groceries LTD. All rights reserved.</small>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

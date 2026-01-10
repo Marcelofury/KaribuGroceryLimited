@@ -6,242 +6,80 @@
     <title>KGL - Stock Management</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .filter-controls {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        
-        .search-input, .filter-select {
-            max-width: 200px;
-        }
-        
-        .action-btn {
-            background-color: #198754;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 0.375rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            white-space: nowrap;
-        }
-        
-        .action-btn:hover {
-            background-color: #157347;
-        }
-        
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .card-header h2 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin: 0;
-        }
-        
-        .action-icon-btn {
-            background-color: #198754;
-            color: white;
-            border: 1px solid #198754;
-            cursor: pointer;
-            padding: 0.25rem 0.75rem;
-            font-size: 0.75rem;
-            border-radius: 0.25rem;
-            margin: 0 0.125rem;
-            transition: all 0.2s;
-        }
-        
-        .action-icon-btn:hover {
-            background-color: #157347;
-            border-color: #157347;
-        }
-        
-        .alerts-section {
-            padding: 1rem;
-        }
-        
-        .alert-box {
-            display: flex;
-            align-items: flex-start;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
-            gap: 1rem;
-        }
-        
-        .alert-box.warning {
-            background-color: #fff3cd;
-            border-left: 4px solid #ffc107;
-        }
-        
-        .alert-icon {
-            font-size: 1.5rem;
-        }
-        
-        .alert-content {
-            flex: 1;
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-        }
-        
-        .modal-content {
-            background-color: white;
-            margin: 5% auto;
-            padding: 0;
-            border-radius: 0.5rem;
-            max-width: 600px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-        }
-        
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem;
-            border-bottom: 1px solid #dee2e6;
-        }
-        
-        .modal-header h3 {
-            margin: 0;
-        }
-        
-        .close-btn {
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: #6c757d;
-        }
-        
-        .close-btn:hover {
-            color: #000;
-        }
-        
-        .modal-form {
-            padding: 1.5rem;
-        }
-        
-        .form-actions {
-            display: flex;
-            gap: 1rem;
-            justify-content: flex-end;
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #dee2e6;
-        }
-        
-        .btn-secondary {
-            background-color: #6c757d;
-            color: white;
-            border: none;
-            padding: 0.75rem 2rem;
-            border-radius: 0.375rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        
-        .btn-secondary:hover {
-            background-color: #5a6268;
-        }
-        
-        .btn-primary {
-            background-color: #198754;
-            color: white;
-            border: none;
-            padding: 0.75rem 2rem;
-            border-radius: 0.375rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        
-        .btn-primary:hover {
-            background-color: #157347;
-        }
-        
-        label {
-            display: block;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            color: #495057;
-        }
-        
-        textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #dee2e6;
-            border-radius: 0.375rem;
-            font-family: inherit;
-            resize: vertical;
-        }
-    </style>
 </head>
-<body>
-    <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-        <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="#">KGL</a>
-            <span class="navbar-text text-white mx-2">|</span>
-            <span class="navbar-text text-white">Manager: <strong>Natugonza Mohammed</strong></span>
-            <span class="navbar-text text-white mx-2">|</span>
-            <span class="navbar-text text-white">Branch: <strong>Branch A</strong></span>
-            <button class="btn btn-outline-light btn-sm ms-auto">Logout</button>
+<body style="margin: 0; padding: 0; overflow-x: hidden;">
+    <!-- Sidebar Navigation -->
+    <aside class="bg-success text-white position-fixed top-0 start-0 h-100 d-flex flex-column" style="width: 260px; z-index: 1000;">
+        <div class="p-3 border-bottom border-white border-opacity-25">
+            <a href="#" class="text-white text-decoration-none fs-3 fw-bold d-block mb-3">KGL</a>
+            <p class="mb-0 small">
+                <strong>Natugonza Mohammed</strong><br>
+                <span>Branch A - Kampala</span>
+            </p>
         </div>
-    </nav>
+        
+        <nav class="flex-grow-1 overflow-auto" style="scrollbar-width: thin;">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="manager-dashboard.html">
+                        📊 Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="procure.html">
+                        📦 Procure Stock
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white bg-white bg-opacity-25 rounded" href="stock.html">
+                        🏪 View Stock
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="sales.html">
+                        💰 Record Sale
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="prices.html">
+                        💵 Manage Prices
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="credit-sales.html">
+                        💳 Credit Sales
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="reports.html">
+                        📈 Reports
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="p-3 border-top border-white border-opacity-25">
+            <button class="btn btn-light w-100">Logout</button>
+        </div>
+    </aside>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <div class="container-fluid">
-            <ul class="nav nav-pills">
-            <li class="nav-item">
-                    <a class="nav-link" href="manager-dashboard.html">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="procure.html">Procure</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link active" href="stock.html">Stock</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="sales.html">Sales</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="prices.html">Prices</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="credit-sales.html">Credit Sales</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="reports.html">Reports</a>
-            </li>
-        </ul>
-        </div>
-    </nav>
+    <!-- Main Content Area -->
+    <div style="margin-left: 260px; min-height: 100vh; background-color: #f8f9fa;">
+        <!-- Top Header -->
+        <header class="bg-white border-bottom p-3 sticky-top">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1 class="h4 mb-0">Stock Management</h1>
+                    <p class="text-muted mb-0 small">Monitor and manage inventory levels</p>
+                </div>
+                <div class="text-muted small">
+                    <span id="currentDate"></span>
+                </div>
+            </div>
+        </header>
 
-    <!-- Main Content -->
-    <main class="container-fluid py-4">
-        <div class="mb-4">
-            <h2>Stock Management</h2>
-            <p class="text-muted">Monitor and manage inventory levels</p>
-        </div>
+        <!-- Content Area -->
+        <main class="p-4">
 
         <!-- Stock Summary Cards -->
         <div class="row g-4 mb-4">
@@ -334,13 +172,13 @@
                     </thead>
                     <tbody id="stockTable">
                         <tr>
-                            <td></strong></td>
+                            <td><strong>Maize</strong></td>
                             <td>Yellow Maize</td>
                             <td>3,500</td>
                             <td>500</td>
                             <td>1,600</td>
                             <td>5,600,000</td>
-                            <td><span class="badge bg-success">Adequate</small></td>
+                            <td><span class="badge bg-success">Adequate</span></td>
                             <td>09/01/2026</td>
                             <td>
                                 <button class="action-icon-btn" title="View Details">View</button>
@@ -349,13 +187,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td></strong></td>
+                            <td><strong>Beans</strong></td>
                             <td>Red Beans</td>
                             <td>450</td>
                             <td>500</td>
                             <td>2,250</td>
                             <td>1,012,500</td>
-                            <td><span class="status-badge warning">Low Stock</small></td>
+                            <td><span class="badge bg-warning">Low Stock</span></td>
                             <td>09/01/2026</td>
                             <td>
                                 <button class="action-icon-btn" title="View Details">View</button>
@@ -364,13 +202,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td></strong></td>
+                            <td><strong>Rice</strong></td>
                             <td>Sindano</td>
                             <td>2,800</td>
                             <td>400</td>
                             <td>3,800</td>
                             <td>10,640,000</td>
-                            <td><span class="badge bg-success">Adequate</small></td>
+                            <td><span class="badge bg-success">Adequate</span></td>
                             <td>08/01/2026</td>
                             <td>
                                 <button class="action-icon-btn" title="View Details">View</button>
@@ -379,13 +217,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td></strong></td>
+                            <td><strong>Wheat</strong></td>
                             <td>Hard Red</td>
                             <td>1,200</td>
                             <td>300</td>
                             <td>2,200</td>
                             <td>2,640,000</td>
-                            <td><span class="badge bg-success">Adequate</small></td>
+                            <td><span class="badge bg-success">Adequate</span></td>
                             <td>08/01/2026</td>
                             <td>
                                 <button class="action-icon-btn" title="View Details">View</button>
@@ -394,13 +232,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td></strong></td>
+                            <td><strong>Groundnuts</strong></td>
                             <td>Roasted</td>
                             <td>280</td>
                             <td>300</td>
                             <td>4,500</td>
                             <td>1,260,000</td>
-                            <td><span class="status-badge warning">Low Stock</small></td>
+                            <td><span class="badge bg-warning">Low Stock</span></td>
                             <td>09/01/2026</td>
                             <td>
                                 <button class="action-icon-btn" title="View Details">View</button>
@@ -409,13 +247,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td></strong></td>
+                            <td><strong>Soybeans</strong></td>
                             <td>Organic</td>
                             <td>1,800</td>
                             <td>400</td>
                             <td>2,800</td>
                             <td>5,040,000</td>
-                            <td><span class="badge bg-success">Adequate</small></td>
+                            <td><span class="badge bg-success">Adequate</span></td>
                             <td>08/01/2026</td>
                             <td>
                                 <button class="action-icon-btn" title="View Details">👁️</button>
@@ -424,13 +262,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td></strong></td>
+                            <td><strong>Sorghum</strong></td>
                             <td>White</td>
                             <td>950</td>
                             <td>200</td>
                             <td>1,800</td>
                             <td>1,710,000</td>
-                            <td><span class="badge bg-success">Adequate</small></td>
+                            <td><span class="badge bg-success">Adequate</span></td>
                             <td>07/01/2026</td>
                             <td>
                                 <button class="action-icon-btn" title="View Details">👁️</button>
@@ -439,13 +277,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td></strong></td>
+                            <td><strong>Millet</strong></td>
                             <td>Pearl</td>
                             <td>720</td>
                             <td>250</td>
                             <td>2,000</td>
                             <td>1,440,000</td>
-                            <td><span class="badge bg-success">Adequate</small></td>
+                            <td><span class="badge bg-success">Adequate</span></td>
                             <td>07/01/2026</td>
                             <td>
                                 <button class="action-icon-btn" title="View Details">👁️</button>
@@ -465,13 +303,13 @@
             </div>
             <div class="alerts-section">
                 <div class="alert-box warning">
-                    <span class="alert-icon"></small>
+                    <span class="alert-icon">⚠️</span>
                     <div class="alert-content">
                         <strong>Beans (Red Beans):</strong> Current stock 450 kg is below minimum threshold of 500 kg. Restock needed urgently.
                     </div>
                 </div>
                 <div class="alert-box warning">
-                    <span class="alert-icon"></small>
+                    <span class="alert-icon">⚠️</span>
                     <div class="alert-content">
                         <strong>Groundnuts (Roasted):</strong> Current stock 280 kg is below minimum threshold of 300 kg. Restock needed urgently.
                     </div>
@@ -506,7 +344,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="adjustReason">Reason *</label>
-                        <textarea id="adjustReason" rows="3" required></div>
+                        <textarea id="adjustReason" rows="3" required></textarea>
+                    </div>
                     <div class="form-actions">
                         <button type="button" class="btn-secondary" id="cancelBtn">Cancel</button>
                         <button type="submit" class="btn btn-primary" class="btn-primary">Submit Adjustment</button>
@@ -515,9 +354,9 @@
             </div>
         </div>
     </main>
+</div>
 
     <!-- Bootstrap 5 JS Bundle -->
-    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

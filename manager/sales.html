@@ -7,52 +7,80 @@
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
-        <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="#">KGL</a>
-            <span class="navbar-text text-white mx-2">|</span>
-            <span class="navbar-text text-white">Manager: <strong>Natugonza Mohammed</strong></span>
-            <span class="navbar-text text-white mx-2">|</span>
-            <span class="navbar-text text-white">Branch: <strong>Branch A</strong></span>
+<body style="margin: 0; padding: 0; overflow-x: hidden;">
+    <!-- Sidebar Navigation -->
+    <aside class="bg-success text-white position-fixed top-0 start-0 h-100 d-flex flex-column" style="width: 260px; z-index: 1000;">
+        <div class="p-3 border-bottom border-white border-opacity-25">
+            <a href="#" class="text-white text-decoration-none fs-3 fw-bold d-block mb-3">KGL</a>
+            <p class="mb-0 small">
+                <strong>Natugonza Mohammed</strong><br>
+                <span>Branch A - Kampala</span>
+            </p>
         </div>
         
-            <button class="btn btn-outline-light btn-sm ms-auto">Logout</button>
+        <nav class="flex-grow-1 overflow-auto" style="scrollbar-width: thin;">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="manager-dashboard.html">
+                        📊 Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="procure.html">
+                        📦 Procure Stock
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="stock.html">
+                        🏪 View Stock
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white bg-white bg-opacity-25 rounded" href="sales.html">
+                        💰 Record Sale
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="prices.html">
+                        💵 Manage Prices
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="credit-sales.html">
+                        💳 Credit Sales
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="reports.html">
+                        📈 Reports
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="p-3 border-top border-white border-opacity-25">
+            <button class="btn btn-light w-100">Logout</button>
         </div>
-    </div></nav>
+    </aside>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <div class="container-fluid">
-            <ul class="nav nav-pills">
-            <li class="nav-item">
-                    <a class="nav-link" href="manager-dashboard.html">Dashboard</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="procure.html">Procure</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="stock.html">Stock</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link active" href="sales.html">Sales</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="prices.html">Prices</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="credit-sales.html">Credit Sales</a>
-            </li>
-            <li class="nav-item">
-                    <a class="nav-link" href="reports.html">Reports</a>
-            </li>
-        </ul>
-        </div>
-    </nav>
+    <!-- Main Content Area -->
+    <div style="margin-left: 260px; min-height: 100vh; background-color: #f8f9fa;">
+        <!-- Top Header -->
+        <header class="bg-white border-bottom p-3 sticky-top">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1 class="h4 mb-0">Sales Management</h1>
+                    <p class="text-muted mb-0 small">Record and track sales transactions</p>
+                </div>
+                <div class="text-muted small">
+                    <span id="currentDate"></span>
+                </div>
+            </div>
+        </header>
 
-    <!-- Main Content -->
-    <main class="container-fluid py-4">
+        <!-- Content Area -->
+        <main class="p-4">
+
         <div class="mb-4">
             <h2>Sales Management</h2>
             <p class="text-muted">Record and track sales transactions</p>
@@ -258,7 +286,7 @@
                             name="notes" 
                             rows="3"
                             placeholder="Enter any additional notes"
-                        ></div>
+                        ></textarea>
                 </div>
 
                 <div class="form-actions">
@@ -412,9 +440,9 @@
             </div>
         </div>
     </main>
+</div>
 
     <!-- Bootstrap 5 JS Bundle -->
-    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
