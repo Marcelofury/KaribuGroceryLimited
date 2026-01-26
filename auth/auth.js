@@ -68,3 +68,14 @@ function login(){
         routeUser(user.role);
     }, 1000)
 }
+
+// role based routing
+function routeUser(role) {
+  if (role === "Manager") {
+    window.location.href = "manager\manager-dashboard.html";
+  } else if (role === "Director") {
+    window.location.href = "director\director-dashboard.html";
+  } else if (role === "Sales Agent") {
+    window.location.href = "salesAgent\sales-agent-dashboard.html";
+  }
+}
