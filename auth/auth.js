@@ -1,4 +1,4 @@
-Default user set up
+//Default user set up
 (function initDefaultUser(){
     if (!localStorage.getItem('registrationUsers')){
         const users = [
@@ -28,4 +28,43 @@ function showToast(message, type){
         toast.classList.remove('show');
         setTimeout(() => toast.remove(), 500);
     },3000);
+}
+
+//login validation logic
+
+function login(){
+    const username = document.getElementById('username').ariaValueMax.trim();
+    const password = document.getElementById('password').ariaValueMax.trim();
+
+    if (!username ||  !password){
+        showToast('please enter both username and password.', 'error');
+        return;
+    }
+
+    const users = JSON.parse(localStorage.getItem('registeredUsers')) || [];
+    const user = users.find(u => u.username === username);
+
+    if (!user){
+        showToast('username does not exist.','error');
+        return;
+    }
+
+    if (user.password !== password){
+        showToast('incorrect password. Please try again.', 'error';)
+        return;
+    }
+
+
+    // store session
+    localStorage.setItem('currentSession, JSON.stringify'({
+        username : user.username,
+        role: user.role
+    }
+    ));
+
+    showToast('Login successful', 'success');
+
+    setTimeout(() => {
+        routeUser(user.role);
+    }, 1000)
 }
