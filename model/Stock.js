@@ -25,6 +25,26 @@ const stockSchema = new mongoose.Schema({
     default: 50,
     min: [0, 'Reorder level cannot be negative']
   },
+  supplier: {
+    type: String
+  },
+  supplierContact: {
+    type: String
+  },
+  costPrice: {
+    type: Number,
+    min: [0, 'Cost price cannot be negative']
+  },
+  sellingPrice: {
+    type: Number,
+    min: [0, 'Selling price cannot be negative']
+  },
+  procurementDate: {
+    type: Date
+  },
+  notes: {
+    type: String
+  },
   lastRestocked: {
     type: Date
   },
