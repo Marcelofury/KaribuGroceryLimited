@@ -6,6 +6,8 @@
     <title>KGL - Stock Availability</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <body class="overflow-x-hidden">
     <!-- Sidebar Navigation -->
@@ -60,7 +62,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <div>
                     <h1 class="h4 mb-0">Stock Availability</h1>
-                    <p class="text-muted mb-0 small">Branch A - Kampala</p>
+                    <p class="text-muted mb-0 small user-branch">Loading...</p>
                 </div>
                 <div class="text-muted small">
                     <span id="currentDate"></span>
@@ -115,7 +117,7 @@
                         <div class="d-flex align-items-center">
                             <div class="flex-grow-1">
                                 <h6 class="card-title text-muted mb-1">Total Items</h6>
-                                <div class="fs-4 fw-bold" id="totalItems">24</div>
+                                <div class="fs-4 fw-bold" id="totalItems">0</div>
                                 <small class="text-muted">Produce types</small>
                             </div>
                         </div>
@@ -129,7 +131,7 @@
                         <div class="d-flex align-items-center">
                             <div class="flex-grow-1">
                                 <h6 class="card-title text-muted mb-1">In Stock</h6>
-                                <div class="fs-4 fw-bold" id="inStockItems">18</div>
+                                <div class="fs-4 fw-bold" id="inStockItems">0</div>
                                 <small class="text-muted">Items available</small>
                             </div>
                         </div>
@@ -143,7 +145,7 @@
                         <div class="d-flex align-items-center">
                             <div class="flex-grow-1">
                                 <h6 class="card-title text-muted mb-1">Low Stock</h6>
-                                <div class="fs-4 fw-bold" id="lowStockItems">4</div>
+                                <div class="fs-4 fw-bold" id="lowStockItems">0</div>
                                 <small class="text-muted">Need attention</small>
                             </div>
                         </div>
@@ -157,7 +159,7 @@
                         <div class="d-flex align-items-center">
                             <div class="flex-grow-1">
                                 <h6 class="card-title text-muted mb-1">Out of Stock</h6>
-                                <div class="fs-4 fw-bold" id="outStockItems">2</div>
+                                <div class="fs-4 fw-bold" id="outStockItems">0</div>
                                 <small class="text-muted">Items unavailable</small>
                             </div>
                         </div>
@@ -171,31 +173,9 @@
             <div class="card-header bg-white">
                 <h5 class="mb-0">Stock Alerts</h5>
             </div>
-            <div class="card-body">
-                <div class="alert alert-warning d-flex align-items-center mb-3" role="alert">
-                    <div class="me-3 fs-5">&#9888;</div>
-                    <div>
-                        <strong>Low Stock:</strong> Beans (Red Beans) - Only 450 kg remaining (Reorder at 500 kg)
-                    </div>
-                </div>
-                <div class="alert alert-warning d-flex align-items-center mb-3" role="alert">
-                    <div class="me-3 fs-5">&#9888;</div>
-                    <div>
-                        <strong>Low Stock:</strong> Groundnuts (Roasted) - Only 280 kg remaining (Reorder at 300 kg)
-                    </div>
-                </div>
-                <div class="alert alert-danger d-flex align-items-center mb-3" role="alert">
-                    <div class="me-3 fs-5">&#10060;</div>
-                    <div>
-                        <strong>Out of Stock:</strong> Sesame Seeds (White) - 0 kg available
-                    </div>
-                </div>
-                <div class="alert alert-danger d-flex align-items-center mb-0" role="alert">
-                    <div class="me-3 fs-5">&#10060;</div>
-                    <div>
-                        <strong>Out of Stock:</strong> Sunflower Seeds - 0 kg available
-                    </div>
-                </div>
+            <div class="card-body" id="alertsContainer">
+                <!-- Alerts will be loaded dynamically here -->
+                <p class="text-muted mb-0">Loading alerts...</p>
             </div>
         </section>
 
@@ -254,6 +234,8 @@
 
 <!-- Page Protection -->
 <script src="../auth/auth.guard.js"></script>
+<!-- Stock View Handler -->
+<script src="agent-stock-view.js"></script>
 
 </body>
 </html>
