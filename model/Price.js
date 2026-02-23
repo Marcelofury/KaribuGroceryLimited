@@ -8,10 +8,10 @@ const priceSchema = new mongoose.Schema({
   },
   branch: {
     type: String,
-    required: [true, 'Branch is required'],
+    required: false, // Made optional - prices are now shared across branches
     enum: {
-      values: ['Maganjo', 'Matugga'],
-      message: 'Branch must be either Maganjo or Matugga'
+      values: ['Maganjo', 'Matugga', null],
+      message: 'Branch must be either Maganjo, Matugga, or null for shared pricing'
     }
   },
   sellingPrice: {
@@ -41,9 +41,8 @@ const priceSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// Compound index for unique active price per product per branch
-priceSchema.index({ product: 1, branch: 1, isActive: 1 });
-priceSchema.index({ branch: 1 });
+// Index for unique active price per product (shared across branches)
+priceSchema.index({ product: 1, isActive: 1 });
 priceSchema.index({ effectiveDate: -1 });
 
 // Virtual for profit margin
@@ -63,10 +62,9 @@ priceSchema.pre('save', async function(next) {
   }
 
   try {
-    // Deactivate all previous prices for this product and branch
+    // Deactivate all previous prices for this product (shared across branches)
     await this.constructor.updateMany({
       product: this.product,
-      branch: this.branch,
       isActive: true,
       _id: { $ne: this._id }
     }, {
