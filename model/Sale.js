@@ -17,16 +17,14 @@ const saleItemSchema = new mongoose.Schema({
     min: [0, 'Unit price cannot be negative']
   },
   totalPrice: {
-    type: Number,
-    required: true
+    type: Number
   }
 }, { _id: false });
 
 const saleSchema = new mongoose.Schema({
   saleNumber: {
     type: String,
-    unique: true,
-    required: true
+    unique: true
   },
   branch: {
     type: String,
@@ -52,7 +50,6 @@ const saleSchema = new mongoose.Schema({
   },
   totalAmount: {
     type: Number,
-    required: true,
     min: [0, 'Total amount cannot be negative']
   },
   paymentMethod: {
