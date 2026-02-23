@@ -114,12 +114,7 @@ app.use('/api/dashboard', dashboardRoutes);
 
 // Root route
 app.get('/', (req, res) => {
-  res.json({
-    success: true,
-    message: 'KGL API Server is running',
-    version: '1.0.0',
-    documentation: '/api-docs'
-  });
+  res.redirect('/auth/login.html');
 });
 
 // Health check route

@@ -55,7 +55,7 @@ const router = express.Router();
  */
 router.post(
   '/register',
-  [
+  validate([
     body('fullName')
       .trim()
       .isLength({ min: 2 })
@@ -82,13 +82,13 @@ router.post(
       .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]/)
       .withMessage('Password must contain uppercase, lowercase, number, and special character'),
     body('role')
-      .isIn(['manager', 'sales-agent'])
-      .withMessage('Role must be either manager or sales-agent'),
+      .isIn(['director', 'manager', 'sales-agent'])
+      .withMessage('Role must be director, manager, or sales-agent'),
     body('branch')
+      .optional()
       .isIn(['Maganjo', 'Matugga'])
-      .withMessage('Branch must be either Maganjo or Matugga'),
-    validate
-  ],
+      .withMessage('Branch must be either Maganjo or Matugga')
+  ]),
   register
 );
 
@@ -115,16 +115,15 @@ router.post(
  */
 router.post(
   '/login',
-  [
+  validate([
     body('username')
       .trim()
       .notEmpty()
       .withMessage('Username is required'),
     body('password')
       .notEmpty()
-      .withMessage('Password is required'),
-    validate
-  ],
+      .withMessage('Password is required')
+  ]),
   login
 );
 
@@ -176,15 +175,14 @@ router.post('/logout', protect, logout);
 router.put(
   '/updatepassword',
   protect,
-  [
+  validate([
     body('currentPassword')
       .notEmpty()
       .withMessage('Current password is required'),
     body('newPassword')
       .isLength({ min: 8 })
-      .withMessage('New password must be at least 8 characters long'),
-    validate
-  ],
+      .withMessage('New password must be at least 8 characters long')
+  ]),
   updatePassword
 );
 

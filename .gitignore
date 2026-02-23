@@ -38,6 +38,6 @@ tmp/
 temp/
 
 #others
- /TESTING_CHECKLIST.md
+ TESTING_CHECKLIST.md
  /tests/
 
