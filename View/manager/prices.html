@@ -6,6 +6,8 @@
     <title>KGL - Price Management</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <body class="overflow-x-hidden">
     <!-- Sidebar Navigation -->
@@ -50,16 +52,11 @@
                         <i class="bi bi-credit-card"></i> Credit Sales
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="reports.html">
-                        <i class="bi bi-graph-up"></i> Reports
-                    </a>
-                </li>
             </ul>
         </nav>
         
         <div class="p-3 border-top border-white border-opacity-25">
-            <button class="btn btn-light w-100">Logout</button>
+            <button class="btn btn-light w-100" onclick="logout()">Logout</button>
         </div>
     </aside>
 
@@ -70,7 +67,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <div>
                     <h1 class="h4 mb-0">Price Management</h1>
-                    <p class="text-muted mb-0 small">View and update produce pricing</p>
+                    <p class="text-muted mb-0 small header-branch">Loading...</p>
                 </div>
                 <div class="text-muted small">
                     <span id="currentDate"></span>
@@ -90,7 +87,7 @@
                         <div class="d-flex align-items-center">
                             <div class="flex-grow-1">
                                 <h6 class="card-title text-muted mb-1">Average Price</h6>
-                                <div class="fs-4 fw-bold" id="avgPrice">UGX 2,450/kg</div>
+                                <div class="fs-4 fw-bold" id="avgPrice">UGX 0/kg</div>
                                 <small class="text-muted">Across All Produce</small>
                             </div>
                         </div>
@@ -104,7 +101,7 @@
                         <div class="d-flex align-items-center">
                             <div class="flex-grow-1">
                                 <h6 class="card-title text-muted mb-1">Price Increases</h6>
-                                <div class="fs-4 fw-bold" id="priceIncreases">3</div>
+                                <div class="fs-4 fw-bold" id="priceIncreases">0</div>
                                 <small class="text-muted">This Month</small>
                             </div>
                         </div>
@@ -118,7 +115,7 @@
                         <div class="d-flex align-items-center">
                             <div class="flex-grow-1">
                                 <h6 class="card-title text-muted mb-1">Price Decreases</h6>
-                                <div class="fs-4 fw-bold" id="priceDecreases">1</div>
+                                <div class="fs-4 fw-bold" id="priceDecreases">0</div>
                                 <small class="text-muted">This Month</small>
                             </div>
                         </div>
@@ -132,8 +129,8 @@
                         <div class="d-flex align-items-center">
                             <div class="flex-grow-1">
                                 <h6 class="card-title text-muted mb-1">Last Updated</h6>
-                                <div class="fs-4 fw-bold" id="lastUpdate">09/01/2026</div>
-                                <small class="text-muted">Most Recent Change</small>
+                                <div class="fs-4 fw-bold" id="lastUpdate">Never</div>
+                                <small class="text-muted">No updates yet</small>
                             </div>
                         </div>
                     </div>
@@ -153,14 +150,7 @@
                         <label for="produceSelect" class="form-label">Select Produce *</label>
                         <select class="form-select" id="produceSelect" name="produceSelect" required>
                             <option value="">Select produce to update</option>
-                            <option value="maize">Maize - Yellow Maize</option>
-                            <option value="beans">Beans - Red Beans</option>
-                            <option value="rice">Rice - Sindano</option>
-                            <option value="wheat">Wheat - Hard Red</option>
-                            <option value="sorghum">Sorghum - White</option>
-                            <option value="millet">Millet - Pearl</option>
-                            <option value="groundnuts">Groundnuts - Roasted</option>
-                            <option value="soybeans">Soybeans - Organic</option>
+                            <!-- Products will be loaded dynamically from API -->
                         </select>
                     </div>
 
@@ -283,124 +273,100 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr data-produce="maize" data-price="1800">
+                        <tr>
                             <td><strong>Maize</strong></td>
                             <td>Yellow Maize</td>
-                            <td>UGX 1,600</td>
                             <td>UGX 1,800</td>
-                            <td class="text-success">+12.5%</td>
-                            <td>09/01/2026</td>
-                            <td><span class="badge bg-success">↑ UGX 50</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-outline-success" title="Edit Price">Edit</button>
-                                    <button class="btn btn-sm btn-outline-info" title="Price History">History</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr data-produce="beans" data-price="2400">
-                            <td><strong>Beans</strong></td>
-                            <td>Red Beans</td>
-                            <td>UGX 2,250</td>
-                            <td>UGX 2,400</td>
-                            <td class="text-success">+6.7%</td>
-                            <td>08/01/2026</td>
-                            <td><span class="badge bg-secondary">—</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-outline-success" title="Edit Price">Edit</button>
-                                    <button class="btn btn-sm btn-outline-info" title="Price History">History</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr data-produce="rice" data-price="4000">
-                            <td><strong>Rice</strong></td>
-                            <td>Sindano</td>
-                            <td>UGX 3,800</td>
-                            <td>UGX 4,000</td>
-                            <td class="text-success">+5.3%</td>
-                            <td>07/01/2026</td>
-                            <td><span class="badge bg-success">↑ UGX 100</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-outline-success" title="Edit Price">Edit</button>
-                                    <button class="btn btn-sm btn-outline-info" title="Price History">History</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr data-produce="wheat" data-price="2500">
-                            <td><strong>Wheat</strong></td>
-                            <td>Hard Red</td>
-                            <td>UGX 2,200</td>
-                            <td>UGX 2,500</td>
-                            <td class="text-success">+13.6%</td>
-                            <td>06/01/2026</td>
-                            <td><span class="badge bg-danger">↓ UGX 50</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-outline-success" title="Edit Price">Edit</button>
-                                    <button class="btn btn-sm btn-outline-info" title="Price History">History</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr data-produce="groundnuts" data-price="5000">
-                            <td><strong>Groundnuts</strong></td>
-                            <td>Roasted</td>
-                            <td>UGX 4,500</td>
-                            <td>UGX 5,000</td>
+                            <td>UGX 2,000</td>
                             <td class="text-success">+11.1%</td>
                             <td>09/01/2026</td>
-                            <td><span class="badge bg-success">↑ UGX 200</span></td>
+                            <td><span class="badge bg-success">↑ 5%</span></td>
                             <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-outline-success" title="Edit Price">Edit</button>
-                                    <button class="btn btn-sm btn-outline-info" title="Price History">History</button>
-                                </div>
+                                <button class="btn btn-sm btn-outline-primary">Edit</button>
                             </td>
                         </tr>
-                        <tr data-produce="soybeans" data-price="3200">
-                            <td><strong>Soybeans</strong></td>
-                            <td>Organic</td>
+                        <tr>
+                            <td><strong>Beans</strong></td>
+                            <td>Red Beans</td>
+                            <td>UGX 3,200</td>
+                            <td>UGX 3,500</td>
+                            <td class="text-success">+9.4%</td>
+                            <td>09/01/2026</td>
+                            <td><span class="badge bg-secondary">—</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary">Edit</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rice</strong></td>
+                            <td>Sindano</td>
                             <td>UGX 2,800</td>
                             <td>UGX 3,200</td>
                             <td class="text-success">+14.3%</td>
                             <td>08/01/2026</td>
                             <td><span class="badge bg-secondary">—</span></td>
                             <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-outline-success" title="Edit Price">Edit</button>
-                                    <button class="btn btn-sm btn-outline-info" title="Price History">History</button>
-                                </div>
+                                <button class="btn btn-sm btn-outline-primary">Edit</button>
                             </td>
                         </tr>
-                        <tr data-produce="sorghum" data-price="2000">
+                        <tr>
+                            <td><strong>Wheat</strong></td>
+                            <td>Hard Red</td>
+                            <td>UGX 2,500</td>
+                            <td>UGX 2,800</td>
+                            <td class="text-success">+12.0%</td>
+                            <td>09/01/2026</td>
+                            <td><span class="badge bg-danger">↓ 3%</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary">Edit</button>
+                            </td>
+                        </tr>
+                        <tr>
                             <td><strong>Sorghum</strong></td>
                             <td>White</td>
+                            <td>UGX 1,600</td>
                             <td>UGX 1,800</td>
-                            <td>UGX 2,000</td>
-                            <td class="text-success">+11.1%</td>
-                            <td>05/01/2026</td>
+                            <td class="text-success">+12.5%</td>
+                            <td>07/01/2026</td>
                             <td><span class="badge bg-secondary">—</span></td>
                             <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-outline-success" title="Edit Price">Edit</button>
-                                    <button class="btn btn-sm btn-outline-info" title="Price History">History</button>
-                                </div>
+                                <button class="btn btn-sm btn-outline-primary">Edit</button>
                             </td>
                         </tr>
-                        <tr data-produce="millet" data-price="2200">
+                        <tr>
                             <td><strong>Millet</strong></td>
                             <td>Pearl</td>
                             <td>UGX 2,000</td>
-                            <td>UGX 2,200</td>
-                            <td class="text-success">+10.0%</td>
-                            <td>05/01/2026</td>
-                            <td><span class="badge bg-success">↑ UGX 100</span></td>
+                            <td>UGX 2,300</td>
+                            <td class="text-success">+15.0%</td>
+                            <td>09/01/2026</td>
+                            <td><span class="badge bg-success">↑ 8%</span></td>
                             <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-outline-success" title="Edit Price">Edit</button>
-                                    <button class="btn btn-sm btn-outline-info" title="Price History">History</button>
-                                </div>
+                                <button class="btn btn-sm btn-outline-primary">Edit</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Groundnuts</strong></td>
+                            <td>Roasted</td>
+                            <td>UGX 4,500</td>
+                            <td>UGX 5,000</td>
+                            <td class="text-success">+11.1%</td>
+                            <td>09/01/2026</td>
+                            <td><span class="badge bg-secondary">—</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary">Edit</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Soybeans</strong></td>
+                            <td>Organic</td>
+                            <td>UGX 3,800</td>
+                            <td>UGX 4,200</td>
+                            <td class="text-success">+10.5%</td>
+                            <td>08/01/2026</td>
+                            <td><span class="badge bg-secondary">—</span></td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary">Edit</button>
                             </td>
                         </tr>
                     </tbody>
@@ -427,46 +393,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>09/01/2026</td>
-                            <td></strong></td>
-                            <td>UGX 1,750</td>
-                            <td>UGX 1,800</td>
-                            <td><span class="price-change up">+2.9%</small></td>
-                            <td>Increased supplier costs</td>
-                            <td>John Doe</td>
-                        </tr>
-                        <tr>
-                            <td>09/01/2026</td>
-                            <td></strong></td>
-                            <td>UGX 4,800</td>
-                            <td>UGX 5,000</td>
-                            <td><span class="price-change up">+4.2%</small></td>
-                            <td>High market demand</td>
-                            <td>John Doe</td>
-                        </tr>
-                        <tr>
-                            <td>07/01/2026</td>
-                            <td></strong></td>
-                            <td>UGX 3,900</td>
-                            <td>UGX 4,000</td>
-                            <td><span class="price-change up">+2.6%</small></td>
-                            <td>Import costs increased</td>
-                            <td>John Doe</td>
-                        </tr>
-                        <tr>
-                            <td>06/01/2026</td>
-                            <td></strong></td>
-                            <td>UGX 2,550</td>
-                            <td>UGX 2,500</td>
-                            <td><span class="price-change down">-2.0%</small></td>
-                            <td>Promotion to increase sales</td>
-                            <td>John Doe</td>
-                        </tr>
+                        <!-- Data will be loaded from API -->
                     </tbody>
                 </table>
             </div>
-        </div>
+        </section>
             </div>
         </main>
     </div>
@@ -475,6 +406,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Page Protection -->
     <script src="../auth/auth.guard.js"></script>
+    <!-- Prices Data Fetching -->
+    <script src="prices.js"></script>
 </body>
 </html>
 
