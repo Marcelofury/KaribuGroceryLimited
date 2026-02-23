@@ -6,6 +6,8 @@
     <title>KGL - My Sales</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <body class="overflow-x-hidden">
     <!-- Sidebar Navigation -->
@@ -60,7 +62,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <div>
                     <h1 class="h4 mb-0">My Sales History</h1>
-                    <p class="text-muted mb-0 small">Branch A - Kampala</p>
+                    <p class="text-muted mb-0 small user-branch">Loading...</p>
                 </div>
                 <div class="text-muted small">
                     <span id="currentDate"></span>
@@ -84,8 +86,8 @@
                         <div class="d-flex align-items-center">
                             <div class="flex-grow-1">
                                 <h6 class="card-title text-muted mb-1">Today's Sales</h6>
-                                <div class="fs-4 fw-bold" id="todaySales">UGX 2,400,000</div>
-                                <small class="text-muted">8 Transactions</small>
+                                <div class="fs-4 fw-bold" id="todaySales">UGX 0</div>
+                                <small class="text-muted">0 Transactions</small>
                             </div>
                         </div>
                     </div>
@@ -98,8 +100,8 @@
                         <div class="d-flex align-items-center">
                             <div class="flex-grow-1">
                                 <h6 class="card-title text-muted mb-1">This Week</h6>
-                                <div class="fs-4 fw-bold" id="weekSales">UGX 12,500,000</div>
-                                <small class="text-muted">45 Transactions</small>
+                                <div class="fs-4 fw-bold" id="weekSales">UGX 0</div>
+                                <small class="text-muted">0 Transactions</small>
                             </div>
                         </div>
                     </div>
@@ -112,8 +114,8 @@
                         <div class="d-flex align-items-center">
                             <div class="flex-grow-1">
                                 <h6 class="card-title text-muted mb-1">This Month</h6>
-                                <div class="fs-4 fw-bold" id="monthSales">UGX 28,900,000</div>
-                                <small class="text-muted">124 Transactions</small>
+                                <div class="fs-4 fw-bold" id="monthSales">UGX 0</div>
+                                <small class="text-muted">0 Transactions</small>
                             </div>
                         </div>
                     </div>
@@ -126,7 +128,7 @@
                         <div class="d-flex align-items-center">
                             <div class="flex-grow-1">
                                 <h6 class="card-title text-muted mb-1">Avg Transaction</h6>
-                                <div class="fs-4 fw-bold" id="avgSale">UGX 233,065</div>
+                                <div class="fs-4 fw-bold" id="avgSale">UGX 0</div>
                                 <small class="text-muted">Per sale</small>
                             </div>
                         </div>
@@ -279,6 +281,8 @@
 
 <!-- Page Protection -->
 <script src="../auth/auth.guard.js"></script>
+<!-- My Sales Handler -->
+<script src="agent-my-sales.js"></script>
 
 </body>
 </html>
