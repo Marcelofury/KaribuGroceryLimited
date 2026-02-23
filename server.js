@@ -147,18 +147,18 @@ const PORT = process.env.PORT || 8080;
 
 const server = app.listen(PORT, () => {
   console.log(`
-╔════════════════════════════════════════════╗
-║   🚀 KGL Server Running                   ║
-║   📍 Port: ${PORT}                           ║
-║   🌍 Environment: ${process.env.NODE_ENV || 'development'}              ║
-║   📚 API Docs: http://localhost:${PORT}/api-docs ║
-╚════════════════════════════════════════════╝
+================================================
+   [SERVER] KGL Server Running
+   Port: ${PORT}
+   Environment: ${process.env.NODE_ENV || 'development'}
+   API Docs: http://localhost:${PORT}/api-docs
+================================================
   `);
 });
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (err) => {
-  console.error(`❌ Unhandled Rejection: ${err.message}`);
+  console.error(`[ERROR] Unhandled Rejection: ${err.message}`);
   server.close(() => process.exit(1));
 });
 
