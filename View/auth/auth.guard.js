@@ -46,10 +46,14 @@
   function updateUserDisplay(user) {
     const userNameEl = document.querySelector('.user-name');
     const branchEl = document.querySelector('.user-branch');
+    const headerBranchEl = document.querySelector('.header-branch');
     
     if (userNameEl) userNameEl.textContent = user.fullName;
     if (branchEl) {
       branchEl.textContent = user.branch ? `${user.branch} Branch` : 'All Branches';
+    }
+    if (headerBranchEl) {
+      headerBranchEl.textContent = user.branch ? `${user.branch} Branch` : 'All Branches';
     }
   }
   
