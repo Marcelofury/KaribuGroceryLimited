@@ -17,7 +17,7 @@ exports.getPrices = async (req, res, next) => {
       });
     }
 
-    filter.branch = req.user.branch;
+    // Prices are now shared across all branches - no branch filter
 
     // Filter by active status
     if (isActive !== undefined) {
@@ -27,7 +27,7 @@ exports.getPrices = async (req, res, next) => {
     }
 
     const prices = await Price.find(filter)
-      .populate('product', 'name category unit')
+      .populate('product', 'name category unit variety')
       .populate('updatedBy', 'fullName')
       .sort({ 'product.name': 1 });
 
@@ -58,12 +58,12 @@ exports.getPriceByProduct = async (req, res, next) => {
     
     const filter = {
       product: productId,
-      branch: req.user.branch,
       isActive: true
     };
+    // Prices are now shared across all branches - no branch filter
 
     const price = await Price.findOne(filter)
-      .populate('product', 'name category unit')
+      .populate('product', 'name category unit variety')
       .populate('updatedBy', 'fullName');
 
     if (!price) {
