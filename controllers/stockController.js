@@ -121,7 +121,18 @@ exports.updateStock = async (req, res, next) => {
 // @access  Private (Manager only)
 exports.createOrUpdateStock = async (req, res, next) => {
   try {
-    const { product, branch, quantity, reorderLevel } = req.body;
+    const { 
+      product, 
+      branch, 
+      quantity, 
+      reorderLevel, 
+      supplier, 
+      supplierContact, 
+      costPrice, 
+      sellingPrice, 
+      procurementDate, 
+      notes 
+    } = req.body;
 
     // Verify product exists
     const productExists = await Product.findById(product);
@@ -139,6 +150,12 @@ exports.createOrUpdateStock = async (req, res, next) => {
       // Update existing stock
       stock.quantity = quantity;
       if (reorderLevel !== undefined) stock.reorderLevel = reorderLevel;
+      if (supplier) stock.supplier = supplier;
+      if (supplierContact) stock.supplierContact = supplierContact;
+      if (costPrice !== undefined) stock.costPrice = costPrice;
+      if (sellingPrice !== undefined) stock.sellingPrice = sellingPrice;
+      if (procurementDate) stock.procurementDate = procurementDate;
+      if (notes) stock.notes = notes;
       stock.lastRestocked = Date.now();
       stock.restockedBy = req.user._id;
       await stock.save();
@@ -149,6 +166,12 @@ exports.createOrUpdateStock = async (req, res, next) => {
         branch,
         quantity,
         reorderLevel: reorderLevel || 50,
+        supplier,
+        supplierContact,
+        costPrice,
+        sellingPrice,
+        procurementDate,
+        notes,
         lastRestocked: Date.now(),
         restockedBy: req.user._id
       });
