@@ -6,6 +6,8 @@
     <title>KGL - Credit Sales Management</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <body class="overflow-x-hidden">
     <!-- Sidebar Navigation -->
@@ -50,16 +52,12 @@
                         <i class="bi bi-credit-card"></i> Credit Sales
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="reports.html">
-                        <i class="bi bi-graph-up"></i> Reports
-                    </a>
-                </li>
+
             </ul>
         </nav>
         
         <div class="p-3 border-top border-white border-opacity-25">
-            <button class="btn btn-light w-100">Logout</button>
+            <button class="btn btn-light w-100" onclick="logout()">Logout</button>
         </div>
     </aside>
 
@@ -70,7 +68,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <div>
                     <h1 class="h4 mb-0">Credit Sales Management</h1>
-                    <p class="text-muted mb-0 small">Track and manage credit sales and payments</p>
+                    <p class="text-muted mb-0 small header-branch">Loading...</p>
                 </div>
                 <div class="text-muted small">
                     <span id="currentDate"></span>
@@ -90,7 +88,7 @@
                         <div class="d-flex align-items-center">
                             <div class="flex-grow-1">
                                 <h6 class="card-title text-muted mb-1">Total Outstanding</h6>
-                                <div class="fs-4 fw-bold" id="totalOutstanding">UGX 4,500,000</div>
+                                <div class="fs-4 fw-bold" id="totalOutstanding">UGX 0</div>
                                 <small class="text-muted">All Credit Sales</small>
                             </div>
                         </div>
@@ -104,7 +102,7 @@
                         <div class="d-flex align-items-center">
                             <div class="flex-grow-1">
                                 <h6 class="card-title text-muted mb-1">Overdue</h6>
-                                <div class="fs-4 fw-bold" id="overdueAmount">UGX 800,000</div>
+                                <div class="fs-4 fw-bold" id="overdueAmount">UGX 0</div>
                                 <small class="text-muted">Past Due Date</small>
                             </div>
                         </div>
@@ -118,7 +116,7 @@
                         <div class="d-flex align-items-center">
                             <div class="flex-grow-1">
                                 <h6 class="card-title text-muted mb-1">Collected This Month</h6>
-                                <div class="fs-4 fw-bold" id="collectedMonth">UGX 2,200,000</div>
+                                <div class="fs-4 fw-bold" id="collectedMonth">UGX 0</div>
                                 <small class="text-muted">Payments Received</small>
                             </div>
                         </div>
@@ -132,7 +130,7 @@
                         <div class="d-flex align-items-center">
                             <div class="flex-grow-1">
                                 <h6 class="card-title text-muted mb-1">Active Customers</h6>
-                                <div class="fs-4 fw-bold" id="activeCustomers">12</div>
+                                <div class="fs-4 fw-bold" id="activeCustomers">0</div>
                                 <small class="text-muted">With Outstanding Balance</small>
                             </div>
                         </div>
@@ -141,126 +139,175 @@
             </div>
         </div>
 
-        <!-- Record Payment Form -->
+        <!-- Record Credit Sale Form -->
         <section class="card shadow-sm mb-4">
             <div class="card-header bg-white">
-                <h2 class="mb-0">Record Payment</h2>
+                <h2 class="mb-0">Record Credit Sale</h2>
             </div>
             <div class="card-body">
-            <form id="paymentForm">
+            <form id="creditSaleForm">
                 <div class="row g-3">
                     <div class="col-md-6">
-                        <label for="customerSelect" class="form-label">Select Customer *</label>
-                        <select class="form-select" id="customerSelect" name="customerSelect" required>
-                            <option value="">Select customer</option>
-                            <option value="nakato">Nakato Foods Ltd - UGX 1,200,000</option>
-                            <option value="kampala">Kampala Groceries - UGX 800,000</option>
-                            <option value="buganda">Buganda Grain Co. - UGX 1,500,000</option>
-                            <option value="quality">Quality Foods Co. - UGX 450,000</option>
-                            <option value="ssemakula">Ssemakula Traders - UGX 550,000</option>
-                        </select>
+                        <label for="buyerName" class="form-label">Name of the Buyer *</label>
+                        <input class="form-control" 
+                            type="text" 
+                            id="buyerName" 
+                            name="buyerName" 
+                            placeholder="Enter buyer name"
+                            minlength="2"
+                            pattern="[A-Za-z0-9 ]+"
+                            required
+                        >
+                        <small class="text-muted">Minimum 2 characters, alphanumeric</small>
                     </div>
 
                     <div class="col-md-6">
-                        <label for="outstandingBalance" class="form-label">Outstanding Balance</label>
+                        <label for="nationalId" class="form-label">National ID (NIN) *</label>
                         <input class="form-control" 
                             type="text" 
-                            id="outstandingBalance" 
-                            name="outstandingBalance" 
+                            id="nationalId" 
+                            name="nationalId" 
+                            placeholder="CM12345678ABC123D"
+                            pattern="[A-Z]{2}[0-9]{8}[A-Z]{3}[0-9]{3}[A-Z]"
+                            maxlength="18"
+                            required
+                        >
+                        <small class="text-muted">Valid NIN format (e.g., CM12345678ABC123D)</small>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="location" class="form-label">Location *</label>
+                        <input class="form-control" 
+                            type="text" 
+                            id="location" 
+                            name="location" 
+                            placeholder="Enter location"
+                            minlength="2"
+                            pattern="[A-Za-z0-9 ,.-]+"
+                            required
+                        >
+                        <small class="text-muted">Minimum 2 characters</small>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="contacts" class="form-label">Contact Phone *</label>
+                        <input class="form-control" 
+                            type="tel" 
+                            id="contacts" 
+                            name="contacts" 
+                            placeholder="0700000000 or +256700000000"
+                            pattern="(\+256|0)[0-9]{9}"
+                            required
+                        >
+                        <small class="text-muted">Valid phone format (e.g., 0700000000)</small>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="produceName" class="form-label">Produce Name *</label>
+                        <select class="form-select" id="produceName" name="produceName" required>
+                            <option value="">Select produce</option>
+                            <!-- Products will be loaded dynamically -->
+                        </select>
+                        <small class="text-muted">Not less than 2 characters</small>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="produceType" class="form-label">Type of Produce *</label>
+                        <input class="form-control" 
+                            type="text" 
+                            id="produceType" 
+                            name="produceType" 
                             placeholder="Auto-filled"
                             readonly
+                            required
                         >
                     </div>
                 </div>
 
                 <div class="row g-3">
-                    <div class="col-md-6">
-                        <label for="paymentAmount" class="form-label">Payment Amount (UGX) *</label>
+                    <div class="col-md-4">
+                        <label for="tonnage" class="form-label">Tonnage *</label>
                         <input class="form-control" 
                             type="number" 
-                            id="paymentAmount" 
-                            name="paymentAmount" 
-                            placeholder="Enter payment amount"
-                            step="1000"
-                            min="1000"
+                            id="tonnage" 
+                            name="tonnage" 
+                            placeholder="Enter tonnage"
+                            step="0.01"
+                            min="0.01"
                             required
                         >
+                        <small class="text-muted">In tonnes</small>
                     </div>
 
-                    <div class="col-md-6">
-                        <label for="remainingBalance" class="form-label">Remaining Balance</label>
+                    <div class="col-md-4">
+                        <label for="amountDue" class="form-label">Amount Due (UGX) *</label>
                         <input class="form-control" 
                             type="text" 
-                            id="remainingBalance" 
-                            name="remainingBalance" 
+                            id="amountDue" 
+                            name="amountDue" 
                             placeholder="Auto-calculated"
+                            minlength="5"
                             readonly
+                            required
+                        >
+                        <small class="text-muted">Minimum 5 characters</small>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="unitPrice" class="form-label">Unit Price (UGX/kg)</label>
+                        <input class="form-control" 
+                            type="number" 
+                            id="unitPrice" 
+                            name="unitPrice" 
+                            placeholder="Enter price per kg"
+                            step="1"
+                            min="1"
                         >
                     </div>
                 </div>
 
                 <div class="row g-3">
-                    <div class="col-md-6">
-                        <label for="paymentMethod" class="form-label">Payment Method *</label>
-                        <select class="form-select" id="paymentMethod" name="paymentMethod" required>
-                            <option value="">Select payment method</option>
-                            <option value="cash">Cash</option>
-                            <option value="mobile_money">Mobile Money</option>
-                            <option value="bank_transfer">Bank Transfer</option>
-                            <option value="cheque">Cheque</option>
-                        </select>
+                    <div class="col-md-4">
+                        <label for="salesAgentName" class="form-label">Sales Agent Name *</label>
+                        <input class="form-control" 
+                            type="text" 
+                            id="salesAgentName" 
+                            name="salesAgentName" 
+                            placeholder="Auto-filled"
+                            minlength="2"
+                            readonly
+                            required
+                        >
                     </div>
 
-                    <div class="col-md-6">
-                        <label for="paymentDate" class="form-label">Payment Date *</label>
+                    <div class="col-md-4">
+                        <label for="dueDate" class="form-label">Due Date *</label>
                         <input class="form-control" 
                             type="date" 
-                            id="paymentDate" 
-                            name="paymentDate" 
+                            id="dueDate" 
+                            name="dueDate" 
                             required
                         >
                     </div>
-                </div>
 
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <label for="referenceNumber" class="form-label">Reference Number</label>
+                    <div class="col-md-4">
+                        <label for="dispatchDate" class="form-label">Date of Dispatch *</label>
                         <input class="form-control" 
-                            type="text" 
-                            id="referenceNumber" 
-                            name="referenceNumber" 
-                            placeholder="Transaction/Receipt reference"
-                        >
-                    </div>
-
-                    <div class="col-md-6">
-                        <label for="receivedBy" class="form-label">Received By *</label>
-                        <input class="form-control" 
-                            type="text" 
-                            id="receivedBy" 
-                            name="receivedBy" 
-                            value="John Doe"
+                            type="date" 
+                            id="dispatchDate" 
+                            name="dispatchDate" 
                             required
                         >
-                    </div>
-                </div>
-
-                <div class="row g-3">
-                    <div class="col-12">
-                        <label for="paymentNotes" class="form-label">Payment Notes</label>
-                        <textarea 
-                            class="form-control"
-                            id="paymentNotes" 
-                            name="paymentNotes" 
-                            rows="2"
-                            placeholder="Any additional notes about this payment"
-                        ></textarea>
                     </div>
                 </div>
 
                 <div class="d-flex gap-2 mt-3">
                     <button type="button" class="btn btn-secondary" id="resetBtn">Reset Form</button>
-                    <button type="submit" class="btn btn-primary">Record Payment</button>
+                    <button type="submit" class="btn btn-primary">Record Credit Sale</button>
                 </div>
             </form>
             </div>
@@ -293,173 +340,27 @@
                 <table class="table table-hover table-striped align-middle">
                     <thead class="table-light">
                         <tr>
-                            <th>Invoice #</th>
-                            <th>Customer Name</th>
-                            <th>Contact</th>
-                            <th>Sale Date</th>
+                            <th>Buyer Name</th>
+                            <th>National ID</th>
+                            <th>Location</th>
+                            <th>Contacts</th>
+                            <th>Produce</th>
+                            <th>Type</th>
+                            <th>Tonnage</th>
+                            <th>Amount Due</th>
+                            <th>Sales Agent</th>
                             <th>Due Date</th>
-                            <th>Total Amount</th>
-                            <th>Paid Amount</th>
-                            <th>Balance</th>
-                            <th>Status</th>
-                            <th>Actions</th>
+                            <th>Dispatch Date</th>
                         </tr>
                     </thead>
                     <tbody id="creditSalesTable">
-                        <tr>
-                            <td><strong>#INV-001</strong></td>
-                            <td>Nakato Foods Ltd</td>
-                            <td>0772 123 456</td>
-                            <td>05/01/2026</td>
-                            <td>05/02/2026</td>
-                            <td>UGX 1,500,000</td>
-                            <td>UGX 300,000</td>
-                            <td><strong>UGX 1,200,000</strong></td>
-                            <td><span class="badge bg-warning">Current</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-primary" title="Record Payment">Payment</button>
-                                    <button class="btn btn-sm btn-secondary" title="View Details">View</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><strong>#INV-002</strong></td>
-                            <td>Kampala Groceries</td>
-                            <td>0701 987 654</td>
-                            <td>02/01/2026</td>
-                            <td>07/01/2026</td>
-                            <td>UGX 800,000</td>
-                            <td>UGX 0</td>
-                            <td><strong>UGX 800,000</strong></td>
-                            <td><span class="badge bg-danger">Overdue</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-primary" title="Record Payment">Payment</button>
-                                    <button class="btn btn-sm btn-secondary" title="View Details">View</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><strong>#INV-003</strong></td>
-                            <td>Buganda Grain Co.</td>
-                            <td>0755 246 810</td>
-                            <td>07/01/2026</td>
-                            <td>06/02/2026</td>
-                            <td>UGX 1,500,000</td>
-                            <td>UGX 0</td>
-                            <td><strong>UGX 1,500,000</strong></td>
-                            <td><span class="badge bg-warning">Current</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-primary" title="Record Payment">Payment</button>
-                                    <button class="btn btn-sm btn-secondary" title="View Details">View</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><strong>#INV-004</strong></td>
-                            <td>Quality Foods Co.</td>
-                            <td>0782 555 123</td>
-                            <td>06/01/2026</td>
-                            <td>05/02/2026</td>
-                            <td>UGX 650,000</td>
-                            <td>UGX 200,000</td>
-                            <td><strong>UGX 450,000</strong></td>
-                            <td><span class="badge bg-warning">Current</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-primary" title="Record Payment">Payment</button>
-                                    <button class="btn btn-sm btn-secondary" title="View Details">View</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><strong>#INV-005</strong></td>
-                            <td>Ssemakula Traders</td>
-                            <td>0712 888 999</td>
-                            <td>08/01/2026</td>
-                            <td>07/02/2026</td>
-                            <td>UGX 550,000</td>
-                            <td>UGX 0</td>
-                            <td><strong>UGX 550,000</strong></td>
-                            <td><span class="badge bg-warning">Current</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-primary" title="Record Payment">Payment</button>
-                                    <button class="btn btn-sm btn-secondary" title="View Details">View</button>
-                                </div>
-                            </td>
-                        </tr>
+                        <!-- Data will be loaded from API -->
                     </tbody>
                 </table>
             </div>
         </section>
 
-        <!-- Recent Payments -->
-        <section class="card shadow-sm mb-4">
-            <div class="card-header bg-white">
-                <h2 class="mb-0">Recent Payments</h2>
-            </div>
-            <div class="table-responsive">
-                <table class="table table-hover table-striped align-middle">
-                    <thead class="table-light">
-                        <tr>
-                            <th>Date</th>
-                            <th>Customer</th>
-                            <th>Invoice #</th>
-                            <th>Amount Paid</th>
-                            <th>Payment Method</th>
-                            <th>Reference</th>
-                            <th>Received By</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>09/01/2026</td>
-                            <td>Nakato Foods Ltd</td>
-                            <td>#INV-001</td>
-                            <td>UGX 300,000</td>
-                            <td>Bank Transfer</td>
-                            <td>TXN-2026-0109-001</td>
-                            <td>John Doe</td>
-                        </tr>
-                        <tr>
-                            <td>08/01/2026</td>
-                            <td>Quality Foods Co.</td>
-                            <td>#INV-004</td>
-                            <td>UGX 200,000</td>
-                            <td>Mobile Money</td>
-                            <td>MM-12345678</td>
-                            <td>John Doe</td>
-                        </tr>
-                        <tr>
-                            <td>06/01/2026</td>
-                            <td>Mukono Distributors</td>
-                            <td>#INV-012</td>
-                            <td>UGX 500,000</td>
-                            <td>Cash</td>
-                            <td>RCPT-001234</td>
-                            <td>John Doe</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
 
-        <!-- Overdue Alerts -->
-        <section class="card shadow-sm mb-4">
-            <div class="card-header bg-white">
-                <h2 class="mb-0"><i class="bi bi-exclamation-triangle text-danger"></i> Overdue Payments</h2>
-            </div>
-            <div class="card-body">
-                <div class="alert alert-warning d-flex align-items-center" role="alert">
-                    <div>
-                        <strong>Kampala Groceries</strong> - UGX 800,000 overdue by 2 days (Due: 07/01/2026)
-                    </div>
-                </div>
-            </div>
-        </section>
 
             </div>
         </main>
@@ -469,5 +370,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Page Protection -->
     <script src="../auth/auth.guard.js"></script>
+    <!-- Credit Sales Data Fetching -->
+    <script src="credit-sales.js"></script>
 </body>
 </html>
