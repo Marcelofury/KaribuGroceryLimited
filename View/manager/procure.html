@@ -6,6 +6,8 @@
     <title>KGL - Procure Stock</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <body class="overflow-x-hidden">
     <!-- Sidebar Navigation -->
@@ -50,11 +52,6 @@
                         <i class="bi bi-credit-card"></i> Credit Sales
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="reports.html">
-                        <i class="bi bi-graph-up"></i> Reports
-                    </a>
-                </li>
             </ul>
         </nav>
         
@@ -70,7 +67,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <div>
                     <h1 class="h4 mb-0">Procure Stock</h1>
-                    <p class="text-muted mb-0 small">Add new stock procurement</p>
+                    <p class="text-muted mb-0 small header-branch">Loading...</p>
                 </div>
                 <div class="text-muted small">
                     <span id="currentDate"></span>
@@ -222,9 +219,11 @@
                     <div class="col-md-4">
                         <select id="filterProduce" class="form-select">
                         <option value="">All Produce</option>
-                        <option value="maize">Maize</option>
+                        <option value="maize">Grain Maize</option>
                         <option value="beans">Beans</option>
-                        <option value="rice">Rice</option>
+                        <option value="cowpeas">Cow Peas</option>
+                        <option value="groundnuts">Groundnuts (G-nuts)</option>
+                        <option value="soybeans">Soybeans</option>
                     </select>
                     </div>
                 </div>
@@ -233,103 +232,19 @@
                 <table class="table table-hover table-striped align-middle">
                     <thead class="table-light">
                         <tr>
-                            <th>Date</th>
-                            <th>Produce</th>
-                            <th>Quantity (T)</th>
-                            <th>Unit Price</th>
-                            <th>Total Cost</th>
-                            <th>Supplier</th>
-                            <th>Payment</th>
-                            <th>Status</th>
-                            <th>Actions</th>
+                            <th>Date/Time</th>
+                            <th>Produce Name</th>
+                            <th>Type</th>
+                            <th>Quantity (Kg)</th>
+                            <th>Cost (UGX)</th>
+                            <th>Dealer</th>
+                            <th>Contact</th>
+                            <th>Branch</th>
+                            <th>Selling Price</th>
                         </tr>
                     </thead>
                     <tbody id="procurementsTable">
-                        <tr>
-                            <td>2026-01-09</td>
-                            <td>Maize</td>
-                            <td>5.0</td>
-                            <td>UGX 1,200</td>
-                            <td>UGX 6,000,000</td>
-                            <td>Mukasa Farms</td>
-                            <td>Bank Transfer</td>
-                            <td><span class="badge bg-success">Completed</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-outline-primary" title="View Details"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-outline-success" title="Edit"><i class="bi bi-pencil"></i></button>
-                                    <button class="btn btn-sm btn-outline-secondary" title="Print"><i class="bi bi-printer"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2026-01-08</td>
-                            <td>Beans</td>
-                            <td>3.5</td>
-                            <td>UGX 2,500</td>
-                            <td>UGX 8,750,000</td>
-                            <td>Nakato Traders</td>
-                            <td>Cash</td>
-                            <td><span class="badge bg-success">Completed</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-outline-primary" title="View Details"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-outline-success" title="Edit"><i class="bi bi-pencil"></i></button>
-                                    <button class="btn btn-sm btn-outline-secondary" title="Print"><i class="bi bi-printer"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2026-01-07</td>
-                            <td>Rice</td>
-                            <td>2.0</td>
-                            <td>UGX 3,800</td>
-                            <td>UGX 7,600,000</td>
-                            <td>Ssemakula Ltd</td>
-                            <td>Mobile Money</td>
-                            <td><span class="badge bg-warning">Pending</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-outline-primary" title="View Details"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-outline-success" title="Edit"><i class="bi bi-pencil"></i></button>
-                                    <button class="btn btn-sm btn-outline-secondary" title="Print"><i class="bi bi-printer"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2026-01-06</td>
-                            <td>Wheat</td>
-                            <td>4.5</td>
-                            <td>UGX 2,200</td>
-                            <td>UGX 9,900,000</td>
-                            <td>Kampala Grain Co.</td>
-                            <td>Credit</td>
-                            <td><span class="badge bg-warning">Credit</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-outline-primary" title="View Details"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-outline-success" title="Edit"><i class="bi bi-pencil"></i></button>
-                                    <button class="btn btn-sm btn-outline-secondary" title="Print"><i class="bi bi-printer"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2026-01-05</td>
-                            <td>Sorghum</td>
-                            <td>1.5</td>
-                            <td>UGX 1,800</td>
-                            <td>UGX 2,700,000</td>
-                            <td>Buganda Supplies</td>
-                            <td>Bank Transfer</td>
-                            <td><span class="badge bg-success">Completed</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-outline-primary" title="View Details"><i class="bi bi-eye"></i></button>
-                                    <button class="btn btn-sm btn-outline-success" title="Edit"><i class="bi bi-pencil"></i></button>
-                                    <button class="btn btn-sm btn-outline-secondary" title="Print"><i class="bi bi-printer"></i></button>
-                                </div>
-                            </td>
-                        </tr>
+                        <!-- Data will be loaded from API -->
                     </tbody>
                 </table>
             </div>
@@ -342,6 +257,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Page Protection -->
     <script src="../auth/auth.guard.js"></script>
+    <!-- Procurement Handler -->
+    <script src="procure.js"></script>
 </body>
 </html>
 
