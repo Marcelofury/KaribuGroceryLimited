@@ -6,6 +6,8 @@
     <title>KGL - Stock Management</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <body class="overflow-x-hidden">
     <!-- Sidebar Navigation -->
@@ -50,11 +52,6 @@
                         <i class="bi bi-credit-card"></i> Credit Sales
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="reports.html">
-                        <i class="bi bi-graph-up"></i> Reports
-                    </a>
-                </li>
             </ul>
         </nav>
         
@@ -70,7 +67,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <div>
                     <h1 class="h4 mb-0">Stock Management</h1>
-                    <p class="text-muted mb-0 small">Monitor and manage inventory levels</p>
+                    <p class="text-muted mb-0 small header-branch">Loading...</p>
                 </div>
                 <div class="text-muted small">
                     <span id="currentDate"></span>
@@ -168,154 +165,19 @@
                 <table class="table table-hover table-striped align-middle">
                     <thead class="table-light">
                         <tr>
-                            <th>Produce Type</th>
-                            <th>Variety</th>
+                            <th>Produce</th>
+                            <th>Category</th>
                             <th>Current Stock (kg)</th>
-                            <th>Min. Threshold (kg)</th>
-                            <th>Unit Price (UGX/kg)</th>
+                            <th>Reorder Level (kg)</th>
+                            <th>Selling Price (UGX/kg)</th>
                             <th>Stock Value (UGX)</th>
                             <th>Status</th>
-                            <th>Last Updated</th>
+                            <th>Last Restocked</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody id="stockTable">
-                        <tr>
-                            <td><strong>Maize</strong></td>
-                            <td>Yellow Maize</td>
-                            <td>3,500</td>
-                            <td>500</td>
-                            <td>1,600</td>
-                            <td>5,600,000</td>
-                            <td><span class="badge bg-success">Adequate</span></td>
-                            <td>09/01/2026</td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-outline-primary" title="View Details">View</button>
-                                    <button class="btn btn-sm btn-outline-success" title="Adjust Stock">Edit</button>
-                                    <button class="btn btn-sm btn-outline-info" title="History">History</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><strong>Beans</strong></td>
-                            <td>Red Beans</td>
-                            <td>450</td>
-                            <td>500</td>
-                            <td>2,250</td>
-                            <td>1,012,500</td>
-                            <td><span class="badge bg-warning">Low Stock</span></td>
-                            <td>09/01/2026</td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-outline-primary" title="View Details">View</button>
-                                    <button class="btn btn-sm btn-outline-success" title="Adjust Stock">Edit</button>
-                                    <button class="btn btn-sm btn-outline-info" title="History">History</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><strong>Rice</strong></td>
-                            <td>Sindano</td>
-                            <td>2,800</td>
-                            <td>400</td>
-                            <td>3,800</td>
-                            <td>10,640,000</td>
-                            <td><span class="badge bg-success">Adequate</span></td>
-                            <td>08/01/2026</td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-outline-primary" title="View Details">View</button>
-                                    <button class="btn btn-sm btn-outline-success" title="Adjust Stock">Edit</button>
-                                    <button class="btn btn-sm btn-outline-info" title="History">History</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><strong>Wheat</strong></td>
-                            <td>Hard Red</td>
-                            <td>1,200</td>
-                            <td>300</td>
-                            <td>2,200</td>
-                            <td>2,640,000</td>
-                            <td><span class="badge bg-success">Adequate</span></td>
-                            <td>08/01/2026</td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-outline-primary" title="View Details">View</button>
-                                    <button class="btn btn-sm btn-outline-success" title="Adjust Stock">Edit</button>
-                                    <button class="btn btn-sm btn-outline-info" title="History">History</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><strong>Groundnuts</strong></td>
-                            <td>Roasted</td>
-                            <td>280</td>
-                            <td>300</td>
-                            <td>4,500</td>
-                            <td>1,260,000</td>
-                            <td><span class="badge bg-warning">Low Stock</span></td>
-                            <td>09/01/2026</td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-outline-primary" title="View Details">View</button>
-                                    <button class="btn btn-sm btn-outline-success" title="Adjust Stock">Edit</button>
-                                    <button class="btn btn-sm btn-outline-info" title="History">History</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><strong>Soybeans</strong></td>
-                            <td>Organic</td>
-                            <td>1,800</td>
-                            <td>400</td>
-                            <td>2,800</td>
-                            <td>5,040,000</td>
-                            <td><span class="badge bg-success">Adequate</span></td>
-                            <td>08/01/2026</td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-outline-primary" title="View Details">View</button>
-                                    <button class="btn btn-sm btn-outline-success" title="Adjust Stock">Edit</button>
-                                    <button class="btn btn-sm btn-outline-info" title="History">History</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><strong>Sorghum</strong></td>
-                            <td>White</td>
-                            <td>950</td>
-                            <td>200</td>
-                            <td>1,800</td>
-                            <td>1,710,000</td>
-                            <td><span class="badge bg-success">Adequate</span></td>
-                            <td>07/01/2026</td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-outline-primary" title="View Details">View</button>
-                                    <button class="btn btn-sm btn-outline-success" title="Adjust Stock">Edit</button>
-                                    <button class="btn btn-sm btn-outline-info" title="History">History</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><strong>Millet</strong></td>
-                            <td>Pearl</td>
-                            <td>720</td>
-                            <td>250</td>
-                            <td>2,000</td>
-                            <td>1,440,000</td>
-                            <td><span class="badge bg-success">Adequate</span></td>
-                            <td>07/01/2026</td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-outline-primary" title="View Details">View</button>
-                                    <button class="btn btn-sm btn-outline-success" title="Adjust Stock">Edit</button>
-                                    <button class="btn btn-sm btn-outline-info" title="History">History</button>
-                                </div>
-                            </td>
-                        </tr>
+                        <!-- Stock data will be loaded from API -->
                     </tbody>
                 </table>
             </div>
@@ -326,16 +188,9 @@
             <div class="card-header bg-white">
                 <h2 class="mb-0"><i class="bi bi-exclamation-triangle text-warning"></i> Low Stock Alerts</h2>
             </div>
-            <div class="card-body">
-                <div class="alert alert-warning d-flex align-items-start mb-3" role="alert">
-                    <div>
-                        <strong>Beans (Red Beans):</strong> Current stock 450 kg is below minimum threshold of 500 kg. Restock needed urgently.
-                    </div>
-                </div>
-                <div class="alert alert-warning d-flex align-items-start mb-0" role="alert">
-                    <div>
-                        <strong>Groundnuts (Roasted):</strong> Current stock 280 kg is below minimum threshold of 300 kg. Restock needed urgently.
-                    </div>
+            <div class="card-body" id="lowStockAlerts">
+                <div class="alert alert-info mb-0" role="alert">
+                    Loading low stock alerts...
                 </div>
             </div>
         </section>
@@ -384,6 +239,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Page Protection -->
     <script src="../auth/auth.guard.js"></script>
+    <!-- Stock Data Fetching -->
+    <script src="stock.js"></script>
 </body>
 </html>
 
