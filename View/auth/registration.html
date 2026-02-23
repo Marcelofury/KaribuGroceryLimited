@@ -28,7 +28,7 @@
                             <p class="text-muted">User Registration</p>
                         </div>
 
-                        <form id="registrationForm">
+                        <form id="registrationForm" onsubmit="register(event)">
                             <!-- mb-3: Margin bottom spacing between form groups -->
                             <div class="mb-3">
                                 <!-- form-label: Bootstrap label styling -->
@@ -58,22 +58,30 @@
                             </div>
 
                             <div class="mb-3">
+                                <label for="username" class="form-label">Username *</label>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="Choose a username" minlength="3" required>
+                                <div class="form-text text-muted">Username will be used for login</div>
+                                <div class="invalid-feedback d-block" id="usernameError"></div>
+                            </div>
+
+                            <div class="mb-3">
                                 <label for="role" class="form-label">Role *</label>
                                 <!-- form-select: Bootstrap styled select dropdown -->
-                                <select class="form-select" id="role" name="role" required>
+                                <select class="form-select" id="role" name="role" required onchange="toggleBranchField()">
                                     <option value="">Select Role</option>
+                                    <option value="director">Director</option>
                                     <option value="manager">Manager</option>
                                     <option value="sales-agent">Sales Agent/Attendant</option>
                                 </select>
                                 <div class="invalid-feedback d-block" id="roleError"></div>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="branch" class="form-label">Branch Assignment *</label>
+                            <div class="mb-3" id="branchField">
+                                <label for="branch" class="form-label">Branch Assignment <span id="branchRequired">*</span></label>
                                 <select class="form-select" id="branch" name="branch" required>
                                     <option value="">Select Branch</option>
-                                    <option value="kampala">Branch A - Kampala</option>
-                                    <option value="entebbe">Branch B - Entebbe</option>
+                                    <option value="Maganjo">Maganjo Branch</option>
+                                    <option value="Matugga">Matugga Branch</option>
                                 </select>
                                 <div class="invalid-feedback d-block" id="branchError"></div>
                             </div>
@@ -117,8 +125,27 @@
     </div>
 
     <!-- Bootstrap 5 JS Bundle (includes Popper) -->
-    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Auth JS -->
+    <script src="../auth/auth.js"></script>
+    <script>
+        // Toggle branch field based on role selection
+        function toggleBranchField() {
+            const role = document.getElementById('role').value;
+            const branchField = document.getElementById('branchField');
+            const branchSelect = document.getElementById('branch');
+            const branchRequired = document.getElementById('branchRequired');
+            
+            if (role === 'director') {
+                branchField.style.display = 'none';
+                branchSelect.removeAttribute('required');
+                branchSelect.value = '';
+            } else {
+                branchField.style.display = 'block';
+                branchSelect.setAttribute('required', 'required');
+            }
+        }
+    </script>
 </body>
 </html>
 
