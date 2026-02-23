@@ -17,26 +17,21 @@ exports.getDashboardStats = async (req, res, next) => {
     // Director gets system-wide overview only
     if (req.user.role === 'director') {
       // Director dashboard - system overview
-      const totalUsers = await User.countDocuments({ isActive: true });
+      const activeUsers = await User.countDocuments({ isActive: true });
       const totalProducts = await Product.countDocuments({ isActive: true });
-      const totalBranches = 2; // Maganjo and Matugga
       
-      const allSales = await Sale.countDocuments();
-      const allRevenue = await Sale.aggregate([
+      const totalSales = await Sale.countDocuments();
+      const revenueData = await Sale.aggregate([
         { $group: { _id: null, total: { $sum: '$totalAmount' } } }
       ]);
 
       return res.status(200).json({
         success: true,
         data: {
-          systemOverview: {
-            totalUsers,
-            totalProducts,
-            totalBranches,
-            totalSales: allSales,
-            totalRevenue: allRevenue[0]?.total || 0
-          },
-          message: 'Director dashboard - System overview'
+          activeUsers,
+          totalProducts,
+          totalSales,
+          totalRevenue: revenueData[0]?.total || 0
         }
       });
     }
@@ -183,24 +178,18 @@ exports.getSalesTrends = async (req, res, next) => {
 // @access  Private
 exports.getTopProducts = async (req, res, next) => {
   try {
-    // Director not allowed
-    if (req.user.role === 'director') {
-      return res.status(403).json({
-        success: false,
-        message: 'Directors do not have access to product sales data'
-      });
-    }
-
-    const { limit = 5 } = req.query;
+    const { limit = 10 } = req.query;
     
     const filter = {};
 
     // Role-based filtering
     if (req.user.role === 'sales-agent') {
       filter.salesAgent = req.user._id;
+      filter.branch = req.user.branch;
     } else if (req.user.role === 'manager') {
       filter.branch = req.user.branch;
     }
+    // Director sees all branches (no filter)
 
     const topProducts = await Sale.aggregate([
       { $match: filter },
@@ -209,21 +198,33 @@ exports.getTopProducts = async (req, res, next) => {
         $group: {
           _id: '$items.product',
           totalQuantity: { $sum: '$items.quantity' },
-          totalRevenue: { $sum: '$items.totalPrice' },
+          revenue: { $sum: '$items.totalPrice' },
           salesCount: { $sum: 1 }
         }
       },
-      { $sort: { totalRevenue: -1 } },
+      { $sort: { revenue: -1 } },
       { $limit: parseInt(limit) },
       {
         $lookup: {
           from: 'products',
           localField: '_id',
           foreignField: '_id',
-          as: 'product'
+          as: 'productData'
         }
       },
-      { $unwind: '$product' }
+      { $unwind: { path: '$productData', preserveNullAndEmptyArrays: true } },
+      {
+        $project: {
+          _id: 0,
+          name: '$productData.name',
+          totalQuantity: 1,
+          revenue: 1,
+          salesCount: 1,
+          profitMargin: 15, // Default 15% until we calculate actual
+          trend: 'up',
+          trendPercentage: 10
+        }
+      }
     ]);
 
     res.status(200).json({
@@ -235,14 +236,98 @@ exports.getTopProducts = async (req, res, next) => {
   }
 };
 
-// @desc    Get branch comparison (Removed - Director has no access)
+// @desc    Get branch comparison (Director only)
 // @route   GET /api/dashboard/branch-comparison
 // @access  Private (Director only)
 exports.getBranchComparison = async (req, res, next) => {
   try {
-    return res.status(403).json({
-      success: false,
-      message: 'This feature is not available. Directors have view-only access to their dashboard.'
+    // Only directors can compare branches
+    if (req.user.role !== 'director') {
+      return res.status(403).json({
+        success: false,
+        message: 'Access denied. This feature is available only to directors.'
+      });
+    }
+
+    // Get branch performance data
+    const branches = ['Maganjo', 'Matugga'];
+    const branchData = [];
+
+    for (const branch of branches) {
+      // Get branch manager
+      const manager = await User.findOne({ role: 'manager', branch, isActive: true })
+        .select('fullName');
+
+      // Get sales for this branch
+      const salesStats = await Sale.aggregate([
+        { $match: { branch } },
+        {
+          $group: {
+            _id: null,
+            totalSales: { $sum: 1 },
+            revenue: { $sum: '$totalAmount' }
+          }
+        }
+      ]);
+
+      // Get stock value for this branch
+      const stockStats = await Stock.aggregate([
+        { $match: { branch } },
+        {
+          $lookup: {
+            from: 'prices',
+            let: { productId: '$product', branchName: '$branch' },
+            pipeline: [
+              {
+                $match: {
+                  $expr: {
+                    $and: [
+                      { $eq: ['$product', '$$productId'] },
+                      { $eq: ['$branch', '$$branchName'] },
+                      { $eq: ['$isActive', true] }
+                    ]
+                  }
+                }
+              }
+            ],
+            as: 'priceData'
+          }
+        },
+        {
+          $group: {
+            _id: null,
+            stockValue: {
+              $sum: {
+                $multiply: [
+                  '$quantity',
+                  { $ifNull: [{ $arrayElemAt: ['$priceData.costPrice', 0] }, 0] }
+                ]
+              }
+            }
+          }
+        }
+      ]);
+
+      const revenue = salesStats[0]?.revenue || 0;
+      const stockValue = stockStats[0]?.stockValue || 0;
+      const target = 50000000; // 50M target per branch
+      const achievementRate = target > 0 ? ((revenue / target) * 100).toFixed(1) : 0;
+      const profitMargin = revenue > 0 ? ((revenue - stockValue) / revenue * 100).toFixed(1) : 0;
+
+      branchData.push({
+        branch,
+        manager: manager?.fullName || 'Not Assigned',
+        revenue,
+        target,
+        achievementRate: parseFloat(achievementRate),
+        stockValue,
+        profitMargin: parseFloat(profitMargin)
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      data: branchData
     });
   } catch (error) {
     next(error);
