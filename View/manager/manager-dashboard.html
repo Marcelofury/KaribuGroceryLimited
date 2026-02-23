@@ -13,8 +13,8 @@
         <div class="p-3 border-bottom border-white border-opacity-25">
             <a href="#" class="text-white text-decoration-none fs-3 fw-bold d-block mb-3">KGL</a>
             <p class="mb-0 small">
-                <strong>Natugonza Mohammed</strong><br>
-                <span>Branch A - Kampala</span>
+                <strong class="user-name">Loading...</strong><br>
+                <span class="user-branch">Loading...</span>
             </p>
         </div>
         
@@ -377,21 +377,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     
+<!-- Page Protection Script -->
+<script src="../auth/pageProtection.js"></script>
 
+<!-- Dashboard Specific Scripts -->
 <script>
-  const session = JSON.parse(localStorage.getItem("currentSession"));
-
-  if (!session) {
-    window.location.href = "../auth/login.html";
-  }
-
-  document.getElementById("sessionInfo").textContent =
-    `Logged in as: ${session.username} (${session.role})`;
-
-  function logout() {
-    localStorage.removeItem("currentSession");
-    window.location.href = "../auth/login.html";
-  }
+  // Load dashboard data here using authenticatedFetch
+  // Example: fetchDashboardStats();
 </script>
 
 </body>
