@@ -2,13 +2,13 @@
 
 A comprehensive agricultural produce management system for managing inventory, sales, and operations across multiple branches.
 
-## 🏢 System Overview
+##  System Overview
 
 KGL system manages two branches (**Maganjo** and **Matugga**) with:
 - **2 Managers** (1 per branch)
 - **4 Sales Agents** (2 per branch)
 
-## 🚀 Features
+##  Features
 
 - **User Authentication & Authorization**
   - Secure JWT-based authentication
