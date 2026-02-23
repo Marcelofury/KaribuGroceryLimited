@@ -29,6 +29,7 @@ async function login(event) {
       // Store user data and token in localStorage
       localStorage.setItem('token', data.data.token);
       localStorage.setItem('currentSession', JSON.stringify(data.data.user));
+      localStorage.setItem('session', JSON.stringify({ user: data.data.user }));
       
       // Redirect based on role
       if (data.data.user.role === 'director') {
