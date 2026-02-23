@@ -164,7 +164,7 @@ process.on('unhandledRejection', (err) => {
 
 // Handle uncaught exceptions
 process.on('uncaughtException', (err) => {
-  console.error(`❌ Uncaught Exception: ${err.message}`);
+  console.error(`[ERROR] Uncaught Exception: ${err.message}`);
   process.exit(1);
 });
 
