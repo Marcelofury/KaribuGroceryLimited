@@ -1,0 +1,24 @@
+{
+  "name": "kgl-frontend",
+  "version": "1.0.0",
+  "description": "KGL Agricultural Produce Management System - Vue.js Frontend",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": ["agriculture", "inventory", "management", "vue"],
+  "author": "KGL Team",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0",
+    "pinia": "^2.1.7",
+    "axios": "^1.6.7"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "vite": "^5.1.6"
+  }
+}
