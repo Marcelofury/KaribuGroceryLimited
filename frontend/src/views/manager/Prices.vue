@@ -31,17 +31,17 @@
             </thead>
             <tbody>
               <tr v-for="price in prices" :key="price._id">
-                <td class="fw-bold">{{ price.produceType?.name || 'N/A' }}</td>
-                <td>{{ price.produceType?.variety || '-' }}</td>
+                <td class="fw-bold">{{ price.product?.name || 'N/A' }}</td>
+                <td>{{ price.product?.variety || '-' }}</td>
                 <td>
                   <span v-if="editingPrice !== price._id">
-                    {{ formatCurrency(price.pricePerKg) }}
+                    {{ formatCurrency(price.sellingPrice) }}
                   </span>
                   <input
                     v-else
                     type="number"
                     class="form-control form-control-sm"
-                    v-model.number="editForm.pricePerKg"
+                    v-model.number="editForm.sellingPrice"
                     min="0"
                     step="0.01"
                     style="width: 120px;"
@@ -83,18 +83,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Price History Info -->
-    <div class="alert alert-info mt-4" role="alert">
-      <h6 class="alert-heading">
-        <i class="bi bi-info-circle me-2"></i>Price Management Tips
-      </h6>
-      <ul class="mb-0">
-        <li>Prices are set per kilogram for each product type</li>
-        <li>Changes are logged and tracked for reporting</li>
-        <li>Make sure to update prices regularly based on market conditions</li>
-      </ul>
-    </div>
   </div>
 </template>
 
@@ -107,7 +95,7 @@ const priceStore = usePriceStore()
 
 const editingPrice = ref(null)
 const editForm = ref({
-  pricePerKg: 0
+  sellingPrice: 0
 })
 const updateLoading = ref(false)
 
@@ -117,7 +105,7 @@ const loading = computed(() => priceStore.loading)
 const startEdit = (price) => {
   editingPrice.value = price._id
   editForm.value = {
-    pricePerKg: price.pricePerKg
+    sellingPrice: price.sellingPrice
   }
 }
 
@@ -139,7 +127,7 @@ const saveEdit = async (priceId) => {
 const cancelEdit = () => {
   editingPrice.value = null
   editForm.value = {
-    pricePerKg: 0
+    sellingPrice: 0
   }
 }
 

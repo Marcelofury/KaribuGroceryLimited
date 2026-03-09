@@ -130,11 +130,11 @@ exports.createPrice = async (req, res, next) => {
       });
     }
 
-    // Managers can only set prices for their branch
-    if (req.user.role === 'manager' && branch !== req.user.branch) {
+    // Managers can set shared prices (branch null/undefined) or prices for their branch
+    if (req.user.role === 'manager' && branch && branch !== req.user.branch) {
       return res.status(403).json({
         success: false,
-        message: 'You can only set prices for your branch'
+        message: 'You can only set prices for your branch or create shared prices'
       });
     }
 
@@ -176,8 +176,9 @@ exports.updatePrice = async (req, res, next) => {
       });
     }
 
-    // Check authorization
-    if (req.user.role === 'manager' && price.branch !== req.user.branch) {
+    // Managers can update shared prices (where branch is null/undefined)
+    // or prices specifically for their branch
+    if (req.user.role === 'manager' && price.branch && price.branch !== req.user.branch) {
       return res.status(403).json({
         success: false,
         message: 'Not authorized to update prices for other branches'
