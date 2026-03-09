@@ -1,8 +1,8 @@
 export function formatCurrency(amount) {
-  return new Intl.NumberFormat('en-KE', {
+  return new Intl.NumberFormat('en-UG', {
     style: 'currency',
-    currency: 'KES',
-    minimumFractionDigits: 2
+    currency: 'UGX',
+    minimumFractionDigits: 0
   }).format(amount || 0)
 }
 
@@ -10,7 +10,7 @@ export function formatDate(dateString) {
   if (!dateString) return 'N/A'
   
   const date = new Date(dateString)
-  return new Intl.DateTimeFormat('en-KE', {
+  return new Intl.DateTimeFormat('en-UG', {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
@@ -23,7 +23,7 @@ export function formatDateOnly(dateString) {
   if (!dateString) return 'N/A'
   
   const date = new Date(dateString)
-  return new Intl.DateTimeFormat('en-KE', {
+  return new Intl.DateTimeFormat('en-UG', {
     year: 'numeric',
     month: 'short',
     day: 'numeric'
@@ -31,7 +31,7 @@ export function formatDateOnly(dateString) {
 }
 
 export function formatNumber(number) {
-  return new Intl.NumberFormat('en-KE').format(number || 0)
+  return new Intl.NumberFormat('en-UG').format(number || 0)
 }
 
 export function truncateText(text, length = 50) {
