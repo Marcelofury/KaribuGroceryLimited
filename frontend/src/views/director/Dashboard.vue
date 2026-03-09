@@ -62,7 +62,7 @@
       <div class="row g-4 mb-4">
         <div class="col-md-6" v-for="branch in branchComparison" :key="branch.name">
           <div class="card shadow-sm">
-            <div class="card-header bg-primary text-white">
+            <div class="card-header bg-success text-white">
               <h5 class="mb-0">
                 <i class="bi bi-shop me-2"></i>{{ branch.name }} Branch
               </h5>
@@ -93,7 +93,7 @@
 
       <!-- Top Selling Products -->
       <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">
+        <div class="card-header bg-success text-white">
           <h5 class="mb-0">
             <i class="bi bi-graph-up me-2"></i>Top Selling Products (Company-wide)
           </h5>
@@ -116,7 +116,7 @@
                 <tr v-for="(product, index) in topProducts" :key="index">
                   <td>
                     <i class="bi bi-award-fill text-warning me-2" v-if="index === 0"></i>
-                    <strong>{{ product.name || 'Unknown Product' }}</strong>
+                    <strong>{{ product.name }}</strong>
                   </td>
                   <td>{{ formatNumber(product.totalQuantity) }} kg</td>
                   <td class="text-success">{{ formatCurrency(product.revenue) }}</td>

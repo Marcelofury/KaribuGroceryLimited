@@ -216,7 +216,7 @@ exports.getTopProducts = async (req, res, next) => {
       {
         $project: {
           _id: 0,
-          name: '$productData.name',
+          name: { $ifNull: ['$productData.name', 'Unknown Product'] },
           totalQuantity: 1,
           revenue: 1,
           salesCount: 1,
