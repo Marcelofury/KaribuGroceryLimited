@@ -104,18 +104,23 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useAuth } from '@/composables/useAuth'
+import { useSalesStore } from '@/stores/sales'
 import api from '@/services/api'
 
 const { user } = useAuth()
-const loading = ref(false)
-const sales = ref([])
+const salesStore = useSalesStore()
+const { sales, loading } = storeToRefs(salesStore)
 
 // Filter to only show current user's sales
 const mySales = computed(() => {
-  const userId = user.value?._id
+  const userId = user.value?.id || user.value?._id
   if (!userId) return []
-  return sales.value.filter(sale => sale.salesAgent?._id === userId)
+  return sales.value.filter(sale => {
+    const salesAgentId = sale.salesAgent?._id
+    return salesAgentId === userId || String(salesAgentId) === String(userId)
+  })
 })
 
 // Calculate date boundaries
@@ -234,17 +239,7 @@ const paymentStatusClass = (sale) => {
 }
 
 const loadSales = async () => {
-  loading.value = true
-  try {
-    const response = await api.get('/sales')
-    if (response.data.success) {
-      sales.value = response.data.data || []
-    }
-  } catch (error) {
-    console.error('Error loading sales:', error)
-  } finally {
-    loading.value = false
-  }
+  await salesStore.fetchSales()
 }
 
 onMounted(() => {
