@@ -109,8 +109,8 @@
             </div>
             <div class="d-flex justify-content-between align-items-center">
               <strong>Stock:</strong>
-              <span :class="stockClass(price.product?.quantity)">
-                {{ price.product?.quantity || 0 }} kg
+              <span :class="stockClass(price.stockQuantity)">
+                {{ price.stockQuantity || 0 }} kg
               </span>
             </div>
           </div>
@@ -145,8 +145,8 @@
                 <td class="fw-bold text-success">UGX {{ price.sellingPrice?.toLocaleString() }}</td>
                 <td class="text-primary">UGX {{ calculateBulkPrice(price.sellingPrice) }}</td>
                 <td>
-                  <span :class="stockClass(price.product?.quantity)">
-                    {{ price.product?.quantity || 0 }} kg
+                  <span :class="stockClass(price.stockQuantity)">
+                    {{ price.stockQuantity || 0 }} kg
                   </span>
                 </td>
                 <td>{{ formatDate(price.updatedAt) }}</td>
@@ -161,18 +161,40 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import { useAuth } from '@/composables/useAuth'
 import api from '@/services/api'
 
+const { userBranch } = useAuth()
 const loading = ref(false)
 const prices = ref([])
+const stocks = ref([])
 const viewMode = ref('cards')
 const searchQuery = ref('')
 
+// Create a lookup map for stock quantities by product ID
+const stockMap = computed(() => {
+  const map = {}
+  stocks.value.forEach(stock => {
+    if (stock.product && stock.product._id) {
+      map[stock.product._id] = stock.quantity || 0
+    }
+  })
+  return map
+})
+
+// Merge prices with stock data
+const pricesWithStock = computed(() => {
+  return prices.value.map(price => ({
+    ...price,
+    stockQuantity: price.product?._id ? (stockMap.value[price.product._id] || 0) : 0
+  }))
+})
+
 const filteredPrices = computed(() => {
-  if (!searchQuery.value) return prices.value
+  if (!searchQuery.value) return pricesWithStock.value
   
   const query = searchQuery.value.toLowerCase()
-  return prices.value.filter(price => 
+  return pricesWithStock.value.filter(price => 
     price.product?.name?.toLowerCase().includes(query) ||
     price.product?.category?.toLowerCase().includes(query) ||
     price.product?.variety?.toLowerCase().includes(query)
@@ -180,16 +202,16 @@ const filteredPrices = computed(() => {
 })
 
 const categories = computed(() => {
-  return [...new Set(prices.value
+  return [...new Set(pricesWithStock.value
     .map(p => p.product?.category)
     .filter(Boolean)
   )]
 })
 
 const priceRange = computed(() => {
-  if (prices.value.length === 0) return 'N/A'
+  if (pricesWithStock.value.length === 0) return 'N/A'
   
-  const allPrices = prices.value
+  const allPrices = pricesWithStock.value
     .map(p => p.sellingPrice)
     .filter(p => p > 0)
     .sort((a, b) => a - b)
@@ -203,9 +225,9 @@ const priceRange = computed(() => {
 })
 
 const lastUpdated = computed(() => {
-  if (prices.value.length === 0) return 'N/A'
+  if (pricesWithStock.value.length === 0) return 'N/A'
   
-  const dates = prices.value
+  const dates = pricesWithStock.value
     .map(p => new Date(p.updatedAt))
     .sort((a, b) => b - a)
   
@@ -253,7 +275,19 @@ const loadPrices = async () => {
   }
 }
 
-onMounted(() => {
-  loadPrices()
+const loadStock = async () => {
+  try {
+    const response = await api.get('/stock')
+    if (response.data.success) {
+      // Filter stock by current user's branch
+      stocks.value = response.data.data.filter(stock => stock.branch === userBranch.value) || []
+    }
+  } catch (error) {
+    console.error('Error loading stock:', error)
+  }
+}
+
+onMounted(async () => {
+  await Promise.all([loadPrices(), loadStock()])
 })
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="min-vh-100 d-flex align-items-center justify-content-center bg-light " >
-    <div class="container">
+    <div class="container bg-success">
       <div class="row justify-content-center">
         <div class="col-md-5">
           <div class="card shadow-lg border-0">
