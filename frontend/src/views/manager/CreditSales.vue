@@ -53,24 +53,33 @@
               <tr>
                 <th>Date</th>
                 <th>Customer</th>
+                <th>NIN</th>
+                <th>Location</th>
                 <th>Phone</th>
-                <th>Product</th>
+                <th>Products</th>
                 <th>Total Amount</th>
-                <th>Amount Paid</th>
-                <th>Amount Due</th>
+                <th>Paid</th>
+                <th>Due</th>
+                <th>Due Date</th>
                 <th>Status</th>
-                <th>Branch</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="sale in creditSalesList" :key="sale._id">
                 <td>{{ formatDate(sale.createdAt) }}</td>
                 <td class="fw-bold">{{ sale.customerName || 'N/A' }}</td>
+                <td>{{ sale.customerNationalId || 'N/A' }}</td>
+                <td>{{ sale.customerLocation || 'N/A' }}</td>
                 <td>{{ sale.customerPhone || 'N/A' }}</td>
-                <td>{{ sale.produceType || 'N/A' }}</td>
+                <td>
+                  <span v-for="(item, idx) in sale.items" :key="idx" class="badge bg-secondary me-1">
+                    {{ item.product?.name || 'N/A' }}
+                  </span>
+                </td>
                 <td>{{ formatCurrency(sale.totalAmount) }}</td>
                 <td class="text-success">{{ formatCurrency(sale.amountPaid || 0) }}</td>
-                <td class="text-danger fw-bold">{{ formatCurrency(sale.amountDue || 0) }}</td>
+                <td class="text-danger fw-bold">{{ formatCurrency((sale.totalAmount || 0) - (sale.amountPaid || 0)) }}</td>
+                <td>{{ formatDateOnly(sale.dueDate) }}</td>
                 <td>
                   <span 
                     class="badge"
@@ -79,25 +88,11 @@
                     {{ sale.paymentStatus || 'pending' }}
                   </span>
                 </td>
-                <td>{{ sale.branch || 'N/A' }}</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-    </div>
-
-    <!-- Credit Management Tips -->
-    <div class="alert alert-warning mt-4" role="alert">
-      <h6 class="alert-heading">
-        <i class="bi bi-exclamation-triangle me-2"></i>Credit Management Tips
-      </h6>
-      <ul class="mb-0">
-        <li>Follow up regularly with customers who have outstanding balances</li>
-        <li>Keep accurate records of all payments received</li>
-        <li>Set clear payment terms and deadlines with customers</li>
-        <li>Monitor credit limits to minimize risk</li>
-      </ul>
     </div>
   </div>
 </template>
@@ -106,18 +101,21 @@
 import { computed, onMounted } from 'vue'
 import { useSalesStore } from '@/stores/sales'
 import StatsCard from '@/components/common/StatsCard.vue'
-import { formatCurrency, formatDate, getStatusBadgeClass } from '@/utils/helpers'
+import { formatCurrency, formatDate, formatDateOnly, getStatusBadgeClass } from '@/utils/helpers'
 
 const salesStore = useSalesStore()
 
 const loading = computed(() => salesStore.loading)
 
 const creditSalesList = computed(() => {
-  return salesStore.sales.filter(sale => sale.paymentType === 'credit')
+  return salesStore.sales.filter(sale => sale.isCreditSale === true)
 })
 
 const totalCreditOutstanding = computed(() => {
-  return creditSalesList.value.reduce((sum, sale) => sum + (sale.amountDue || 0), 0)
+  return creditSalesList.value.reduce((sum, sale) => {
+    const amountDue = (sale.totalAmount || 0) - (sale.amountPaid || 0)
+    return sum + amountDue
+  }, 0)
 })
 
 const pendingPayments = computed(() => {
