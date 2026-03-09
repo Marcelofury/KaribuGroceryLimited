@@ -270,6 +270,9 @@ exports.getBranchComparison = async (req, res, next) => {
         }
       ]);
 
+      // Get stock count for this branch
+      const stockCount = await Stock.countDocuments({ branch });
+
       // Get stock value for this branch
       const stockStats = await Stock.aggregate([
         { $match: { branch } },
@@ -309,18 +312,21 @@ exports.getBranchComparison = async (req, res, next) => {
       ]);
 
       const revenue = salesStats[0]?.revenue || 0;
+      const totalSales = salesStats[0]?.totalSales || 0;
       const stockValue = stockStats[0]?.stockValue || 0;
       const target = 50000000; // 50M target per branch
       const achievementRate = target > 0 ? ((revenue / target) * 100).toFixed(1) : 0;
       const profitMargin = revenue > 0 ? ((revenue - stockValue) / revenue * 100).toFixed(1) : 0;
 
       branchData.push({
-        branch,
+        name: branch,
         manager: manager?.fullName || 'Not Assigned',
         revenue,
+        totalSales,
         target,
         achievementRate: parseFloat(achievementRate),
         stockValue,
+        stockItems: stockCount,
         profitMargin: parseFloat(profitMargin)
       });
     }
