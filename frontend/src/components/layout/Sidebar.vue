@@ -6,7 +6,7 @@
       </router-link>
       <p class="mb-0 small">
         <strong>{{ userName }}</strong><br>
-        <span v-if="userRole !== 'director'">{{ userBranch }}</span>
+        <span v-if="userRole == 'director'">{{ userBranch }}</span>
         <span v-else>All Branches</span>
       </p>
     </div>
