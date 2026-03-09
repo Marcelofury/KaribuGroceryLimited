@@ -27,12 +27,12 @@ export const useSalesStore = defineStore('sales', () => {
   })
 
   const cashSales = computed(() => {
-    return sales.value.filter(s => s.paymentType === 'cash')
+    return sales.value.filter(s => !s.isCreditSale)
       .reduce((sum, sale) => sum + (sale.totalAmount || 0), 0)
   })
 
   const creditSales = computed(() => {
-    return sales.value.filter(s => s.paymentType === 'credit')
+    return sales.value.filter(s => s.isCreditSale)
       .reduce((sum, sale) => sum + (sale.totalAmount || 0), 0)
   })
 

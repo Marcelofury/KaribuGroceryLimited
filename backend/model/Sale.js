@@ -55,18 +55,30 @@ const saleSchema = new mongoose.Schema({
   paymentMethod: {
     type: String,
     enum: {
-      values: ['cash', 'mobile-money', 'bank-transfer'],
+      values: ['cash', 'mobile-money', 'bank-transfer', 'credit'],
       message: 'Invalid payment method'
     },
     default: 'cash'
   },
   customerName: {
     type: String,
-    trim: true
+    trim: true,
+    minlength: [2, 'Customer name must be at least 2 characters']
   },
   customerPhone: {
     type: String,
     match: [/^(\+256|0)[0-9]{9}$/, 'Invalid phone number format']
+  },
+  customerNationalId: {
+    type: String,
+    required: function() { return this.isCreditSale; },
+    match: [/^[A-Z]{2}[0-9]{14}$/, 'Invalid NIN format (e.g., CM12345678901234)']
+  },
+  customerLocation: {
+    type: String,
+    required: function() { return this.isCreditSale; },
+    trim: true,
+    minlength: [2, 'Location must be at least 2 characters']
   },
   isCreditSale: {
     type: Boolean,
@@ -84,6 +96,14 @@ const saleSchema = new mongoose.Schema({
     type: Number,
     default: 0,
     min: [0, 'Amount paid cannot be negative']
+  },
+  dueDate: {
+    type: Date,
+    required: function() { return this.isCreditSale; }
+  },
+  dispatchDate: {
+    type: Date,
+    default: Date.now
   },
   notes: {
     type: String,

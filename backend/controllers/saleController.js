@@ -100,7 +100,19 @@ exports.getSale = async (req, res, next) => {
 // @access  Private (Sales Agent, Manager)
 exports.createSale = async (req, res, next) => {
   try {
-    const { items, customerName, customerPhone, paymentMethod, isCreditSale, amountPaid, notes } = req.body;
+    const { 
+      items, 
+      customerName, 
+      customerPhone, 
+      customerNationalId,
+      customerLocation,
+      dueDate,
+      dispatchDate,
+      paymentMethod, 
+      isCreditSale, 
+      amountPaid, 
+      notes 
+    } = req.body;
 
     // Validate items
     if (!items || items.length === 0) {
@@ -135,7 +147,7 @@ exports.createSale = async (req, res, next) => {
     }
 
     // Create sale
-    const sale = await Sale.create({
+    const saleData = {
       branch: req.user.branch,
       salesAgent: req.user._id,
       items,
@@ -146,7 +158,17 @@ exports.createSale = async (req, res, next) => {
       paymentStatus: isCreditSale ? 'pending' : 'paid',
       amountPaid: amountPaid || 0,
       notes
-    });
+    };
+
+    // Add credit sale specific fields
+    if (isCreditSale) {
+      saleData.customerNationalId = customerNationalId;
+      saleData.customerLocation = customerLocation;
+      saleData.dueDate = dueDate;
+      saleData.dispatchDate = dispatchDate || Date.now();
+    }
+
+    const sale = await Sale.create(saleData);
 
     // Update stock quantities
     for (const item of items) {

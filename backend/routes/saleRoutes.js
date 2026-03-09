@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { protect, authorize } = require('../middleware/auth');
-const { validate } = require('../middleware/validator');
+const { validate, validateCreditSale } = require('../middleware/validator');
 const { body, param } = require('express-validator');
 const {
   getSales,
@@ -21,8 +21,9 @@ router.route('/')
       body('items.*.product').isMongoId().withMessage('Invalid product ID'),
       body('items.*.quantity').isNumeric().withMessage('Quantity must be a number'),
       body('items.*.unitPrice').isNumeric().withMessage('Unit price must be a number'),
-      body('paymentMethod').optional().isIn(['cash', 'mobile-money', 'bank-transfer']).withMessage('Invalid payment method'),
-      body('customerPhone').optional().matches(/^(\+256|0)[0-9]{9}$/).withMessage('Invalid phone number format')
+      body('paymentMethod').optional().isIn(['cash', 'mobile-money', 'bank-transfer', 'credit']).withMessage('Invalid payment method'),
+      body('customerPhone').optional().matches(/^(\+256|0)[0-9]{9}$/).withMessage('Invalid phone number format'),
+      ...validateCreditSale
     ]),
     createSale
   );

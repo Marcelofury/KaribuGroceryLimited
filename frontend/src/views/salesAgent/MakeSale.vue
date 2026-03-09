@@ -114,12 +114,12 @@
               <label class="form-label">Payment Method</label>
               <select class="form-select" v-model="saleForm.paymentMethod" required>
                 <option value="cash">Cash</option>
-                <option value="mobile">Mobile Money</option>
-                <option value="bank">Bank Transfer</option>
+                <option value="mobile-money">Mobile Money</option>
+                <option value="bank-transfer">Bank Transfer</option>
                 <option value="credit">Credit</option>
               </select>
             </div>
-            <div v-if="['mobile', 'bank'].includes(saleForm.paymentMethod)" class="col-md-6">
+            <div v-if="['mobile-money', 'bank-transfer'].includes(saleForm.paymentMethod)" class="col-md-6">
               <label class="form-label">Reference Number</label>
               <input
                 type="text"
@@ -128,10 +128,82 @@
                 placeholder="Enter transaction reference"
               >
             </div>
+            
+            <!-- Credit Sale Fields -->
             <div v-if="saleForm.paymentMethod === 'credit'" class="col-12">
-              <div class="alert alert-warning">
+              <div class="alert alert-warning mb-3">
                 <i class="bi bi-exclamation-triangle me-2"></i>
-                <strong>Credit Sale:</strong> Customer will be required to pay later. Ensure proper documentation.
+                <strong>Credit Sale:</strong> Complete all required fields below for credit sales.
+              </div>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">Customer Name *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    v-model="saleForm.customerName"
+                    minlength="2"
+                    required
+                    placeholder="Full name (min 2 characters)"
+                  >
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Customer Phone *</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    v-model="saleForm.customerPhone"
+                    pattern="^(\+256|0)[0-9]{9}$"
+                    required
+                    placeholder="0700000000 or +256700000000"
+                  >
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">National ID (NIN) *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    v-model="saleForm.customerNationalId"
+                    pattern="^[A-Z]{2}[0-9]{14}$"
+                    required
+                    placeholder="CM12345678901234"
+                    maxlength="16"
+                  >
+                  <small class="text-muted">Format: 2 letters + 14 numbers</small>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Location *</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    v-model="saleForm.customerLocation"
+                    minlength="2"
+                    required
+                    placeholder="Customer location (min 2 characters)"
+                  >
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Due Date *</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    v-model="saleForm.dueDate"
+                    :min="today"
+                    required
+                  >
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Amount Paid (Optional)</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    v-model.number="saleForm.amountPaid"
+                    min="0"
+                    :max="totalAmount"
+                    placeholder="0"
+                  >
+                  <small class="text-muted">Leave 0 for full credit</small>
+                </div>
               </div>
             </div>
           </div>
@@ -178,18 +250,29 @@
 import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuth } from '@/composables/useAuth'
+import { useSalesStore } from '@/stores/sales'
 import api from '@/services/api'
 
 const router = useRouter()
 const { userBranch } = useAuth()
+const salesStore = useSalesStore()
 
 const products = ref([])
 const prices = ref({})
 const loading = ref(false)
 
+// Today's date for minimum due date
+const today = computed(() => {
+  return new Date().toISOString().split('T')[0]
+})
+
 const saleForm = ref({
   customerName: '',
   customerPhone: '',
+  customerNationalId: '',
+  customerLocation: '',
+  dueDate: '',
+  amountPaid: 0,
   paymentMethod: 'cash',
   paymentReference: ''
 })
@@ -222,14 +305,12 @@ const loadPrices = async () => {
   try {
     const response = await api.get('/prices')
     if (response.data.success) {
-      // Filter prices by branch and create lookup
-      response.data.data
-        .filter(priceItem => priceItem.branch === userBranch.value)
-        .forEach(priceItem => {
-          if (priceItem.product && priceItem.product._id) {
-            prices.value[priceItem.product._id] = priceItem.sellingPrice
-          }
-        })
+      // Prices are shared across branches, create lookup by product ID
+      response.data.data.forEach(priceItem => {
+        if (priceItem.product && priceItem.product._id) {
+          prices.value[priceItem.product._id] = priceItem.sellingPrice
+        }
+      })
     }
   } catch (error) {
     console.error('Error loading prices:', error)
@@ -273,9 +354,36 @@ const handleSubmit = async () => {
     return
   }
 
+  // Validate credit sale fields
+  if (saleForm.value.paymentMethod === 'credit') {
+    if (!saleForm.value.customerName || saleForm.value.customerName.length < 2) {
+      alert('Customer name is required for credit sales (min 2 characters)')
+      return
+    }
+    if (!saleForm.value.customerPhone || !/^(\+256|0)[0-9]{9}$/.test(saleForm.value.customerPhone)) {
+      alert('Valid customer phone is required for credit sales')
+      return
+    }
+    if (!saleForm.value.customerNationalId || !/^[A-Z]{2}[0-9]{14}$/.test(saleForm.value.customerNationalId)) {
+      alert('Valid National ID (NIN) is required for credit sales (e.g., CM12345678901234)')
+      return
+    }
+    if (!saleForm.value.customerLocation || saleForm.value.customerLocation.length < 2) {
+      alert('Customer location is required for credit sales (min 2 characters)')
+      return
+    }
+    if (!saleForm.value.dueDate) {
+      alert('Due date is required for credit sales')
+      return
+    }
+  }
+
   loading.value = true
 
   try {
+    const isCreditSale = saleForm.value.paymentMethod === 'credit'
+    const amountPaid = isCreditSale ? (saleForm.value.amountPaid || 0) : totalAmount.value
+
     const saleData = {
       items: validItems.map(item => ({
         product: item.productId,
@@ -284,25 +392,45 @@ const handleSubmit = async () => {
       })),
       customerName: saleForm.value.customerName || 'Walk-in Customer',
       customerPhone: saleForm.value.customerPhone || '',
-      paymentMethod: saleForm.value.paymentMethod === 'mobile' ? 'mobile-money' :
-                     saleForm.value.paymentMethod === 'bank' ? 'bank-transfer' : 
+      paymentMethod: saleForm.value.paymentMethod === 'mobile-money' ? 'mobile-money' :
+                     saleForm.value.paymentMethod === 'bank-transfer' ? 'bank-transfer' : 
                      saleForm.value.paymentMethod,
-      isCreditSale: saleForm.value.paymentMethod === 'credit',
-      amountPaid: saleForm.value.paymentMethod === 'credit' ? 0 : totalAmount.value,
+      isCreditSale: isCreditSale,
+      amountPaid: amountPaid,
       notes: saleForm.value.paymentReference || ''
     }
 
-    const response = await api.post('/sales', saleData)
+    // Add credit sale specific fields
+    if (isCreditSale) {
+      saleData.customerNationalId = saleForm.value.customerNationalId
+      saleData.customerLocation = saleForm.value.customerLocation
+      saleData.dueDate = saleForm.value.dueDate
+      saleData.dispatchDate = new Date().toISOString()
+    }
 
-    if (response.data.success) {
+    const result = await salesStore.createSale(saleData)
+
+    if (result.success) {
       alert('Sale recorded successfully!')
       router.push('/sales-agent/dashboard')
     } else {
-      alert(response.data.message || 'Failed to record sale')
+      alert(result.message || 'Failed to record sale')
     }
   } catch (error) {
     console.error('Error recording sale:', error)
-    alert('An error occurred while recording the sale')
+    let errorMsg = salesStore.error || 'An error occurred while recording the sale'
+    
+    // Check if it's a validation error
+    if (error.response?.data?.errors && Array.isArray(error.response.data.errors)) {
+      const validationErrors = error.response.data.errors
+        .map(err => `${err.field}: ${err.message}`)
+        .join('\n')
+      errorMsg = `Validation failed:\n${validationErrors}`
+    } else if (error.response?.data?.message) {
+      errorMsg = error.response.data.message
+    }
+    
+    alert(errorMsg)
   } finally {
     loading.value = false
   }
