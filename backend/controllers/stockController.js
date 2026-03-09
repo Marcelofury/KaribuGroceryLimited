@@ -18,12 +18,15 @@ exports.getStock = async (req, res, next) => {
     }
 
     filter.branch = req.user.branch;
+    console.log('Fetching stock for user:', req.user.fullName, 'Branch:', req.user.branch, 'Role:', req.user.role);
 
     const stock = await Stock.find(filter)
       .populate('product', 'name category unit')
       .populate('restockedBy', 'fullName')
-      .sort({ 'product.name': 1 });
+      .sort({ lastRestocked: -1, createdAt: -1 }); // Sort by most recent first
 
+    console.log('Found', stock.length, 'stock records for branch:', req.user.branch);
+    
     // Filter for low stock if requested
     let filteredStock = stock;
     if (lowStock === 'true') {
@@ -36,6 +39,7 @@ exports.getStock = async (req, res, next) => {
       data: filteredStock
     });
   } catch (error) {
+    console.error('Error fetching stock:', error);
     next(error);
   }
 };
@@ -127,12 +131,16 @@ exports.createOrUpdateStock = async (req, res, next) => {
       quantity, 
       reorderLevel, 
       supplier, 
-      supplierContact, 
+      supplierContact,
+      dealerName,
+      dealerContact,
       costPrice, 
       sellingPrice, 
       procurementDate, 
       notes 
     } = req.body;
+
+    console.log('Stock procurement request:', { product, branch, quantity, dealerName, costPrice, sellingPrice });
 
     // Verify product exists
     const productExists = await Product.findById(product);
@@ -145,22 +153,30 @@ exports.createOrUpdateStock = async (req, res, next) => {
 
     // Check if stock record exists
     let stock = await Stock.findOne({ product, branch });
+    let isNewStock = false;
 
     if (stock) {
-      // Update existing stock
-      stock.quantity = quantity;
+      console.log('Updating existing stock. Current quantity:', stock.quantity, 'Adding:', quantity);
+      // Update existing stock - ADD to quantity (don't replace)
+      stock.quantity += quantity; // Add the new quantity to existing
+      console.log('New quantity:', stock.quantity);
       if (reorderLevel !== undefined) stock.reorderLevel = reorderLevel;
       if (supplier) stock.supplier = supplier;
       if (supplierContact) stock.supplierContact = supplierContact;
+      if (dealerName) stock.dealerName = dealerName;
+      if (dealerContact) stock.dealerContact = dealerContact;
       if (costPrice !== undefined) stock.costPrice = costPrice;
       if (sellingPrice !== undefined) stock.sellingPrice = sellingPrice;
       if (procurementDate) stock.procurementDate = procurementDate;
+      stock.procurementTime = Date.now(); // Capture date and time
       if (notes) stock.notes = notes;
       stock.lastRestocked = Date.now();
       stock.restockedBy = req.user._id;
       await stock.save();
     } else {
+      console.log('Creating new stock record with quantity:', quantity);
       // Create new stock record
+      isNewStock = true;
       stock = await Stock.create({
         product,
         branch,
@@ -168,9 +184,12 @@ exports.createOrUpdateStock = async (req, res, next) => {
         reorderLevel: reorderLevel || 50,
         supplier,
         supplierContact,
+        dealerName,
+        dealerContact,
         costPrice,
         sellingPrice,
         procurementDate,
+        procurementTime: Date.now(), // Capture date and time
         notes,
         lastRestocked: Date.now(),
         restockedBy: req.user._id
@@ -182,7 +201,9 @@ exports.createOrUpdateStock = async (req, res, next) => {
       .populate('product', 'name category unit')
       .populate('restockedBy', 'fullName');
 
-    res.status(stock.isNew ? 201 : 200).json({
+    console.log('Stock procurement successful:', { isNew: isNewStock, product: stock.product?.name, quantity: stock.quantity });
+
+    res.status(isNewStock ? 201 : 200).json({
       success: true,
       data: stock
     });
