@@ -7,7 +7,7 @@
       <h5 class="alert-heading">
         <i class="bi bi-person-badge me-2"></i>Welcome, {{ userName }}!
       </h5>
-      <p class="mb-0">Company-wide Overview - View Only Access</p>
+      
     </div>
 
     <!-- Loading State -->
