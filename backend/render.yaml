@@ -1,0 +1,28 @@
+# Render Deployment Configuration
+# This file tells Render how to build and run your backend
+
+services:
+  - type: web
+    name: kgl-backend
+    env: node
+    region: oregon # or your preferred region
+    plan: free # or starter for production
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        generateValue: true # Render auto-assigns port
+      - key: MONGODB_URI
+        sync: false # Set manually in Render dashboard
+      - key: JWT_SECRET
+        sync: false # Set manually in Render dashboard
+      - key: JWT_EXPIRE
+        value: 7d
+      - key: CORS_ORIGIN
+        value: "*" # Update with your frontend URL after deployment
+      - key: RATE_LIMIT_WINDOW_MS
+        value: 900000
+      - key: RATE_LIMIT_MAX_REQUESTS
+        value: 100
