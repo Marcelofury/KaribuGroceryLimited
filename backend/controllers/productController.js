@@ -66,7 +66,7 @@ exports.createProduct = async (req, res, next) => {
     if (error.code === 11000) {
       return res.status(400).json({
         success: false,
-        message: 'Product with this name already exists'
+        message: 'Product with this name and variety combination already exists'
       });
     }
     next(error);

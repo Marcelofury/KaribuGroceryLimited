@@ -4,9 +4,15 @@ const productSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, 'Product name is required'],
-    unique: true,
     trim: true,
     uppercase: true
+  },
+  variety: {
+    type: String,
+    required: false,
+    trim: true,
+    uppercase: true,
+    minlength: [2, 'Variety must be at least 2 characters']
   },
   category: {
     type: String,
@@ -38,7 +44,7 @@ const productSchema = new mongoose.Schema({
 });
 
 // Index for faster queries
-// Note: 'name' index is automatically created by unique: true
+productSchema.index({ name: 1, variety: 1 }, { unique: true });
 productSchema.index({ isActive: 1 });
 
 const Product = mongoose.model('Product', productSchema);
