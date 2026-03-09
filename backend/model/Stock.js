@@ -29,7 +29,17 @@ const stockSchema = new mongoose.Schema({
     type: String
   },
   supplierContact: {
-    type: String
+    type: String,
+    match: [/^(\+256|0)[0-9]{9}$/, 'Invalid phone number format']
+  },
+  dealerName: {
+    type: String,
+    trim: true,
+    minlength: [2, 'Dealer name must be at least 2 characters']
+  },
+  dealerContact: {
+    type: String,
+    match: [/^(\+256|0)[0-9]{9}$/, 'Invalid phone number format']
   },
   costPrice: {
     type: Number,
@@ -41,6 +51,10 @@ const stockSchema = new mongoose.Schema({
   },
   procurementDate: {
     type: Date
+  },
+  procurementTime: {
+    type: Date,
+    default: Date.now
   },
   notes: {
     type: String

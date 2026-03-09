@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { protect, authorize } = require('../middleware/auth');
-const { validate } = require('../middleware/validator');
+const { validate, validateProcurement } = require('../middleware/validator');
 const { body, param } = require('express-validator');
 const {
   getStock,
@@ -19,8 +19,7 @@ router.route('/')
     validate([
       body('product').isMongoId().withMessage('Invalid product ID'),
       body('branch').isIn(['Maganjo', 'Matugga']).withMessage('Invalid branch'),
-      body('quantity').isNumeric().withMessage('Quantity must be a number'),
-      body('reorderLevel').optional().isNumeric().withMessage('Reorder level must be a number')
+      ...validateProcurement
     ]),
     createOrUpdateStock
   );
