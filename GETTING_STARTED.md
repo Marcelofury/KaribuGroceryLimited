@@ -1,8 +1,9 @@
-# Getting Started - Quick Guide
+# Getting Started
 
-## ⚡ Quick Start (3 steps)
+## Quick Start
 
-### 1. Install Dependencies (First time only)
+### 1. Install Dependencies
+First time setup only:
 ```powershell
 npm run install:all
 ```
@@ -13,67 +14,61 @@ npm run dev
 ```
 
 This starts:
-- Backend API → http://localhost:8080
-- Vue Frontend → http://localhost:3000
+- Backend API: http://localhost:8080
+- Frontend: http://localhost:3000
 
 ### 3. Access Application
+Open your browser: http://localhost:3000
 
-Open your browser and go to: **http://localhost:3000**
+## Test Accounts
 
-## 📱 Test Accounts
-
-After registering, you can test with different roles:
-
-**Manager Account:**
-- Username: manager1
-- Role: Manager
-- Branch: Nairobi
-
-**Sales Agent Account:**
-- Username: agent1
-- Role: Sales Agent
-- Branch: Nairobi
+Register and test with different roles:
 
 **Director Account:**
 - Username: director1
 - Role: Director
-- No branch required
+- Access: System-wide view and reports
 
-## 🧪 Testing Pages
+**Manager Account:**
+- Username: manager1
+- Role: Manager
+- Branch: Maganjo or Matugga
+- Access: Branch-specific operations
 
-### Login Page
-- http://localhost:3000/login
-- Test login functionality
+**Sales Agent Account:**
+- Username: agent1
+- Role: Sales Agent
+- Branch: Maganjo or Matugga
+- Access: Sales and stock viewing
 
-### Manager Dashboard
-- http://localhost:3000/manager/dashboard
-- View stats and recent activity
+## Available Routes
 
-### Sales Page
-- http://localhost:3000/manager/sales
-- Record new sales
-- View sales history
+### Authentication
+- /login - User login
+- /register - User registration
 
-### Stock Page
-- http://localhost:3000/manager/stock
-- View inventory levels
+### Director Routes
+- /director/dashboard - System-wide analytics
 
-### Procure Page
-- http://localhost:3000/manager/procure
-- Add new stock
+### Manager Routes
+- /manager/dashboard - Branch overview and stats
+- /manager/sales - Record and view sales
+- /manager/stock - View inventory levels
+- /manager/procure - Add new stock
+- /manager/prices - Update product prices
+- /manager/credit-sales - Manage credit transactions
 
-### Prices Page
-- http://localhost:3000/manager/prices
-- Update product prices
+### Sales Agent Routes
+- /sales-agent/dashboard - Personal sales overview
+- /sales-agent/make-sale - Record new sales
+- /sales-agent/my-sales - View personal sales history
+- /sales-agent/stock - View available stock
+- /sales-agent/prices - View current prices
 
-### Credit Sales
-- http://localhost:3000/manager/credit-sales
-- Manage credit customers
-
-## 🔧 Common Commands
+## Common Commands
 
 ```powershell
-# Start everything
+# Start both servers
 npm run dev
 
 # Start backend only
@@ -85,52 +80,46 @@ npm run client
 # Build for production
 npm run build
 
-# Kill processes if ports are busy
-Get-Process -Id (Get-NetTCPConnection -LocalPort 8080).OwningProcess | Stop-Process  # Backend
-Get-Process -Id (Get-NetTCPConnection -LocalPort 3000).OwningProcess | Stop-Process  # Frontend
-```
 
-## 📁 Project Structure
+`
+
+## Project Structure
 
 ```
 KGL/
-├── backend/         # Express.js API
-├── frontend/        # Vue.js App
-└── package.json     # Root commands
+├── backend/         Express.js API server
+├── frontend/        Vue.js application
+└── package.json     Root scripts
 ```
 
-## ✅ Verification Checklist
+## Verification Checklist
 
-- [ ] MongoDB is running
-- [ ] Backend starts on port 8080
-- [ ] Frontend starts on port 3000
-- [ ] Can access login page
-- [ ] Can register new user
-- [ ] Can login successfully
-- [ ] Dashboard loads with data
-- [ ] Can navigate between pages
-- [ ] API requests work (check browser console)
+- MongoDB is running
+- Backend starts on port 8080
+- Frontend starts on port 3000
+- Can access login page
+- Can register new user
+- Can login successfully
+- Dashboard loads correctly
+- Can navigate between pages
+- API requests complete successfully
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
-**Backend won't start:**
-- Check if MongoDB is running
-- Verify `backend/.env` file exists
-- Try: `cd backend && npm install`
+### Backend Issues
+- Verify MongoDB is running
+- Check backend/.env file exists with correct configuration
+- Run: cd backend && npm install
 
-**Frontend won't start:**
-- Try: `cd frontend && npm install`
-- Clear browser cache
+### Frontend Issues
+- Run: cd frontend && npm install
+- Clear browser cache and reload
 
-**Can't login:**
+### Login Issues
 - Check browser console for errors
 - Verify backend is running on port 8080
-- Check Network tab in DevTools
+- Check Network tab in browser DevTools for failed requests
 
-## 📖 More Info
+## Additional Information
 
-See `README.md` for detailed documentation.
-
----
-
-**Ready to test!** 🚀
+See README.md for detailed system documentation and API endpoints.
