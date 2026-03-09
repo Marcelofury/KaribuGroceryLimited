@@ -241,6 +241,8 @@ exports.getTopProducts = async (req, res, next) => {
 // @access  Private (Director only)
 exports.getBranchComparison = async (req, res, next) => {
   try {
+    console.log('Branch comparison request from user:', req.user.fullName, 'Role:', req.user.role);
+    
     // Only directors can compare branches
     if (req.user.role !== 'director') {
       return res.status(403).json({
@@ -257,6 +259,8 @@ exports.getBranchComparison = async (req, res, next) => {
       // Get branch manager
       const manager = await User.findOne({ role: 'manager', branch, isActive: true })
         .select('fullName');
+
+      console.log(`Branch: ${branch}, Manager:`, manager?.fullName || 'Not Assigned');
 
       // Get sales for this branch
       const salesStats = await Sale.aggregate([
@@ -331,11 +335,14 @@ exports.getBranchComparison = async (req, res, next) => {
       });
     }
 
+    console.log('Branch comparison data:', JSON.stringify(branchData, null, 2));
+
     res.status(200).json({
       success: true,
       data: branchData
     });
   } catch (error) {
+    console.error('Branch comparison error:', error);
     next(error);
   }
 };

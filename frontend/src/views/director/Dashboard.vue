@@ -71,19 +71,19 @@
               <div class="row g-3">
                 <div class="col-6">
                   <div class="text-muted small">Manager</div>
-                  <div class="fw-bold">{{ branch.manager || 'N/A' }}</div>
+                  <div class="fw-bold">{{ branch.manager || 'Not Assigned' }}</div>
                 </div>
                 <div class="col-6">
                   <div class="text-muted small">Total Sales</div>
-                  <div class="fw-bold">{{ branch.totalSales }}</div>
+                  <div class="fw-bold">{{ branch.totalSales || 0 }}</div>
                 </div>
                 <div class="col-6">
                   <div class="text-muted small">Revenue</div>
-                  <div class="fw-bold text-success">{{ formatCurrency(branch.revenue) }}</div>
+                  <div class="fw-bold text-success">{{ formatCurrency(branch.revenue || 0) }}</div>
                 </div>
                 <div class="col-6">
                   <div class="text-muted small">Stock Items</div>
-                  <div class="fw-bold">{{ branch.stockItems }}</div>
+                  <div class="fw-bold">{{ branch.stockItems || 0 }}</div>
                 </div>
               </div>
             </div>
@@ -92,7 +92,7 @@
       </div>
 
       <!-- Top Selling Products -->
-      <div class="card shadow-sm mb-4">
+      <div class="card shadow-sm">
         <div class="card-header bg-primary text-white">
           <h5 class="mb-0">
             <i class="bi bi-graph-up me-2"></i>Top Selling Products (Company-wide)
@@ -116,7 +116,7 @@
                 <tr v-for="(product, index) in topProducts" :key="index">
                   <td>
                     <i class="bi bi-award-fill text-warning me-2" v-if="index === 0"></i>
-                    <strong>{{ product.name || 'N/A' }}</strong>
+                    <strong>{{ product.name || 'Unknown Product' }}</strong>
                   </td>
                   <td>{{ formatNumber(product.totalQuantity) }} kg</td>
                   <td class="text-success">{{ formatCurrency(product.revenue) }}</td>
@@ -126,12 +126,6 @@
             </table>
           </div>
         </div>
-      </div>
-
-      <!-- Access Notice -->
-      <div class="alert alert-info">
-        <i class="bi bi-info-circle me-2"></i>
-        <strong>View-Only Access:</strong> As a Director, you have read-only access to view company-wide analytics and performance metrics. You cannot modify stock, prices, or sales data.
       </div>
     </div>
   </div>
@@ -167,6 +161,11 @@ const fetchDashboardData = async () => {
       api.get('/dashboard/top-products?limit=10')
     ])
 
+    console.log('Director Dashboard Data:')
+    console.log('Stats:', statsRes.data)
+    console.log('Branch Comparison:', branchRes.data)
+    console.log('Top Products:', productsRes.data)
+
     // Update stats
     if (statsRes.data.success) {
       stats.value = statsRes.data.data
@@ -175,14 +174,20 @@ const fetchDashboardData = async () => {
     // Update branch comparison
     if (branchRes.data.success) {
       branchComparison.value = branchRes.data.data
+      console.log('Branch comparison updated:', branchComparison.value)
     }
 
     // Update top products
     if (productsRes.data.success) {
       topProducts.value = productsRes.data.data
+      console.log('Top products updated:', topProducts.value)
     }
   } catch (error) {
     console.error('Error fetching director dashboard data:', error)
+    // Show user-friendly error
+    if (error.response?.status === 403) {
+      console.error('Access denied - you may not have director privileges')
+    }
   } finally {
     loading.value = false
   }
