@@ -74,11 +74,14 @@ export const useDashboardStore = defineStore('dashboard', () => {
         todaySalesTotal = todaySalesData.reduce((sum, sale) => sum + (sale.totalAmount || 0), 0)
         todayTransactionCount = todaySalesData.length
 
-        // Calculate credit outstanding
+        // Calculate credit outstanding (use isCreditSale and amountDue = totalAmount - amountPaid)
         const creditSales = salesData.filter(sale => 
-          sale.paymentType === 'credit' && sale.paymentStatus !== 'paid'
+          sale.isCreditSale && sale.paymentStatus !== 'paid'
         )
-        creditOutstanding = creditSales.reduce((sum, sale) => sum + (sale.amountDue || 0), 0)
+        creditOutstanding = creditSales.reduce((sum, sale) => {
+          const amountDue = (sale.totalAmount || 0) - (sale.amountPaid || 0)
+          return sum + amountDue
+        }, 0)
         creditCustomers = new Set(creditSales.map(sale => sale.customerName)).size
       }
 
@@ -97,8 +100,9 @@ export const useDashboardStore = defineStore('dashboard', () => {
 
   const fetchRecentProcurements = async () => {
     try {
-      const response = await api.get('/stock?limit=5&sort=-createdAt')
+      const response = await api.get('/stock')
       if (response.data.success && response.data.data) {
+        // Backend already sorts by lastRestocked desc
         recentProcurements.value = response.data.data.slice(0, 5)
       }
     } catch (err) {

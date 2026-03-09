@@ -83,9 +83,9 @@
                 </thead>
                 <tbody>
                   <tr v-for="item in recentProcurements" :key="item._id">
-                    <td>{{ item.produceType || 'N/A' }}</td>
+                    <td>{{ item.product?.name || 'N/A' }}</td>
                     <td>{{ formatNumber(item.quantity) }} Kgs</td>
-                    <td>{{ formatDateOnly(item.createdAt) }}</td>
+                    <td>{{ formatDateOnly(item.lastRestocked || item.createdAt) }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -117,14 +117,14 @@
                 </thead>
                 <tbody>
                   <tr v-for="sale in todaySales" :key="sale._id">
-                    <td>{{ sale.produceType || 'N/A' }}</td>
+                    <td>{{ sale.items?.[0]?.product?.name || 'Mixed' }}</td>
                     <td>{{ formatCurrency(sale.totalAmount) }}</td>
                     <td>
                       <span 
                         class="badge"
-                        :class="getStatusBadgeClass(sale.paymentType)"
+                        :class="getStatusBadgeClass(sale.paymentMethod)"
                       >
-                        {{ sale.paymentType }}
+                        {{ formatPaymentMethod(sale.paymentMethod) }}
                       </span>
                     </td>
                   </tr>
@@ -160,7 +160,7 @@
                 </thead>
                 <tbody>
                   <tr v-for="stock in currentStock" :key="stock._id">
-                    <td>{{ stock.produceType || 'N/A' }}</td>
+                    <td>{{ stock.product?.name || 'N/A' }}</td>
                     <td>{{ formatNumber(stock.quantity) }} Kgs</td>
                     <td>{{ formatNumber(stock.reorderLevel) }} Kgs</td>
                     <td>{{ stock.branch || 'N/A' }}</td>
@@ -192,6 +192,16 @@ import { useDashboardStore } from '@/stores/dashboard'
 import { useAuth } from '@/composables/useAuth'
 import StatsCard from '@/components/common/StatsCard.vue'
 import { formatCurrency, formatNumber, formatDateOnly, getStatusBadgeClass } from '@/utils/helpers'
+
+const formatPaymentMethod = (method) => {
+  const methods = {
+    'cash': 'Cash',
+    'mobile-money': 'Mobile Money',
+    'bank-transfer': 'Bank Transfer',
+    'credit': 'Credit'
+  }
+  return methods[method] || method
+}
 
 const dashboardStore = useDashboardStore()
 const { userBranch } = useAuth()

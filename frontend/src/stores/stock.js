@@ -27,12 +27,14 @@ export const useStockStore = defineStore('stock', () => {
     
     try {
       const response = await api.get('/stock')
+      console.log('Fetched stock response:', response.data)
       if (response.data.success && response.data.data) {
         stocks.value = response.data.data
+        console.log('Stock list updated, count:', stocks.value.length)
       }
     } catch (err) {
       error.value = 'Failed to load stock'
-      console.error('Stock error:', err)
+      console.error('Stock fetch error:', err)
     } finally {
       loading.value = false
     }
@@ -54,18 +56,34 @@ export const useStockStore = defineStore('stock', () => {
     error.value = null
     
     try {
+      console.log('Sending stock procurement request:', stockData)
       const response = await api.post('/stock', stockData)
+      console.log('Stock procurement response:', response.data)
+      
       if (response.data.success) {
         await fetchStock() // Refresh stock list
+        console.log('Stock list refreshed, new count:', stocks.value.length)
         return { success: true, data: response.data.data }
       } else {
         error.value = response.data.message || 'Failed to procure stock'
+        console.error('Procurement failed:', error.value)
         return { success: false, message: error.value }
       }
     } catch (err) {
-      const errorMsg = err.response?.data?.message || 'Failed to procure stock'
-      error.value = errorMsg
-      return { success: false, message: errorMsg }
+      console.error('Procurement error details:', err.response?.data || err.message)
+      const errorDetails = err.response?.data?.errors || []
+      const errorMsg = err.response?.data?.message || err.response?.data?.errors?.[0]?.message || 'Failed to procure stock'
+      
+      // Show all validation errors
+      if (errorDetails.length > 0) {
+        console.error('Validation errors:', errorDetails)
+        const allErrors = errorDetails.map(e => `${e.field}: ${e.message}`).join(', ')
+        error.value = `Validation failed: ${allErrors}`
+      } else {
+        error.value = errorMsg
+      }
+      
+      return { success: false, message: error.value }
     } finally {
       loading.value = false
     }

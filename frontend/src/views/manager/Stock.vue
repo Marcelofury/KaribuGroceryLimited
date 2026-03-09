@@ -48,8 +48,8 @@
                 <th>Quantity (Kgs)</th>
                 <th>Reorder Level</th>
                 <th>Branch</th>
-                <th>Supplier</th>
-                <th>Unit Price</th>
+                <th>Dealer</th>
+                <th>Cost Price</th>
                 <th>Total Value</th>
                 <th>Date Added</th>
                 <th>Status</th>
@@ -57,13 +57,13 @@
             </thead>
             <tbody>
               <tr v-for="stock in stocks" :key="stock._id">
-                <td class="fw-bold">{{ stock.produceType || 'N/A' }}</td>
+                <td class="fw-bold">{{ stock.product?.name || 'N/A' }}</td>
                 <td>{{ formatNumber(stock.quantity) }}</td>
                 <td>{{ formatNumber(stock.reorderLevel || 1000) }}</td>
                 <td>{{ stock.branch || 'N/A' }}</td>
-                <td>{{ stock.supplier || 'N/A' }}</td>
-                <td>{{ formatCurrency(stock.unitPrice || 0) }}</td>
-                <td>{{ formatCurrency((stock.quantity || 0) * (stock.unitPrice || 0)) }}</td>
+                <td>{{ stock.dealerName || 'N/A' }}</td>
+                <td>{{ formatCurrency(stock.costPrice || 0) }}</td>
+                <td>{{ formatCurrency((stock.quantity || 0) * (stock.costPrice || 0)) }}</td>
                 <td>{{ formatDateOnly(stock.createdAt) }}</td>
                 <td>
                   <span 
