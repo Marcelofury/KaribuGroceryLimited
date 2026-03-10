@@ -6,7 +6,7 @@
       </router-link>
       <p class="mb-0 small">
         <strong>{{ userName }}</strong><br>
-        <span v-if="userRole == 'director'">{{ userBranch }}</span>
+        <span v-if="userRole !== 'director'">{{ userBranch }}</span>
         <span v-else>All Branches</span>
       </p>
     </div>
@@ -44,7 +44,7 @@ const props = defineProps({
   }
 })
 
-const { userName, userBranch, logout } = useAuth()
+const { userName, userBranch, userRole, logout } = useAuth()
 
 const handleLogout = () => {
   if (confirm('Are you sure you want to logout?')) {
